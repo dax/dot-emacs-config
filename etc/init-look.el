@@ -26,6 +26,9 @@
 
 ;; Highlight current line
 (global-hl-line-mode 1)
+;; Highlight current sexp
+(global-hl-sexp-mode 1)
+
 ;; To customize the background color
 (set-face-background 'hl-line "#333")  ;; Emacs 22 Only
 

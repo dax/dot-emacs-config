@@ -9,7 +9,6 @@
 (global-set-key [f7] 'speedbar)
 (global-set-key [f9] 'reindent-file) ;; TODO
 
-
 (global-set-key [end] 'end-of-line)
 (global-set-key [home] 'beginning-of-line)
 
@@ -59,6 +58,28 @@
 (define-key global-map (kbd "C-;") 'iedit-mode)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;; isearch
+(define-key isearch-mode-map (kbd "C-o") 'isearch-occur)
+
+(defun isearch-exit-other-end (rbeg rend)
+  "Exit isearch, but at the other end of the search string.
+This is useful when followed by an immediate kill."
+  (interactive "r")
+  (isearch-exit)
+  (goto-char isearch-other-end))
+
+(define-key isearch-mode-map [(control return)] 'isearch-exit-other-end)
+
+(defun isearch-yank-symbol ()
+  "*Put symbol at current point into search string."
+  (interactive)
+  (let ((sym (symbol-at-point)))
+    (if sym
+        (isearch-yank-string (symbol-name sym))
+      (ding))))
+
+(define-key isearch-mode-map "\C-w" 'isearch-yank-symbol)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; mouse wheel
