@@ -32,8 +32,23 @@
 (global-set-key "\C-cg" 'goto-line)
 (global-set-key [(control c) (control r)] 'revert-buffer)
 
-;;calculator
-(global-set-key [(control return)] 'calculator)
+(defun open-line-below ()
+  (interactive)
+  (if (eolp)
+      (newline)
+    (end-of-line)
+    (newline))
+  (indent-for-tab-command))
+
+(defun open-line-above ()
+  (interactive)
+  (beginning-of-line)
+  (newline)
+  (forward-line -1)
+  (indent-for-tab-command))
+
+(global-set-key (kbd "<C-return>") 'open-line-below)
+(global-set-key (kbd "<C-S-return>") 'open-line-above)
 
 ;;redo
 (require 'redo)
