@@ -254,6 +254,23 @@ Major mode for ClojureScript
 
 ;;;***
 
+;;;### (autoloads (coffee-mode) "coffee-mode/coffee-mode" "coffee-mode/coffee-mode.el"
+;;;;;;  (20700 41173))
+;;; Generated autoloads from coffee-mode/coffee-mode.el
+
+(autoload 'coffee-mode "coffee-mode/coffee-mode" "\
+Major mode for editing CoffeeScript.
+
+\(fn)" t nil)
+
+(add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
+
+(add-to-list 'auto-mode-alist '("\\.iced$" . coffee-mode))
+
+(add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
+
+;;;***
+
 ;;;### (autoloads (color-theme-initialize color-theme-submit color-theme-install
 ;;;;;;  color-theme-compare color-theme-make-snapshot color-theme-analyze-defun
 ;;;;;;  color-theme-print color-theme-install-at-point-for-current-frame
@@ -10463,7 +10480,7 @@ See `yas/minor-mode' for more information on Yas/Minor mode.
 ;;;;;;  "websocket/websocket.el" "wrap-region/wrap-region-autoloads.el"
 ;;;;;;  "wrap-region/wrap-region-pkg.el" "yasnippet-update/dropdown-list.el"
 ;;;;;;  "yasnippet-update/yasnippet-debug.el" "yasnippet-update/yasnippet-tests.el"
-;;;;;;  "zenburn-theme/zenburn-theme.el") (20698 59518 204214))
+;;;;;;  "zenburn-theme/zenburn-theme.el") (20700 41173 881894))
 
 ;;;***
 

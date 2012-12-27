@@ -40,6 +40,7 @@
  (breadcrumb status "installed" recipe
              (:name breadcrumb :website "http://breadcrumbemacs.sourceforge.net/" :description "Breadcrumb is an add-on module for Emacs that allows you to set a series of quick bookmarks in the file buffers, and jump back to them quickly." :type http :url "http://downloads.sourceforge.net/project/breadcrumbemacs/Breadcrumb%20for%20Emacs/1.1.3/breadcrumb-1.1.3.zip" :build
                     ("unzip breadcrumb-1.1.3.zip")))
+ (caml-mode status "removed" recipe nil)
  (cedet-trunk status "installed" recipe
               (:name cedet-trunk :website "http://cedet.sourceforge.net/" :description "CEDET is a Collection of Emacs Development Environment Tools written with the end goal of creating an advanced development environment in Emacs." :type bzr :url "bzr://cedet.bzr.sourceforge.net/bzrroot/cedet/code/trunk" :build
                      `(("sh" "-c" "touch `find . -name Makefile`")
@@ -64,6 +65,14 @@
                         (expand-file-name "cedet-devel-load.el" pdir)))))
  (clojure-mode status "installed" recipe
                (:name clojure-mode :website "https://github.com/technomancy/clojure-mode" :description "Emacs support for the Clojure language." :type github :pkgname "technomancy/clojure-mode"))
+ (coffee-mode status "installed" recipe
+              (:name coffee-mode :website "http://ozmm.org/posts/coffee_mode.html" :description "Emacs Major Mode for CoffeeScript" :type github :pkgname "defunkt/coffee-mode" :features coffee-mode :post-init
+                     (progn
+                       (add-to-list 'auto-mode-alist
+                                    '("\\.coffee$" . coffee-mode))
+                       (add-to-list 'auto-mode-alist
+                                    '("Cakefile" . coffee-mode))
+                       (setq coffee-js-mode 'javascript-mode))))
  (color-theme status "installed" recipe
               (:name color-theme :description "An Emacs-Lisp package with more than 50 color themes for your use. For questions about color-theme" :website "http://www.nongnu.org/color-theme/" :type http-tar :options
                      ("xzf")
