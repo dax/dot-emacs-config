@@ -1,0 +1,23 @@
+(require 'hideshow)
+
+(add-hook 'python-mode-hook	'hs-minor-mode)
+(add-hook 'c-mode-hook          'hs-minor-mode)
+(add-hook 'c++-mode-hook        'hs-minor-mode)
+(add-hook 'cperl-mode-hook      'hs-minor-mode)
+(add-hook 'autoconf-mode-hook   'hs-minor-mode)
+(add-hook 'autotest-mode-hook   'hs-minor-mode)
+(add-hook 'sh-mode-hook         'hs-minor-mode)
+(add-hook 'makefile-mode-hook   'hs-minor-mode)
+(add-hook 'java-mode-hook	'hs-minor-mode)
+(setq hs-hide-comments t)
+(setq hs-hide-comments-when-hiding-all t)
+;; Set whether isearch opens folded comments, code, or both
+;; where x is code, comments, t (both), or nil (neither)
+(setq hs-isearch-open t)
+(define-key hs-minor-mode-map (kbd "M-<space>") 'hs-toggle-hiding)
+(define-key hs-minor-mode-map (kbd "M-<up>") 'hs-hide-all)
+(define-key hs-minor-mode-map (kbd "M-<down>") 'hs-show-all)
+(define-key hs-minor-mode-map (kbd "M-<left>") 'hs-hide-block)
+(define-key hs-minor-mode-map (kbd "M-<right>") 'hs-show-block)
+
+(provide 'init-hideshow)

@@ -1,0 +1,9 @@
+(:name eproject
+       :type git
+       :url "git://github.com/jrockway/eproject.git"
+       :feature eproject
+       :after (lambda ()
+                (progn
+                  (require 'eproject)
+                  (require 'eproject-extras)
+                )))

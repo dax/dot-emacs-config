@@ -1,0 +1,7 @@
+(:name actionscript-mode
+       :type http
+       :url "http://www.emacswiki.org/emacs/download/actionscript-mode-connors.el"
+       :feature actionscript-mode
+       :after (progn
+                (autoload 'actionscript-mode "actionscript-mode-connors")
+                (add-to-list 'auto-mode-alist '("\\.as\\'" . actionscript-mode))))

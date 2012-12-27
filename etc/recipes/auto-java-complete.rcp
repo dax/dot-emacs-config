@@ -1,0 +1,6 @@
+(:name auto-java-complete
+       :type git
+       :url "git://github.com/jixiuf/ajc-java-complete.git"
+       :feature auto-java-complete
+       :build ("javac Tags.java"))
+

@@ -1,0 +1,5 @@
+(:name eclim
+       :type git
+       :url "git://github.com/senny/emacs-eclim.git"
+       :feature eclim
+       :after (lambda () (global-eclim-mode)))

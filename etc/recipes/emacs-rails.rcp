@@ -1,0 +1,5 @@
+(:name emacs-rails
+       :type git
+       :url "git://github.com/remvee/emacs-rails.git"
+       :feature emacs-rails
+       :after (progn (require 'rails)))

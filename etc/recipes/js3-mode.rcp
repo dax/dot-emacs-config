@@ -1,0 +1,4 @@
+(:name js3-mode
+       :type git
+       :url "git://github.com/thomblake/js3-mode.git"
+       :feature js3-mode)

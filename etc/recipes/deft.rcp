@@ -1,0 +1,5 @@
+(:name deft
+       :type git
+       :url "git://jblevins.org/git/deft.git"
+       :feature deft
+       :after (lambda () (require 'deft)))
