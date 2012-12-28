@@ -22,4 +22,4 @@
 
 (require 'init-basic)
 
-(deft)
+;; (deft)

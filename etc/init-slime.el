@@ -1,3 +1,5 @@
+(autoload 'define-slime-contrib "slime")
+
 ;; slime
 (eval-after-load "slime"
   '(progn

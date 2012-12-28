@@ -175,6 +175,38 @@ See `auto-indent-minor-mode' for more information on Auto-Indent minor mode.
 
 ;;;***
 
+;;;### (autoloads (autopair-mode autopair-global-mode) "autopair/autopair"
+;;;;;;  "autopair/autopair.el" (20701 54421))
+;;; Generated autoloads from autopair/autopair.el
+
+(defvar autopair-global-mode nil "\
+Non-nil if Autopair-Global mode is enabled.
+See the command `autopair-global-mode' for a description of this minor mode.
+Setting this variable directly does not take effect;
+either customize it (see the info node `Easy Customization')
+or call the function `autopair-global-mode'.")
+
+(custom-autoload 'autopair-global-mode "autopair/autopair" nil)
+
+(autoload 'autopair-global-mode "autopair/autopair" "\
+Toggle Autopair mode in all buffers.
+With prefix ARG, enable Autopair-Global mode if ARG is positive;
+otherwise, disable it.  If called from Lisp, enable the mode if
+ARG is omitted or nil.
+
+Autopair mode is enabled in all buffers where
+`autopair-on' would do it.
+See `autopair-mode' for more information on Autopair mode.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'autopair-mode "autopair/autopair" "\
+Automagically pair braces and quotes like in TextMate.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
 ;;;### (autoloads (clojure-enable-slime-on-existing-buffers clojure-jack-in
 ;;;;;;  clojure-mode) "clojure-mode/clojure-mode" "clojure-mode/clojure-mode.el"
 ;;;;;;  (20645 3677))
@@ -5063,17 +5095,6 @@ See the command `ido-yes-or-no-mode' for a description of this minor mode.")
 Use ido for `yes-or-no-p'.
 
 \(fn &optional ARG)" t nil)
-
-;;;***
-
-;;;### (autoloads (idomenu) "idomenu/idomenu" "idomenu/idomenu.el"
-;;;;;;  (20701 53565))
-;;; Generated autoloads from idomenu/idomenu.el
-
-(autoload 'idomenu "idomenu/idomenu" "\
-Switch to a buffer-local tag from Imenu via Ido.
-
-\(fn)" t nil)
 
 ;;;***
 
@@ -10328,6 +10349,7 @@ See `yas/minor-mode' for more information on Yas/Minor mode.
 ;;;;;;  "auto-complete-etags/auto-complete-etags.el" "auto-complete-extension/auto-complete-extension.el"
 ;;;;;;  "auto-complete-latex/auto-complete-latex.el" "auto-complete-rst/auto-complete-rst.el"
 ;;;;;;  "auto-complete/auto-complete-config.el" "auto-complete/auto-complete-pkg.el"
+;;;;;;  "auto-pair-plus/auto-pair+.el" "autopair/autopair-tests.el"
 ;;;;;;  "breadcrumb/breadcrumb.el" "cedet-trunk/cedet-build.el" "cedet-trunk/cedet-devel-load.el"
 ;;;;;;  "cedet-trunk/cedet-ediff.el" "cedet-trunk/cedet-emacs-merge.el"
 ;;;;;;  "cedet-trunk/cedet-remove-builtin.el" "cedet-trunk/cedet-update-changelog.el"
@@ -10540,11 +10562,11 @@ See `yas/minor-mode' for more information on Yas/Minor mode.
 ;;;;;;  "slime/contrib/slime-sprof.el" "slime/contrib/slime-tramp.el"
 ;;;;;;  "slime/contrib/slime-typeout-frame.el" "slime/contrib/slime-xref-browser.el"
 ;;;;;;  "slime/hyperspec.el" "slime/slime-autoloads.el" "slime/slime.el"
-;;;;;;  "websocket/websocket-functional-test.el" "websocket/websocket-test.el"
-;;;;;;  "websocket/websocket.el" "wrap-region/wrap-region-autoloads.el"
+;;;;;;  "swank-js/slime-js.el" "websocket/websocket-functional-test.el"
+;;;;;;  "websocket/websocket-test.el" "websocket/websocket.el" "wrap-region/wrap-region-autoloads.el"
 ;;;;;;  "wrap-region/wrap-region-pkg.el" "yasnippet-update/dropdown-list.el"
 ;;;;;;  "yasnippet-update/yasnippet-debug.el" "yasnippet-update/yasnippet-tests.el"
-;;;;;;  "zenburn-theme/zenburn-theme.el") (20701 54036 199582))
+;;;;;;  "zenburn-theme/zenburn-theme.el") (20701 54564 935625))
 
 ;;;***
 

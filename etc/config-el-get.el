@@ -3,8 +3,10 @@
 (setq el-get-verbose t)
 (setq message-log-max 1000)
 (setq el-get-dir packages-dir)
-(setq el-get-recipe-path (list (concat config-dir "recipes/")
-                               (concat packages-dir "el-get/recipes/")))
+(setq el-get-recipe-path (list
+                          (concat config-dir "recipes/")
+                          (concat packages-dir "el-get/recipes/")
+                          ))
 (setq el-get-user-package-directory config-dir)
 
 (unless (require 'el-get nil t)

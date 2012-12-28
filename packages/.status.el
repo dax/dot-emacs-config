@@ -37,6 +37,10 @@
  (auto-indent-mode status "installed" recipe
                    (:name auto-indent-mode :website "https://github.com/mlf176f2/auto-indent-mode.el" :description "Automatically Indent  when pressing return, pasting, and other customizable features." :type github :pkgname "mlf176f2/auto-indent-mode.el"))
  (auto-java-complete status "removed" recipe nil)
+ (auto-pair-plus status "installed" recipe
+                 (:name auto-pair-plus :description "Autopair handler to extend Autopair behavior." :type github :pkgname "emacsmirror/auto-pair-plus" :autoloads nil :depends autopair))
+ (autopair status "installed" recipe
+           (:name autopair :website "https://github.com/capitaomorte/autopair" :description "Autopair is an extension to the Emacs text editor that automatically pairs braces and quotes." :type github :pkgname "capitaomorte/autopair" :features autopair))
  (breadcrumb status "installed" recipe
              (:name breadcrumb :website "http://breadcrumbemacs.sourceforge.net/" :description "Breadcrumb is an add-on module for Emacs that allows you to set a series of quick bookmarks in the file buffers, and jump back to them quickly." :type http :url "http://downloads.sourceforge.net/project/breadcrumbemacs/Breadcrumb%20for%20Emacs/1.1.3/breadcrumb-1.1.3.zip" :build
                     ("unzip breadcrumb-1.1.3.zip")))
@@ -321,7 +325,8 @@
  (smex status "installed" recipe
        (:name smex :description "M-x interface with Ido-style fuzzy matching." :type github :pkgname "nonsequitur/smex" :features smex :post-init
               (smex-initialize)))
- (swank-js status "removed" recipe nil)
+ (swank-js status "installed" recipe
+           (:name swank-js :description "SLIME REPL and other development tools for in-browser JavaScript and Node.JS" :website "https://github.com/fukamachi/swank-js" :type github :pkgname "fukamachi/swank-js" :features nil))
  (undo-tree status "installed" recipe
             (:name undo-tree :description "Treat undo history as a tree" :type git :url "http://www.dr-qubit.org/git/undo-tree.git" :prepare
                    (progn
