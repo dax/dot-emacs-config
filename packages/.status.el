@@ -160,6 +160,11 @@
                         (:name highlight-parentheses :description "Highlight the matching parentheses surrounding point." :type http :url "http://nschum.de/src/emacs/highlight-parentheses/highlight-parentheses.el" :features highlight-parentheses))
  (hl-sexp status "installed" recipe
           (:name hl-sexp :description "Highlight the current sexp" :type http :url "http://edward.oconnor.cx/elisp/hl-sexp.el" :features hl-sexp))
+ (ido-ubiquitous status "installed" recipe
+                 (:name ido-ubiquitous :description "Use ido (nearly) everywhere" :type elpa))
+ (ido-yes-or-no status "installed" recipe
+                (:name ido-yes-or-no :description "Use Ido to answer yes-or-no questions" :type elpa))
+ (idomenu status "removed" recipe nil)
  (inf-ruby status "installed" recipe
            (:name inf-ruby :description "Inferior Ruby Mode" :features inf-ruby :type elpa))
  (js-comint status "installed" recipe
@@ -173,7 +178,7 @@
                   ("npm install")))
  (list-processes+ status "removed" recipe nil)
  (lua-mode status "installed" recipe
-           (:name lua-mode :description "A major-mode for editing Lua scripts" :website "https://github.com/immerrr/lua-mode" :description "A major mode for editing Lua scripts." :type git :url "https://github.com/immerrr/lua-mode"))
+           (:name lua-mode :description "A major mode for editing Lua scripts." :website "https://github.com/immerrr/lua-mode" :description "A major mode for editing Lua scripts." :type git :url "https://github.com/immerrr/lua-mode"))
  (magit status "installed" recipe
         (:name magit :website "https://github.com/magit/magit#readme" :description "It's Magit! An Emacs mode for Git." :type github :pkgname "magit/magit" :info "." :autoloads
                ("50magit")

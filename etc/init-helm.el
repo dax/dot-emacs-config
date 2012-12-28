@@ -1,6 +1,6 @@
 (require 'helm-config)
-(helm-mode 1)
-(helm-dired-mode 1)
+;; (helm-mode 1)
+;; (helm-dired-mode 1)
 
 (setq helm-ff-newfile-prompt-p nil)
 (setq helm-ff-transformer-show-only-basename t)
@@ -10,7 +10,7 @@
 (setq helm-quick-update t)
 
 ;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-x b") 'helm-mini)
+;; (global-set-key (kbd "C-x b") 'helm-mini)
 (global-set-key (kbd "C-o") 'helm-imenu)
 
 (add-hook 'eshell-mode-hook

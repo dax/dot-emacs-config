@@ -2468,75 +2468,6 @@ Display a list of packages.
 
 ;;;***
 
-;;;### (autoloads (eproject-eshell-cd-here eproject-multi-isearch-buffers
-;;;;;;  eproject-todo eproject-grep eproject-revisit-project eproject-kill-project-buffers
-;;;;;;  eproject-ibuffer eproject--project-buffers eproject-find-file)
-;;;;;;  "eproject/eproject-extras" "eproject/eproject-extras.el"
-;;;;;;  (20645 4158))
-;;; Generated autoloads from eproject/eproject-extras.el
-
-(autoload 'eproject-find-file "eproject/eproject-extras" "\
-Present the user with a list of files in the current project.
-to select from, open file when selected.
-
-\(fn)" t nil)
-
-(autoload 'eproject--project-buffers "eproject/eproject-extras" "\
-Return an alist mapping each project root to its open buffers.
-
-Does not list the project if it doesn't have any buffers.
-
-\(fn)" nil nil)
-
-(autoload 'eproject-ibuffer "eproject/eproject-extras" "\
-Open an IBuffer window showing all buffers in the current project, or named project if PREFIX arg is supplied.
-
-\(fn PREFIX)" t nil)
-
-(autoload 'eproject-kill-project-buffers "eproject/eproject-extras" "\
-Kill every buffer in the current project, including the current buffer.
-
-If PREFIX is specified, prompt for a project name and kill those
-buffers instead.
-
-\(fn PREFIX)" t nil)
-
-(autoload 'eproject-revisit-project "eproject/eproject-extras" "\
-Given a project name, visit the root directory.
-
-If PREFIX arg is supplied, run `eproject-find-file'.
-
-\(fn PREFIX)" t nil)
-
-(autoload 'eproject-grep "eproject/eproject-extras" "\
-Search all files in the current project for REGEXP.
-
-\(fn REGEXP)" t nil)
-
-(autoload 'eproject-todo "eproject/eproject-extras" "\
-Display a project TODO list.
-
-Customize `eproject-todo-expressions' to control what this function looks for.
-
-\(fn)" t nil)
-
-(autoload 'eproject-multi-isearch-buffers "eproject/eproject-extras" "\
-Do a `multi-isearch' on opened buffers in the current project.
-
-Run `eproject-open-all-project-files' first or just
-`eproject-grep' if you want to search all project files.
-
-\(fn)" t nil)
-
-(autoload 'eproject-eshell-cd-here "eproject/eproject-extras" "\
-If there is an EShell buffer, cd to the project root in that buffer.
-
-With the prefix arg LOOK-IN-INVISIBLE-BUFFERS looks in buffers that are not currently displayed.
-
-\(fn &optional LOOK-IN-INVISIBLE-BUFFERS)" t nil)
-
-;;;***
-
 ;;;### (autoloads (julia julia-mode) "ess/lisp/ess-julia" "ess/lisp/ess-julia.el"
 ;;;;;;  (20646 26156))
 ;;; Generated autoloads from ess/lisp/ess-julia.el
@@ -5014,6 +4945,135 @@ Hl-Sexp mode is enabled in all buffers where
 See `hl-sexp-mode' for more information on Hl-Sexp mode.
 
 \(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads (ido-ubiquitous-function-compatibility-exceptions
+;;;;;;  ido-ubiquitous-command-compatibility-exceptions ido-ubiquitous-function-exceptions
+;;;;;;  ido-ubiquitous-command-exceptions ido-ubiquitous-mode ido-ubiquitous)
+;;;;;;  "ido-ubiquitous/ido-ubiquitous" "ido-ubiquitous/ido-ubiquitous.el"
+;;;;;;  (20701 53560))
+;;; Generated autoloads from ido-ubiquitous/ido-ubiquitous.el
+
+(let ((loads (get 'ido-ubiquitous 'custom-loads))) (if (member '"ido-ubiquitous/ido-ubiquitous" loads) nil (put 'ido-ubiquitous 'custom-loads (cons '"ido-ubiquitous/ido-ubiquitous" loads))))
+
+(defvar ido-ubiquitous-mode nil "\
+Non-nil if Ido-Ubiquitous mode is enabled.
+See the command `ido-ubiquitous-mode' for a description of this minor mode.
+Setting this variable directly does not take effect;
+either customize it (see the info node `Easy Customization')
+or call the function `ido-ubiquitous-mode'.")
+
+(custom-autoload 'ido-ubiquitous-mode "ido-ubiquitous/ido-ubiquitous" nil)
+
+(autoload 'ido-ubiquitous-mode "ido-ubiquitous/ido-ubiquitous" "\
+Use `ido-completing-read' instead of `completing-read' almost everywhere.
+
+  This mode has no effect unles `ido-mode' is also enabled.
+
+  If this mode causes problems for a function, you can force the
+  function to use the original completing read by using the macro
+  `ido-ubiquitous-disable-in'. For example, if a
+  function `foo' cannot work with ido-style completion, evaluate
+  the following (for example by putting it in your .emacs file):
+
+    (ido-ubiquitous-disable-in foo)
+
+\(fn &optional ARG)" t nil)
+
+(define-obsolete-variable-alias 'ido-ubiquitous 'ido-ubiquitous-mode "0.8")
+
+(define-obsolete-function-alias 'ido-ubiquitous 'ido-ubiquitous-mode "0.8")
+
+(defvar ido-ubiquitous-command-exceptions 'nil "\
+List of commands that should not be affected by `ido-ubiquitous'.
+
+Even when `ido-ubiquitous' mode is enabled, these commands will
+continue to use `completing-read' instead of
+`ido-completing-read'.
+
+Only *interactive* commands should go here. To disable
+ido-ubiquitous in non-interactive functions, customize
+`ido-ubiquitous-function-exceptions'.
+
+Note: this feature depends on the variable `this-command' being
+properly set to the name of the currently executing command.
+Depending on how the command is onvoked, this may or may not
+happen, so this feature may simply not work in some cases.")
+
+(custom-autoload 'ido-ubiquitous-command-exceptions "ido-ubiquitous/ido-ubiquitous" t)
+
+(define-obsolete-variable-alias 'ido-ubiquitous-exceptions 'ido-ubiquitous-command-exceptions "0.4")
+
+(defvar ido-ubiquitous-function-exceptions '(grep-read-files) "\
+List of functions in which to disable ido-ubiquitous.
+
+If you need to add a function to this list, please also file a
+bug report at
+https://github.com/DarwinAwardWinner/ido-ubiquitous/issues
+
+Note that certain functions, such as `read-file-name', must
+always have ido-ubiquitous disabled, and cannot be added
+here. (They are effectively a permanent part of this list
+already.)")
+
+(custom-autoload 'ido-ubiquitous-function-exceptions "ido-ubiquitous/ido-ubiquitous" nil)
+
+(defvar ido-ubiquitous-command-compatibility-exceptions 'nil "\
+List of commands in which to disable compatibility.
+
+See `ido-ubiquitous-enable-compatibility' for a description of
+the compatibility behavior. If this behavior causes a command to
+break, add that command to this list to disable compatibility
+mode for just that command.
+
+Only *interactive* commands should go here. To disable
+compatibility mode in non-interactive functions, customize
+`ido-ubiquitous-function-compatibility-exceptions'.")
+
+(custom-autoload 'ido-ubiquitous-command-compatibility-exceptions "ido-ubiquitous/ido-ubiquitous" t)
+
+(defvar ido-ubiquitous-function-compatibility-exceptions 'nil "\
+List of functions in which to disable ido-ubiquitous compatibility mode.
+
+See `ido-ubiquitous-enable-compatibility' for a description of
+the compatibility behavior. If this behavior causes a function to
+break, add that function to this list to disable compatibility
+mode for just that command.
+
+If you need to add a function to this list, please also file a
+bug report at
+https://github.com/DarwinAwardWinner/ido-ubiquitous/issues")
+
+(custom-autoload 'ido-ubiquitous-function-compatibility-exceptions "ido-ubiquitous/ido-ubiquitous" nil)
+
+;;;***
+
+;;;### (autoloads (ido-yes-or-no-mode) "ido-yes-or-no/ido-yes-or-no"
+;;;;;;  "ido-yes-or-no/ido-yes-or-no.el" (20701 53564))
+;;; Generated autoloads from ido-yes-or-no/ido-yes-or-no.el
+
+(defvar ido-yes-or-no-mode nil "\
+Non-nil if Ido-Yes-Or-No mode is enabled.
+See the command `ido-yes-or-no-mode' for a description of this minor mode.")
+
+(custom-autoload 'ido-yes-or-no-mode "ido-yes-or-no/ido-yes-or-no" nil)
+
+(autoload 'ido-yes-or-no-mode "ido-yes-or-no/ido-yes-or-no" "\
+Use ido for `yes-or-no-p'.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads (idomenu) "idomenu/idomenu" "idomenu/idomenu.el"
+;;;;;;  (20701 53565))
+;;; Generated autoloads from idomenu/idomenu.el
+
+(autoload 'idomenu "idomenu/idomenu" "\
+Switch to a buffer-local tag from Imenu via Ido.
+
+\(fn)" t nil)
 
 ;;;***
 
@@ -10306,27 +10366,26 @@ See `yas/minor-mode' for more information on Yas/Minor mode.
 ;;;;;;  "ensime/src/main/elisp/ensime-test.el" "ensime/src/main/elisp/ensime-ui.el"
 ;;;;;;  "ensime/src/main/elisp/ensime-undo.el" "ensime/src/main/elisp/ensime.el"
 ;;;;;;  "ensime/src/main/elisp/fuzzy.el" "ensime/src/main/elisp/popup.el"
-;;;;;;  "eproject/eproject-tests.el" "eproject/eproject.el" "ess/lisp/ess-arc-d.el"
-;;;;;;  "ess/lisp/ess-bugs-d.el" "ess/lisp/ess-bugs-l.el" "ess/lisp/ess-comp.el"
-;;;;;;  "ess/lisp/ess-compat.el" "ess/lisp/ess-custom.el" "ess/lisp/ess-dde.el"
-;;;;;;  "ess/lisp/ess-debug.el" "ess/lisp/ess-developer.el" "ess/lisp/ess-eldoc.el"
-;;;;;;  "ess/lisp/ess-font-lock.el" "ess/lisp/ess-help.el" "ess/lisp/ess-inf.el"
-;;;;;;  "ess/lisp/ess-install.el" "ess/lisp/ess-jags-d.el" "ess/lisp/ess-lsp-l.el"
-;;;;;;  "ess/lisp/ess-menu.el" "ess/lisp/ess-mode.el" "ess/lisp/ess-mouse.el"
-;;;;;;  "ess/lisp/ess-noweb-font-lock-mode.el" "ess/lisp/ess-noweb-mode.el"
-;;;;;;  "ess/lisp/ess-noweb.el" "ess/lisp/ess-omg-d.el" "ess/lisp/ess-omg-l.el"
-;;;;;;  "ess/lisp/ess-r-a.el" "ess/lisp/ess-r-args.el" "ess/lisp/ess-r-d.el"
-;;;;;;  "ess/lisp/ess-r-gui.el" "ess/lisp/ess-rdired.el" "ess/lisp/ess-roxy.el"
-;;;;;;  "ess/lisp/ess-rutils.el" "ess/lisp/ess-s-l.el" "ess/lisp/ess-s3-d.el"
-;;;;;;  "ess/lisp/ess-s4-d.el" "ess/lisp/ess-sas-a.el" "ess/lisp/ess-sas-d.el"
-;;;;;;  "ess/lisp/ess-sas-l.el" "ess/lisp/ess-send.el" "ess/lisp/ess-send2.el"
-;;;;;;  "ess/lisp/ess-site.el" "ess/lisp/ess-sp3-d.el" "ess/lisp/ess-sp4-d.el"
-;;;;;;  "ess/lisp/ess-sp5-d.el" "ess/lisp/ess-sp6-d.el" "ess/lisp/ess-sp6w-d.el"
-;;;;;;  "ess/lisp/ess-sta-d.el" "ess/lisp/ess-sta-l.el" "ess/lisp/ess-swv.el"
-;;;;;;  "ess/lisp/ess-toolbar.el" "ess/lisp/ess-tracebug.el" "ess/lisp/ess-trns.el"
-;;;;;;  "ess/lisp/ess-utils.el" "ess/lisp/ess-vst-d.el" "ess/lisp/ess-xls-d.el"
-;;;;;;  "ess/lisp/ess.el" "ess/lisp/essd-els.el" "ess/lisp/make-regexp.el"
-;;;;;;  "ess/lisp/msdos.el" "expand-region/cc-mode-expansions.el"
+;;;;;;  "ess/lisp/ess-arc-d.el" "ess/lisp/ess-bugs-d.el" "ess/lisp/ess-bugs-l.el"
+;;;;;;  "ess/lisp/ess-comp.el" "ess/lisp/ess-compat.el" "ess/lisp/ess-custom.el"
+;;;;;;  "ess/lisp/ess-dde.el" "ess/lisp/ess-debug.el" "ess/lisp/ess-developer.el"
+;;;;;;  "ess/lisp/ess-eldoc.el" "ess/lisp/ess-font-lock.el" "ess/lisp/ess-help.el"
+;;;;;;  "ess/lisp/ess-inf.el" "ess/lisp/ess-install.el" "ess/lisp/ess-jags-d.el"
+;;;;;;  "ess/lisp/ess-lsp-l.el" "ess/lisp/ess-menu.el" "ess/lisp/ess-mode.el"
+;;;;;;  "ess/lisp/ess-mouse.el" "ess/lisp/ess-noweb-font-lock-mode.el"
+;;;;;;  "ess/lisp/ess-noweb-mode.el" "ess/lisp/ess-noweb.el" "ess/lisp/ess-omg-d.el"
+;;;;;;  "ess/lisp/ess-omg-l.el" "ess/lisp/ess-r-a.el" "ess/lisp/ess-r-args.el"
+;;;;;;  "ess/lisp/ess-r-d.el" "ess/lisp/ess-r-gui.el" "ess/lisp/ess-rdired.el"
+;;;;;;  "ess/lisp/ess-roxy.el" "ess/lisp/ess-rutils.el" "ess/lisp/ess-s-l.el"
+;;;;;;  "ess/lisp/ess-s3-d.el" "ess/lisp/ess-s4-d.el" "ess/lisp/ess-sas-a.el"
+;;;;;;  "ess/lisp/ess-sas-d.el" "ess/lisp/ess-sas-l.el" "ess/lisp/ess-send.el"
+;;;;;;  "ess/lisp/ess-send2.el" "ess/lisp/ess-site.el" "ess/lisp/ess-sp3-d.el"
+;;;;;;  "ess/lisp/ess-sp4-d.el" "ess/lisp/ess-sp5-d.el" "ess/lisp/ess-sp6-d.el"
+;;;;;;  "ess/lisp/ess-sp6w-d.el" "ess/lisp/ess-sta-d.el" "ess/lisp/ess-sta-l.el"
+;;;;;;  "ess/lisp/ess-swv.el" "ess/lisp/ess-toolbar.el" "ess/lisp/ess-tracebug.el"
+;;;;;;  "ess/lisp/ess-trns.el" "ess/lisp/ess-utils.el" "ess/lisp/ess-vst-d.el"
+;;;;;;  "ess/lisp/ess-xls-d.el" "ess/lisp/ess.el" "ess/lisp/essd-els.el"
+;;;;;;  "ess/lisp/make-regexp.el" "ess/lisp/msdos.el" "expand-region/cc-mode-expansions.el"
 ;;;;;;  "expand-region/clojure-mode-expansions.el" "expand-region/css-mode-expansions.el"
 ;;;;;;  "expand-region/erlang-mode-expansions.el" "expand-region/expand-region-core.el"
 ;;;;;;  "expand-region/expand-region-pkg.el" "expand-region/feature-mode-expansions.el"
@@ -10344,7 +10403,9 @@ See `yas/minor-mode' for more information on Yas/Minor mode.
 ;;;;;;  "haskell-mode/haskell-font-lock.el" "haskell-mode/haskell-ghci.el"
 ;;;;;;  "haskell-mode/haskell-hugs.el" "haskell-mode/haskell-package.el"
 ;;;;;;  "haskell-mode/haskell-simple-indent.el" "haskell-mode/haskell-site-file.el"
-;;;;;;  "helm/helm-pkg.el" "helm/helm-plugin.el" "inf-ruby/inf-ruby-autoloads.el"
+;;;;;;  "helm/helm-pkg.el" "helm/helm-plugin.el" "ido-ubiquitous/ido-ubiquitous-autoloads.el"
+;;;;;;  "ido-ubiquitous/ido-ubiquitous-pkg.el" "ido-yes-or-no/ido-yes-or-no-autoloads.el"
+;;;;;;  "ido-yes-or-no/ido-yes-or-no-pkg.el" "inf-ruby/inf-ruby-autoloads.el"
 ;;;;;;  "inf-ruby/inf-ruby-pkg.el" "json/json.el" "lintnode/flymake-jslint.el"
 ;;;;;;  "magit/50magit.el" "magit/magit-bisect.el" "magit/magit-key-mode.el"
 ;;;;;;  "magit/magit-pkg.el" "multiple-cursors/mc-cycle-cursors.el"
@@ -10483,7 +10544,7 @@ See `yas/minor-mode' for more information on Yas/Minor mode.
 ;;;;;;  "websocket/websocket.el" "wrap-region/wrap-region-autoloads.el"
 ;;;;;;  "wrap-region/wrap-region-pkg.el" "yasnippet-update/dropdown-list.el"
 ;;;;;;  "yasnippet-update/yasnippet-debug.el" "yasnippet-update/yasnippet-tests.el"
-;;;;;;  "zenburn-theme/zenburn-theme.el") (20701 53013 698383))
+;;;;;;  "zenburn-theme/zenburn-theme.el") (20701 54036 199582))
 
 ;;;***
 
