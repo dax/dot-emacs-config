@@ -25,7 +25,7 @@
                                   global-semantic-idle-completions-mode
                                   global-semantic-idle-summary-mode))
 
-(setq srecode-map-save-file (concat tmp-dir "srecode-map.el"))
+(setq-default srecode-map-save-file (concat tmp-dir "srecode-map.el"))
 
 (semantic-mode 1)
 (when (cedet-gnu-global-version-check t)

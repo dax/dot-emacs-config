@@ -2,16 +2,20 @@
 
 (diminish 'highlight-fixmes-mode)
 (diminish 'global-visual-line-mode)
+
 (eval-after-load "wrap-region"
   '(progn
      (diminish 'wrap-region-mode)
-     ;; (diminish 'wrap-region-global-mode)
      ))
 
-(eval-after-load "yas/minor"
+(eval-after-load "simple"
+  '(progn
+     (diminish 'visual-line-mode)
+     ))
+
+(eval-after-load "yasnippet"
   '(progn
      (diminish 'yas/minor-mode)
-;;     (diminish 'yas/global-mode)
      ))
 
 (eval-after-load "undo-tree"
@@ -19,9 +23,24 @@
      (diminish 'undo-tree-mode)
      ))
 
-(eval-after-load "helm"
+(eval-after-load "helm-mode"
   '(progn
-     ;;(diminish 'helm-mode)
+     (diminish 'helm-mode)
+     ))
+
+(eval-after-load "filladapt"
+  '(progn
+     (diminish 'filladapt-mode)
+     ))
+
+(eval-after-load "eldoc"
+  '(progn
+     (diminish 'eldoc-mode)
+     ))
+
+(eval-after-load "auto-complete"
+  '(progn
+     (diminish 'auto-complete-mode)
      ))
 
 (provide 'init-diminish)

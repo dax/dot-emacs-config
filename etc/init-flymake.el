@@ -21,14 +21,4 @@
                   '("\\.py\\'" flymake-pyflakes-init))
      ))
 
-(add-hook 'c-mode-hook          'flyspell-prog-mode 1)
-(add-hook 'c++-mode-hook        'flyspell-prog-mode 1)
-(add-hook 'cperl-mode-hook      'flyspell-prog-mode 1)
-(add-hook 'autoconf-mode-hook   'flyspell-prog-mode 1)
-(add-hook 'autotest-mode-hook   'flyspell-prog-mode 1)
-(add-hook 'sh-mode-hook         'flyspell-prog-mode 1)
-(add-hook 'makefile-mode-hook   'flyspell-prog-mode 1)
-(add-hook 'java-mode-hook	'flyspell-prog-mode 1)
-(add-hook 'emacs-lisp-mode-hook 'flyspell-prog-mode 1)
-
 (provide 'init-flymake)

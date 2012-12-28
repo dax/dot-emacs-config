@@ -118,12 +118,7 @@
                   (require 'ensime)
                   (require 'scala-mode-auto)
                   (add-hook 'scala-mode-hook 'ensime-scala-mode-hook))))
- (eproject status "installed" recipe
-           (:name eproject :type git :url "git://github.com/jrockway/eproject.git" :feature eproject :after
-                  (lambda nil
-                    (progn
-                      (require 'eproject)
-                      (require 'eproject-extras)))))
+ (eproject status "removed" recipe nil)
  (ess status "installed" recipe
       (:name ess :description "Emacs Speaks Statistics: statistical programming within Emacs" :type svn :url "https://svn.r-project.org/ESS/trunk/" :info "doc/info/" :build `,(mapcar
                                                                                                                                                                                 (lambda
@@ -135,9 +130,17 @@
              :features ess-site))
  (expand-region status "installed" recipe
                 (:name expand-region :type git :url "git://github.com/magnars/expand-region.el.git" :feature expand-region))
+ (filladapt status "installed" recipe
+            (:name filladapt :description "Filladapt enhances the behavior of Emacs' fill functions by guessing the proper fill prefix in many contexts. Emacs has a built-in adaptive fill mode but Filladapt is much better." :type http :url "http://www.wonderworks.com/download/filladapt.el"))
+ (flymake-fringe-icons status "installed" recipe
+                       (:name flymake-fringe-icons :description "Add icons in the fringe, for flymake" :depends fringe-helper :type http :url "https://gist.github.com/raw/759130/a85ebbc6bfc5fbab54677f4236e902b2da7bf41f/flymake-fringe-icons.el" :features flymake-fringe-icons))
+ (flymake-point status "installed" recipe
+                (:name flymake-point :description "Show flymake errors under the point in the minibuffer" :type http :url "https://bitbucket.org/brodie/dotfiles/raw/tip/.emacs.d/plugins/flymake-point.el" :features flymake-point))
  (flymake-ruby status "installed" recipe
                (:name flymake-ruby :description "Steve Purcell's Ruby Flymake support, with stricter warnings." :type http :url "https://gist.github.com/raw/758976/b4562bca1645a5567d02e97f04b1909401caa1ed/flymake-ruby.el" :features flymake-ruby :post-init
                       (add-hook 'ruby-mode-hook 'flymake-ruby-load)))
+ (fringe-helper status "installed" recipe
+                (:name fringe-helper :description "Helper functions for fringe bitmaps." :type http :url "http://nschum.de/src/emacs/fringe-helper/fringe-helper.el" :features fringe-helper))
  (fuzzy status "installed" recipe
         (:name fuzzy :website "https://github.com/auto-complete/fuzzy-el" :description "Fuzzy matching utilities for GNU Emacs" :type github :pkgname "auto-complete/fuzzy-el"))
  (google-contacts status "installed" recipe
@@ -165,6 +168,10 @@
            (:name js3-mode :type git :url "git://github.com/thomblake/js3-mode.git" :feature js3-mode))
  (json status "installed" recipe
        (:name json :description "JavaScript Object Notation parser / generator" :type http :url "http://edward.oconnor.cx/elisp/json.el" :features json))
+ (lintnode status "installed" recipe
+           (:name lintnode :type git :url "git://github.com/davidmiller/lintnode.git" :feature lintnode :build
+                  ("npm install")))
+ (list-processes+ status "removed" recipe nil)
  (lua-mode status "installed" recipe
            (:name lua-mode :description "A major-mode for editing Lua scripts" :website "https://github.com/immerrr/lua-mode" :description "A major mode for editing Lua scripts." :type git :url "https://github.com/immerrr/lua-mode"))
  (magit status "installed" recipe
@@ -245,6 +252,8 @@
         (:name popup :website "https://github.com/m2ym/popup-el" :description "Visual Popup Interface Library for Emacs" :type github :pkgname "auto-complete/popup-el"))
  (powerline status "installed" recipe
             (:name powerline :website "https://github.com/jonathanchu/emacs-powerline" :description "Powerline for Emacs" :type github :pkgname "jonathanchu/emacs-powerline" :features powerline))
+ (profile-dotemacs status "installed" recipe
+                   (:name profile-dotemacs :type http :url "http://www.randomsample.de/profile-dotemacs.el" :description "profiles your .emacs" :autoloads t))
  (projectile status "installed" recipe
              (:name projectile :description "Project navigation and management library for Emacs" :type github :pkgname "bbatsov/projectile" :depends s :features projectile))
  (puppet-mode status "installed" recipe

@@ -1,0 +1,5 @@
+(:name lintnode
+       :type git
+       :url "git://github.com/davidmiller/lintnode.git"
+       :feature lintnode
+       :build ("npm install"))
