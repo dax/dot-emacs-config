@@ -43,4 +43,9 @@
      (diminish 'auto-complete-mode)
      ))
 
+(eval-after-load "camelCase-mode"
+  '(progn
+     (diminish 'camelCase-mode)
+     ))
+
 (provide 'init-diminish)

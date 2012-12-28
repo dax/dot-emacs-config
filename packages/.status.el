@@ -44,6 +44,8 @@
  (breadcrumb status "installed" recipe
              (:name breadcrumb :website "http://breadcrumbemacs.sourceforge.net/" :description "Breadcrumb is an add-on module for Emacs that allows you to set a series of quick bookmarks in the file buffers, and jump back to them quickly." :type http :url "http://downloads.sourceforge.net/project/breadcrumbemacs/Breadcrumb%20for%20Emacs/1.1.3/breadcrumb-1.1.3.zip" :build
                     ("unzip breadcrumb-1.1.3.zip")))
+ (camelcase-mode status "installed" recipe
+                 (:name camelcase-mode :description "Camel case support for Emacs" :type http :url "http://www.eecs.ucf.edu/~leavens/emacs/camelCase/camelCase-mode.el"))
  (caml-mode status "removed" recipe nil)
  (cedet-trunk status "installed" recipe
               (:name cedet-trunk :website "http://cedet.sourceforge.net/" :description "CEDET is a Collection of Emacs Development Environment Tools written with the end goal of creating an advanced development environment in Emacs." :type bzr :url "bzr://cedet.bzr.sourceforge.net/bzrroot/cedet/code/trunk" :build

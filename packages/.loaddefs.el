@@ -10350,7 +10350,8 @@ See `yas/minor-mode' for more information on Yas/Minor mode.
 ;;;;;;  "auto-complete-latex/auto-complete-latex.el" "auto-complete-rst/auto-complete-rst.el"
 ;;;;;;  "auto-complete/auto-complete-config.el" "auto-complete/auto-complete-pkg.el"
 ;;;;;;  "auto-pair-plus/auto-pair+.el" "autopair/autopair-tests.el"
-;;;;;;  "breadcrumb/breadcrumb.el" "cedet-trunk/cedet-build.el" "cedet-trunk/cedet-devel-load.el"
+;;;;;;  "breadcrumb/breadcrumb.el" "camelcase-mode/camelCase-mode.el"
+;;;;;;  "cedet-trunk/cedet-build.el" "cedet-trunk/cedet-devel-load.el"
 ;;;;;;  "cedet-trunk/cedet-ediff.el" "cedet-trunk/cedet-emacs-merge.el"
 ;;;;;;  "cedet-trunk/cedet-remove-builtin.el" "cedet-trunk/cedet-update-changelog.el"
 ;;;;;;  "cedet-trunk/cedet-update-version.el" "color-theme/color-theme-autoloads.el"
@@ -10561,12 +10562,12 @@ See `yas/minor-mode' for more information on Yas/Minor mode.
 ;;;;;;  "slime/contrib/slime-scratch.el" "slime/contrib/slime-snapshot.el"
 ;;;;;;  "slime/contrib/slime-sprof.el" "slime/contrib/slime-tramp.el"
 ;;;;;;  "slime/contrib/slime-typeout-frame.el" "slime/contrib/slime-xref-browser.el"
-;;;;;;  "slime/hyperspec.el" "slime/slime-autoloads.el" "slime/slime.el"
-;;;;;;  "swank-js/slime-js.el" "websocket/websocket-functional-test.el"
-;;;;;;  "websocket/websocket-test.el" "websocket/websocket.el" "wrap-region/wrap-region-autoloads.el"
+;;;;;;  "slime/hyperspec.el" "slime/slime-autoloads.el" "swank-js/slime-js.el"
+;;;;;;  "websocket/websocket-functional-test.el" "websocket/websocket-test.el"
+;;;;;;  "websocket/websocket.el" "wrap-region/wrap-region-autoloads.el"
 ;;;;;;  "wrap-region/wrap-region-pkg.el" "yasnippet-update/dropdown-list.el"
 ;;;;;;  "yasnippet-update/yasnippet-debug.el" "yasnippet-update/yasnippet-tests.el"
-;;;;;;  "zenburn-theme/zenburn-theme.el") (20701 54564 935625))
+;;;;;;  "zenburn-theme/zenburn-theme.el") (20701 57455 718380))
 
 ;;;***
 
