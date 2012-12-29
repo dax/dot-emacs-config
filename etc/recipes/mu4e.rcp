@@ -1,0 +1,4 @@
+(:name mu4e
+       :type git
+       :url "git://github.com/djcb/mu.git"
+       :feature mu4e)

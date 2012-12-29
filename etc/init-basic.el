@@ -111,6 +111,7 @@
 ;; (require 'config-google)
 ;; (require 'config-ecb)
 ;; (require 'config-jdee)
+(require 'init-mu4e)
 
 ;; load configurations
 (require 'config-el-get)
