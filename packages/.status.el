@@ -138,15 +138,13 @@
                 (:name expand-region :type git :url "git://github.com/magnars/expand-region.el.git" :feature expand-region))
  (filladapt status "installed" recipe
             (:name filladapt :description "Filladapt enhances the behavior of Emacs' fill functions by guessing the proper fill prefix in many contexts. Emacs has a built-in adaptive fill mode but Filladapt is much better." :type http :url "http://www.wonderworks.com/download/filladapt.el"))
- (flymake-fringe-icons status "installed" recipe
-                       (:name flymake-fringe-icons :description "Add icons in the fringe, for flymake" :depends fringe-helper :type http :url "https://gist.github.com/raw/759130/a85ebbc6bfc5fbab54677f4236e902b2da7bf41f/flymake-fringe-icons.el" :features flymake-fringe-icons))
+ (flymake-fringe-icons status "removed" recipe nil)
  (flymake-point status "installed" recipe
                 (:name flymake-point :description "Show flymake errors under the point in the minibuffer" :type http :url "https://bitbucket.org/brodie/dotfiles/raw/tip/.emacs.d/plugins/flymake-point.el" :features flymake-point))
  (flymake-ruby status "installed" recipe
                (:name flymake-ruby :description "Steve Purcell's Ruby Flymake support, with stricter warnings." :type http :url "https://gist.github.com/raw/758976/b4562bca1645a5567d02e97f04b1909401caa1ed/flymake-ruby.el" :features flymake-ruby :post-init
                       (add-hook 'ruby-mode-hook 'flymake-ruby-load)))
- (fringe-helper status "installed" recipe
-                (:name fringe-helper :description "Helper functions for fringe bitmaps." :type http :url "http://nschum.de/src/emacs/fringe-helper/fringe-helper.el" :features fringe-helper))
+ (fringe-helper status "removed" recipe nil)
  (fuzzy status "installed" recipe
         (:name fuzzy :website "https://github.com/auto-complete/fuzzy-el" :description "Fuzzy matching utilities for GNU Emacs" :type github :pkgname "auto-complete/fuzzy-el"))
  (google-contacts status "installed" recipe
@@ -184,7 +182,7 @@
                   ("npm install")))
  (list-processes+ status "removed" recipe nil)
  (lua-mode status "installed" recipe
-           (:name lua-mode :description "A major mode for editing Lua scripts." :website "https://github.com/immerrr/lua-mode" :description "A major mode for editing Lua scripts." :type git :url "https://github.com/immerrr/lua-mode"))
+           (:name lua-mode :description "A major-mode for editing Lua scripts" :website "https://github.com/immerrr/lua-mode" :description "A major mode for editing Lua scripts." :type git :url "https://github.com/immerrr/lua-mode"))
  (magit status "installed" recipe
         (:name magit :website "https://github.com/magit/magit#readme" :description "It's Magit! An Emacs mode for Git." :type github :pkgname "magit/magit" :info "." :autoloads
                ("50magit")

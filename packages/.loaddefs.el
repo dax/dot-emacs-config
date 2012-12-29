@@ -10419,9 +10419,8 @@ See `yas/minor-mode' for more information on Yas/Minor mode.
 ;;;;;;  "expand-region/python-el-expansions.el" "expand-region/python-el-fgallina-expansions.el"
 ;;;;;;  "expand-region/python-mode-expansions.el" "expand-region/ruby-mode-expansions.el"
 ;;;;;;  "expand-region/text-mode-expansions.el" "filladapt/filladapt.el"
-;;;;;;  "flymake-fringe-icons/flymake-fringe-icons.el" "flymake-point/flymake-point.el"
-;;;;;;  "flymake-ruby/flymake-ruby.el" "fringe-helper/fringe-helper.el"
-;;;;;;  "fuzzy/fuzzy.el" "google-contacts/google-contacts-gnus.el"
+;;;;;;  "flymake-point/flymake-point.el" "flymake-ruby/flymake-ruby.el"
+;;;;;;  "fringe-helper/fringe-helper.el" "fuzzy/fuzzy.el" "google-contacts/google-contacts-gnus.el"
 ;;;;;;  "google-contacts/google-contacts-message.el" "haskell-mode/haskell-checkers.el"
 ;;;;;;  "haskell-mode/haskell-font-lock.el" "haskell-mode/haskell-ghci.el"
 ;;;;;;  "haskell-mode/haskell-hugs.el" "haskell-mode/haskell-package.el"
@@ -10567,7 +10566,7 @@ See `yas/minor-mode' for more information on Yas/Minor mode.
 ;;;;;;  "websocket/websocket.el" "wrap-region/wrap-region-autoloads.el"
 ;;;;;;  "wrap-region/wrap-region-pkg.el" "yasnippet-update/dropdown-list.el"
 ;;;;;;  "yasnippet-update/yasnippet-debug.el" "yasnippet-update/yasnippet-tests.el"
-;;;;;;  "zenburn-theme/zenburn-theme.el") (20701 57455 718380))
+;;;;;;  "zenburn-theme/zenburn-theme.el") (20702 63102 940986))
 
 ;;;***
 
