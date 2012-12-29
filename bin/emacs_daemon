@@ -1,0 +1,9 @@
+#!/bin/sh
+
+ps x | grep -v grep | grep 'emacs --daemon' > /dev/null
+if [ $? -ne 0 ]; then
+    echo Starting Emacs daemon
+    /usr/bin/emacs --daemon
+else
+    echo Emacs daemon already running
+fi
