@@ -12,6 +12,7 @@
 ;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
 ;; (global-set-key (kbd "C-x b") 'helm-mini)
 (global-set-key (kbd "C-o") 'helm-imenu)
+(global-set-key (kbd "C-c <SPC>") 'helm-all-mark-rings)
 
 (add-hook 'eshell-mode-hook
           #'(lambda ()

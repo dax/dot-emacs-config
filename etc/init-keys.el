@@ -108,7 +108,7 @@ This is useful when followed by an immediate kill."
   "Exit current buffer by selecting some other buffer."
   (interactive)
   (switch-to-buffer (prog1 (other-buffer (current-buffer))
-		      (bury-buffer (current-buffer)))))
+          (bury-buffer (current-buffer)))))
 
 (global-set-key "\C-cq" 'quit-this-buffer)
 
@@ -150,8 +150,8 @@ manpage of a `current-word'."
 the character typed."
   (interactive "p")
   (cond ((looking-at "\(") (forward-list 1))
-	((looking-back "\)") (forward-char 1) (backward-list 1))
-	(t                    (self-insert-command (or arg 1))) ))
+  ((looking-back "\)") (forward-char 1) (backward-list 1))
+  (t                    (self-insert-command (or arg 1))) ))
 (global-set-key "%" 'goto-match-paren)
 
 (defun rename-current-buffer-file ()
@@ -172,5 +172,42 @@ the character typed."
                    name (file-name-nondirectory new-name)))))))
 
 (global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
+
+(defun cleanup-buffer-safe ()
+  "Perform a bunch of safe operations on the whitespace content of a buffer.
+Does not indent buffer, because it is used for a before-save-hook, and that
+might be bad."
+  (interactive)
+  (untabify (point-min) (point-max))
+  (delete-trailing-whitespace)
+  (set-buffer-file-coding-system 'utf-8))
+
+;; Various superfluous white-space. Just say no.
+(global-set-key (kbd "C-c n") 'cleanup-buffer-safe)
+;; (add-hook 'before-save-hook 'cleanup-buffer-safe)
+
+(defun cleanup-buffer ()
+  "Perform a bunch of operations on the whitespace content of a buffer.
+Including indent-buffer, which should not be called automatically on save."
+  (interactive)
+  (cleanup-buffer-safe)
+  (indent-region (point-min) (point-max)))
+
+(global-set-key (kbd "C-c C-n") 'cleanup-buffer)
+
+(defun delete-current-buffer-file ()
+  "Removes file connected to current buffer and kills buffer."
+  (interactive)
+  (let ((filename (buffer-file-name))
+        (buffer (current-buffer))
+        (name (buffer-name)))
+    (if (not (and filename (file-exists-p filename)))
+        (ido-kill-buffer)
+      (when (yes-or-no-p "Are you sure you want to remove this file? ")
+        (delete-file filename)
+        (kill-buffer buffer)
+        (message "File '%s' successfully removed" filename)))))
+
+(global-set-key (kbd "C-x C-k") 'delete-current-buffer-file)
 
 (provide 'init-keys)

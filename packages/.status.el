@@ -93,10 +93,14 @@
    (:name deft :type git :url "git://jblevins.org/git/deft.git" :feature deft :after
           (lambda nil
             (require 'deft))))
+ (diff-git status "installed" recipe
+           (:name diff-git :website "https://github.com/alanfalloon/diff-git.el" :description "A small emacs extension for working with the git index from within diff-mode" :type github :pkgname "alanfalloon/diff-git.el"))
  (diminish status "installed" recipe
            (:name diminish :description "An Emacs package that diminishes the amount of space taken on the mode line by the names of minor modes." :type http :url "http://www.eskimo.com/~seldon/diminish.el" :features diminish))
  (dired+ status "installed" recipe
          (:name dired+ :description "Extensions to Dired" :type emacswiki :features dired+))
+ (dired-details status "installed" recipe
+                (:name dired-details :description "Make file details hide-able in dired" :type emacswiki :features dired-details))
  (drag-stuff status "installed" recipe
              (:name drag-stuff :website "https://github.com/rejeep/drag-stuff#readme" :description "Drag Stuff is a minor mode for Emacs that makes it possible to drag stuff, such as words, region and lines, around in Emacs." :features drag-stuff :type http :url "https://github.com/rejeep/drag-stuff/raw/master/drag-stuff.el"))
  (ecb status "installed" recipe
@@ -182,7 +186,7 @@
                   ("npm install")))
  (list-processes+ status "removed" recipe nil)
  (lua-mode status "installed" recipe
-           (:name lua-mode :description "A major-mode for editing Lua scripts" :website "https://github.com/immerrr/lua-mode" :description "A major mode for editing Lua scripts." :type git :url "https://github.com/immerrr/lua-mode"))
+           (:name lua-mode :description "A major mode for editing Lua scripts." :website "https://github.com/immerrr/lua-mode" :description "A major mode for editing Lua scripts." :type git :url "https://github.com/immerrr/lua-mode"))
  (magit status "installed" recipe
         (:name magit :website "https://github.com/magit/magit#readme" :description "It's Magit! An Emacs mode for Git." :type github :pkgname "magit/magit" :info "." :autoloads
                ("50magit")
@@ -257,6 +261,10 @@
                            ("gnu" . "http://elpa.gnu.org/packages/")
                            ("marmalade" . "http://marmalade-repo.org/packages/")
                            ("SC" . "http://joseito.republika.pl/sunrise-commander/"))))))
+ (php-mode-improved status "installed" recipe
+                    (:name php-mode-improved :description "Major mode for editing PHP code. This is a version of the php-mode from http://php-mode.sourceforge.net that fixes a few bugs which make using php-mode much more palatable" :type emacswiki :load
+                           ("php-mode-improved.el")
+                           :features php-mode))
  (popup status "installed" recipe
         (:name popup :website "https://github.com/m2ym/popup-el" :description "Visual Popup Interface Library for Emacs" :type github :pkgname "auto-complete/popup-el"))
  (powerline status "installed" recipe

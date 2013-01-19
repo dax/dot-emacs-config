@@ -45,6 +45,7 @@
      (define-key org-mode-map "\C-c\C-a" 'org-archive-subtree)
      (setq org-completion-use-ido t)
      (setq org-deadline-warning-days 15)
+     (setq org-replace-disputed-keys t)
      (setq org-agenda-skip-deadline-if-done t)
      (setq org-agenda-skip-scheduled-if-done t)
      (setq org-use-fast-todo-selection t)

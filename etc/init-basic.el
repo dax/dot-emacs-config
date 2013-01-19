@@ -81,6 +81,7 @@
 (setq vc-handle-cvs nil)
 (setq version-control t)
 (setq visible-bell t)
+(winner-mode 1)
 
 (if (file-exists-p (concat config-dir "config-perso.el"))
     (require 'config-perso))

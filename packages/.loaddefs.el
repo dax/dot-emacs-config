@@ -478,6 +478,46 @@ Switch to *Deft* buffer and load files.
 
 ;;;***
 
+;;;### (autoloads (diff-git-default-bindings diff-git-diff-unstaged
+;;;;;;  diff-git-diff-staged diff-git-buffer-stage diff-git-hunk-stage)
+;;;;;;  "diff-git/diff-git" "diff-git/diff-git.el" (20712 21975))
+;;; Generated autoloads from diff-git/diff-git.el
+
+(autoload 'diff-git-hunk-stage "diff-git/diff-git" "\
+Stage the current hunk in the index using 'git apply --cached'.
+
+\(fn)" t nil)
+
+(autoload 'diff-git-buffer-stage "diff-git/diff-git" "\
+Stage the all the hunks in the current `diff-mode' buffer using 'git apply --cached'.
+
+\(fn)" t nil)
+
+(autoload 'diff-git-diff-staged "diff-git/diff-git" "\
+Show the diff of the index and HEAD.
+Optional argument BUF is the buffer to store the diff contents
+in, otherwise *vc-diff-staged*.
+
+\(fn &optional BUF)" t nil)
+
+(autoload 'diff-git-diff-unstaged "diff-git/diff-git" "\
+Show the diff of the working tree and the index.
+Optional argument BUF is the buffer to store the diff contents
+in, otherwise *vc-diff-unstaged*.
+
+\(fn &optional BUF)" t nil)
+
+(autoload 'diff-git-default-bindings "diff-git/diff-git" "\
+Add bindings to the `diff-mode' keymap.
+
+\(fn)" nil nil)
+
+(eval-after-load 'diff-mode '(diff-git-default-bindings))
+
+(eval-after-load 'vc-mode '(diff-git-default-bindings))
+
+;;;***
+
 ;;;### (autoloads (diminished-modes diminish-undo diminish) "diminish/diminish"
 ;;;;;;  "diminish/diminish.el" (20690 16474))
 ;;; Generated autoloads from diminish/diminish.el
@@ -10356,27 +10396,28 @@ See `yas/minor-mode' for more information on Yas/Minor mode.
 ;;;;;;  "cedet-trunk/cedet-remove-builtin.el" "cedet-trunk/cedet-update-changelog.el"
 ;;;;;;  "cedet-trunk/cedet-update-version.el" "color-theme/color-theme-autoloads.el"
 ;;;;;;  "css-mode/css-mode-autoloads.el" "css-mode/css-mode-pkg.el"
-;;;;;;  "ecb/ecb-advice-test.el" "ecb/ecb-analyse.el" "ecb/ecb-autogen.el"
-;;;;;;  "ecb/ecb-buffertab.el" "ecb/ecb-cedet-wrapper.el" "ecb/ecb-common-browser.el"
-;;;;;;  "ecb/ecb-compatibility.el" "ecb/ecb-compilation.el" "ecb/ecb-create-layout.el"
-;;;;;;  "ecb/ecb-cycle.el" "ecb/ecb-eshell.el" "ecb/ecb-examples.el"
-;;;;;;  "ecb/ecb-face.el" "ecb/ecb-file-browser.el" "ecb/ecb-jde.el"
-;;;;;;  "ecb/ecb-layout-defs.el" "ecb/ecb-layout.el" "ecb/ecb-method-browser.el"
-;;;;;;  "ecb/ecb-mode-line.el" "ecb/ecb-multiframe.el" "ecb/ecb-navigate.el"
-;;;;;;  "ecb/ecb-semantic-wrapper.el" "ecb/ecb-semantic.el" "ecb/ecb-speedbar.el"
-;;;;;;  "ecb/ecb-symboldef.el" "ecb/ecb-tod.el" "ecb/ecb-upgrade.el"
-;;;;;;  "ecb/ecb-winman-support.el" "ecb/silentcomp.el" "ecb/tree-buffer.el"
-;;;;;;  "ein/lisp/debug-ein.el" "ein/lisp/ein-ac.el" "ein/lisp/ein-cell.el"
-;;;;;;  "ein/lisp/ein-completer.el" "ein/lisp/ein-core.el" "ein/lisp/ein-events.el"
-;;;;;;  "ein/lisp/ein-kernelinfo.el" "ein/lisp/ein-kill-ring.el"
-;;;;;;  "ein/lisp/ein-loaddefs.el" "ein/lisp/ein-log.el" "ein/lisp/ein-multilang-fontify.el"
-;;;;;;  "ein/lisp/ein-mumamo.el" "ein/lisp/ein-node.el" "ein/lisp/ein-notification.el"
-;;;;;;  "ein/lisp/ein-output-area.el" "ein/lisp/ein-pager.el" "ein/lisp/ein-pkg.el"
-;;;;;;  "ein/lisp/ein-python.el" "ein/lisp/ein-pytools.el" "ein/lisp/ein-query.el"
-;;;;;;  "ein/lisp/ein-scratchsheet.el" "ein/lisp/ein-smartrep.el"
-;;;;;;  "ein/lisp/ein-subpackages.el" "ein/lisp/ein-utils.el" "ein/lisp/ein-websocket.el"
-;;;;;;  "ein/lisp/ein-worksheet.el" "ein/lisp/ein.el" "ein/lisp/zeroein.el"
-;;;;;;  "el-get/el-get-autoloads.el" "el-get/el-get-build.el" "el-get/el-get-byte-compile.el"
+;;;;;;  "dired-details/dired-details.el" "ecb/ecb-advice-test.el"
+;;;;;;  "ecb/ecb-analyse.el" "ecb/ecb-autogen.el" "ecb/ecb-buffertab.el"
+;;;;;;  "ecb/ecb-cedet-wrapper.el" "ecb/ecb-common-browser.el" "ecb/ecb-compatibility.el"
+;;;;;;  "ecb/ecb-compilation.el" "ecb/ecb-create-layout.el" "ecb/ecb-cycle.el"
+;;;;;;  "ecb/ecb-eshell.el" "ecb/ecb-examples.el" "ecb/ecb-face.el"
+;;;;;;  "ecb/ecb-file-browser.el" "ecb/ecb-jde.el" "ecb/ecb-layout-defs.el"
+;;;;;;  "ecb/ecb-layout.el" "ecb/ecb-method-browser.el" "ecb/ecb-mode-line.el"
+;;;;;;  "ecb/ecb-multiframe.el" "ecb/ecb-navigate.el" "ecb/ecb-semantic-wrapper.el"
+;;;;;;  "ecb/ecb-semantic.el" "ecb/ecb-speedbar.el" "ecb/ecb-symboldef.el"
+;;;;;;  "ecb/ecb-tod.el" "ecb/ecb-upgrade.el" "ecb/ecb-winman-support.el"
+;;;;;;  "ecb/silentcomp.el" "ecb/tree-buffer.el" "ein/lisp/debug-ein.el"
+;;;;;;  "ein/lisp/ein-ac.el" "ein/lisp/ein-cell.el" "ein/lisp/ein-completer.el"
+;;;;;;  "ein/lisp/ein-core.el" "ein/lisp/ein-events.el" "ein/lisp/ein-kernelinfo.el"
+;;;;;;  "ein/lisp/ein-kill-ring.el" "ein/lisp/ein-loaddefs.el" "ein/lisp/ein-log.el"
+;;;;;;  "ein/lisp/ein-multilang-fontify.el" "ein/lisp/ein-mumamo.el"
+;;;;;;  "ein/lisp/ein-node.el" "ein/lisp/ein-notification.el" "ein/lisp/ein-output-area.el"
+;;;;;;  "ein/lisp/ein-pager.el" "ein/lisp/ein-pkg.el" "ein/lisp/ein-python.el"
+;;;;;;  "ein/lisp/ein-pytools.el" "ein/lisp/ein-query.el" "ein/lisp/ein-scratchsheet.el"
+;;;;;;  "ein/lisp/ein-smartrep.el" "ein/lisp/ein-subpackages.el"
+;;;;;;  "ein/lisp/ein-utils.el" "ein/lisp/ein-websocket.el" "ein/lisp/ein-worksheet.el"
+;;;;;;  "ein/lisp/ein.el" "ein/lisp/zeroein.el" "el-get/el-get-autoloads.el"
+;;;;;;  "el-get/el-get-build.el" "el-get/el-get-byte-compile.el"
 ;;;;;;  "el-get/el-get-core.el" "el-get/el-get-custom.el" "el-get/el-get-dependencies.el"
 ;;;;;;  "el-get/el-get-install.el" "el-get/el-get-methods.el" "el-get/el-get-notify.el"
 ;;;;;;  "el-get/el-get-recipes.el" "el-get/el-get-status.el" "ensime/src/main/elisp/auto-complete.el"
@@ -10420,7 +10461,7 @@ See `yas/minor-mode' for more information on Yas/Minor mode.
 ;;;;;;  "expand-region/python-mode-expansions.el" "expand-region/ruby-mode-expansions.el"
 ;;;;;;  "expand-region/text-mode-expansions.el" "filladapt/filladapt.el"
 ;;;;;;  "flymake-point/flymake-point.el" "flymake-ruby/flymake-ruby.el"
-;;;;;;  "fringe-helper/fringe-helper.el" "fuzzy/fuzzy.el" "google-contacts/google-contacts-gnus.el"
+;;;;;;  "fuzzy/fuzzy.el" "google-contacts/google-contacts-gnus.el"
 ;;;;;;  "google-contacts/google-contacts-message.el" "haskell-mode/haskell-checkers.el"
 ;;;;;;  "haskell-mode/haskell-font-lock.el" "haskell-mode/haskell-ghci.el"
 ;;;;;;  "haskell-mode/haskell-hugs.el" "haskell-mode/haskell-package.el"
@@ -10566,7 +10607,7 @@ See `yas/minor-mode' for more information on Yas/Minor mode.
 ;;;;;;  "websocket/websocket.el" "wrap-region/wrap-region-autoloads.el"
 ;;;;;;  "wrap-region/wrap-region-pkg.el" "yasnippet-update/dropdown-list.el"
 ;;;;;;  "yasnippet-update/yasnippet-debug.el" "yasnippet-update/yasnippet-tests.el"
-;;;;;;  "zenburn-theme/zenburn-theme.el") (20702 63102 940986))
+;;;;;;  "zenburn-theme/zenburn-theme.el") (20712 21976 509939))
 
 ;;;***
 
