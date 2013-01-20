@@ -103,10 +103,7 @@
                 (:name dired-details :description "Make file details hide-able in dired" :type emacswiki :features dired-details))
  (drag-stuff status "installed" recipe
              (:name drag-stuff :website "https://github.com/rejeep/drag-stuff#readme" :description "Drag Stuff is a minor mode for Emacs that makes it possible to drag stuff, such as words, region and lines, around in Emacs." :features drag-stuff :type http :url "https://github.com/rejeep/drag-stuff/raw/master/drag-stuff.el"))
- (ecb status "installed" recipe
-      (:name ecb :description "Emacs Code Browser" :type cvs :module "ecb" :url ":pserver:anonymous@ecb.cvs.sourceforge.net:/cvsroot/ecb" :build
-             `(("make" "CEDET=" ,(concat "EMACS="
-                                         (shell-quote-argument el-get-emacs))))))
+ (ecb status "removed" recipe nil)
  (eclim status "removed" recipe nil)
  (ein status "installed" recipe
       (:name ein :description "IPython notebook client in Emacs" :type github :pkgname "tkf/emacs-ipython-notebook" :depends
@@ -170,24 +167,23 @@
           (:name hl-sexp :description "Highlight the current sexp" :type http :url "http://edward.oconnor.cx/elisp/hl-sexp.el" :features hl-sexp))
  (ido-ubiquitous status "installed" recipe
                  (:name ido-ubiquitous :description "Use ido (nearly) everywhere" :type elpa))
- (ido-yes-or-no status "installed" recipe
-                (:name ido-yes-or-no :description "Use Ido to answer yes-or-no questions" :type elpa))
+ (ido-yes-or-no status "required" recipe nil)
  (idomenu status "removed" recipe nil)
- (inf-ruby status "installed" recipe
+ (inf-ruby status "required" recipe
            (:name inf-ruby :description "Inferior Ruby Mode" :features inf-ruby :type elpa))
- (js-comint status "installed" recipe
+ (js-comint status "required" recipe
             (:name js-comint :description "Run javascript in an inferior process window." :type http :url "http://downloads.sourceforge.net/js-comint-el/js-comint.el"))
- (js3-mode status "installed" recipe
+ (js3-mode status "required" recipe
            (:name js3-mode :type git :url "git://github.com/thomblake/js3-mode.git" :feature js3-mode))
- (json status "installed" recipe
+ (json status "required" recipe
        (:name json :description "JavaScript Object Notation parser / generator" :type http :url "http://edward.oconnor.cx/elisp/json.el" :features json))
- (lintnode status "installed" recipe
+ (lintnode status "required" recipe
            (:name lintnode :type git :url "git://github.com/davidmiller/lintnode.git" :feature lintnode :build
                   ("npm install")))
  (list-processes+ status "removed" recipe nil)
- (lua-mode status "installed" recipe
-           (:name lua-mode :description "A major mode for editing Lua scripts." :website "https://github.com/immerrr/lua-mode" :description "A major mode for editing Lua scripts." :type git :url "https://github.com/immerrr/lua-mode"))
- (magit status "installed" recipe
+ (lua-mode status "required" recipe
+           (:name lua-mode :description "A major-mode for editing Lua scripts" :website "https://github.com/immerrr/lua-mode" :description "A major mode for editing Lua scripts." :type git :url "https://github.com/immerrr/lua-mode"))
+ (magit status "required" recipe
         (:name magit :website "https://github.com/magit/magit#readme" :description "It's Magit! An Emacs mode for Git." :type github :pkgname "magit/magit" :info "." :autoloads
                ("50magit")
                :build
@@ -195,16 +191,16 @@
                :build/darwin
                `(,(concat "make EMACS=" el-get-emacs " all"))))
  (mark-multiple status "removed" recipe nil)
- (markdown-mode status "installed" recipe
+ (markdown-mode status "required" recipe
                 (:name markdown-mode :description "Major mode to edit Markdown files in Emacs" :type git :url "git://jblevins.org/git/markdown-mode.git" :post-init
                        (add-to-list 'auto-mode-alist
                                     '("\\.\\(md\\|mdown\\|markdown\\)\\'" . markdown-mode))))
- (mode-compile status "installed" recipe
+ (mode-compile status "required" recipe
                (:name mode-compile :description "Smart command for compiling files according to major-mode." :type http :url "http://perso.tls.cena.fr/boubaker/distrib/mode-compile.el" :load-path
                       (".")))
- (multiple-cursors status "installed" recipe
+ (multiple-cursors status "required" recipe
                    (:name multiple-cursors :description "An experiment in adding multiple cursors to emacs" :type github :pkgname "magnars/multiple-cursors.el" :features multiple-cursors))
- (nognus status "installed" recipe
+ (nognus status "required" recipe
          (:name nognus :description "A newsreader for GNU Emacs" :type git :url "http://git.gnus.org/gnus.git" :build
                 `(("./configure" ,(concat "--with-emacs="
                                           (shell-quote-argument el-get-emacs)))
@@ -219,9 +215,9 @@
                 (list
                  (concat el-get-emacs " -batch -q -no-site-file -L . -l nxhtmlmaint.el -f nxhtmlmaint-start-byte-compilation"))
                 :load "autostart.el"))
- (oauth2 status "installed" recipe
+ (oauth2 status "required" recipe
          (:name oauth2 :description "OAuth 2.0 Authorization Protocol" :type elpa))
- (org-mode status "installed" recipe
+ (org-mode status "required" recipe
            (:name org-mode :website "http://orgmode.org/" :description "Org-mode is for keeping notes, maintaining ToDo lists, doing project planning, and authoring with a fast and effective plain-text system." :type git :url "git://orgmode.org/org-mode.git" :info "doc" :build/berkeley-unix `,(mapcar
                                                                                                                                                                                                                                                                                                        (lambda
                                                                                                                                                                                                                                                                                                          (target)
@@ -267,29 +263,29 @@
                            :features php-mode))
  (popup status "installed" recipe
         (:name popup :website "https://github.com/m2ym/popup-el" :description "Visual Popup Interface Library for Emacs" :type github :pkgname "auto-complete/popup-el"))
- (powerline status "installed" recipe
+ (powerline status "required" recipe
             (:name powerline :website "https://github.com/jonathanchu/emacs-powerline" :description "Powerline for Emacs" :type github :pkgname "jonathanchu/emacs-powerline" :features powerline))
- (profile-dotemacs status "installed" recipe
+ (profile-dotemacs status "required" recipe
                    (:name profile-dotemacs :type http :url "http://www.randomsample.de/profile-dotemacs.el" :description "profiles your .emacs" :autoloads t))
- (projectile status "installed" recipe
+ (projectile status "required" recipe
              (:name projectile :description "Project navigation and management library for Emacs" :type github :pkgname "bbatsov/projectile" :depends s :features projectile))
- (puppet-mode status "installed" recipe
+ (puppet-mode status "required" recipe
               (:name puppet-mode :description "A simple mode for editing puppet manifests" :type http :url "https://raw.github.com/puppetlabs/puppet/master/ext/emacs/puppet-mode.el" :prepare
                      (progn
                        (autoload 'puppet-mode "puppet-mode" "Major mode for editing puppet manifests" t)
                        (add-to-list 'auto-mode-alist
                                     '("\\.pp$" . puppet-mode)))))
- (python status "installed" recipe
+ (python status "required" recipe
          (:name python :description "Python's flying circus support for Emacs" :type github :pkgname "fgallina/python.el"))
- (rainbow-mode status "installed" recipe
+ (rainbow-mode status "required" recipe
                (:name rainbow-mode :description "Colorize color names in buffers" :type elpa))
- (rhtml-mode status "installed" recipe
+ (rhtml-mode status "required" recipe
              (:name rhtml-mode :description "Major mode for editing RHTML files" :type github :pkgname "eschulte/rhtml" :prepare
                     (progn
                       (autoload 'rhtml-mode "rhtml-mode" nil t)
                       (add-to-list 'auto-mode-alist
                                    '("\\.html.erb$" . rhtml-mode)))))
- (rinari status "installed" recipe
+ (rinari status "required" recipe
          (:name rinari :description "Rinari Is Not A Rails IDE" :type github :pkgname "eschulte/rinari" :load-path
                 ("." "util" "util/jump")
                 :compile
@@ -297,19 +293,19 @@
                 :build
                 ("rake doc:install_info")
                 :info "doc" :features rinari))
- (rspec-mode status "installed" recipe
+ (rspec-mode status "required" recipe
              (:name rspec-mode :description "Enhance ruby-mode for RSpec" :type github :pkgname "pezra/rspec-mode" :features rspec-mode))
- (ruby-compilation status "installed" recipe
+ (ruby-compilation status "required" recipe
                    (:name ruby-compilation :description "Run a ruby process in a compilation buffer" :type elpa))
  (ruby-electric status "removed" recipe nil)
- (ruby-end status "installed" recipe
+ (ruby-end status "required" recipe
            (:name ruby-end :description "Emacs minor mode for automatic insertion of end blocks for Ruby" :type http :url "https://github.com/rejeep/ruby-end/raw/master/ruby-end.el" :features ruby-end))
- (ruby-mode status "installed" recipe
+ (ruby-mode status "required" recipe
             (:name ruby-mode :description "Major mode for editing Ruby files. RubyMode provides font-locking, indentation support, and navigation for Ruby code." :type elpa))
- (ruby-test-mode status "installed" recipe
+ (ruby-test-mode status "required" recipe
                  (:name ruby-test-mode :type github :pkgname "r0man/ruby-test-mode" :description "Emacs minor mode for Behaviour and Test Driven Development in Ruby" :load "ruby-test-mode.el" :compile
                         ("ruby-test-mode.el")))
- (s status "installed" recipe
+ (s status "required" recipe
     (:name s :description "The long lost Emacs string manipulation library." :type github :pkgname "magnars/s.el" :features s))
  (sass-mode status "installed" recipe
             (:name sass-mode :description "Major mode for editing Sass files" :type github :pkgname "nex3/sass-mode" :depends haml-mode :post-init
@@ -321,7 +317,7 @@
                     :load-path
                     (".")
                     :features scala-mode-auto))
- (slime status "installed" recipe
+ (slime status "required" recipe
         (:name slime :description "Superior Lisp Interaction Mode for Emacs" :type github :features slime-autoloads :info "doc" :pkgname "nablaone/slime" :load-path
                ("." "contrib")
                :compile
@@ -330,33 +326,33 @@
                ("make -C doc slime.info")
                :post-init
                (slime-setup)))
- (smex status "installed" recipe
+ (smex status "required" recipe
        (:name smex :description "M-x interface with Ido-style fuzzy matching." :type github :pkgname "nonsequitur/smex" :features smex :post-init
               (smex-initialize)))
- (swank-js status "installed" recipe
+ (swank-js status "required" recipe
            (:name swank-js :description "SLIME REPL and other development tools for in-browser JavaScript and Node.JS" :website "https://github.com/fukamachi/swank-js" :type github :pkgname "fukamachi/swank-js" :features nil))
- (undo-tree status "installed" recipe
+ (undo-tree status "required" recipe
             (:name undo-tree :description "Treat undo history as a tree" :type git :url "http://www.dr-qubit.org/git/undo-tree.git" :prepare
                    (progn
                      (autoload 'undo-tree-mode "undo-tree.el" "Undo tree mode; see undo-tree.el for details" t)
                      (autoload 'global-undo-tree-mode "undo-tree.el" "Global undo tree mode" t))))
  (websocket status "installed" recipe
             (:name websocket :description "A websocket implementation in elisp, for emacs." :type github :pkgname "ahyatt/emacs-websocket"))
- (wrap-region status "installed" recipe
+ (wrap-region status "required" recipe
               (:name wrap-region :description "Wrap text with punctation or tag" :type elpa :prepare
                      (progn
                        (autoload 'wrap-region-mode "wrap-region" nil t)
                        (autoload 'turn-on-wrap-region-mode "wrap-region" nil t)
                        (autoload 'turn-off-wrap-region-mode "wrap-region" nil t)
                        (autoload 'wrap-region-global-mode "wrap-region" nil t))))
- (yaml-mode status "installed" recipe
+ (yaml-mode status "required" recipe
             (:name yaml-mode :description "Simple major mode to edit YAML file for emacs" :type github :pkgname "yoshiki/yaml-mode" :prepare
                    (progn
                      (autoload 'yaml-mode "yaml-mode" nil t)
                      (add-to-list 'auto-mode-alist
                                   '("\\.ya?ml\\'" . yaml-mode)))))
  (yasnippet status "removed" recipe nil)
- (yasnippet-update status "installed" recipe
+ (yasnippet-update status "required" recipe
                    (:name yasnippet-update :type git :url "https://github.com/dax/yasnippet" :branch "0.6" :features "yasnippet" :prepare
                           (progn
                             (unless
@@ -377,6 +373,6 @@
                                          (concat el-get-dir
                                                  (file-name-as-directory "yasnippet")
                                                  "snippets"))))))))
- (zenburn-theme status "installed" recipe
+ (zenburn-theme status "required" recipe
                 (:name zenburn-theme :description "Zenburn theme for Emacs" :type http :url "https://raw.github.com/djcb/elisp/master/themes/zenburn-theme.el" :post-init
                        (add-to-list 'custom-theme-load-path default-directory))))
