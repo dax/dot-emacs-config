@@ -1,6 +1,6 @@
 (require 'ensime)
 
-(setq ensime-default-server-root (concat packages-dir "ensime/dist_2.9.2"))
+(setq ensime-default-server-root (concat packages-dir "ensime/dist_2.10.0-RC3"))
 (require 'scala-mode-auto)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
