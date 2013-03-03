@@ -2,3 +2,7 @@ tmp
 packages
 *.elc
 srecode-map.el
+/url/cookies
+/tramp
+/request/curl-cookie-jar
+/.mc-lists.el
