@@ -1,6 +1,5 @@
 (autoload 'js3-mode "js3" nil t)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js3-mode))
-(add-to-list 'auto-mode-alist '("\\.json\\'" . js3-mode))
 
 (setq js3-auto-indent-p t)
 (setq js3-consistent-level-indent-inner-bracket t)

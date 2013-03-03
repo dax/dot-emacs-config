@@ -6,6 +6,7 @@
 (setq el-get-recipe-path (list
                           (concat config-dir "recipes/")
                           (concat packages-dir "el-get/recipes/")
+                          (concat packages-dir "el-get/recipes/elpa")
                           ))
 (setq el-get-user-package-directory config-dir)
 
