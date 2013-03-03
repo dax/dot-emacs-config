@@ -1,6 +1,8 @@
 ;; Python
 (autoload 'python "python")
 
+(global-set-key (kbd "C-c t") 'py-shell)
+
 (eval-after-load "python"
   '(progn
      (print "Loading python-mode config")
