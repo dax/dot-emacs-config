@@ -210,4 +210,9 @@ Including indent-buffer, which should not be called automatically on save."
 
 (global-set-key (kbd "C-x C-k") 'delete-current-buffer-file)
 
+(global-set-key (kbd "M-j")
+                (lambda ()
+                  (interactive)
+                  (join-line -1)))
+
 (provide 'init-keys)
