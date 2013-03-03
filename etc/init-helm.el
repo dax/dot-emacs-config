@@ -1,5 +1,6 @@
 (require 'helm-config)
-;; (helm-mode 1)
+
+(helm-mode 1)
 ;; (helm-dired-mode 1)
 
 (autoload 'helm-do-grep-1 "helm")

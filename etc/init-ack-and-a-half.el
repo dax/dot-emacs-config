@@ -5,7 +5,9 @@
 (defalias 'ack-find-file 'ack-and-a-half-find-file)
 (defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
 
-(global-set-key (kbd "C-x f") 'ack-and-a-half-find-file)
+;; (global-set-key (kbd "C-x f") 'ack-and-a-half-find-file)
 ;; (global-set-key (kbd "C-x g") 'ack-and-a-half)
+
+(setq ack-and-a-half-executable "/usr/bin/ack-grep")
 
 (provide 'init-ack-and-a-half)
