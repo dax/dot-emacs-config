@@ -1,0 +1,5 @@
+(:name smart-forward
+       :auto-generated t
+       :type elpa
+       :depends (expand-region)
+       :description "Semantic navigatioin")

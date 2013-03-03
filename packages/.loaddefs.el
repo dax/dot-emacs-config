@@ -147,18 +147,6 @@ Key bindings:
 
 ;;;***
 
-;;;### (autoloads (anything-ack) "anything-ack/anything-ack" "anything-ack/anything-ack.el"
-;;;;;;  (20786 39328 820830 588000))
-;;; Generated autoloads from anything-ack/anything-ack.el
-
-(autoload 'anything-ack "anything-ack/anything-ack" "\
-Run ack in `anything' buffer to narrow results.
-It asks COMMAND for ack command line and PWD for current directory.
-
-\(fn COMMAND PWD)" t nil)
-
-;;;***
-
 ;;;### (autoloads (anything-other-buffer anything-at-point anything)
 ;;;;;;  "anything/anything" "anything/anything.el" (20786 39337 921161
 ;;;;;;  25000))
@@ -4007,7 +3995,7 @@ Popup a menu of functions to run on selected string or region.
 ;;;***
 
 ;;;### (autoloads (er/expand-region) "expand-region/expand-region"
-;;;;;;  "expand-region/expand-region.el" (20723 11672 432443 809000))
+;;;;;;  "expand-region/expand-region.el" (20787 28985 463562 257000))
 ;;; Generated autoloads from expand-region/expand-region.el
 
 (autoload 'er/expand-region "expand-region/expand-region" "\
@@ -4027,7 +4015,7 @@ before calling `er/expand-region' for the first time.
 ;;;;;;  expand-region-skip-whitespace expand-region-autocopy-register
 ;;;;;;  expand-region-guess-python-mode expand-region-preferred-python-mode
 ;;;;;;  expand-region) "expand-region/expand-region-custom" "expand-region/expand-region-custom.el"
-;;;;;;  (20723 11672 432443 809000))
+;;;;;;  (20787 28985 463562 257000))
 ;;; Generated autoloads from expand-region/expand-region-custom.el
 
 (let ((loads (get 'expand-region 'custom-loads))) (if (member '"expand-region/expand-region-custom" loads) nil (put 'expand-region 'custom-loads (cons '"expand-region/expand-region-custom" loads))))
@@ -11877,9 +11865,21 @@ See `yas/minor-mode' for more information on Yas/Minor mode.
 ;;;;;;  "anything/contrib/anything-multi-sources.el" "anything/contrib/anything-startup.el"
 ;;;;;;  "anything/extensions/anything-complete.el" "anything/extensions/anything-gtags.el"
 ;;;;;;  "anything/extensions/anything-obsolete.el" "anything/extensions/anything-show-completion.el"
-;;;;;;  "wgrep-ack/wgrep-ack-autoloads.el" "wgrep-ack/wgrep-ack-pkg.el"
-;;;;;;  "wgrep-helm/wgrep-helm-autoloads.el" "wgrep-helm/wgrep-helm-pkg.el")
-;;;;;;  (20787 26111 17666 567000))
+;;;;;;  "expand-region/cc-mode-expansions.el" "expand-region/clojure-mode-expansions.el"
+;;;;;;  "expand-region/cperl-mode-expansions.el" "expand-region/css-mode-expansions.el"
+;;;;;;  "expand-region/erlang-mode-expansions.el" "expand-region/expand-region-core.el"
+;;;;;;  "expand-region/expand-region-pkg.el" "expand-region/feature-mode-expansions.el"
+;;;;;;  "expand-region/html-mode-expansions.el" "expand-region/js-mode-expansions.el"
+;;;;;;  "expand-region/js2-mode-expansions.el" "expand-region/jsp-expansions.el"
+;;;;;;  "expand-region/latex-mode-expansions.el" "expand-region/nxml-mode-expansions.el"
+;;;;;;  "expand-region/octave-expansions.el" "expand-region/org-mode-expansions.el"
+;;;;;;  "expand-region/python-el-expansions.el" "expand-region/python-el-fgallina-expansions.el"
+;;;;;;  "expand-region/python-mode-expansions.el" "expand-region/ruby-mode-expansions.el"
+;;;;;;  "expand-region/text-mode-expansions.el" "expand-region/web-mode-expansions.el"
+;;;;;;  "smart-forward/smart-forward-autoloads.el" "smart-forward/smart-forward-pkg.el"
+;;;;;;  "smart-forward/smart-forward.el" "wgrep-ack/wgrep-ack-autoloads.el"
+;;;;;;  "wgrep-ack/wgrep-ack-pkg.el" "wgrep-helm/wgrep-helm-autoloads.el"
+;;;;;;  "wgrep-helm/wgrep-helm-pkg.el") (20787 29000 408670 67000))
 
 ;;;***
 

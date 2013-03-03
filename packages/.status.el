@@ -357,7 +357,9 @@
                :post-init
                (slime-setup)))
  (smart-forward status "installed" recipe
-                (:name smart-forward :auto-generated t :type elpa :description "Semantic navigatioin"))
+                (:name smart-forward :auto-generated t :type elpa :depends
+                       (expand-region)
+                       :description "Semantic navigatioin"))
  (smex status "installed" recipe
        (:name smex :description "M-x interface with Ido-style fuzzy matching." :type github :pkgname "nonsequitur/smex" :features smex :post-init
               (smex-initialize)))
