@@ -51,7 +51,7 @@
      (font-lock-warning-face ((t (:bold t :foreground "Pink" :weight bold))))
      (fringe ((t (:background "grey10"))))
      (header-line ((t (:box (:line-width -1 :style released-button) :background "grey20" :foreground "grey90" :box nil))))
-     (highlight ((t (:background "darkolivegreen"))))
+     (highlight ((t (:background "#333"))))
      (isearch ((t (:background "palevioletred2" :foreground "brown4"))))
      (isearch-fail ((t (:background "red4"))))
      (iswitchb-current-match ((t (:foreground "#cae682"))))

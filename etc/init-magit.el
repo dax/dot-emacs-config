@@ -29,4 +29,9 @@
   (jump-to-register :magit-fullscreen))
 
 (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
+
+(setq magit-diff-refine-hunk 'all)
+(custom-set-faces
+ '(magit-item-highlight ((t nil))))
+
 (provide 'init-magit)
