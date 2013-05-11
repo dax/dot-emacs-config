@@ -12,7 +12,7 @@ if platform?("debian")
   end
   file "/etc/apt/sources.list.d/emacs-snapshot.list" do
     content "deb http://emacs.naquadah.org/ unstable/"
-    notifies :run, "execute[Update APT]" 
+    notifies :run, "execute[Update APT]"
   end
   execute "install emacs-snapshot APT key" do
     command "wget -q http://emacs.naquadah.org/key.gpg -O - | apt-key add -"
@@ -27,4 +27,4 @@ else
   package "texlive-core"
   package "sbt"
 end
-package "ctags"
+package "exuberant-ctags"

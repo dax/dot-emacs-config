@@ -6,9 +6,8 @@ directory "#{ENV['HOME']}/.profile.d" do
   action :create
 end
 
-cookbook_file "#{ENV['HOME']}/.profile.d/S50emacs" do
-  source "S50emacs"
-  backup false
+link "#{ENV['HOME']}/.profile.d/S50emacs" do
+  to "#{ENV['PWD']}/cookbooks/dot-emacs-config/files/default/S50emacs"
 end
 
 directory "#{ENV['HOME']}/local/stow/sbt/lib" do
