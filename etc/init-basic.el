@@ -82,6 +82,8 @@
 (setq version-control t)
 (setq visible-bell t)
 (winner-mode 1)
+(electric-indent-mode +1)
+(electric-pair-mode +1)
 
 (if (file-exists-p (concat config-dir "config-perso.el"))
     (require 'config-perso))
@@ -127,5 +129,7 @@
 (put 'ido-exit-minibuffer 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+(set-default 'tramp-default-proxies-alist (quote ((".*" "root" "/ssh:%h:"))))
+(setq tramp-default-method "ssh")
 
 (provide 'init-basic)

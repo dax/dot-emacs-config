@@ -31,6 +31,9 @@
 (global-set-key "\C-cg" 'goto-line)
 (global-set-key [(control c) (control r)] 'revert-buffer)
 
+(global-set-key (kbd "C-+") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
+
 (defun open-line-below ()
   (interactive)
   (if (eolp)
