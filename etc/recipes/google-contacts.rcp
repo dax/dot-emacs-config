@@ -1,4 +1,0 @@
-(:name google-contacts
-       :type git
-       :url "git://git.naquadah.org/google-contacts.el.git"
-       :feature google-contacts)

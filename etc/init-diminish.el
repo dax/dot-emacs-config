@@ -13,11 +13,6 @@
      (diminish 'visual-line-mode)
      ))
 
-(eval-after-load "yasnippet"
-  '(progn
-     (diminish 'yas/minor-mode)
-     ))
-
 (eval-after-load "undo-tree"
   '(progn
      (diminish 'undo-tree-mode)

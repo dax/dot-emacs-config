@@ -9,4 +9,8 @@
 (setq js3-indent-on-enter-key t)
 (setq js3-indent-tabs-mode nil)
 
+(add-hook 'js3-mode-hook
+          '(lambda ()
+             (yas-minor-mode)))
+
 (provide 'init-js3-mode)

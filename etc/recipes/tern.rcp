@@ -1,0 +1,9 @@
+(:name tern
+       :description "Tern JS"
+       :website "https://github.com/marijnh/tern"
+       :type github
+       :pkgname "marijnh/tern"
+       :build ("npm install")
+       :load-path ("emacs")
+       :submodule nil
+       :post-init (autoload 'tern-mode "tern.el" nil t))

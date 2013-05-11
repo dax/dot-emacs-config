@@ -1,3 +1,0 @@
-(:name groovy-mode
-       :type bzr
-       :url "lp:groovy-emacs-mode")

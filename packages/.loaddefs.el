@@ -3,8 +3,132 @@
 ;;; Code:
 
 
+;;;### (autoloads (grails-mode) "Emacs-Groovy-Mode/grails-mode" "Emacs-Groovy-Mode/grails-mode.el"
+;;;;;;  (20878 23819 72784 724000))
+;;; Generated autoloads from Emacs-Groovy-Mode/grails-mode.el
+
+(autoload 'grails-mode "Emacs-Groovy-Mode/grails-mode" "\
+Grails Minor Mode.
+     With no argument, this command toggles the mode.
+     Non-null prefix argument turns on the mode.
+     Null prefix argument turns off the mode.
+
+     When Grails mode is enabled, several keys are enabled that
+     will allow navigation around a typical grails project.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads (groovy-electric-mode) "Emacs-Groovy-Mode/groovy-electric"
+;;;;;;  "Emacs-Groovy-Mode/groovy-electric.el" (20878 23819 72784
+;;;;;;  724000))
+;;; Generated autoloads from Emacs-Groovy-Mode/groovy-electric.el
+
+(autoload 'groovy-electric-mode "Emacs-Groovy-Mode/groovy-electric" "\
+Toggle Groovy Electric minor mode.
+With no argument, this command toggles the mode.  Non-null prefix
+argument turns on the mode.  Null prefix argument turns off the
+mode.
+
+When Groovy Electric mode is enabled, simple, double and back
+quotes as well as braces are paired auto-magically. Expansion
+does not occur inside comments and strings. Note that you must
+have Font Lock enabled. ${ } is expanded when in a GString
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads (groovy-mode groovy-mode-hook) "Emacs-Groovy-Mode/groovy-mode"
+;;;;;;  "Emacs-Groovy-Mode/groovy-mode.el" (20878 23819 72784 724000))
+;;; Generated autoloads from Emacs-Groovy-Mode/groovy-mode.el
+
+(add-to-list 'auto-mode-alist '("\\.groovy$" . groovy-mode))
+
+(defvar groovy-mode-hook nil "\
+*Hook called by `groovy-mode'.")
+
+(custom-autoload 'groovy-mode-hook "Emacs-Groovy-Mode/groovy-mode" t)
+
+(autoload 'groovy-mode "Emacs-Groovy-Mode/groovy-mode" "\
+Major mode for editing Groovy code.
+
+The hook `c-mode-common-hook' is run with no args at mode
+initialization, then `groovy-mode-hook'.
+
+Key bindings:
+\\{groovy-mode-map}
+
+\(fn)" t nil)
+
+(add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
+
+;;;***
+
+;;;### (autoloads (run-groovy inferior-groovy-mode inf-groovy-keys)
+;;;;;;  "Emacs-Groovy-Mode/inf-groovy" "Emacs-Groovy-Mode/inf-groovy.el"
+;;;;;;  (20878 23819 72784 724000))
+;;; Generated autoloads from Emacs-Groovy-Mode/inf-groovy.el
+
+(autoload 'inf-groovy-keys "Emacs-Groovy-Mode/inf-groovy" "\
+Set local key defs for inf-groovy in groovy-mode
+
+\(fn)" nil nil)
+
+(autoload 'inferior-groovy-mode "Emacs-Groovy-Mode/inf-groovy" "\
+Major mode for interacting with an inferior groovy (groovysh) process.
+
+The following commands are available:
+\\{inferior-groovy-mode-map}
+
+A groovy process can be fired up with M-x run-groovy.
+
+Customisation: Entry to this mode runs the hooks on comint-mode-hook and
+inferior-groovy-mode-hook (in that order).
+
+You can send text to the inferior groovy process from other buffers containing
+Groovy source.
+    switch-to-groovy switches the current buffer to the groovy process buffer.
+    groovy-send-definition sends the current definition to the groovy process.
+    groovy-send-region sends the current region to the groovy process.
+
+    groovy-send-definition-and-go, groovy-send-region-and-go,
+        switch to the groovy process buffer after sending their text.
+For information on running multiple processes in multiple buffers, see
+documentation for variable groovy-buffer.
+
+Commands:
+Return after the end of the process' output sends the text from the
+    end of process to point.
+Return before the end of the process' output copies the sexp ending at point
+    to the end of the process' output, and sends it.
+Delete converts tabs to spaces as it moves back.
+Tab indents for groovy; with argument, shifts rest
+    of expression rigidly with the current line.
+C-M-q does Tab on each line starting within following expression.
+Paragraphs are separated only by blank lines.  # start comments.
+If you accidentally suspend your process, use \\[comint-continue-subjob]
+to continue it.
+
+\(fn)" t nil)
+
+(autoload 'run-groovy "Emacs-Groovy-Mode/inf-groovy" "\
+Run an inferior Groovy process, input and output via buffer *groovy*.
+If there is a process already running in `*groovy*', switch to that buffer.
+With argument, allows you to edit the command line (default is value
+of `groovy-program-name').  Runs the hooks `inferior-groovy-mode-hook'
+\(after the `comint-mode-hook' is run).
+\(Type \\[describe-mode] in the process buffer for a list of commands.)
+
+\(fn CMD)" t nil)
+
+(eval-after-load 'groovy-mode (add-hook 'groovy-mode-hook 'inf-groovy-keys))
+
+;;;***
+
 ;;;### (autoloads (set-up-slime-ac) "ac-slime/ac-slime" "ac-slime/ac-slime.el"
-;;;;;;  (20722 65106 181910 366000))
+;;;;;;  (20878 23069 475113 705000))
 ;;; Generated autoloads from ac-slime/ac-slime.el
 
 (defface ac-slime-menu-face '((t (:inherit ac-candidate-face))) "\
@@ -82,7 +206,7 @@ You can constrol whether use the case sensitive via
 
 ;;;### (autoloads (ack-and-a-half-find-file-same ack-and-a-half-find-file
 ;;;;;;  ack-and-a-half-same ack-and-a-half) "ack-and-a-half/ack-and-a-half"
-;;;;;;  "ack-and-a-half/ack-and-a-half.el" (20786 40026 914381 768000))
+;;;;;;  "ack-and-a-half/ack-and-a-half.el" (20878 23071 359187 953000))
 ;;; Generated autoloads from ack-and-a-half/ack-and-a-half.el
 
 (autoload 'ack-and-a-half "ack-and-a-half/ack-and-a-half" "\
@@ -126,8 +250,8 @@ Prompt to find a file found by ack in DIRECTORY.
 ;;;***
 
 ;;;### (autoloads (actionscript-mode) "actionscript-mode/actionscript-mode-connors"
-;;;;;;  "actionscript-mode/actionscript-mode-connors.el" (20722 65112
-;;;;;;  302147 42000))
+;;;;;;  "actionscript-mode/actionscript-mode-connors.el" (20878 29146
+;;;;;;  285387 269000))
 ;;; Generated autoloads from actionscript-mode/actionscript-mode-connors.el
 
 (add-to-list 'auto-mode-alist '("\\.as\\'" . actionscript-mode))
@@ -148,8 +272,8 @@ Key bindings:
 ;;;***
 
 ;;;### (autoloads (anything-other-buffer anything-at-point anything)
-;;;;;;  "anything/anything" "anything/anything.el" (20786 39337 921161
-;;;;;;  25000))
+;;;;;;  "anything/anything" "anything/anything.el" (20878 23071 391189
+;;;;;;  214000))
 ;;; Generated autoloads from anything/anything.el
 
 (autoload 'anything "anything/anything" "\
@@ -301,7 +425,7 @@ Call `anything' with only ANY-SOURCES and ANY-BUFFER as args.
 ;;;;;;  anything-grep-help anything-generic-file-help anything-read-file-name-help
 ;;;;;;  anything-ff-help anything-c-buffer-help anything-configuration)
 ;;;;;;  "anything/anything-config" "anything/anything-config.el"
-;;;;;;  (20786 39337 917160 880000))
+;;;;;;  (20878 23071 387189 57000))
 ;;; Generated autoloads from anything/anything-config.el
 
 (autoload 'anything-configuration "anything/anything-config" "\
@@ -820,8 +944,8 @@ Preconfigured `anything' for w3m bookmark.
 
 Needs w3m and emacs-w3m.
 
-http://w3m.sourceforge.net/
-http://emacs-w3m.namazu.org/
+w3m: http://w3m.sourceforge.net/
+emacs-w3m: http://emacs-w3m.namazu.org/
 
 \(fn)" t nil)
 
@@ -1195,9 +1319,2290 @@ i.e anything-match-plugin.
 
 ;;;***
 
+;;;### (autoloads (ctags-update-minor-mode ctags-update) "ctags-update/ctags-update"
+;;;;;;  "ctags-update/ctags-update.el" (20875 41137 144518 389000))
+;;; Generated autoloads from ctags-update/ctags-update.el
+
+(autoload 'ctags-update "ctags-update/ctags-update" "\
+update TAGS in parent directory using `exuberant-ctags' you
+can call this function directly , or enable
+`ctags-update-minor-mode' or with prefix `C-u' then you can
+generate a new TAGS file in directory
+
+\(fn &optional ARGS)" t nil)
+
+(autoload 'ctags-update-minor-mode "ctags-update/ctags-update" "\
+auto update TAGS using `exuberant-ctags' in parent directory.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads (deft deft-new-file) "deft/deft" "deft/deft.el"
+;;;;;;  (20878 29188 982847 7000))
+;;; Generated autoloads from deft/deft.el
+
+(autoload 'deft-new-file "deft/deft" "\
+Create a new file quickly.
+Use either an automatically generated filename or the filter
+string if non-nil and `deft-use-filename-as-title' is set.  If the
+filter string is non-nil and title is not from filename, use it
+as the title.
+
+\(fn)" t nil)
+
+(autoload 'deft "deft/deft" "\
+Switch to *Deft* buffer and load files.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (gretl gretl-mode) "ess/lisp/ess-gretl" "ess/lisp/ess-gretl.el"
+;;;;;;  (20878 23131 781570 18000))
+;;; Generated autoloads from ess/lisp/ess-gretl.el
+
+(autoload 'gretl-mode "ess/lisp/ess-gretl" "\
+Major mode for editing gretl source.  See `ess-mode' for more help.
+
+\(fn &optional PROC-NAME)" t nil)
+
+(autoload 'gretl "ess/lisp/ess-gretl" "\
+Call 'gretl',
+Optional prefix (C-u) allows to set command line arguments, such as
+--vsize.  This should be OS agnostic.
+If you have certain command line arguments that should always be passed
+to gretl, put them in the variable `inferior-gretl-args'.
+
+\(fn &optional START-ARGS)" t nil)
+
+;;;***
+
+;;;### (autoloads (er/expand-region) "expand-region/expand-region"
+;;;;;;  "expand-region/expand-region.el" (20878 23132 305590 685000))
+;;; Generated autoloads from expand-region/expand-region.el
+
+(autoload 'er/expand-region "expand-region/expand-region" "\
+Increase selected region by semantic units.
+
+With prefix argument expands the region that many times.
+If prefix argument is negative calls `er/contract-region'.
+If prefix argument is 0 it resets point and mark to their state
+before calling `er/expand-region' for the first time.
+
+\(fn ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads (expand-region-exclude-text-mode-expansions expand-region-reset-fast-key
+;;;;;;  expand-region-contract-fast-key expand-region-fast-keys-enabled
+;;;;;;  expand-region-skip-whitespace expand-region-autocopy-register
+;;;;;;  expand-region-guess-python-mode expand-region-preferred-python-mode
+;;;;;;  expand-region) "expand-region/expand-region-custom" "expand-region/expand-region-custom.el"
+;;;;;;  (20878 23132 305590 685000))
+;;; Generated autoloads from expand-region/expand-region-custom.el
+
+(let ((loads (get 'expand-region 'custom-loads))) (if (member '"expand-region/expand-region-custom" loads) nil (put 'expand-region 'custom-loads (cons '"expand-region/expand-region-custom" loads))))
+
+(defvar expand-region-preferred-python-mode 'python "\
+The name of your preferred python mode")
+
+(custom-autoload 'expand-region-preferred-python-mode "expand-region/expand-region-custom" t)
+
+(defvar expand-region-guess-python-mode t "\
+If expand-region should attempt to guess your preferred python mode")
+
+(custom-autoload 'expand-region-guess-python-mode "expand-region/expand-region-custom" t)
+
+(defvar expand-region-autocopy-register "" "\
+If set to a string of a single character (try \"e\"), then the
+contents of the most recent expand or contract command will
+always be copied to the register named after that character.")
+
+(custom-autoload 'expand-region-autocopy-register "expand-region/expand-region-custom" t)
+
+(defvar expand-region-skip-whitespace t "\
+If expand-region should skip past whitespace on initial expansion")
+
+(custom-autoload 'expand-region-skip-whitespace "expand-region/expand-region-custom" t)
+
+(defvar expand-region-fast-keys-enabled t "\
+If expand-region should bind fast keys after initial expand/contract")
+
+(custom-autoload 'expand-region-fast-keys-enabled "expand-region/expand-region-custom" t)
+
+(defvar expand-region-contract-fast-key "-" "\
+Key to use after an initial expand/contract to contract once more.")
+
+(custom-autoload 'expand-region-contract-fast-key "expand-region/expand-region-custom" t)
+
+(defvar expand-region-reset-fast-key "0" "\
+Key to use after an initial expand/contract to undo.")
+
+(custom-autoload 'expand-region-reset-fast-key "expand-region/expand-region-custom" t)
+
+(defvar expand-region-exclude-text-mode-expansions '(html-mode nxml-mode) "\
+List of modes which derive from `text-mode' for which text mode expansions are not appropriate.")
+
+(custom-autoload 'expand-region-exclude-text-mode-expansions "expand-region/expand-region-custom" t)
+
+;;;***
+
+;;;### (autoloads (git-reblame git-blame-mode) "git-emacs/git-blame"
+;;;;;;  "git-emacs/git-blame.el" (20819 6711 854590 110000))
+;;; Generated autoloads from git-emacs/git-blame.el
+
+(autoload 'git-blame-mode "git-emacs/git-blame" "\
+Toggle minor mode for displaying Git blame
+
+With prefix ARG, turn the mode on if ARG is positive.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'git-reblame "git-emacs/git-blame" "\
+Recalculate all blame information in the current buffer
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (git-gutter:toggle git-gutter:clear git-gutter
+;;;;;;  git-gutter:previous-hunk git-gutter:next-hunk git-gutter:popup-hunk
+;;;;;;  git-gutter:revert-hunk global-git-gutter-mode git-gutter-mode)
+;;;;;;  "git-gutter/git-gutter" "git-gutter/git-gutter.el" (20878
+;;;;;;  23135 749726 519000))
+;;; Generated autoloads from git-gutter/git-gutter.el
+
+(autoload 'git-gutter-mode "git-gutter/git-gutter" "\
+Git-Gutter mode
+
+\(fn &optional ARG)" t nil)
+
+(defvar global-git-gutter-mode nil "\
+Non-nil if Global-Git-Gutter mode is enabled.
+See the command `global-git-gutter-mode' for a description of this minor mode.
+Setting this variable directly does not take effect;
+either customize it (see the info node `Easy Customization')
+or call the function `global-git-gutter-mode'.")
+
+(custom-autoload 'global-git-gutter-mode "git-gutter/git-gutter" nil)
+
+(autoload 'global-git-gutter-mode "git-gutter/git-gutter" "\
+Toggle Git-Gutter mode in all buffers.
+With prefix ARG, enable Global-Git-Gutter mode if ARG is positive;
+otherwise, disable it.  If called from Lisp, enable the mode if
+ARG is omitted or nil.
+
+Git-Gutter mode is enabled in all buffers where
+`(lambda nil (when (and (buffer-file-name) (not (memq major-mode git-gutter:disabled-modes))) (git-gutter-mode 1)))' would do it.
+See `git-gutter-mode' for more information on Git-Gutter mode.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'git-gutter:revert-hunk "git-gutter/git-gutter" "\
+Revert current hunk.
+
+\(fn)" t nil)
+
+(autoload 'git-gutter:popup-hunk "git-gutter/git-gutter" "\
+popup current diff hunk
+
+\(fn &optional DIFFINFO)" t nil)
+
+(autoload 'git-gutter:next-hunk "git-gutter/git-gutter" "\
+Move to next diff hunk
+
+\(fn ARG)" t nil)
+
+(autoload 'git-gutter:previous-hunk "git-gutter/git-gutter" "\
+Move to previous diff hunk
+
+\(fn ARG)" t nil)
+
+(autoload 'git-gutter "git-gutter/git-gutter" "\
+Show diff information in gutter
+
+\(fn)" t nil)
+
+(autoload 'git-gutter:clear "git-gutter/git-gutter" "\
+clear diff information in gutter
+
+\(fn)" t nil)
+
+(autoload 'git-gutter:toggle "git-gutter/git-gutter" "\
+toggle to show diff information
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (assistant) "gnus/lisp/assistant" "gnus/lisp/assistant.el"
+;;;;;;  (20803 21489 464910 752000))
+;;; Generated autoloads from gnus/lisp/assistant.el
+
+(autoload 'assistant "gnus/lisp/assistant" "\
+Assist setting up Emacs based on FILE.
+
+\(fn FILE)" t nil)
+
+;;;***
+
+;;;### (autoloads (auth-source-cache-expiry) "gnus/lisp/auth-source"
+;;;;;;  "gnus/lisp/auth-source.el" (20803 21489 464910 752000))
+;;; Generated autoloads from gnus/lisp/auth-source.el
+
+(defvar auth-source-cache-expiry 7200 "\
+How many seconds passwords are cached, or nil to disable
+expiring.  Overrides `password-cache-expiry' through a
+let-binding.")
+
+(custom-autoload 'auth-source-cache-expiry "gnus/lisp/auth-source" t)
+
+;;;***
+
+;;;### (autoloads (binhex-decode-region binhex-decode-region-external
+;;;;;;  binhex-decode-region-internal) "gnus/lisp/binhex" "gnus/lisp/binhex.el"
+;;;;;;  (20803 21489 464910 752000))
+;;; Generated autoloads from gnus/lisp/binhex.el
+
+(defconst binhex-begin-line "^:...............................................................$" "\
+Regular expression matching the start of a BinHex encoded region.")
+
+(autoload 'binhex-decode-region-internal "gnus/lisp/binhex" "\
+Binhex decode region between START and END without using an external program.
+If HEADER-ONLY is non-nil only decode header and return filename.
+
+\(fn START END &optional HEADER-ONLY)" t nil)
+
+(autoload 'binhex-decode-region-external "gnus/lisp/binhex" "\
+Binhex decode region between START and END using external decoder.
+
+\(fn START END)" t nil)
+
+(autoload 'binhex-decode-region "gnus/lisp/binhex" "\
+Binhex decode region between START and END.
+
+\(fn START END)" t nil)
+
+;;;***
+
+;;;### (autoloads (canlock-verify canlock-insert-header) "gnus/lisp/canlock"
+;;;;;;  "gnus/lisp/canlock.el" (20803 21489 464910 752000))
+;;; Generated autoloads from gnus/lisp/canlock.el
+
+(autoload 'canlock-insert-header "gnus/lisp/canlock" "\
+Insert a Cancel-Key and/or a Cancel-Lock header if possible.
+
+\(fn &optional ID-FOR-KEY ID-FOR-LOCK PASSWORD)" nil nil)
+
+(autoload 'canlock-verify "gnus/lisp/canlock" "\
+Verify Cancel-Lock or Cancel-Key in BUFFER.
+If BUFFER is nil, the current buffer is assumed.  Signal an error if
+it fails.
+
+\(fn &optional BUFFER)" t nil)
+
+;;;***
+
+;;;### (autoloads (color-name-to-rgb) "gnus/lisp/color" "gnus/lisp/color.el"
+;;;;;;  (20803 21489 464910 752000))
+;;; Generated autoloads from gnus/lisp/color.el
+
+(autoload 'color-name-to-rgb "gnus/lisp/color" "\
+Convert COLOR string to a list of normalized RGB components.
+COLOR should be a color name (e.g. \"white\") or an RGB triplet
+string (e.g. \"#ff12ec\").
+
+Normally the return value is a list of three floating-point
+numbers, (RED GREEN BLUE), each between 0.0 and 1.0 inclusive.
+
+Optional argument FRAME specifies the frame where the color is to be
+displayed.  If FRAME is omitted or nil, use the selected frame.
+If FRAME cannot display COLOR, return nil.
+
+\(fn COLOR &optional FRAME)" nil nil)
+
+;;;***
+
+;;;### (autoloads (gnus-article-outlook-deuglify-article gnus-outlook-deuglify-article
+;;;;;;  gnus-article-outlook-repair-attribution gnus-article-outlook-unwrap-lines)
+;;;;;;  "gnus/lisp/deuglify" "gnus/lisp/deuglify.el" (20803 21489
+;;;;;;  464910 752000))
+;;; Generated autoloads from gnus/lisp/deuglify.el
+
+(autoload 'gnus-article-outlook-unwrap-lines "gnus/lisp/deuglify" "\
+Unwrap lines that appear to be wrapped citation lines.
+You can control what lines will be unwrapped by frobbing
+`gnus-outlook-deuglify-unwrap-min' and `gnus-outlook-deuglify-unwrap-max',
+indicating the minimum and maximum length of an unwrapped citation line.  If
+NODISPLAY is non-nil, don't redisplay the article buffer.
+
+\(fn &optional NODISPLAY)" t nil)
+
+(autoload 'gnus-article-outlook-repair-attribution "gnus/lisp/deuglify" "\
+Repair a broken attribution line.
+If NODISPLAY is non-nil, don't redisplay the article buffer.
+
+\(fn &optional NODISPLAY)" t nil)
+
+(autoload 'gnus-outlook-deuglify-article "gnus/lisp/deuglify" "\
+Full deuglify of broken Outlook (Express) articles.
+Treat dumbquotes, unwrap lines, repair attribution and rearrange citation.  If
+NODISPLAY is non-nil, don't redisplay the article buffer.
+
+\(fn &optional NODISPLAY)" t nil)
+
+(autoload 'gnus-article-outlook-deuglify-article "gnus/lisp/deuglify" "\
+Deuglify broken Outlook (Express) articles and redisplay.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (dig) "gnus/lisp/dig" "gnus/lisp/dig.el" (20803
+;;;;;;  21489 464910 752000))
+;;; Generated autoloads from gnus/lisp/dig.el
+
+(autoload 'dig "gnus/lisp/dig" "\
+Query addresses of a DOMAIN using dig, by calling `dig-invoke'.
+Optional arguments are passed to `dig-invoke'.
+
+\(fn DOMAIN &optional QUERY-TYPE QUERY-CLASS QUERY-OPTION DIG-OPTION SERVER)" t nil)
+
+;;;***
+
+;;;### (autoloads (dns-mode-soa-increment-serial dns-mode) "gnus/lisp/dns-mode"
+;;;;;;  "gnus/lisp/dns-mode.el" (20803 21489 464910 752000))
+;;; Generated autoloads from gnus/lisp/dns-mode.el
+
+(autoload 'dns-mode "gnus/lisp/dns-mode" "\
+Major mode for viewing and editing DNS master files.
+This mode is inherited from text mode.  It add syntax
+highlighting, and some commands for handling DNS master files.
+Its keymap inherits from `text-mode' and it has the same
+variables for customizing indentation.  It has its own abbrev
+table and its own syntax table.
+
+Turning on DNS mode runs `dns-mode-hook'.
+
+\(fn)" t nil)
+ (defalias 'zone-mode 'dns-mode)
+
+(autoload 'dns-mode-soa-increment-serial "gnus/lisp/dns-mode" "\
+Locate SOA record and increment the serial field.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (ecomplete-setup) "gnus/lisp/ecomplete" "gnus/lisp/ecomplete.el"
+;;;;;;  (20803 21489 464910 752000))
+;;; Generated autoloads from gnus/lisp/ecomplete.el
+
+(autoload 'ecomplete-setup "gnus/lisp/ecomplete" "\
+
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads (fill-flowed fill-flowed-encode) "gnus/lisp/flow-fill"
+;;;;;;  "gnus/lisp/flow-fill.el" (20803 21489 464910 752000))
+;;; Generated autoloads from gnus/lisp/flow-fill.el
+
+(autoload 'fill-flowed-encode "gnus/lisp/flow-fill" "\
+
+
+\(fn &optional BUFFER)" nil nil)
+
+(autoload 'fill-flowed "gnus/lisp/flow-fill" "\
+
+
+\(fn &optional BUFFER DELETE-SPACE)" nil nil)
+
+;;;***
+
+;;;### (autoloads (gmm-tool-bar-from-list gmm-widget-p gmm-error
+;;;;;;  gmm-message gmm-regexp-concat) "gnus/lisp/gmm-utils" "gnus/lisp/gmm-utils.el"
+;;;;;;  (20803 21489 464910 752000))
+;;; Generated autoloads from gnus/lisp/gmm-utils.el
+
+(autoload 'gmm-regexp-concat "gnus/lisp/gmm-utils" "\
+Potentially concat a list of regexps into a single one.
+The concatenation is done with logical ORs.
+
+\(fn REGEXP)" nil nil)
+
+(autoload 'gmm-message "gnus/lisp/gmm-utils" "\
+If LEVEL is lower than `gmm-verbose' print ARGS using `message'.
+
+Guideline for numbers:
+1 - error messages
+3 - non-serious error messages
+5 - messages for things that take a long time
+7 - not very important messages on stuff
+9 - messages inside loops.
+
+\(fn LEVEL &rest ARGS)" nil nil)
+
+(autoload 'gmm-error "gnus/lisp/gmm-utils" "\
+Beep an error if LEVEL is equal to or less than `gmm-verbose'.
+ARGS are passed to `message'.
+
+\(fn LEVEL &rest ARGS)" nil nil)
+
+(autoload 'gmm-widget-p "gnus/lisp/gmm-utils" "\
+Non-nil if SYMBOL is a widget.
+
+\(fn SYMBOL)" nil nil)
+
+(autoload 'gmm-tool-bar-from-list "gnus/lisp/gmm-utils" "\
+Make a tool bar from ICON-LIST.
+
+Within each entry of ICON-LIST, the first element is a menu
+command, the second element is an icon file name and the third
+element is a test function.  You can use \\[describe-key]
+<menu-entry> to find out the name of a menu command.  The fourth
+and all following elements are passed as the PROPS argument to the
+function `tool-bar-local-item'.
+
+If ZAP-LIST is a list, remove those item from the default
+`tool-bar-map'.  If it is t, start with a new sparse map.  You
+can use \\[describe-key] <icon> to find out the name of an icon
+item.  When \\[describe-key] <icon> shows \"<tool-bar> <new-file>
+runs the command find-file\", then use `new-file' in ZAP-LIST.
+
+DEFAULT-MAP specifies the default key map for ICON-LIST.
+
+\(fn ICON-LIST ZAP-LIST DEFAULT-MAP)" nil nil)
+
+;;;***
+
+;;;### (autoloads (gnus gnus-other-frame gnus-slave gnus-no-server
+;;;;;;  gnus-slave-no-server) "gnus/lisp/gnus" "gnus/lisp/gnus.el"
+;;;;;;  (20878 23145 334104 553000))
+;;; Generated autoloads from gnus/lisp/gnus.el
+(when (fboundp 'custom-autoload)
+ (custom-autoload 'gnus-select-method "gnus"))
+
+(autoload 'gnus-slave-no-server "gnus/lisp/gnus" "\
+Read network news as a slave, without connecting to the local server.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'gnus-no-server "gnus/lisp/gnus" "\
+Read network news.
+If ARG is a positive number, Gnus will use that as the startup
+level. If ARG is nil, Gnus will be started at level 2.  If ARG is
+non-nil and not a positive number, Gnus will prompt the user for the
+name of an NNTP server to use.
+As opposed to `gnus', this command will not connect to the local
+server.
+
+\(fn &optional ARG SLAVE)" t nil)
+
+(autoload 'gnus-slave "gnus/lisp/gnus" "\
+Read news as a slave.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'gnus-other-frame "gnus/lisp/gnus" "\
+Pop up a frame to read news.
+This will call one of the Gnus commands which is specified by the user
+option `gnus-other-frame-function' (default `gnus') with the argument
+ARG if Gnus is not running, otherwise pop up a Gnus frame and run the
+command specified by `gnus-other-frame-resume-function'.
+The optional second argument DISPLAY should be a standard display string
+such as \"unix:0\" to specify where to pop up a frame.  If DISPLAY is
+omitted or the function `make-frame-on-display' is not available, the
+current display is used.
+
+\(fn &optional ARG DISPLAY)" t nil)
+
+(autoload 'gnus "gnus/lisp/gnus" "\
+Read network news.
+If ARG is non-nil and a positive number, Gnus will use that as the
+startup level.  If ARG is non-nil and not a positive number, Gnus will
+prompt the user for the name of an NNTP server to use.
+
+\(fn &optional ARG DONT-CONNECT SLAVE)" t nil)
+
+;;;***
+
+;;;### (autoloads (gnus-agent-regenerate gnus-agent-batch gnus-agent-batch-fetch
+;;;;;;  gnus-agent-find-parameter gnus-agent-possibly-alter-active
+;;;;;;  gnus-agent-get-undownloaded-list gnus-agent-delete-group
+;;;;;;  gnus-agent-rename-group gnus-agent-possibly-save-gcc gnus-agentize
+;;;;;;  gnus-slave-unplugged gnus-plugged gnus-unplugged) "gnus/lisp/gnus-agent"
+;;;;;;  "gnus/lisp/gnus-agent.el" (20803 21489 468910 908000))
+;;; Generated autoloads from gnus/lisp/gnus-agent.el
+
+(autoload 'gnus-unplugged "gnus/lisp/gnus-agent" "\
+Start Gnus unplugged.
+
+\(fn)" t nil)
+
+(autoload 'gnus-plugged "gnus/lisp/gnus-agent" "\
+Start Gnus plugged.
+
+\(fn)" t nil)
+
+(autoload 'gnus-slave-unplugged "gnus/lisp/gnus-agent" "\
+Read news as a slave unplugged.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'gnus-agentize "gnus/lisp/gnus-agent" "\
+Allow Gnus to be an offline newsreader.
+
+The gnus-agentize function is now called internally by gnus when
+gnus-agent is set.  If you wish to avoid calling gnus-agentize,
+customize gnus-agent to nil.
+
+This will modify the `gnus-setup-news-hook', and
+`message-send-mail-real-function' variables, and install the Gnus agent
+minor mode in all Gnus buffers.
+
+\(fn)" t nil)
+
+(autoload 'gnus-agent-possibly-save-gcc "gnus/lisp/gnus-agent" "\
+Save GCC if Gnus is unplugged.
+
+\(fn)" nil nil)
+
+(autoload 'gnus-agent-rename-group "gnus/lisp/gnus-agent" "\
+Rename fully-qualified OLD-GROUP as NEW-GROUP.
+Always updates the agent, even when disabled, as the old agent
+files would corrupt gnus when the agent was next enabled.
+Depends upon the caller to determine whether group renaming is
+supported.
+
+\(fn OLD-GROUP NEW-GROUP)" nil nil)
+
+(autoload 'gnus-agent-delete-group "gnus/lisp/gnus-agent" "\
+Delete fully-qualified GROUP.
+Always updates the agent, even when disabled, as the old agent
+files would corrupt gnus when the agent was next enabled.
+Depends upon the caller to determine whether group deletion is
+supported.
+
+\(fn GROUP)" nil nil)
+
+(autoload 'gnus-agent-get-undownloaded-list "gnus/lisp/gnus-agent" "\
+Construct list of articles that have not been downloaded.
+
+\(fn)" nil nil)
+
+(autoload 'gnus-agent-possibly-alter-active "gnus/lisp/gnus-agent" "\
+Possibly expand a group's active range to include articles
+downloaded into the agent.
+
+\(fn GROUP ACTIVE &optional INFO)" nil nil)
+
+(autoload 'gnus-agent-find-parameter "gnus/lisp/gnus-agent" "\
+Search for GROUPs SYMBOL in the group's parameters, the group's
+topic parameters, the group's category, or the customizable
+variables.  Returns the first non-nil value found.
+
+\(fn GROUP SYMBOL)" nil nil)
+
+(autoload 'gnus-agent-batch-fetch "gnus/lisp/gnus-agent" "\
+Start Gnus and fetch session.
+
+\(fn)" t nil)
+
+(autoload 'gnus-agent-batch "gnus/lisp/gnus-agent" "\
+Start Gnus, send queue and fetch session.
+
+\(fn)" t nil)
+
+(autoload 'gnus-agent-regenerate "gnus/lisp/gnus-agent" "\
+Regenerate all agent covered files.
+If CLEAN, obsolete (ignore).
+
+\(fn &optional CLEAN REREAD)" t nil)
+
+;;;***
+
+;;;### (autoloads (gnus-article-prepare-display) "gnus/lisp/gnus-art"
+;;;;;;  "gnus/lisp/gnus-art.el" (20878 23145 270102 28000))
+;;; Generated autoloads from gnus/lisp/gnus-art.el
+
+(autoload 'gnus-article-prepare-display "gnus/lisp/gnus-art" "\
+Make the current buffer look like a nice article.
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads (gnus-bookmark-bmenu-list gnus-bookmark-jump gnus-bookmark-set)
+;;;;;;  "gnus/lisp/gnus-bookmark" "gnus/lisp/gnus-bookmark.el" (20803
+;;;;;;  21489 468910 908000))
+;;; Generated autoloads from gnus/lisp/gnus-bookmark.el
+
+(autoload 'gnus-bookmark-set "gnus/lisp/gnus-bookmark" "\
+Set a bookmark for this article.
+
+\(fn)" t nil)
+
+(autoload 'gnus-bookmark-jump "gnus/lisp/gnus-bookmark" "\
+Jump to a Gnus bookmark (BMK-NAME).
+
+\(fn &optional BMK-NAME)" t nil)
+
+(autoload 'gnus-bookmark-bmenu-list "gnus/lisp/gnus-bookmark" "\
+Display a list of existing Gnus bookmarks.
+The list is displayed in a buffer named `*Gnus Bookmark List*'.
+The leftmost column displays a D if the bookmark is flagged for
+deletion, or > if it is flagged for displaying.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (gnus-cache-delete-group gnus-cache-rename-group
+;;;;;;  gnus-cache-generate-nov-databases gnus-cache-generate-active
+;;;;;;  gnus-jog-cache) "gnus/lisp/gnus-cache" "gnus/lisp/gnus-cache.el"
+;;;;;;  (20803 21489 468910 908000))
+;;; Generated autoloads from gnus/lisp/gnus-cache.el
+
+(autoload 'gnus-jog-cache "gnus/lisp/gnus-cache" "\
+Go through all groups and put the articles into the cache.
+
+Usage:
+$ emacs -batch -l ~/.emacs -l gnus -f gnus-jog-cache
+
+\(fn)" t nil)
+
+(autoload 'gnus-cache-generate-active "gnus/lisp/gnus-cache" "\
+Generate the cache active file.
+
+\(fn &optional DIRECTORY)" t nil)
+
+(autoload 'gnus-cache-generate-nov-databases "gnus/lisp/gnus-cache" "\
+Generate NOV files recursively starting in DIR.
+
+\(fn DIR)" t nil)
+
+(autoload 'gnus-cache-rename-group "gnus/lisp/gnus-cache" "\
+Rename OLD-GROUP as NEW-GROUP.
+Always updates the cache, even when disabled, as the old cache
+files would corrupt Gnus when the cache was next enabled.  It
+depends on the caller to determine whether group renaming is
+supported.
+
+\(fn OLD-GROUP NEW-GROUP)" nil nil)
+
+(autoload 'gnus-cache-delete-group "gnus/lisp/gnus-cache" "\
+Delete GROUP from the cache.
+Always updates the cache, even when disabled, as the old cache
+files would corrupt gnus when the cache was next enabled.
+Depends upon the caller to determine whether group deletion is
+supported.
+
+\(fn GROUP)" nil nil)
+
+;;;***
+
+;;;### (autoloads (gnus-delay-initialize gnus-delay-send-queue gnus-delay-article)
+;;;;;;  "gnus/lisp/gnus-delay" "gnus/lisp/gnus-delay.el" (20803 21489
+;;;;;;  472911 63000))
+;;; Generated autoloads from gnus/lisp/gnus-delay.el
+
+(autoload 'gnus-delay-article "gnus/lisp/gnus-delay" "\
+Delay this article by some time.
+DELAY is a string, giving the length of the time.  Possible values are:
+
+* <digits><units> for <units> in minutes (`m'), hours (`h'), days (`d'),
+  weeks (`w'), months (`M'), or years (`Y');
+
+* YYYY-MM-DD for a specific date.  The time of day is given by the
+  variable `gnus-delay-default-hour', minute and second are zero.
+
+* hh:mm for a specific time.  Use 24h format.  If it is later than this
+  time, then the deadline is tomorrow, else today.
+
+\(fn DELAY)" t nil)
+
+(autoload 'gnus-delay-send-queue "gnus/lisp/gnus-delay" "\
+Send all the delayed messages that are due now.
+
+\(fn)" t nil)
+
+(autoload 'gnus-delay-initialize "gnus/lisp/gnus-delay" "\
+Initialize the gnus-delay package.
+This sets up a key binding in `message-mode' to delay a message.
+This tells Gnus to look for delayed messages after getting new news.
+
+The optional arg NO-KEYMAP is ignored.
+Checking delayed messages is skipped if optional arg NO-CHECK is non-nil.
+
+\(fn &optional NO-KEYMAP NO-CHECK)" nil nil)
+
+;;;***
+
+;;;### (autoloads (gnus-user-format-function-D gnus-user-format-function-d)
+;;;;;;  "gnus/lisp/gnus-diary" "gnus/lisp/gnus-diary.el" (20803 21489
+;;;;;;  472911 63000))
+;;; Generated autoloads from gnus/lisp/gnus-diary.el
+
+(autoload 'gnus-user-format-function-d "gnus/lisp/gnus-diary" "\
+
+
+\(fn HEADER)" nil nil)
+
+(autoload 'gnus-user-format-function-D "gnus/lisp/gnus-diary" "\
+
+
+\(fn HEADER)" nil nil)
+
+;;;***
+
+;;;### (autoloads (turn-on-gnus-dired-mode) "gnus/lisp/gnus-dired"
+;;;;;;  "gnus/lisp/gnus-dired.el" (20803 21489 472911 63000))
+;;; Generated autoloads from gnus/lisp/gnus-dired.el
+
+(autoload 'turn-on-gnus-dired-mode "gnus/lisp/gnus-dired" "\
+Convenience method to turn on gnus-dired-mode.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (gnus-draft-reminder) "gnus/lisp/gnus-draft" "gnus/lisp/gnus-draft.el"
+;;;;;;  (20803 21489 472911 63000))
+;;; Generated autoloads from gnus/lisp/gnus-draft.el
+
+(autoload 'gnus-draft-reminder "gnus/lisp/gnus-draft" "\
+Reminder user if there are unsent drafts.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (gnus-convert-png-to-face gnus-convert-face-to-png
+;;;;;;  gnus-face-from-file gnus-x-face-from-file gnus-insert-random-x-face-header
+;;;;;;  gnus-random-x-face) "gnus/lisp/gnus-fun" "gnus/lisp/gnus-fun.el"
+;;;;;;  (20803 21489 476911 219000))
+;;; Generated autoloads from gnus/lisp/gnus-fun.el
+
+(autoload 'gnus-random-x-face "gnus/lisp/gnus-fun" "\
+Return X-Face header data chosen randomly from `gnus-x-face-directory'.
+
+\(fn)" t nil)
+
+(autoload 'gnus-insert-random-x-face-header "gnus/lisp/gnus-fun" "\
+Insert a random X-Face header from `gnus-x-face-directory'.
+
+\(fn)" t nil)
+
+(autoload 'gnus-x-face-from-file "gnus/lisp/gnus-fun" "\
+Insert an X-Face header based on an image file.
+
+Depending on `gnus-convert-image-to-x-face-command' it may accept
+different input formats.
+
+\(fn FILE)" t nil)
+
+(autoload 'gnus-face-from-file "gnus/lisp/gnus-fun" "\
+Return a Face header based on an image file.
+
+Depending on `gnus-convert-image-to-face-command' it may accept
+different input formats.
+
+\(fn FILE)" t nil)
+
+(autoload 'gnus-convert-face-to-png "gnus/lisp/gnus-fun" "\
+Convert FACE (which is base64-encoded) to a PNG.
+The PNG is returned as a string.
+
+\(fn FACE)" nil nil)
+
+(autoload 'gnus-convert-png-to-face "gnus/lisp/gnus-fun" "\
+Convert FILE to a Face.
+FILE should be a PNG file that's 48x48 and smaller than or equal to
+726 bytes.
+
+\(fn FILE)" nil nil)
+
+;;;***
+
+;;;### (autoloads (gnus-treat-mail-gravatar gnus-treat-from-gravatar)
+;;;;;;  "gnus/lisp/gnus-gravatar" "gnus/lisp/gnus-gravatar.el" (20878
+;;;;;;  23145 314103 764000))
+;;; Generated autoloads from gnus/lisp/gnus-gravatar.el
+
+(autoload 'gnus-treat-from-gravatar "gnus/lisp/gnus-gravatar" "\
+Display gravatar in the From header.
+If gravatar is already displayed, remove it.
+
+\(fn &optional FORCE)" t nil)
+
+(autoload 'gnus-treat-mail-gravatar "gnus/lisp/gnus-gravatar" "\
+Display gravatars in the Cc and To headers.
+If gravatars are already displayed, remove them.
+
+\(fn &optional FORCE)" t nil)
+
+;;;***
+
+;;;### (autoloads (gnus-fetch-group-other-frame gnus-fetch-group)
+;;;;;;  "gnus/lisp/gnus-group" "gnus/lisp/gnus-group.el" (20803 21489
+;;;;;;  476911 219000))
+;;; Generated autoloads from gnus/lisp/gnus-group.el
+
+(autoload 'gnus-fetch-group "gnus/lisp/gnus-group" "\
+Start Gnus if necessary and enter GROUP.
+If ARTICLES, display those articles.
+Returns whether the fetching was successful or not.
+
+\(fn GROUP &optional ARTICLES)" t nil)
+
+(autoload 'gnus-fetch-group-other-frame "gnus/lisp/gnus-group" "\
+Pop up a frame and enter GROUP.
+
+\(fn GROUP)" t nil)
+
+;;;***
+
+;;;### (autoloads (gnus-html-prefetch-images gnus-article-html) "gnus/lisp/gnus-html"
+;;;;;;  "gnus/lisp/gnus-html.el" (20878 23145 314103 764000))
+;;; Generated autoloads from gnus/lisp/gnus-html.el
+
+(autoload 'gnus-article-html "gnus/lisp/gnus-html" "\
+
+
+\(fn &optional HANDLE)" nil nil)
+
+(autoload 'gnus-html-prefetch-images "gnus/lisp/gnus-html" "\
+
+
+\(fn SUMMARY)" nil nil)
+
+;;;***
+
+;;;### (autoloads (gnus-batch-score) "gnus/lisp/gnus-kill" "gnus/lisp/gnus-kill.el"
+;;;;;;  (20803 21489 476911 219000))
+;;; Generated autoloads from gnus/lisp/gnus-kill.el
+
+(defalias 'gnus-batch-kill 'gnus-batch-score)
+
+(autoload 'gnus-batch-score "gnus/lisp/gnus-kill" "\
+Run batched scoring.
+Usage: emacs -batch -l ~/.emacs -l gnus -f gnus-batch-score
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (gnus-mailing-list-mode gnus-mailing-list-insinuate
+;;;;;;  turn-on-gnus-mailing-list-mode) "gnus/lisp/gnus-ml" "gnus/lisp/gnus-ml.el"
+;;;;;;  (20803 21489 476911 219000))
+;;; Generated autoloads from gnus/lisp/gnus-ml.el
+
+(autoload 'turn-on-gnus-mailing-list-mode "gnus/lisp/gnus-ml" "\
+
+
+\(fn)" nil nil)
+
+(autoload 'gnus-mailing-list-insinuate "gnus/lisp/gnus-ml" "\
+Setup group parameters from List-Post header.
+If FORCE is non-nil, replace the old ones.
+
+\(fn &optional FORCE)" t nil)
+
+(autoload 'gnus-mailing-list-mode "gnus/lisp/gnus-ml" "\
+Minor mode for providing mailing-list commands.
+
+\\{gnus-mailing-list-mode-map}
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads (gnus-group-split-fancy gnus-group-split gnus-group-split-update
+;;;;;;  gnus-group-split-setup) "gnus/lisp/gnus-mlspl" "gnus/lisp/gnus-mlspl.el"
+;;;;;;  (20803 21489 476911 219000))
+;;; Generated autoloads from gnus/lisp/gnus-mlspl.el
+
+(autoload 'gnus-group-split-setup "gnus/lisp/gnus-mlspl" "\
+Set up the split for `nnmail-split-fancy'.
+Sets things up so that nnmail-split-fancy is used for mail
+splitting, and defines the variable nnmail-split-fancy according with
+group parameters.
+
+If AUTO-UPDATE is non-nil (prefix argument accepted, if called
+interactively), it makes sure nnmail-split-fancy is re-computed before
+getting new mail, by adding `gnus-group-split-update' to
+`nnmail-pre-get-new-mail-hook'.
+
+A non-nil CATCH-ALL replaces the current value of
+`gnus-group-split-default-catch-all-group'.  This variable is only used
+by gnus-group-split-update, and only when its CATCH-ALL argument is
+nil.  This argument may contain any fancy split, that will be added as
+the last split in a `|' split produced by `gnus-group-split-fancy',
+unless overridden by any group marked as a catch-all group.  Typical
+uses are as simple as the name of a default mail group, but more
+elaborate fancy splits may also be useful to split mail that doesn't
+match any of the group-specified splitting rules.  See
+`gnus-group-split-fancy' for details.
+
+\(fn &optional AUTO-UPDATE CATCH-ALL)" t nil)
+
+(autoload 'gnus-group-split-update "gnus/lisp/gnus-mlspl" "\
+Computes nnmail-split-fancy from group params and CATCH-ALL.
+It does this by calling by calling (gnus-group-split-fancy nil
+nil CATCH-ALL).
+
+If CATCH-ALL is nil, `gnus-group-split-default-catch-all-group' is used
+instead.  This variable is set by `gnus-group-split-setup'.
+
+\(fn &optional CATCH-ALL)" t nil)
+
+(autoload 'gnus-group-split "gnus/lisp/gnus-mlspl" "\
+Use information from group parameters in order to split mail.
+See `gnus-group-split-fancy' for more information.
+
+`gnus-group-split' is a valid value for `nnmail-split-methods'.
+
+\(fn)" nil nil)
+
+(autoload 'gnus-group-split-fancy "gnus/lisp/gnus-mlspl" "\
+Uses information from group parameters in order to split mail.
+It can be embedded into `nnmail-split-fancy' lists with the SPLIT
+
+\(: gnus-group-split-fancy GROUPS NO-CROSSPOST CATCH-ALL)
+
+GROUPS may be a regular expression or a list of group names, that will
+be used to select candidate groups.  If it is omitted or nil, all
+existing groups are considered.
+
+if NO-CROSSPOST is omitted or nil, a & split will be returned,
+otherwise, a | split, that does not allow crossposting, will be
+returned.
+
+For each selected group, a SPLIT is composed like this: if SPLIT-SPEC
+is specified, this split is returned as-is (unless it is nil: in this
+case, the group is ignored).  Otherwise, if TO-ADDRESS, TO-LIST and/or
+EXTRA-ALIASES are specified, a regexp that matches any of them is
+constructed (extra-aliases may be a list).  Additionally, if
+SPLIT-REGEXP is specified, the regexp will be extended so that it
+matches this regexp too, and if SPLIT-EXCLUDE is specified, RESTRICT
+clauses will be generated.
+
+If CATCH-ALL is nil, no catch-all handling is performed, regardless of
+catch-all marks in group parameters.  Otherwise, if there is no
+selected group whose SPLIT-REGEXP matches the empty string, nor is
+there a selected group whose SPLIT-SPEC is 'catch-all, this fancy
+split (say, a group name) will be appended to the returned SPLIT list,
+as the last element of a '| SPLIT.
+
+For example, given the following group parameters:
+
+nnml:mail.bar:
+\((to-address . \"bar@femail.com\")
+ (split-regexp . \".*@femail\\\\.com\"))
+nnml:mail.foo:
+\((to-list . \"foo@nowhere.gov\")
+ (extra-aliases \"foo@localhost\" \"foo-redist@home\")
+ (split-exclude \"bugs-foo\" \"rambling-foo\")
+ (admin-address . \"foo-request@nowhere.gov\"))
+nnml:mail.others:
+\((split-spec . catch-all))
+
+Calling (gnus-group-split-fancy nil nil \"mail.others\") returns:
+
+\(| (& (any \"\\\\(bar@femail\\\\.com\\\\|.*@femail\\\\.com\\\\)\"
+	   \"mail.bar\")
+      (any \"\\\\(foo@nowhere\\\\.gov\\\\|foo@localhost\\\\|foo-redist@home\\\\)\"
+	   - \"bugs-foo\" - \"rambling-foo\" \"mail.foo\"))
+   \"mail.others\")
+
+\(fn &optional GROUPS NO-CROSSPOST CATCH-ALL)" nil nil)
+
+;;;***
+
+;;;### (autoloads (gnus-button-reply gnus-button-mailto gnus-msg-mail)
+;;;;;;  "gnus/lisp/gnus-msg" "gnus/lisp/gnus-msg.el" (20878 23145
+;;;;;;  318103 921000))
+;;; Generated autoloads from gnus/lisp/gnus-msg.el
+
+(autoload 'gnus-msg-mail "gnus/lisp/gnus-msg" "\
+Start editing a mail message to be sent.
+Like `message-mail', but with Gnus paraphernalia, particularly the
+Gcc: header for archiving purposes.
+If Gnus isn't running, a plain `message-mail' setup is used
+instead.
+
+\(fn &optional TO SUBJECT OTHER-HEADERS CONTINUE SWITCH-ACTION YANK-ACTION SEND-ACTIONS RETURN-ACTION)" t nil)
+
+(autoload 'gnus-button-mailto "gnus/lisp/gnus-msg" "\
+Mail to ADDRESS.
+
+\(fn ADDRESS)" nil nil)
+
+(autoload 'gnus-button-reply "gnus/lisp/gnus-msg" "\
+Like `message-reply'.
+
+\(fn &optional TO-ADDRESS WIDE)" t nil)
+
+(define-mail-user-agent 'gnus-user-agent 'gnus-msg-mail 'message-send-and-exit 'message-kill-buffer 'message-send-hook)
+
+;;;***
+
+;;;### (autoloads (gnus-notifications) "gnus/lisp/gnus-notifications"
+;;;;;;  "gnus/lisp/gnus-notifications.el" (20878 23145 318103 921000))
+;;; Generated autoloads from gnus/lisp/gnus-notifications.el
+
+(autoload 'gnus-notifications "gnus/lisp/gnus-notifications" "\
+Send a notification on new message.
+This check for new messages that are in group with a level lower
+or equal to `gnus-notifications-minimum-level' and send a
+notification using `notifications-notify' for it.
+
+This is typically a function to add in
+`gnus-after-getting-new-news-hook'
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads (gnus-treat-newsgroups-picon gnus-treat-mail-picon
+;;;;;;  gnus-treat-from-picon) "gnus/lisp/gnus-picon" "gnus/lisp/gnus-picon.el"
+;;;;;;  (20878 23145 318103 921000))
+;;; Generated autoloads from gnus/lisp/gnus-picon.el
+
+(autoload 'gnus-treat-from-picon "gnus/lisp/gnus-picon" "\
+Display picons in the From header.
+If picons are already displayed, remove them.
+
+\(fn)" t nil)
+
+(autoload 'gnus-treat-mail-picon "gnus/lisp/gnus-picon" "\
+Display picons in the Cc and To headers.
+If picons are already displayed, remove them.
+
+\(fn)" t nil)
+
+(autoload 'gnus-treat-newsgroups-picon "gnus/lisp/gnus-picon" "\
+Display picons in the Newsgroups and Followup-To headers.
+If picons are already displayed, remove them.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (gnus-add-to-sorted-list gnus-sorted-nunion gnus-sorted-union
+;;;;;;  gnus-sorted-nintersection gnus-sorted-range-intersection
+;;;;;;  gnus-sorted-intersection gnus-intersection gnus-sorted-complement
+;;;;;;  gnus-sorted-ndifference gnus-sorted-difference) "gnus/lisp/gnus-range"
+;;;;;;  "gnus/lisp/gnus-range.el" (20803 21489 480911 374000))
+;;; Generated autoloads from gnus/lisp/gnus-range.el
+
+(autoload 'gnus-sorted-difference "gnus/lisp/gnus-range" "\
+Return a list of elements of LIST1 that do not appear in LIST2.
+Both lists have to be sorted over <.
+The tail of LIST1 is not copied.
+
+\(fn LIST1 LIST2)" nil nil)
+
+(autoload 'gnus-sorted-ndifference "gnus/lisp/gnus-range" "\
+Return a list of elements of LIST1 that do not appear in LIST2.
+Both lists have to be sorted over <.
+LIST1 is modified.
+
+\(fn LIST1 LIST2)" nil nil)
+
+(autoload 'gnus-sorted-complement "gnus/lisp/gnus-range" "\
+Return a list of elements that are in LIST1 or LIST2 but not both.
+Both lists have to be sorted over <.
+
+\(fn LIST1 LIST2)" nil nil)
+
+(autoload 'gnus-intersection "gnus/lisp/gnus-range" "\
+
+
+\(fn LIST1 LIST2)" nil nil)
+
+(autoload 'gnus-sorted-intersection "gnus/lisp/gnus-range" "\
+Return intersection of LIST1 and LIST2.
+LIST1 and LIST2 have to be sorted over <.
+
+\(fn LIST1 LIST2)" nil nil)
+
+(autoload 'gnus-sorted-range-intersection "gnus/lisp/gnus-range" "\
+Return intersection of RANGE1 and RANGE2.
+RANGE1 and RANGE2 have to be sorted over <.
+
+\(fn RANGE1 RANGE2)" nil nil)
+
+(defalias 'gnus-set-sorted-intersection 'gnus-sorted-nintersection)
+
+(autoload 'gnus-sorted-nintersection "gnus/lisp/gnus-range" "\
+Return intersection of LIST1 and LIST2 by modifying cdr pointers of LIST1.
+LIST1 and LIST2 have to be sorted over <.
+
+\(fn LIST1 LIST2)" nil nil)
+
+(autoload 'gnus-sorted-union "gnus/lisp/gnus-range" "\
+Return union of LIST1 and LIST2.
+LIST1 and LIST2 have to be sorted over <.
+
+\(fn LIST1 LIST2)" nil nil)
+
+(autoload 'gnus-sorted-nunion "gnus/lisp/gnus-range" "\
+Return union of LIST1 and LIST2 by modifying cdr pointers of LIST1.
+LIST1 and LIST2 have to be sorted over <.
+
+\(fn LIST1 LIST2)" nil nil)
+
+(autoload 'gnus-add-to-sorted-list "gnus/lisp/gnus-range" "\
+Add NUM into sorted LIST by side effect.
+
+\(fn LIST NUM)" nil nil)
+
+;;;***
+
+;;;### (autoloads (gnus-registry-install-hooks gnus-registry-initialize)
+;;;;;;  "gnus/lisp/gnus-registry" "gnus/lisp/gnus-registry.el" (20803
+;;;;;;  21489 480911 374000))
+;;; Generated autoloads from gnus/lisp/gnus-registry.el
+
+(autoload 'gnus-registry-initialize "gnus/lisp/gnus-registry" "\
+Initialize the Gnus registry.
+
+\(fn)" t nil)
+
+(autoload 'gnus-registry-install-hooks "gnus/lisp/gnus-registry" "\
+Install the registry hooks.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (gnus-sieve-article-add-rule gnus-sieve-generate
+;;;;;;  gnus-sieve-update) "gnus/lisp/gnus-sieve" "gnus/lisp/gnus-sieve.el"
+;;;;;;  (20803 21489 480911 374000))
+;;; Generated autoloads from gnus/lisp/gnus-sieve.el
+
+(autoload 'gnus-sieve-update "gnus/lisp/gnus-sieve" "\
+Update the Sieve script in gnus-sieve-file, by replacing the region
+between gnus-sieve-region-start and gnus-sieve-region-end with
+\(gnus-sieve-script gnus-sieve-select-method gnus-sieve-crosspost), then
+execute gnus-sieve-update-shell-command.
+See the documentation for these variables and functions for details.
+
+\(fn)" t nil)
+
+(autoload 'gnus-sieve-generate "gnus/lisp/gnus-sieve" "\
+Generate the Sieve script in gnus-sieve-file, by replacing the region
+between gnus-sieve-region-start and gnus-sieve-region-end with
+\(gnus-sieve-script gnus-sieve-select-method gnus-sieve-crosspost).
+See the documentation for these variables and functions for details.
+
+\(fn)" t nil)
+
+(autoload 'gnus-sieve-article-add-rule "gnus/lisp/gnus-sieve" "\
+
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (gnus-update-format) "gnus/lisp/gnus-spec" "gnus/lisp/gnus-spec.el"
+;;;;;;  (20803 21489 480911 374000))
+;;; Generated autoloads from gnus/lisp/gnus-spec.el
+
+(autoload 'gnus-update-format "gnus/lisp/gnus-spec" "\
+Update the format specification near point.
+
+\(fn VAR)" t nil)
+
+;;;***
+
+;;;### (autoloads (gnus-declare-backend) "gnus/lisp/gnus-start" "gnus/lisp/gnus-start.el"
+;;;;;;  (20803 21489 484911 529000))
+;;; Generated autoloads from gnus/lisp/gnus-start.el
+
+(autoload 'gnus-declare-backend "gnus/lisp/gnus-start" "\
+Declare back end NAME with ABILITIES as a Gnus back end.
+
+\(fn NAME &rest ABILITIES)" nil nil)
+
+;;;***
+
+;;;### (autoloads (gnus-summary-bookmark-jump) "gnus/lisp/gnus-sum"
+;;;;;;  "gnus/lisp/gnus-sum.el" (20878 23145 322104 79000))
+;;; Generated autoloads from gnus/lisp/gnus-sum.el
+
+(autoload 'gnus-summary-bookmark-jump "gnus/lisp/gnus-sum" "\
+Handler function for record returned by `gnus-summary-bookmark-make-record'.
+BOOKMARK is a bookmark name or a bookmark record.
+
+\(fn BOOKMARK)" nil nil)
+
+;;;***
+
+;;;### (autoloads (gnus-sync-install-hooks gnus-sync-initialize)
+;;;;;;  "gnus/lisp/gnus-sync" "gnus/lisp/gnus-sync.el" (20803 21489
+;;;;;;  488911 685000))
+;;; Generated autoloads from gnus/lisp/gnus-sync.el
+
+(autoload 'gnus-sync-initialize "gnus/lisp/gnus-sync" "\
+Initialize the Gnus sync facility.
+
+\(fn)" t nil)
+
+(autoload 'gnus-sync-install-hooks "gnus/lisp/gnus-sync" "\
+Install the sync hooks.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (gnus-add-configuration) "gnus/lisp/gnus-win" "gnus/lisp/gnus-win.el"
+;;;;;;  (20803 21489 488911 685000))
+;;; Generated autoloads from gnus/lisp/gnus-win.el
+
+(autoload 'gnus-add-configuration "gnus/lisp/gnus-win" "\
+Add the window configuration CONF to `gnus-buffer-configuration'.
+
+\(fn CONF)" nil nil)
+
+;;;***
+
+;;;### (autoloads (gravatar-retrieve-synchronously gravatar-retrieve)
+;;;;;;  "gnus/lisp/gravatar" "gnus/lisp/gravatar.el" (20803 21489
+;;;;;;  492911 841000))
+;;; Generated autoloads from gnus/lisp/gravatar.el
+
+(autoload 'gravatar-retrieve "gnus/lisp/gravatar" "\
+Retrieve MAIL-ADDRESS gravatar and call CB on retrieval.
+You can provide a list of argument to pass to CB in CBARGS.
+
+\(fn MAIL-ADDRESS CB &optional CBARGS)" nil nil)
+
+(autoload 'gravatar-retrieve-synchronously "gnus/lisp/gravatar" "\
+Retrieve MAIL-ADDRESS gravatar and returns it.
+
+\(fn MAIL-ADDRESS)" nil nil)
+
+;;;***
+
+;;;### (autoloads (mail-check-payment mail-add-payment-async mail-add-payment
+;;;;;;  hashcash-verify-payment hashcash-insert-payment-async hashcash-insert-payment)
+;;;;;;  "gnus/lisp/hashcash" "gnus/lisp/hashcash.el" (20803 21489
+;;;;;;  492911 841000))
+;;; Generated autoloads from gnus/lisp/hashcash.el
+
+(autoload 'hashcash-insert-payment "gnus/lisp/hashcash" "\
+Insert X-Payment and X-Hashcash headers with a payment for ARG
+
+\(fn ARG)" t nil)
+
+(autoload 'hashcash-insert-payment-async "gnus/lisp/hashcash" "\
+Insert X-Payment and X-Hashcash headers with a payment for ARG
+Only start calculation.  Results are inserted when ready.
+
+\(fn ARG)" t nil)
+
+(autoload 'hashcash-verify-payment "gnus/lisp/hashcash" "\
+Verify a hashcash payment
+
+\(fn TOKEN &optional RESOURCE AMOUNT)" nil nil)
+
+(autoload 'mail-add-payment "gnus/lisp/hashcash" "\
+Add X-Payment: and X-Hashcash: headers with a hashcash payment
+for each recipient address.  Prefix arg sets default payment temporarily.
+Set ASYNC to t to start asynchronous calculation.  (See
+`mail-add-payment-async').
+
+\(fn &optional ARG ASYNC)" t nil)
+
+(autoload 'mail-add-payment-async "gnus/lisp/hashcash" "\
+Add X-Payment: and X-Hashcash: headers with a hashcash payment
+for each recipient address.  Prefix arg sets default payment temporarily.
+Calculation is asynchronous.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'mail-check-payment "gnus/lisp/hashcash" "\
+Look for a valid X-Payment: or X-Hashcash: header.
+Prefix arg sets default accept amount temporarily.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads (html2text) "gnus/lisp/html2text" "gnus/lisp/html2text.el"
+;;;;;;  (20803 21489 492911 841000))
+;;; Generated autoloads from gnus/lisp/html2text.el
+
+(autoload 'html2text "gnus/lisp/html2text" "\
+Convert HTML to plain text in the current buffer.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (message-unbold-region message-bold-region message-news-other-frame
+;;;;;;  message-news-other-window message-mail-other-frame message-mail-other-window
+;;;;;;  message-bounce message-resend message-insinuate-rmail message-forward-rmail-make-body
+;;;;;;  message-forward-make-body message-forward message-recover
+;;;;;;  message-supersede message-cancel-news message-followup message-wide-reply
+;;;;;;  message-reply message-news message-mail message-mode) "gnus/lisp/message"
+;;;;;;  "gnus/lisp/message.el" (20878 23145 338104 710000))
+;;; Generated autoloads from gnus/lisp/message.el
+
+(define-mail-user-agent 'message-user-agent 'message-mail 'message-send-and-exit 'message-kill-buffer 'message-send-hook)
+
+(autoload 'message-mode "gnus/lisp/message" "\
+Major mode for editing mail and news to be sent.
+Like Text Mode but with these additional commands:\\<message-mode-map>
+C-c C-s  `message-send' (send the message)  C-c C-c  `message-send-and-exit'
+C-c C-d  Postpone sending the message       C-c C-k  Kill the message
+C-c C-f  move to a header field (and create it if there isn't):
+	 C-c C-f C-t  move to To	C-c C-f C-s  move to Subject
+	 C-c C-f C-c  move to Cc	C-c C-f C-b  move to Bcc
+	 C-c C-f C-w  move to Fcc	C-c C-f C-r  move to Reply-To
+	 C-c C-f C-u  move to Summary	C-c C-f C-n  move to Newsgroups
+	 C-c C-f C-k  move to Keywords	C-c C-f C-d  move to Distribution
+	 C-c C-f C-o  move to From (\"Originator\")
+	 C-c C-f C-f  move to Followup-To
+	 C-c C-f C-m  move to Mail-Followup-To
+	 C-c C-f C-e  move to Expires
+	 C-c C-f C-i  cycle through Importance values
+	 C-c C-f s    change subject and append \"(was: <Old Subject>)\"
+	 C-c C-f x    crossposting with FollowUp-To header and note in body
+	 C-c C-f t    replace To: header with contents of Cc: or Bcc:
+	 C-c C-f a    Insert X-No-Archive: header and a note in the body
+C-c C-t  `message-insert-to' (add a To header to a news followup)
+C-c C-l  `message-to-list-only' (removes all but list address in to/cc)
+C-c C-n  `message-insert-newsgroups' (add a Newsgroup header to a news reply)
+C-c C-b  `message-goto-body' (move to beginning of message text).
+C-c C-i  `message-goto-signature' (move to the beginning of the signature).
+C-c C-w  `message-insert-signature' (insert `message-signature-file' file).
+C-c C-y  `message-yank-original' (insert current message, if any).
+C-c C-q  `message-fill-yanked-message' (fill what was yanked).
+C-c C-e  `message-elide-region' (elide the text between point and mark).
+C-c C-v  `message-delete-not-region' (remove the text outside the region).
+C-c C-z  `message-kill-to-signature' (kill the text up to the signature).
+C-c C-r  `message-caesar-buffer-body' (rot13 the message body).
+C-c C-a  `mml-attach-file' (attach a file as MIME).
+C-c C-u  `message-insert-or-toggle-importance'  (insert or cycle importance).
+C-c M-n  `message-insert-disposition-notification-to'  (request receipt).
+C-c M-m  `message-mark-inserted-region' (mark region with enclosing tags).
+C-c M-f  `message-mark-insert-file' (insert file marked with enclosing tags).
+M-RET    `message-newline-and-reformat' (break the line and reformat).
+
+\(fn)" t nil)
+
+(autoload 'message-mail "gnus/lisp/message" "\
+Start editing a mail message to be sent.
+OTHER-HEADERS is an alist of header/value pairs.  CONTINUE says whether
+to continue editing a message already being composed.  SWITCH-FUNCTION
+is a function used to switch to and display the mail buffer.
+
+\(fn &optional TO SUBJECT OTHER-HEADERS CONTINUE SWITCH-FUNCTION YANK-ACTION SEND-ACTIONS RETURN-ACTION &rest IGNORED)" t nil)
+
+(autoload 'message-news "gnus/lisp/message" "\
+Start editing a news article to be sent.
+
+\(fn &optional NEWSGROUPS SUBJECT)" t nil)
+
+(autoload 'message-reply "gnus/lisp/message" "\
+Start editing a reply to the article in the current buffer.
+
+\(fn &optional TO-ADDRESS WIDE SWITCH-FUNCTION)" t nil)
+
+(autoload 'message-wide-reply "gnus/lisp/message" "\
+Make a \"wide\" reply to the message in the current buffer.
+
+\(fn &optional TO-ADDRESS)" t nil)
+
+(autoload 'message-followup "gnus/lisp/message" "\
+Follow up to the message in the current buffer.
+If TO-NEWSGROUPS, use that as the new Newsgroups line.
+
+\(fn &optional TO-NEWSGROUPS)" t nil)
+
+(autoload 'message-cancel-news "gnus/lisp/message" "\
+Cancel an article you posted.
+If ARG, allow editing of the cancellation message.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'message-supersede "gnus/lisp/message" "\
+Start composing a message to supersede the current message.
+This is done simply by taking the old article and adding a Supersedes
+header line with the old Message-ID.
+
+\(fn)" t nil)
+
+(autoload 'message-recover "gnus/lisp/message" "\
+Reread contents of current buffer from its last auto-save file.
+
+\(fn)" t nil)
+
+(autoload 'message-forward "gnus/lisp/message" "\
+Forward the current message via mail.
+Optional NEWS will use news to forward instead of mail.
+Optional DIGEST will use digest to forward.
+
+\(fn &optional NEWS DIGEST)" t nil)
+
+(autoload 'message-forward-make-body "gnus/lisp/message" "\
+
+
+\(fn FORWARD-BUFFER &optional DIGEST)" nil nil)
+
+(autoload 'message-forward-rmail-make-body "gnus/lisp/message" "\
+
+
+\(fn FORWARD-BUFFER)" nil nil)
+
+(autoload 'message-insinuate-rmail "gnus/lisp/message" "\
+Let RMAIL use message to forward.
+
+\(fn)" t nil)
+
+(autoload 'message-resend "gnus/lisp/message" "\
+Resend the current article to ADDRESS.
+
+\(fn ADDRESS)" t nil)
+
+(autoload 'message-bounce "gnus/lisp/message" "\
+Re-mail the current message.
+This only makes sense if the current message is a bounce message that
+contains some mail you have written which has been bounced back to
+you.
+
+\(fn)" t nil)
+
+(autoload 'message-mail-other-window "gnus/lisp/message" "\
+Like `message-mail' command, but display mail buffer in another window.
+
+\(fn &optional TO SUBJECT)" t nil)
+
+(autoload 'message-mail-other-frame "gnus/lisp/message" "\
+Like `message-mail' command, but display mail buffer in another frame.
+
+\(fn &optional TO SUBJECT)" t nil)
+
+(autoload 'message-news-other-window "gnus/lisp/message" "\
+Start editing a news article to be sent.
+
+\(fn &optional NEWSGROUPS SUBJECT)" t nil)
+
+(autoload 'message-news-other-frame "gnus/lisp/message" "\
+Start editing a news article to be sent.
+
+\(fn &optional NEWSGROUPS SUBJECT)" t nil)
+
+(autoload 'message-bold-region "gnus/lisp/message" "\
+Bold all nonblank characters in the region.
+Works by overstriking characters.
+Called from program, takes two arguments START and END
+which specify the range to operate on.
+
+\(fn START END)" t nil)
+
+(autoload 'message-unbold-region "gnus/lisp/message" "\
+Remove all boldness (overstruck characters) in the region.
+Called from program, takes two arguments START and END
+which specify the range to operate on.
+
+\(fn START END)" t nil)
+
+;;;***
+
+;;;### (autoloads (mm-default-file-encoding) "gnus/lisp/mm-encode"
+;;;;;;  "gnus/lisp/mm-encode.el" (20803 21489 500912 151000))
+;;; Generated autoloads from gnus/lisp/mm-encode.el
+
+(autoload 'mm-default-file-encoding "gnus/lisp/mm-encode" "\
+Return a default encoding for FILE.
+
+\(fn FILE)" nil nil)
+
+;;;***
+
+;;;### (autoloads (mm-inline-external-body mm-extern-cache-contents)
+;;;;;;  "gnus/lisp/mm-extern" "gnus/lisp/mm-extern.el" (20803 21489
+;;;;;;  500912 151000))
+;;; Generated autoloads from gnus/lisp/mm-extern.el
+
+(autoload 'mm-extern-cache-contents "gnus/lisp/mm-extern" "\
+Put the external-body part of HANDLE into its cache.
+
+\(fn HANDLE)" nil nil)
+
+(autoload 'mm-inline-external-body "gnus/lisp/mm-extern" "\
+Show the external-body part of HANDLE.
+This function replaces the buffer of HANDLE with a buffer contains
+the entire message.
+If NO-DISPLAY is nil, display it. Otherwise, do nothing after replacing.
+
+\(fn HANDLE &optional NO-DISPLAY)" nil nil)
+
+;;;***
+
+;;;### (autoloads (mm-inline-partial) "gnus/lisp/mm-partial" "gnus/lisp/mm-partial.el"
+;;;;;;  (20803 21489 500912 151000))
+;;; Generated autoloads from gnus/lisp/mm-partial.el
+
+(autoload 'mm-inline-partial "gnus/lisp/mm-partial" "\
+Show the partial part of HANDLE.
+This function replaces the buffer of HANDLE with a buffer contains
+the entire message.
+If NO-DISPLAY is nil, display it. Otherwise, do nothing after replacing.
+
+\(fn HANDLE &optional NO-DISPLAY)" nil nil)
+
+;;;***
+
+;;;### (autoloads (mm-url-insert-file-contents-external mm-url-insert-file-contents)
+;;;;;;  "gnus/lisp/mm-url" "gnus/lisp/mm-url.el" (20803 21489 500912
+;;;;;;  151000))
+;;; Generated autoloads from gnus/lisp/mm-url.el
+
+(autoload 'mm-url-insert-file-contents "gnus/lisp/mm-url" "\
+Insert file contents of URL.
+If `mm-url-use-external' is non-nil, use `mm-url-program'.
+
+\(fn URL)" nil nil)
+
+(autoload 'mm-url-insert-file-contents-external "gnus/lisp/mm-url" "\
+Insert file contents of URL using `mm-url-program'.
+
+\(fn URL)" nil nil)
+
+;;;***
+
+;;;### (autoloads (mm-uu-dissect-text-parts mm-uu-dissect) "gnus/lisp/mm-uu"
+;;;;;;  "gnus/lisp/mm-uu.el" (20803 21489 500912 151000))
+;;; Generated autoloads from gnus/lisp/mm-uu.el
+
+(autoload 'mm-uu-dissect "gnus/lisp/mm-uu" "\
+Dissect the current buffer and return a list of uu handles.
+The optional NOHEADER means there's no header in the buffer.
+MIME-TYPE specifies a MIME type and parameters, which defaults to the
+value of `mm-uu-text-plain-type'.
+
+\(fn &optional NOHEADER MIME-TYPE)" nil nil)
+
+(autoload 'mm-uu-dissect-text-parts "gnus/lisp/mm-uu" "\
+Dissect text parts and put uu handles into HANDLE.
+Assume text has been decoded if DECODED is non-nil.
+
+\(fn HANDLE &optional DECODED)" nil nil)
+
+;;;***
+
+;;;### (autoloads (mml-attach-file mml-to-mime) "gnus/lisp/mml" "gnus/lisp/mml.el"
+;;;;;;  (20878 23145 338104 710000))
+;;; Generated autoloads from gnus/lisp/mml.el
+
+(autoload 'mml-to-mime "gnus/lisp/mml" "\
+Translate the current buffer from MML to MIME.
+
+\(fn)" nil nil)
+
+(autoload 'mml-attach-file "gnus/lisp/mml" "\
+Attach a file to the outgoing MIME message.
+The file is not inserted or encoded until you send the message with
+`\\[message-send-and-exit]' or `\\[message-send]' in Message mode,
+or `\\[mail-send-and-exit]' or `\\[mail-send]' in Mail mode.
+
+FILE is the name of the file to attach.  TYPE is its
+content-type, a string of the form \"type/subtype\".  DESCRIPTION
+is a one-line description of the attachment.  The DISPOSITION
+specifies how the attachment is intended to be displayed.  It can
+be either \"inline\" (displayed automatically within the message
+body) or \"attachment\" (separate from the body).
+
+\(fn FILE &optional TYPE DESCRIPTION DISPOSITION)" t nil)
+
+;;;***
+
+;;;### (autoloads (mml1991-sign mml1991-encrypt) "gnus/lisp/mml1991"
+;;;;;;  "gnus/lisp/mml1991.el" (20878 23145 338104 710000))
+;;; Generated autoloads from gnus/lisp/mml1991.el
+
+(autoload 'mml1991-encrypt "gnus/lisp/mml1991" "\
+
+
+\(fn CONT &optional SIGN)" nil nil)
+
+(autoload 'mml1991-sign "gnus/lisp/mml1991" "\
+
+
+\(fn CONT)" nil nil)
+
+;;;***
+
+;;;### (autoloads (mml2015-self-encrypt mml2015-sign mml2015-encrypt
+;;;;;;  mml2015-verify-test mml2015-verify mml2015-decrypt-test mml2015-decrypt)
+;;;;;;  "gnus/lisp/mml2015" "gnus/lisp/mml2015.el" (20878 23145 338104
+;;;;;;  710000))
+;;; Generated autoloads from gnus/lisp/mml2015.el
+
+(autoload 'mml2015-decrypt "gnus/lisp/mml2015" "\
+
+
+\(fn HANDLE CTL)" nil nil)
+
+(autoload 'mml2015-decrypt-test "gnus/lisp/mml2015" "\
+
+
+\(fn HANDLE CTL)" nil nil)
+
+(autoload 'mml2015-verify "gnus/lisp/mml2015" "\
+
+
+\(fn HANDLE CTL)" nil nil)
+
+(autoload 'mml2015-verify-test "gnus/lisp/mml2015" "\
+
+
+\(fn HANDLE CTL)" nil nil)
+
+(autoload 'mml2015-encrypt "gnus/lisp/mml2015" "\
+
+
+\(fn CONT &optional SIGN)" nil nil)
+
+(autoload 'mml2015-sign "gnus/lisp/mml2015" "\
+
+
+\(fn CONT)" nil nil)
+
+(autoload 'mml2015-self-encrypt "gnus/lisp/mml2015" "\
+
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads (netrc-credentials) "gnus/lisp/netrc" "gnus/lisp/netrc.el"
+;;;;;;  (20803 21489 500912 151000))
+;;; Generated autoloads from gnus/lisp/netrc.el
+
+(autoload 'netrc-credentials "gnus/lisp/netrc" "\
+Return a user name/password pair.
+Port specifications will be prioritized in the order they are
+listed in the PORTS list.
+
+\(fn MACHINE &rest PORTS)" nil nil)
+
+;;;***
+
+;;;### (autoloads (nndiary-generate-nov-databases) "gnus/lisp/nndiary"
+;;;;;;  "gnus/lisp/nndiary.el" (20803 21489 504912 307000))
+;;; Generated autoloads from gnus/lisp/nndiary.el
+
+(autoload 'nndiary-generate-nov-databases "gnus/lisp/nndiary" "\
+Generate NOV databases in all nndiary directories.
+
+\(fn &optional SERVER)" t nil)
+
+;;;***
+
+;;;### (autoloads (nndoc-add-type) "gnus/lisp/nndoc" "gnus/lisp/nndoc.el"
+;;;;;;  (20803 21489 504912 307000))
+;;; Generated autoloads from gnus/lisp/nndoc.el
+
+(autoload 'nndoc-add-type "gnus/lisp/nndoc" "\
+Add document DEFINITION to the list of nndoc document definitions.
+If POSITION is nil or `last', the definition will be added
+as the last checked definition, if t or `first', add as the
+first definition, and if any other symbol, add after that
+symbol in the alist.
+
+\(fn DEFINITION &optional POSITION)" nil nil)
+
+;;;***
+
+;;;### (autoloads (nnfolder-generate-active-file) "gnus/lisp/nnfolder"
+;;;;;;  "gnus/lisp/nnfolder.el" (20803 21489 504912 307000))
+;;; Generated autoloads from gnus/lisp/nnfolder.el
+
+(autoload 'nnfolder-generate-active-file "gnus/lisp/nnfolder" "\
+Look for mbox folders in the nnfolder directory and make them into groups.
+This command does not work if you use short group names.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (nnml-generate-nov-databases) "gnus/lisp/nnml"
+;;;;;;  "gnus/lisp/nnml.el" (20803 21489 508912 463000))
+;;; Generated autoloads from gnus/lisp/nnml.el
+
+(autoload 'nnml-generate-nov-databases "gnus/lisp/nnml" "\
+Generate NOV databases in all nnml directories.
+
+\(fn &optional SERVER)" t nil)
+
+;;;***
+
+;;;### (autoloads (parse-time-string) "gnus/lisp/parse-time" "gnus/lisp/parse-time.el"
+;;;;;;  (20803 21489 512912 618000))
+;;; Generated autoloads from gnus/lisp/parse-time.el
+(put 'parse-time-rules 'risky-local-variable t)
+
+(autoload 'parse-time-string "gnus/lisp/parse-time" "\
+Parse the time-string STRING into (SEC MIN HOUR DAY MON YEAR DOW DST TZ).
+The values are identical to those of `decode-time', but any values that are
+unknown are returned as nil.
+
+\(fn STRING)" nil nil)
+
+;;;***
+
+;;;### (autoloads (password-in-cache-p password-cache-expiry password-cache)
+;;;;;;  "gnus/lisp/password-cache" "gnus/lisp/password-cache.el"
+;;;;;;  (20803 21489 512912 618000))
+;;; Generated autoloads from gnus/lisp/password-cache.el
+
+(defvar password-cache t "\
+Whether to cache passwords.")
+
+(custom-autoload 'password-cache "gnus/lisp/password-cache" t)
+
+(defvar password-cache-expiry 16 "\
+How many seconds passwords are cached, or nil to disable expiring.
+Whether passwords are cached at all is controlled by `password-cache'.")
+
+(custom-autoload 'password-cache-expiry "gnus/lisp/password-cache" t)
+
+(autoload 'password-in-cache-p "gnus/lisp/password-cache" "\
+Check if KEY is in the cache.
+
+\(fn KEY)" nil nil)
+
+;;;***
+
+;;;### (autoloads (plstore-mode plstore-open) "gnus/lisp/plstore"
+;;;;;;  "gnus/lisp/plstore.el" (20803 21489 512912 618000))
+;;; Generated autoloads from gnus/lisp/plstore.el
+
+(autoload 'plstore-open "gnus/lisp/plstore" "\
+Create a plstore instance associated with FILE.
+
+\(fn FILE)" nil nil)
+
+(autoload 'plstore-mode "gnus/lisp/plstore" "\
+Major mode for editing PLSTORE files.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (pop3-movemail) "gnus/lisp/pop3" "gnus/lisp/pop3.el"
+;;;;;;  (20803 21489 512912 618000))
+;;; Generated autoloads from gnus/lisp/pop3.el
+
+(autoload 'pop3-movemail "gnus/lisp/pop3" "\
+Transfer contents of a maildrop to the specified FILE.
+Use streaming commands.
+
+\(fn FILE)" nil nil)
+
+;;;***
+
+;;;### (autoloads (open-protocol-stream) "gnus/lisp/proto-stream"
+;;;;;;  "gnus/lisp/proto-stream.el" (20803 21489 512912 618000))
+;;; Generated autoloads from gnus/lisp/proto-stream.el
+
+(autoload 'open-protocol-stream "gnus/lisp/proto-stream" "\
+Open a network stream to HOST, possibly with encryption.
+Normally, return a network process object; with a non-nil
+:return-list parameter, return a list instead (see below).
+
+The first four parameters, NAME, BUFFER, HOST, and SERVICE, have
+the same meanings as in `open-network-stream'.  The remaining
+PARAMETERS should be a sequence of keywords and values:
+
+:type specifies the connection type, one of the following:
+  nil or `network'
+             -- Begin with an ordinary network connection, and if
+                the parameters :success and :capability-command
+                are also supplied, try to upgrade to an encrypted
+                connection via STARTTLS.  Even if that
+                fails (e.g. if HOST does not support TLS), retain
+                an unencrypted connection.
+  `plain'    -- An ordinary, unencrypted network connection.
+  `starttls' -- Begin with an ordinary connection, and try
+                upgrading via STARTTLS.  If that fails for any
+                reason, drop the connection; in that case the
+                returned object is a killed process.
+  `tls'      -- A TLS connection.
+  `ssl'      -- Equivalent to `tls'.
+  `shell'    -- A shell connection.
+
+:return-list specifies this function's return value.
+  If omitted or nil, return a process object.  A non-nil means to
+  return (PROC . PROPS), where PROC is a process object and PROPS
+  is a plist of connection properties, with these keywords:
+   :greeting -- the greeting returned by HOST (a string), or nil.
+   :capabilities -- a string representing HOST's capabilities,
+                    or nil if none could be found.
+   :type -- the resulting connection type; `plain' (unencrypted)
+            or `tls' (TLS-encrypted).
+
+:end-of-command specifies a regexp matching the end of a command.
+  If non-nil, it defaults to \"\\n\".
+
+:end-of-capability specifies a regexp matching the end of the
+  response to the command specified for :capability-command.
+  It defaults to the regexp specified for :end-of-command.
+
+:success specifies a regexp matching a message indicating a
+  successful STARTTLS negotiation.  For instance, the default
+  should be \"^3\" for an NNTP connection.
+
+:capability-command specifies a command used to query the HOST
+  for its capabilities.  For instance, for IMAP this should be
+  \"1 CAPABILITY\\r\\n\".
+
+:starttls-function specifies a function for handling STARTTLS.
+  This function should take one parameter, the response to the
+  capability command, and should return the command to switch on
+  STARTTLS if the server supports STARTTLS, and nil otherwise.
+
+\(fn NAME BUFFER HOST SERVICE &rest PARAMETERS)" nil nil)
+
+;;;***
+
+;;;### (autoloads (quoted-printable-decode-region) "gnus/lisp/qp"
+;;;;;;  "gnus/lisp/qp.el" (20803 21489 512912 618000))
+;;; Generated autoloads from gnus/lisp/qp.el
+
+(autoload 'quoted-printable-decode-region "gnus/lisp/qp" "\
+Decode quoted-printable in the region between FROM and TO, per RFC 2045.
+If CODING-SYSTEM is non-nil, decode bytes into characters with that
+coding-system.
+
+Interactively, you can supply the CODING-SYSTEM argument
+with \\[universal-coding-system-argument].
+
+The CODING-SYSTEM argument is a historical hangover and is deprecated.
+QP encodes raw bytes and should be decoded into raw bytes.  Decoding
+them into characters should be done separately.
+
+\(fn FROM TO &optional CODING-SYSTEM)" t nil)
+
+;;;***
+
+;;;### (autoloads (gnus-score-mode) "gnus/lisp/score-mode" "gnus/lisp/score-mode.el"
+;;;;;;  (20803 21489 512912 618000))
+;;; Generated autoloads from gnus/lisp/score-mode.el
+
+(autoload 'gnus-score-mode "gnus/lisp/score-mode" "\
+Mode for editing Gnus score files.
+This mode is an extended emacs-lisp mode.
+
+\\{gnus-score-mode-map}
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (sha1) "gnus/lisp/sha1" "gnus/lisp/sha1.el" (20803
+;;;;;;  21489 512912 618000))
+;;; Generated autoloads from gnus/lisp/sha1.el
+
+(autoload 'sha1 "gnus/lisp/sha1" "\
+Return the SHA1 (Secure Hash Algorithm) of an object.
+OBJECT is either a string or a buffer.
+Optional arguments BEG and END denote buffer positions for computing the
+hash of a portion of OBJECT.
+If BINARY is non-nil, return a string in binary form.
+
+\(fn OBJECT &optional BEG END BINARY)" nil nil)
+
+;;;***
+
+;;;### (autoloads (shr-insert-document) "gnus/lisp/shr" "gnus/lisp/shr.el"
+;;;;;;  (20878 23145 342104 868000))
+;;; Generated autoloads from gnus/lisp/shr.el
+
+(autoload 'shr-insert-document "gnus/lisp/shr" "\
+Render the parsed document DOM into the current buffer.
+DOM should be a parse tree as generated by
+`libxml-parse-html-region' or similar.
+
+\(fn DOM)" nil nil)
+
+;;;***
+
+;;;### (autoloads (sieve-upload-and-kill sieve-upload-and-bury sieve-upload
+;;;;;;  sieve-manage) "gnus/lisp/sieve" "gnus/lisp/sieve.el" (20803
+;;;;;;  21489 516912 773000))
+;;; Generated autoloads from gnus/lisp/sieve.el
+
+(autoload 'sieve-manage "gnus/lisp/sieve" "\
+
+
+\(fn SERVER &optional PORT)" t nil)
+
+(autoload 'sieve-upload "gnus/lisp/sieve" "\
+
+
+\(fn &optional NAME)" t nil)
+
+(autoload 'sieve-upload-and-bury "gnus/lisp/sieve" "\
+
+
+\(fn &optional NAME)" t nil)
+
+(autoload 'sieve-upload-and-kill "gnus/lisp/sieve" "\
+
+
+\(fn &optional NAME)" t nil)
+
+;;;***
+
+;;;### (autoloads (sieve-mode) "gnus/lisp/sieve-mode" "gnus/lisp/sieve-mode.el"
+;;;;;;  (20803 21489 516912 773000))
+;;; Generated autoloads from gnus/lisp/sieve-mode.el
+
+(autoload 'sieve-mode "gnus/lisp/sieve-mode" "\
+Major mode for editing Sieve code.
+This is much like C mode except for the syntax of comments.  Its keymap
+inherits from C mode's and it has the same variables for customizing
+indentation.  It has its own abbrev table and its own syntax table.
+
+Turning on Sieve mode runs `sieve-mode-hook'.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (smiley-buffer smiley-region) "gnus/lisp/smiley"
+;;;;;;  "gnus/lisp/smiley.el" (20803 21489 516912 773000))
+;;; Generated autoloads from gnus/lisp/smiley.el
+
+(autoload 'smiley-region "gnus/lisp/smiley" "\
+Replace in the region `smiley-regexp-alist' matches with corresponding images.
+A list of images is returned.
+
+\(fn START END)" t nil)
+
+(autoload 'smiley-buffer "gnus/lisp/smiley" "\
+Run `smiley-region' at the BUFFER, specified in the argument or
+interactively.  If there's no argument, do it at the current buffer.
+
+\(fn &optional BUFFER)" t nil)
+
+;;;***
+
+;;;### (autoloads (spam-initialize) "gnus/lisp/spam" "gnus/lisp/spam.el"
+;;;;;;  (20878 23145 342104 868000))
+;;; Generated autoloads from gnus/lisp/spam.el
+
+(autoload 'spam-initialize "gnus/lisp/spam" "\
+Install the spam.el hooks and do other initialization.
+When SYMBOLS is given, set those variables to t.  This is so you
+can call `spam-initialize' before you set spam-use-* variables on
+explicitly, and matters only if you need the extra headers
+installed through `spam-necessary-extra-headers'.
+
+\(fn &rest SYMBOLS)" t nil)
+
+;;;***
+
+;;;### (autoloads (spam-report-deagentize spam-report-agentize spam-report-url-to-file
+;;;;;;  spam-report-url-ping-mm-url spam-report-process-queue) "gnus/lisp/spam-report"
+;;;;;;  "gnus/lisp/spam-report.el" (20878 23145 342104 868000))
+;;; Generated autoloads from gnus/lisp/spam-report.el
+
+(autoload 'spam-report-process-queue "gnus/lisp/spam-report" "\
+Report all queued requests from `spam-report-requests-file'.
+
+If FILE is given, use it instead of `spam-report-requests-file'.
+If KEEP is t, leave old requests in the file.  If KEEP is the
+symbol `ask', query before flushing the queue file.
+
+\(fn &optional FILE KEEP)" t nil)
+
+(autoload 'spam-report-url-ping-mm-url "gnus/lisp/spam-report" "\
+Ping a host through HTTP, addressing a specific GET resource. Use
+the external program specified in `mm-url-program' to connect to
+server.
+
+\(fn HOST REPORT)" nil nil)
+
+(autoload 'spam-report-url-to-file "gnus/lisp/spam-report" "\
+Collect spam report requests in `spam-report-requests-file'.
+Customize `spam-report-url-ping-function' to use this function.
+
+\(fn HOST REPORT)" nil nil)
+
+(autoload 'spam-report-agentize "gnus/lisp/spam-report" "\
+Add spam-report support to the Agent.
+Spam reports will be queued with \\[spam-report-url-to-file] when
+the Agent is unplugged, and will be submitted in a batch when the
+Agent is plugged.
+
+\(fn)" t nil)
+
+(autoload 'spam-report-deagentize "gnus/lisp/spam-report" "\
+Remove spam-report support from the Agent.
+Spam reports will be queued with the method used when
+\\[spam-report-agentize] was run.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (starttls-open-stream) "gnus/lisp/starttls" "gnus/lisp/starttls.el"
+;;;;;;  (20803 21489 516912 773000))
+;;; Generated autoloads from gnus/lisp/starttls.el
+
+(autoload 'starttls-open-stream "gnus/lisp/starttls" "\
+Open a TLS connection for a port to a host.
+Returns a subprocess object to represent the connection.
+Input and output work as for subprocesses; `delete-process' closes it.
+Args are NAME BUFFER HOST PORT.
+NAME is name for process.  It is modified if necessary to make it unique.
+BUFFER is the buffer (or `buffer-name') to associate with the process.
+ Process output goes at end of that buffer, unless you specify
+ an output stream or filter function to handle the output.
+ BUFFER may be also nil, meaning that this process is not associated
+ with any buffer
+Third arg is name of the host to connect to, or its IP address.
+Fourth arg PORT is an integer specifying a port to connect to.
+If `starttls-use-gnutls' is nil, this may also be a service name, but
+GnuTLS requires a port number.
+
+\(fn NAME BUFFER HOST PORT)" nil nil)
+
+;;;***
+
+;;;### (autoloads (format-seconds safe-date-to-time time-to-days
+;;;;;;  time-to-day-in-year date-leap-year-p days-between date-to-day
+;;;;;;  time-add time-subtract time-since days-to-time time-less-p
+;;;;;;  seconds-to-time date-to-time) "gnus/lisp/time-date" "gnus/lisp/time-date.el"
+;;;;;;  (20803 21489 516912 773000))
+;;; Generated autoloads from gnus/lisp/time-date.el
+
+(autoload 'date-to-time "gnus/lisp/time-date" "\
+Parse a string DATE that represents a date-time and return a time value.
+If DATE lacks timezone information, GMT is assumed.
+
+\(fn DATE)" nil nil)
+(if (or (featurep 'emacs)
+       (and (fboundp 'float-time)
+            (subrp (symbol-function 'float-time))))
+   (defalias 'time-to-seconds 'float-time)
+ (autoload 'time-to-seconds "time-date"))
+
+(autoload 'seconds-to-time "gnus/lisp/time-date" "\
+Convert SECONDS (a floating point number) to a time value.
+
+\(fn SECONDS)" nil nil)
+
+(autoload 'time-less-p "gnus/lisp/time-date" "\
+Return non-nil if time value T1 is earlier than time value T2.
+
+\(fn T1 T2)" nil nil)
+
+(autoload 'days-to-time "gnus/lisp/time-date" "\
+Convert DAYS into a time value.
+
+\(fn DAYS)" nil nil)
+
+(autoload 'time-since "gnus/lisp/time-date" "\
+Return the time elapsed since TIME.
+TIME should be either a time value or a date-time string.
+
+\(fn TIME)" nil nil)
+
+(defalias 'subtract-time 'time-subtract)
+
+(autoload 'time-subtract "gnus/lisp/time-date" "\
+Subtract two time values, T1 minus T2.
+Return the difference in the format of a time value.
+
+\(fn T1 T2)" nil nil)
+
+(autoload 'time-add "gnus/lisp/time-date" "\
+Add two time values T1 and T2.  One should represent a time difference.
+
+\(fn T1 T2)" nil nil)
+
+(autoload 'date-to-day "gnus/lisp/time-date" "\
+Return the number of days between year 1 and DATE.
+DATE should be a date-time string.
+
+\(fn DATE)" nil nil)
+
+(autoload 'days-between "gnus/lisp/time-date" "\
+Return the number of days between DATE1 and DATE2.
+DATE1 and DATE2 should be date-time strings.
+
+\(fn DATE1 DATE2)" nil nil)
+
+(autoload 'date-leap-year-p "gnus/lisp/time-date" "\
+Return t if YEAR is a leap year.
+
+\(fn YEAR)" nil nil)
+
+(autoload 'time-to-day-in-year "gnus/lisp/time-date" "\
+Return the day number within the year corresponding to TIME.
+
+\(fn TIME)" nil nil)
+
+(autoload 'time-to-days "gnus/lisp/time-date" "\
+The number of days between the Gregorian date 0001-12-31bce and TIME.
+TIME should be a time value.
+The Gregorian date Sunday, December 31, 1bce is imaginary.
+
+\(fn TIME)" nil nil)
+
+(autoload 'safe-date-to-time "gnus/lisp/time-date" "\
+Parse a string DATE that represents a date-time and return a time value.
+If DATE is malformed, return a time value of zeros.
+
+\(fn DATE)" nil nil)
+
+(autoload 'format-seconds "gnus/lisp/time-date" "\
+Use format control STRING to format the number SECONDS.
+The valid format specifiers are:
+%y is the number of (365-day) years.
+%d is the number of days.
+%h is the number of hours.
+%m is the number of minutes.
+%s is the number of seconds.
+%z is a non-printing control flag (see below).
+%% is a literal \"%\".
+
+Upper-case specifiers are followed by the unit-name (e.g. \"years\").
+Lower-case specifiers return only the unit.
+
+\"%\" may be followed by a number specifying a width, with an
+optional leading \".\" for zero-padding.  For example, \"%.3Y\" will
+return something of the form \"001 year\".
+
+The \"%z\" specifier does not print anything.  When it is used, specifiers
+must be given in order of decreasing size.  To the left of \"%z\", nothing
+is output until the first non-zero unit is encountered.
+
+This function does not work for SECONDS greater than `most-positive-fixnum'.
+
+\(fn STRING SECONDS)" nil nil)
+
+;;;***
+
+;;;### (autoloads (utf7-encode) "gnus/lisp/utf7" "gnus/lisp/utf7.el"
+;;;;;;  (20803 21489 520912 928000))
+;;; Generated autoloads from gnus/lisp/utf7.el
+
+(autoload 'utf7-encode "gnus/lisp/utf7" "\
+Encode UTF-7 STRING.  Use IMAP modification if FOR-IMAP is non-nil.
+
+\(fn STRING &optional FOR-IMAP)" nil nil)
+
+;;;***
+
+;;;### (autoloads (uudecode-decode-region uudecode-decode-region-internal
+;;;;;;  uudecode-decode-region-external) "gnus/lisp/uudecode" "gnus/lisp/uudecode.el"
+;;;;;;  (20803 21489 520912 928000))
+;;; Generated autoloads from gnus/lisp/uudecode.el
+
+(autoload 'uudecode-decode-region-external "gnus/lisp/uudecode" "\
+Uudecode region between START and END using external program.
+If FILE-NAME is non-nil, save the result to FILE-NAME.  The program
+used is specified by `uudecode-decoder-program'.
+
+\(fn START END &optional FILE-NAME)" t nil)
+
+(autoload 'uudecode-decode-region-internal "gnus/lisp/uudecode" "\
+Uudecode region between START and END without using an external program.
+If FILE-NAME is non-nil, save the result to FILE-NAME.
+
+\(fn START END &optional FILE-NAME)" t nil)
+
+(autoload 'uudecode-decode-region "gnus/lisp/uudecode" "\
+Uudecode region between START and END.
+If FILE-NAME is non-nil, save the result to FILE-NAME.
+
+\(fn START END &optional FILE-NAME)" nil nil)
+
+;;;***
+
+;;;### (autoloads (yenc-extract-filename yenc-decode-region) "gnus/lisp/yenc"
+;;;;;;  "gnus/lisp/yenc.el" (20803 21489 520912 928000))
+;;; Generated autoloads from gnus/lisp/yenc.el
+
+(autoload 'yenc-decode-region "gnus/lisp/yenc" "\
+Yenc decode region between START and END using an internal decoder.
+
+\(fn START END)" t nil)
+
+(autoload 'yenc-extract-filename "gnus/lisp/yenc" "\
+Extract file name from an yenc header.
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads (haskell-menu) "haskell-mode/haskell-menu" "haskell-mode/haskell-menu.el"
+;;;;;;  (20878 23136 81739 614000))
+;;; Generated autoloads from haskell-mode/haskell-menu.el
+
+(autoload 'haskell-menu "haskell-mode/haskell-menu" "\
+Launch the Haskell sessions menu.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (run-ruby inf-ruby inf-enh-ruby-setup-keybindings
+;;;;;;  inf-ruby-setup-keybindings) "inf-ruby/inf-ruby" "inf-ruby/inf-ruby.el"
+;;;;;;  (20878 23138 205823 390000))
+;;; Generated autoloads from inf-ruby/inf-ruby.el
+
+(autoload 'inf-ruby-setup-keybindings "inf-ruby/inf-ruby" "\
+Set local key defs to invoke inf-ruby from ruby-mode.
+
+\(fn)" nil nil)
+
+(autoload 'inf-enh-ruby-setup-keybindings "inf-ruby/inf-ruby" "\
+Set local key defs to invoke inf-ruby from ruby-mode.
+
+\(fn)" nil nil)
+
+(autoload 'inf-ruby "inf-ruby/inf-ruby" "\
+Run an inferior Ruby process in a buffer.
+With prefix argument, prompts for which Ruby implementation
+\(from the list `inf-ruby-implementations') to use. Runs the
+hooks `inf-ruby-mode-hook' (after the `comint-mode-hook' is
+run).
+
+\(fn &optional IMPL)" t nil)
+
+(autoload 'run-ruby "inf-ruby/inf-ruby" "\
+Run an inferior Ruby process, input and output via buffer *ruby*.
+If there is a process already running in `*ruby*', switch to that buffer.
+With argument, allows you to edit the command line (default is value
+of `ruby-program-name').  Runs the hooks `inferior-ruby-mode-hook'
+\(after the `comint-mode-hook' is run).
+\(Type \\[describe-mode] in the process buffer for a list of commands.)
+
+\(fn &optional COMMAND NAME)" t nil)
+
+(eval-after-load 'ruby-mode '(inf-ruby-setup-keybindings))
+
+(eval-after-load 'enh-ruby-mode '(inf-enh-ruby-setup-keybindings))
+
+;;;***
+
 ;;;### (autoloads (jedi:setup anything-jedi-related-names helm-jedi-related-names
 ;;;;;;  jedi:ac-setup jedi:complete jedi:start-dedicated-server)
-;;;;;;  "jedi/jedi" "jedi/jedi.el" (20770 3808 565158 530000))
+;;;;;;  "jedi/jedi" "jedi/jedi.el" (20878 23138 557837 274000))
 ;;; Generated autoloads from jedi/jedi.el
 
 (autoload 'jedi:start-dedicated-server "jedi/jedi" "\
@@ -1254,8 +3659,8 @@ what jedi can do.
 ;;;### (autoloads (inferior-js-mode switch-to-js js-load-file-and-go
 ;;;;;;  js-load-file js-send-buffer-and-go js-send-buffer js-send-last-sexp
 ;;;;;;  js-send-last-sexp-and-go js-send-region-and-go js-send-region
-;;;;;;  run-js) "js-comint/js-comint" "js-comint/js-comint.el" (20732
-;;;;;;  446 177475 714000))
+;;;;;;  run-js) "js-comint/js-comint" "js-comint/js-comint.el" (20878
+;;;;;;  23175 871309 318000))
 ;;; Generated autoloads from js-comint/js-comint.el
 
 (autoload 'run-js "js-comint/js-comint" "\
@@ -1336,6 +3741,34 @@ Javascript source.
 
 ;;;***
 
+;;;### (autoloads (js3-mode) "js3-mode/js3" "js3-mode/js3.el" (20878
+;;;;;;  23144 38053 430000))
+;;; Generated autoloads from js3-mode/js3.el
+ (add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
+
+(autoload 'js3-mode "js3-mode/js3" "\
+Major mode for editing JavaScript code.
+
+\\{js3-mode-map}
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (js3-mode) "js3-mode/js3-mode" "js3-mode/js3-mode.el"
+;;;;;;  (20878 23144 34053 272000))
+;;; Generated autoloads from js3-mode/js3-mode.el
+ (add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
+
+(autoload 'js3-mode "js3-mode/js3-mode" "\
+Major mode for editing JavaScript code.
+
+\\{js3-mode-map}
+
+\(fn)" t nil)
+
+;;;***
+
 ;;;### (autoloads (json-mode) "json-mode/json-mode" "json-mode/json-mode.el"
 ;;;;;;  (20771 41444 324420 539000))
 ;;; Generated autoloads from json-mode/json-mode.el
@@ -1347,32 +3780,88 @@ Major mode for editing JSON files
 
 ;;;***
 
-;;;### (autoloads (assistant) "nognus/lisp/assistant" "nognus/lisp/assistant.el"
-;;;;;;  (20731 65174 100494 392000))
-;;; Generated autoloads from nognus/lisp/assistant.el
+;;;### (autoloads (magit-view-file-history) "magit-view-file/magit-view-file"
+;;;;;;  "magit-view-file/magit-view-file.el" (20878 19176 483456
+;;;;;;  85000))
+;;; Generated autoloads from magit-view-file/magit-view-file.el
 
-(autoload 'assistant "nognus/lisp/assistant" "\
-Assist setting up Emacs based on FILE.
+(autoload 'magit-view-file-history "magit-view-file/magit-view-file" "\
+Show history of current file.
 
-\(fn FILE)" t nil)
+\(fn)" t nil)
 
 ;;;***
 
-;;;### (autoloads (auth-source-cache-expiry) "nognus/lisp/auth-source"
-;;;;;;  "nognus/lisp/auth-source.el" (20731 65174 100494 392000))
-;;; Generated autoloads from nognus/lisp/auth-source.el
+;;;### (autoloads (turn-on-magit-flow magit-flow-mode) "magit/magit-flow"
+;;;;;;  "magit/magit-flow.el" (20878 29188 222821 16000))
+;;; Generated autoloads from magit/magit-flow.el
 
-(defvar auth-source-cache-expiry 7200 "\
-How many seconds passwords are cached, or nil to disable
-expiring.  Overrides `password-cache-expiry' through a
-let-binding.")
+(autoload 'magit-flow-mode "magit/magit-flow" "\
+FLOW support for Magit
 
-(custom-autoload 'auth-source-cache-expiry "nognus/lisp/auth-source" t)
+\(fn &optional ARG)" t nil)
+
+(autoload 'turn-on-magit-flow "magit/magit-flow" "\
+Unconditionally turn on `magit-flow-mode'.
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "monokai-theme/monokai-theme" "monokai-theme/monokai-theme.el"
+;;;;;;  (20878 19756 504449 658000))
+;;; Generated autoloads from monokai-theme/monokai-theme.el
+
+(when load-file-name (add-to-list 'custom-theme-load-path (file-name-as-directory (file-name-directory load-file-name))) (when (not window-system) (custom-set-faces '(default ((t (:background "nil")))))))
+
+;;;***
+
+;;;### (autoloads (multi-web-mode) "multi-web-mode/multi-web-mode"
+;;;;;;  "multi-web-mode/multi-web-mode.el" (20817 60268 792706 26000))
+;;; Generated autoloads from multi-web-mode/multi-web-mode.el
+
+(autoload 'multi-web-mode "multi-web-mode/multi-web-mode" "\
+Enables the multi web mode chunk detection and indentation
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads (mc/sort-regions mc/reverse-regions mc/insert-numbers)
+;;;;;;  "multiple-cursors/mc-separate-operations" "multiple-cursors/mc-separate-operations.el"
+;;;;;;  (20878 23143 578035 285000))
+;;; Generated autoloads from multiple-cursors/mc-separate-operations.el
+
+(autoload 'mc/insert-numbers "multiple-cursors/mc-separate-operations" "\
+Insert increasing numbers for each cursor, starting at 0 or ARG.
+
+\(fn ARG)" t nil)
+
+(autoload 'mc/reverse-regions "multiple-cursors/mc-separate-operations" "\
+
+
+\(fn)" t nil)
+
+(autoload 'mc/sort-regions "multiple-cursors/mc-separate-operations" "\
+
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (mustache-mode) "mustache-mode/mustache-mode" "mustache-mode/mustache-mode.el"
+;;;;;;  (20803 13890 406136 46000))
+;;; Generated autoloads from mustache-mode/mustache-mode.el
+
+(autoload 'mustache-mode "mustache-mode/mustache-mode" "\
+
+
+\(fn)" t nil)
 
 ;;;***
 
 ;;;### (autoloads (auto-complete) "auto-complete/auto-complete" "auto-complete/auto-complete.el"
-;;;;;;  (20722 65119 666431 660000))
+;;;;;;  (20878 23071 387189 57000))
 ;;; Generated autoloads from auto-complete/auto-complete.el
 
 (autoload 'auto-complete "auto-complete/auto-complete" "\
@@ -1385,7 +3874,7 @@ Start auto-completion at current point.
 ;;;### (autoloads (auto-indent-global-mode auto-indent-minor-mode-on
 ;;;;;;  auto-indent-minor-mode auto-indent-eol-char-newline auto-indent-eol-newline)
 ;;;;;;  "auto-indent-mode/auto-indent-mode" "auto-indent-mode/auto-indent-mode.el"
-;;;;;;  (20722 65121 762512 638000))
+;;;;;;  (20878 23073 115257 158000))
 ;;; Generated autoloads from auto-indent-mode/auto-indent-mode.el
 
 (autoload 'auto-indent-eol-newline "auto-indent-mode/auto-indent-mode" "\
@@ -1445,9 +3934,14 @@ See `auto-indent-minor-mode' for more information on Auto-Indent minor mode.
 
 ;;;***
 
-;;;### (autoloads (autopair-mode autopair-global-mode) "autopair/autopair"
-;;;;;;  "autopair/autopair.el" (20722 65122 82524 999000))
+;;;### (autoloads (autopair-global-mode autopair-mode) "autopair/autopair"
+;;;;;;  "autopair/autopair.el" (20878 23073 55254 794000))
 ;;; Generated autoloads from autopair/autopair.el
+
+(autoload 'autopair-mode "autopair/autopair" "\
+Automagically pair braces and quotes like in TextMate.
+
+\(fn &optional ARG)" t nil)
 
 (defvar autopair-global-mode nil "\
 Non-nil if Autopair-Global mode is enabled.
@@ -1470,59 +3964,10 @@ See `autopair-mode' for more information on Autopair mode.
 
 \(fn &optional ARG)" t nil)
 
-(autoload 'autopair-mode "autopair/autopair" "\
-Automagically pair braces and quotes like in TextMate.
-
-\(fn &optional ARG)" t nil)
-
-;;;***
-
-;;;### (autoloads (binhex-decode-region binhex-decode-region-external
-;;;;;;  binhex-decode-region-internal) "nognus/lisp/binhex" "nognus/lisp/binhex.el"
-;;;;;;  (20731 65174 100494 392000))
-;;; Generated autoloads from nognus/lisp/binhex.el
-
-(defconst binhex-begin-line "^:...............................................................$" "\
-Regular expression matching the start of a BinHex encoded region.")
-
-(autoload 'binhex-decode-region-internal "nognus/lisp/binhex" "\
-Binhex decode region between START and END without using an external program.
-If HEADER-ONLY is non-nil only decode header and return filename.
-
-\(fn START END &optional HEADER-ONLY)" t nil)
-
-(autoload 'binhex-decode-region-external "nognus/lisp/binhex" "\
-Binhex decode region between START and END using external decoder.
-
-\(fn START END)" t nil)
-
-(autoload 'binhex-decode-region "nognus/lisp/binhex" "\
-Binhex decode region between START and END.
-
-\(fn START END)" t nil)
-
-;;;***
-
-;;;### (autoloads (canlock-verify canlock-insert-header) "nognus/lisp/canlock"
-;;;;;;  "nognus/lisp/canlock.el" (20731 65174 100494 392000))
-;;; Generated autoloads from nognus/lisp/canlock.el
-
-(autoload 'canlock-insert-header "nognus/lisp/canlock" "\
-Insert a Cancel-Key and/or a Cancel-Lock header if possible.
-
-\(fn &optional ID-FOR-KEY ID-FOR-LOCK PASSWORD)" nil nil)
-
-(autoload 'canlock-verify "nognus/lisp/canlock" "\
-Verify Cancel-Lock or Cancel-Key in BUFFER.
-If BUFFER is nil, the current buffer is assumed.  Signal an error if
-it fails.
-
-\(fn &optional BUFFER)" t nil)
-
 ;;;***
 
 ;;;### (autoloads (clojure-mode) "clojure-mode/clojure-mode" "clojure-mode/clojure-mode.el"
-;;;;;;  (20722 65124 262609 205000))
+;;;;;;  (20878 23079 595512 553000))
 ;;; Generated autoloads from clojure-mode/clojure-mode.el
 
 (autoload 'clojure-mode "clojure-mode/clojure-mode" "\
@@ -1545,6 +3990,12 @@ if that value is non-nil.
 
 (add-to-list 'auto-mode-alist '("\\.clj\\'" . clojure-mode))
 
+(add-to-list 'auto-mode-alist '("\\.cljs\\'" . clojure-mode))
+
+(add-to-list 'auto-mode-alist '("\\.dtm\\'" . clojure-mode))
+
+(add-to-list 'auto-mode-alist '("\\.edn\\'" . clojure-mode))
+
 (add-to-list 'interpreter-mode-alist '("jark" . clojure-mode))
 
 (add-to-list 'interpreter-mode-alist '("cake" . clojure-mode))
@@ -1552,7 +4003,7 @@ if that value is non-nil.
 ;;;***
 
 ;;;### (autoloads (clojure-test-mode) "clojure-mode/clojure-test-mode"
-;;;;;;  "clojure-mode/clojure-test-mode.el" (20722 65124 262609 205000))
+;;;;;;  "clojure-mode/clojure-test-mode.el" (20878 23079 595512 553000))
 ;;; Generated autoloads from clojure-mode/clojure-test-mode.el
 
 (autoload 'clojure-test-mode "clojure-mode/clojure-test-mode" "\
@@ -1570,22 +4021,8 @@ with a \"test.\" bit on it." (let ((ns (clojure-find-package))) (when (and ns (s
 
 ;;;***
 
-;;;### (autoloads (clojurescript-mode) "clojure-mode/clojurescript-mode"
-;;;;;;  "clojure-mode/clojurescript-mode.el" (20722 65124 262609
-;;;;;;  205000))
-;;; Generated autoloads from clojure-mode/clojurescript-mode.el
-
-(autoload 'clojurescript-mode "clojure-mode/clojurescript-mode" "\
-Major mode for ClojureScript
-
-\(fn)" t nil)
-
-(add-to-list 'auto-mode-alist '("\\.cljs\\'" . clojurescript-mode))
-
-;;;***
-
 ;;;### (autoloads (coffee-mode) "coffee-mode/coffee-mode" "coffee-mode/coffee-mode.el"
-;;;;;;  (20722 65122 982559 766000))
+;;;;;;  (20878 23080 707556 382000))
 ;;; Generated autoloads from coffee-mode/coffee-mode.el
 
 (autoload 'coffee-mode "coffee-mode/coffee-mode" "\
@@ -1599,25 +4036,7 @@ Major mode for editing CoffeeScript.
 
 (add-to-list 'auto-mode-alist '("Cakefile\\'" . coffee-mode))
 
-;;;***
-
-;;;### (autoloads (color-name-to-rgb) "nognus/lisp/color" "nognus/lisp/color.el"
-;;;;;;  (20731 65174 100494 392000))
-;;; Generated autoloads from nognus/lisp/color.el
-
-(autoload 'color-name-to-rgb "nognus/lisp/color" "\
-Convert COLOR string to a list of normalized RGB components.
-COLOR should be a color name (e.g. \"white\") or an RGB triplet
-string (e.g. \"#ff12ec\").
-
-Normally the return value is a list of three floating-point
-numbers, (RED GREEN BLUE), each between 0.0 and 1.0 inclusive.
-
-Optional argument FRAME specifies the frame where the color is to be
-displayed.  If FRAME is omitted or nil, use the selected frame.
-If FRAME cannot display COLOR, return nil.
-
-\(fn COLOR &optional FRAME)" nil nil)
+(add-to-list 'interpreter-mode-alist '("coffee" . coffee-mode))
 
 ;;;***
 
@@ -1776,60 +4195,6 @@ Key bindings:
 
 ;;;***
 
-;;;### (autoloads (deft deft-new-file) "deft/deft" "deft/deft.el"
-;;;;;;  (20723 11664 688115 64000))
-;;; Generated autoloads from deft/deft.el
-
-(autoload 'deft-new-file "deft/deft" "\
-Create a new file quickly, with an automatically generated filename
-or the filter string if non-nil and deft-use-filename-as-title is set.
-If the filter string is non-nil and title is not from filename,
-use it as the title.
-
-\(fn)" t nil)
-
-(autoload 'deft "deft/deft" "\
-Switch to *Deft* buffer and load files.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (gnus-article-outlook-deuglify-article gnus-outlook-deuglify-article
-;;;;;;  gnus-article-outlook-repair-attribution gnus-article-outlook-unwrap-lines)
-;;;;;;  "nognus/lisp/deuglify" "nognus/lisp/deuglify.el" (20731 65174
-;;;;;;  100494 392000))
-;;; Generated autoloads from nognus/lisp/deuglify.el
-
-(autoload 'gnus-article-outlook-unwrap-lines "nognus/lisp/deuglify" "\
-Unwrap lines that appear to be wrapped citation lines.
-You can control what lines will be unwrapped by frobbing
-`gnus-outlook-deuglify-unwrap-min' and `gnus-outlook-deuglify-unwrap-max',
-indicating the minimum and maximum length of an unwrapped citation line.  If
-NODISPLAY is non-nil, don't redisplay the article buffer.
-
-\(fn &optional NODISPLAY)" t nil)
-
-(autoload 'gnus-article-outlook-repair-attribution "nognus/lisp/deuglify" "\
-Repair a broken attribution line.
-If NODISPLAY is non-nil, don't redisplay the article buffer.
-
-\(fn &optional NODISPLAY)" t nil)
-
-(autoload 'gnus-outlook-deuglify-article "nognus/lisp/deuglify" "\
-Full deuglify of broken Outlook (Express) articles.
-Treat dumbquotes, unwrap lines, repair attribution and rearrange citation.  If
-NODISPLAY is non-nil, don't redisplay the article buffer.
-
-\(fn &optional NODISPLAY)" t nil)
-
-(autoload 'gnus-article-outlook-deuglify-article "nognus/lisp/deuglify" "\
-Deuglify broken Outlook (Express) articles and redisplay.
-
-\(fn)" t nil)
-
-;;;***
-
 ;;;### (autoloads (diff-git-default-bindings diff-git-diff-unstaged
 ;;;;;;  diff-git-diff-staged diff-git-buffer-stage diff-git-hunk-stage)
 ;;;;;;  "diff-git/diff-git" "diff-git/diff-git.el" (20731 64476 983998
@@ -1871,20 +4236,8 @@ Add bindings to the `diff-mode' keymap.
 
 ;;;***
 
-;;;### (autoloads (dig) "nognus/lisp/dig" "nognus/lisp/dig.el" (20731
-;;;;;;  65174 100494 392000))
-;;; Generated autoloads from nognus/lisp/dig.el
-
-(autoload 'dig "nognus/lisp/dig" "\
-Query addresses of a DOMAIN using dig, by calling `dig-invoke'.
-Optional arguments are passed to `dig-invoke'.
-
-\(fn DOMAIN &optional QUERY-TYPE QUERY-CLASS QUERY-OPTION DIG-OPTION SERVER)" t nil)
-
-;;;***
-
 ;;;### (autoloads (diminished-modes diminish-undo diminish) "diminish/diminish"
-;;;;;;  "diminish/diminish.el" (20723 11676 568619 371000))
+;;;;;;  "diminish/diminish.el" (20878 29189 446862 876000))
 ;;; Generated autoloads from diminish/diminish.el
 
 (autoload 'diminish "diminish/diminish" "\
@@ -1987,7 +4340,7 @@ what diminished modes would be on the mode-line if they were still minor.
 ;;;;;;  diredp-dired-for-files-other-window diredp-dired-for-files
 ;;;;;;  diredp-dired-files-other-window diredp-dired-files diredp-w32-local-drives
 ;;;;;;  diredp-prompt-for-bookmark-prefix-flag diff-switches) "dired+/dired+"
-;;;;;;  "dired+/dired+.el" (20723 11687 481082 499000))
+;;;;;;  "dired+/dired+.el" (20878 29215 875766 883000))
 ;;; Generated autoloads from dired+/dired+.el
 
 (defvar diff-switches "-c" "\
@@ -3423,33 +5776,9 @@ Send a bug report about a Dired+ problem.
 
 ;;;***
 
-;;;### (autoloads (dns-mode-soa-increment-serial dns-mode) "nognus/lisp/dns-mode"
-;;;;;;  "nognus/lisp/dns-mode.el" (20731 65174 100494 392000))
-;;; Generated autoloads from nognus/lisp/dns-mode.el
-
-(autoload 'dns-mode "nognus/lisp/dns-mode" "\
-Major mode for viewing and editing DNS master files.
-This mode is inherited from text mode.  It add syntax
-highlighting, and some commands for handling DNS master files.
-Its keymap inherits from `text-mode' and it has the same
-variables for customizing indentation.  It has its own abbrev
-table and its own syntax table.
-
-Turning on DNS mode runs `dns-mode-hook'.
-
-\(fn)" t nil)
- (defalias 'zone-mode 'dns-mode)
-
-(autoload 'dns-mode-soa-increment-serial "nognus/lisp/dns-mode" "\
-Locate SOA record and increment the serial field.
-
-\(fn)" t nil)
-
-;;;***
-
 ;;;### (autoloads (drag-stuff-global-mode turn-off-drag-stuff-mode
 ;;;;;;  turn-on-drag-stuff-mode drag-stuff-mode) "drag-stuff/drag-stuff"
-;;;;;;  "drag-stuff/drag-stuff.el" (20723 11683 348907 139000))
+;;;;;;  "drag-stuff/drag-stuff.el" (20878 29189 70850 17000))
 ;;; Generated autoloads from drag-stuff/drag-stuff.el
 
 (autoload 'drag-stuff-mode "drag-stuff/drag-stuff" "\
@@ -3487,17 +5816,6 @@ Drag-Stuff mode is enabled in all buffers where
 See `drag-stuff-mode' for more information on Drag-Stuff mode.
 
 \(fn &optional ARG)" t nil)
-
-;;;***
-
-;;;### (autoloads (ecomplete-setup) "nognus/lisp/ecomplete" "nognus/lisp/ecomplete.el"
-;;;;;;  (20731 65174 100494 392000))
-;;; Generated autoloads from nognus/lisp/ecomplete.el
-
-(autoload 'ecomplete-setup "nognus/lisp/ecomplete" "\
-
-
-\(fn)" nil nil)
 
 ;;;***
 
@@ -3562,7 +5880,7 @@ It should be possible to support python-mode.el.  Patches are welcome!
 
 ;;;### (autoloads (ein:dev-bug-report-template ein:dev-stop-debug
 ;;;;;;  ein:dev-start-debug ein:dev-insert-mode-map) "ein/lisp/ein-dev"
-;;;;;;  "ein/lisp/ein-dev.el" (20770 4876 106488 32000))
+;;;;;;  "ein/lisp/ein-dev.el" (20878 23131 241548 720000))
 ;;; Generated autoloads from ein/lisp/ein-dev.el
 
 (autoload 'ein:dev-insert-mode-map "ein/lisp/ein-dev" "\
@@ -3714,7 +6032,7 @@ Notebook mode with multiple language fontification.
 ;;;***
 
 ;;;### (autoloads nil "ein/lisp/ein-notebook" "ein/lisp/ein-notebook.el"
-;;;;;;  (20770 4876 106488 32000))
+;;;;;;  (20878 23131 241548 720000))
 ;;; Generated autoloads from ein/lisp/ein-notebook.el
 
 (defalias 'ein:notebook-name 'ein:$notebook-notebook-name)
@@ -3835,7 +6153,7 @@ Pseudo console mode.  Hit RET to execute code.
 
 ;;;### (autoloads (ein:shared-output-eval-string ein:shared-output-show-code-cell-at-point
 ;;;;;;  ein:shared-output-pop-to-buffer) "ein/lisp/ein-shared-output"
-;;;;;;  "ein/lisp/ein-shared-output.el" (20770 4876 110488 143000))
+;;;;;;  "ein/lisp/ein-shared-output.el" (20878 23131 241548 720000))
 ;;; Generated autoloads from ein/lisp/ein-shared-output.el
 
 (autoload 'ein:shared-output-pop-to-buffer "ein/lisp/ein-shared-output" "\
@@ -3877,7 +6195,7 @@ Show full traceback in traceback viewer.
 
 ;;;### (autoloads (el-get-checksum el-get-make-recipes el-get-cd
 ;;;;;;  el-get-self-update el-get-update-all el-get-version) "el-get/el-get"
-;;;;;;  "el-get/el-get.el" (20722 64836 559634 955000))
+;;;;;;  "el-get/el-get.el" (20878 23054 430520 888000))
 ;;; Generated autoloads from el-get/el-get.el
 
 (autoload 'el-get-version "el-get/el-get" "\
@@ -3914,7 +6232,7 @@ Compute the checksum of the given package, and put it in the kill-ring
 ;;;***
 
 ;;;### (autoloads (el-get-list-packages) "el-get/el-get-list-packages"
-;;;;;;  "el-get/el-get-list-packages.el" (20722 64836 507633 11000))
+;;;;;;  "el-get/el-get-list-packages.el" (20878 23054 418520 415000))
 ;;; Generated autoloads from el-get/el-get-list-packages.el
 
 (autoload 'el-get-list-packages "el-get/el-get-list-packages" "\
@@ -3925,20 +6243,20 @@ Display a list of packages.
 ;;;***
 
 ;;;### (autoloads (julia julia-mode) "ess/lisp/ess-julia" "ess/lisp/ess-julia.el"
-;;;;;;  (20731 63572 13017 222000))
+;;;;;;  (20878 23131 773569 702000))
 ;;; Generated autoloads from ess/lisp/ess-julia.el
 
 (autoload 'julia-mode "ess/lisp/ess-julia" "\
-Major mode for editing R source.  See `ess-mode' for more help.
+Major mode for editing julia source.  See `ess-mode' for more help.
 
 \(fn &optional PROC-NAME)" t nil)
 
 (autoload 'julia "ess/lisp/ess-julia" "\
 Call 'julia',
 Optional prefix (C-u) allows to set command line arguments, such as
---vsize.  This should be OS agnostic.
+--load=<file>.  This should be OS agnostic.
 If you have certain command line arguments that should always be passed
-to R, put them in the variable `inferior-julia-args'.
+to julia, put them in the variable `inferior-julia-args'.
 
 \(fn &optional START-ARGS)" t nil)
 
@@ -3994,944 +6312,9 @@ Popup a menu of functions to run on selected string or region.
 
 ;;;***
 
-;;;### (autoloads (er/expand-region) "expand-region/expand-region"
-;;;;;;  "expand-region/expand-region.el" (20787 28985 463562 257000))
-;;; Generated autoloads from expand-region/expand-region.el
-
-(autoload 'er/expand-region "expand-region/expand-region" "\
-Increase selected region by semantic units.
-
-With prefix argument expands the region that many times.
-If prefix argument is negative calls `er/contract-region'.
-If prefix argument is 0 it resets point and mark to their state
-before calling `er/expand-region' for the first time.
-
-\(fn ARG)" t nil)
-
-;;;***
-
-;;;### (autoloads (expand-region-exclude-text-mode-expansions expand-region-reset-fast-key
-;;;;;;  expand-region-contract-fast-key expand-region-fast-keys-enabled
-;;;;;;  expand-region-skip-whitespace expand-region-autocopy-register
-;;;;;;  expand-region-guess-python-mode expand-region-preferred-python-mode
-;;;;;;  expand-region) "expand-region/expand-region-custom" "expand-region/expand-region-custom.el"
-;;;;;;  (20787 28985 463562 257000))
-;;; Generated autoloads from expand-region/expand-region-custom.el
-
-(let ((loads (get 'expand-region 'custom-loads))) (if (member '"expand-region/expand-region-custom" loads) nil (put 'expand-region 'custom-loads (cons '"expand-region/expand-region-custom" loads))))
-
-(defvar expand-region-preferred-python-mode 'python "\
-The name of your preferred python mode")
-
-(custom-autoload 'expand-region-preferred-python-mode "expand-region/expand-region-custom" t)
-
-(defvar expand-region-guess-python-mode t "\
-If expand-region should attempt to guess your preferred python mode")
-
-(custom-autoload 'expand-region-guess-python-mode "expand-region/expand-region-custom" t)
-
-(defvar expand-region-autocopy-register "" "\
-If set to a string of a single character (try \"e\"), then the
-contents of the most recent expand or contract command will
-always be copied to the register named after that character.")
-
-(custom-autoload 'expand-region-autocopy-register "expand-region/expand-region-custom" t)
-
-(defvar expand-region-skip-whitespace t "\
-If expand-region should skip past whitespace on initial expansion")
-
-(custom-autoload 'expand-region-skip-whitespace "expand-region/expand-region-custom" t)
-
-(defvar expand-region-fast-keys-enabled t "\
-If expand-region should bind fast keys after initial expand/contract")
-
-(custom-autoload 'expand-region-fast-keys-enabled "expand-region/expand-region-custom" t)
-
-(defvar expand-region-contract-fast-key "-" "\
-Key to use after an initial expand/contract to contract once more.")
-
-(custom-autoload 'expand-region-contract-fast-key "expand-region/expand-region-custom" t)
-
-(defvar expand-region-reset-fast-key "0" "\
-Key to use after an initial expand/contract to undo.")
-
-(custom-autoload 'expand-region-reset-fast-key "expand-region/expand-region-custom" t)
-
-(defvar expand-region-exclude-text-mode-expansions '(html-mode nxml-mode) "\
-List of modes which derive from `text-mode' for which text mode expansions are not appropriate.")
-
-(custom-autoload 'expand-region-exclude-text-mode-expansions "expand-region/expand-region-custom" t)
-
-;;;***
-
-;;;### (autoloads (fill-flowed fill-flowed-encode) "nognus/lisp/flow-fill"
-;;;;;;  "nognus/lisp/flow-fill.el" (20731 65174 100494 392000))
-;;; Generated autoloads from nognus/lisp/flow-fill.el
-
-(autoload 'fill-flowed-encode "nognus/lisp/flow-fill" "\
-
-
-\(fn &optional BUFFER)" nil nil)
-
-(autoload 'fill-flowed "nognus/lisp/flow-fill" "\
-
-
-\(fn &optional BUFFER DELETE-SPACE)" nil nil)
-
-;;;***
-
-;;;### (autoloads (gmm-tool-bar-from-list gmm-widget-p gmm-error
-;;;;;;  gmm-message gmm-regexp-concat) "nognus/lisp/gmm-utils" "nognus/lisp/gmm-utils.el"
-;;;;;;  (20731 65174 100494 392000))
-;;; Generated autoloads from nognus/lisp/gmm-utils.el
-
-(autoload 'gmm-regexp-concat "nognus/lisp/gmm-utils" "\
-Potentially concat a list of regexps into a single one.
-The concatenation is done with logical ORs.
-
-\(fn REGEXP)" nil nil)
-
-(autoload 'gmm-message "nognus/lisp/gmm-utils" "\
-If LEVEL is lower than `gmm-verbose' print ARGS using `message'.
-
-Guideline for numbers:
-1 - error messages
-3 - non-serious error messages
-5 - messages for things that take a long time
-7 - not very important messages on stuff
-9 - messages inside loops.
-
-\(fn LEVEL &rest ARGS)" nil nil)
-
-(autoload 'gmm-error "nognus/lisp/gmm-utils" "\
-Beep an error if LEVEL is equal to or less than `gmm-verbose'.
-ARGS are passed to `message'.
-
-\(fn LEVEL &rest ARGS)" nil nil)
-
-(autoload 'gmm-widget-p "nognus/lisp/gmm-utils" "\
-Non-nil if SYMBOL is a widget.
-
-\(fn SYMBOL)" nil nil)
-
-(autoload 'gmm-tool-bar-from-list "nognus/lisp/gmm-utils" "\
-Make a tool bar from ICON-LIST.
-
-Within each entry of ICON-LIST, the first element is a menu
-command, the second element is an icon file name and the third
-element is a test function.  You can use \\[describe-key]
-<menu-entry> to find out the name of a menu command.  The fourth
-and all following elements are passed as the PROPS argument to the
-function `tool-bar-local-item'.
-
-If ZAP-LIST is a list, remove those item from the default
-`tool-bar-map'.  If it is t, start with a new sparse map.  You
-can use \\[describe-key] <icon> to find out the name of an icon
-item.  When \\[describe-key] <icon> shows \"<tool-bar> <new-file>
-runs the command find-file\", then use `new-file' in ZAP-LIST.
-
-DEFAULT-MAP specifies the default key map for ICON-LIST.
-
-\(fn ICON-LIST ZAP-LIST DEFAULT-MAP)" nil nil)
-
-;;;***
-
-;;;### (autoloads (gnus gnus-other-frame gnus-slave gnus-no-server
-;;;;;;  gnus-slave-no-server) "nognus/lisp/gnus" "nognus/lisp/gnus.el"
-;;;;;;  (20731 65174 116495 424000))
-;;; Generated autoloads from nognus/lisp/gnus.el
-(when (fboundp 'custom-autoload)
- (custom-autoload 'gnus-select-method "gnus"))
-
-(autoload 'gnus-slave-no-server "nognus/lisp/gnus" "\
-Read network news as a slave, without connecting to the local server.
-
-\(fn &optional ARG)" t nil)
-
-(autoload 'gnus-no-server "nognus/lisp/gnus" "\
-Read network news.
-If ARG is a positive number, Gnus will use that as the startup
-level. If ARG is nil, Gnus will be started at level 2.  If ARG is
-non-nil and not a positive number, Gnus will prompt the user for the
-name of an NNTP server to use.
-As opposed to `gnus', this command will not connect to the local
-server.
-
-\(fn &optional ARG SLAVE)" t nil)
-
-(autoload 'gnus-slave "nognus/lisp/gnus" "\
-Read news as a slave.
-
-\(fn &optional ARG)" t nil)
-
-(autoload 'gnus-other-frame "nognus/lisp/gnus" "\
-Pop up a frame to read news.
-This will call one of the Gnus commands which is specified by the user
-option `gnus-other-frame-function' (default `gnus') with the argument
-ARG if Gnus is not running, otherwise pop up a Gnus frame and run the
-command specified by `gnus-other-frame-resume-function'.
-The optional second argument DISPLAY should be a standard display string
-such as \"unix:0\" to specify where to pop up a frame.  If DISPLAY is
-omitted or the function `make-frame-on-display' is not available, the
-current display is used.
-
-\(fn &optional ARG DISPLAY)" t nil)
-
-(autoload 'gnus "nognus/lisp/gnus" "\
-Read network news.
-If ARG is non-nil and a positive number, Gnus will use that as the
-startup level.  If ARG is non-nil and not a positive number, Gnus will
-prompt the user for the name of an NNTP server to use.
-
-\(fn &optional ARG DONT-CONNECT SLAVE)" t nil)
-
-;;;***
-
-;;;### (autoloads (gnus-agent-regenerate gnus-agent-batch gnus-agent-batch-fetch
-;;;;;;  gnus-agent-find-parameter gnus-agent-possibly-alter-active
-;;;;;;  gnus-agent-get-undownloaded-list gnus-agent-delete-group
-;;;;;;  gnus-agent-rename-group gnus-agent-possibly-save-gcc gnus-agentize
-;;;;;;  gnus-slave-unplugged gnus-plugged gnus-unplugged) "nognus/lisp/gnus-agent"
-;;;;;;  "nognus/lisp/gnus-agent.el" (20731 65174 100494 392000))
-;;; Generated autoloads from nognus/lisp/gnus-agent.el
-
-(autoload 'gnus-unplugged "nognus/lisp/gnus-agent" "\
-Start Gnus unplugged.
-
-\(fn)" t nil)
-
-(autoload 'gnus-plugged "nognus/lisp/gnus-agent" "\
-Start Gnus plugged.
-
-\(fn)" t nil)
-
-(autoload 'gnus-slave-unplugged "nognus/lisp/gnus-agent" "\
-Read news as a slave unplugged.
-
-\(fn &optional ARG)" t nil)
-
-(autoload 'gnus-agentize "nognus/lisp/gnus-agent" "\
-Allow Gnus to be an offline newsreader.
-
-The gnus-agentize function is now called internally by gnus when
-gnus-agent is set.  If you wish to avoid calling gnus-agentize,
-customize gnus-agent to nil.
-
-This will modify the `gnus-setup-news-hook', and
-`message-send-mail-real-function' variables, and install the Gnus agent
-minor mode in all Gnus buffers.
-
-\(fn)" t nil)
-
-(autoload 'gnus-agent-possibly-save-gcc "nognus/lisp/gnus-agent" "\
-Save GCC if Gnus is unplugged.
-
-\(fn)" nil nil)
-
-(autoload 'gnus-agent-rename-group "nognus/lisp/gnus-agent" "\
-Rename fully-qualified OLD-GROUP as NEW-GROUP.
-Always updates the agent, even when disabled, as the old agent
-files would corrupt gnus when the agent was next enabled.
-Depends upon the caller to determine whether group renaming is
-supported.
-
-\(fn OLD-GROUP NEW-GROUP)" nil nil)
-
-(autoload 'gnus-agent-delete-group "nognus/lisp/gnus-agent" "\
-Delete fully-qualified GROUP.
-Always updates the agent, even when disabled, as the old agent
-files would corrupt gnus when the agent was next enabled.
-Depends upon the caller to determine whether group deletion is
-supported.
-
-\(fn GROUP)" nil nil)
-
-(autoload 'gnus-agent-get-undownloaded-list "nognus/lisp/gnus-agent" "\
-Construct list of articles that have not been downloaded.
-
-\(fn)" nil nil)
-
-(autoload 'gnus-agent-possibly-alter-active "nognus/lisp/gnus-agent" "\
-Possibly expand a group's active range to include articles
-downloaded into the agent.
-
-\(fn GROUP ACTIVE &optional INFO)" nil nil)
-
-(autoload 'gnus-agent-find-parameter "nognus/lisp/gnus-agent" "\
-Search for GROUPs SYMBOL in the group's parameters, the group's
-topic parameters, the group's category, or the customizable
-variables.  Returns the first non-nil value found.
-
-\(fn GROUP SYMBOL)" nil nil)
-
-(autoload 'gnus-agent-batch-fetch "nognus/lisp/gnus-agent" "\
-Start Gnus and fetch session.
-
-\(fn)" t nil)
-
-(autoload 'gnus-agent-batch "nognus/lisp/gnus-agent" "\
-Start Gnus, send queue and fetch session.
-
-\(fn)" t nil)
-
-(autoload 'gnus-agent-regenerate "nognus/lisp/gnus-agent" "\
-Regenerate all agent covered files.
-If CLEAN, obsolete (ignore).
-
-\(fn &optional CLEAN REREAD)" t nil)
-
-;;;***
-
-;;;### (autoloads (gnus-article-prepare-display) "nognus/lisp/gnus-art"
-;;;;;;  "nognus/lisp/gnus-art.el" (20731 65174 104494 650000))
-;;; Generated autoloads from nognus/lisp/gnus-art.el
-
-(autoload 'gnus-article-prepare-display "nognus/lisp/gnus-art" "\
-Make the current buffer look like a nice article.
-
-\(fn)" nil nil)
-
-;;;***
-
-;;;### (autoloads (gnus-bookmark-bmenu-list gnus-bookmark-jump gnus-bookmark-set)
-;;;;;;  "nognus/lisp/gnus-bookmark" "nognus/lisp/gnus-bookmark.el"
-;;;;;;  (20731 65174 104494 650000))
-;;; Generated autoloads from nognus/lisp/gnus-bookmark.el
-
-(autoload 'gnus-bookmark-set "nognus/lisp/gnus-bookmark" "\
-Set a bookmark for this article.
-
-\(fn)" t nil)
-
-(autoload 'gnus-bookmark-jump "nognus/lisp/gnus-bookmark" "\
-Jump to a Gnus bookmark (BMK-NAME).
-
-\(fn &optional BMK-NAME)" t nil)
-
-(autoload 'gnus-bookmark-bmenu-list "nognus/lisp/gnus-bookmark" "\
-Display a list of existing Gnus bookmarks.
-The list is displayed in a buffer named `*Gnus Bookmark List*'.
-The leftmost column displays a D if the bookmark is flagged for
-deletion, or > if it is flagged for displaying.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (gnus-cache-delete-group gnus-cache-rename-group
-;;;;;;  gnus-cache-generate-nov-databases gnus-cache-generate-active
-;;;;;;  gnus-jog-cache) "nognus/lisp/gnus-cache" "nognus/lisp/gnus-cache.el"
-;;;;;;  (20731 65174 104494 650000))
-;;; Generated autoloads from nognus/lisp/gnus-cache.el
-
-(autoload 'gnus-jog-cache "nognus/lisp/gnus-cache" "\
-Go through all groups and put the articles into the cache.
-
-Usage:
-$ emacs -batch -l ~/.emacs -l gnus -f gnus-jog-cache
-
-\(fn)" t nil)
-
-(autoload 'gnus-cache-generate-active "nognus/lisp/gnus-cache" "\
-Generate the cache active file.
-
-\(fn &optional DIRECTORY)" t nil)
-
-(autoload 'gnus-cache-generate-nov-databases "nognus/lisp/gnus-cache" "\
-Generate NOV files recursively starting in DIR.
-
-\(fn DIR)" t nil)
-
-(autoload 'gnus-cache-rename-group "nognus/lisp/gnus-cache" "\
-Rename OLD-GROUP as NEW-GROUP.
-Always updates the cache, even when disabled, as the old cache
-files would corrupt Gnus when the cache was next enabled.  It
-depends on the caller to determine whether group renaming is
-supported.
-
-\(fn OLD-GROUP NEW-GROUP)" nil nil)
-
-(autoload 'gnus-cache-delete-group "nognus/lisp/gnus-cache" "\
-Delete GROUP from the cache.
-Always updates the cache, even when disabled, as the old cache
-files would corrupt gnus when the cache was next enabled.
-Depends upon the caller to determine whether group deletion is
-supported.
-
-\(fn GROUP)" nil nil)
-
-;;;***
-
-;;;### (autoloads (gnus-delay-initialize gnus-delay-send-queue gnus-delay-article)
-;;;;;;  "nognus/lisp/gnus-delay" "nognus/lisp/gnus-delay.el" (20731
-;;;;;;  65174 104494 650000))
-;;; Generated autoloads from nognus/lisp/gnus-delay.el
-
-(autoload 'gnus-delay-article "nognus/lisp/gnus-delay" "\
-Delay this article by some time.
-DELAY is a string, giving the length of the time.  Possible values are:
-
-* <digits><units> for <units> in minutes (`m'), hours (`h'), days (`d'),
-  weeks (`w'), months (`M'), or years (`Y');
-
-* YYYY-MM-DD for a specific date.  The time of day is given by the
-  variable `gnus-delay-default-hour', minute and second are zero.
-
-* hh:mm for a specific time.  Use 24h format.  If it is later than this
-  time, then the deadline is tomorrow, else today.
-
-\(fn DELAY)" t nil)
-
-(autoload 'gnus-delay-send-queue "nognus/lisp/gnus-delay" "\
-Send all the delayed messages that are due now.
-
-\(fn)" t nil)
-
-(autoload 'gnus-delay-initialize "nognus/lisp/gnus-delay" "\
-Initialize the gnus-delay package.
-This sets up a key binding in `message-mode' to delay a message.
-This tells Gnus to look for delayed messages after getting new news.
-
-The optional arg NO-KEYMAP is ignored.
-Checking delayed messages is skipped if optional arg NO-CHECK is non-nil.
-
-\(fn &optional NO-KEYMAP NO-CHECK)" nil nil)
-
-;;;***
-
-;;;### (autoloads (gnus-user-format-function-D gnus-user-format-function-d)
-;;;;;;  "nognus/lisp/gnus-diary" "nognus/lisp/gnus-diary.el" (20731
-;;;;;;  65174 104494 650000))
-;;; Generated autoloads from nognus/lisp/gnus-diary.el
-
-(autoload 'gnus-user-format-function-d "nognus/lisp/gnus-diary" "\
-
-
-\(fn HEADER)" nil nil)
-
-(autoload 'gnus-user-format-function-D "nognus/lisp/gnus-diary" "\
-
-
-\(fn HEADER)" nil nil)
-
-;;;***
-
-;;;### (autoloads (turn-on-gnus-dired-mode) "nognus/lisp/gnus-dired"
-;;;;;;  "nognus/lisp/gnus-dired.el" (20731 65174 104494 650000))
-;;; Generated autoloads from nognus/lisp/gnus-dired.el
-
-(autoload 'turn-on-gnus-dired-mode "nognus/lisp/gnus-dired" "\
-Convenience method to turn on gnus-dired-mode.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (gnus-draft-reminder) "nognus/lisp/gnus-draft"
-;;;;;;  "nognus/lisp/gnus-draft.el" (20731 65174 104494 650000))
-;;; Generated autoloads from nognus/lisp/gnus-draft.el
-
-(autoload 'gnus-draft-reminder "nognus/lisp/gnus-draft" "\
-Reminder user if there are unsent drafts.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (gnus-convert-png-to-face gnus-convert-face-to-png
-;;;;;;  gnus-face-from-file gnus-x-face-from-file gnus-insert-random-x-face-header
-;;;;;;  gnus-random-x-face) "nognus/lisp/gnus-fun" "nognus/lisp/gnus-fun.el"
-;;;;;;  (20731 65174 108494 908000))
-;;; Generated autoloads from nognus/lisp/gnus-fun.el
-
-(autoload 'gnus-random-x-face "nognus/lisp/gnus-fun" "\
-Return X-Face header data chosen randomly from `gnus-x-face-directory'.
-
-\(fn)" t nil)
-
-(autoload 'gnus-insert-random-x-face-header "nognus/lisp/gnus-fun" "\
-Insert a random X-Face header from `gnus-x-face-directory'.
-
-\(fn)" t nil)
-
-(autoload 'gnus-x-face-from-file "nognus/lisp/gnus-fun" "\
-Insert an X-Face header based on an image file.
-
-Depending on `gnus-convert-image-to-x-face-command' it may accept
-different input formats.
-
-\(fn FILE)" t nil)
-
-(autoload 'gnus-face-from-file "nognus/lisp/gnus-fun" "\
-Return a Face header based on an image file.
-
-Depending on `gnus-convert-image-to-face-command' it may accept
-different input formats.
-
-\(fn FILE)" t nil)
-
-(autoload 'gnus-convert-face-to-png "nognus/lisp/gnus-fun" "\
-Convert FACE (which is base64-encoded) to a PNG.
-The PNG is returned as a string.
-
-\(fn FACE)" nil nil)
-
-(autoload 'gnus-convert-png-to-face "nognus/lisp/gnus-fun" "\
-Convert FILE to a Face.
-FILE should be a PNG file that's 48x48 and smaller than or equal to
-726 bytes.
-
-\(fn FILE)" nil nil)
-
-;;;***
-
-;;;### (autoloads (gnus-treat-mail-gravatar gnus-treat-from-gravatar)
-;;;;;;  "nognus/lisp/gnus-gravatar" "nognus/lisp/gnus-gravatar.el"
-;;;;;;  (20731 65174 108494 908000))
-;;; Generated autoloads from nognus/lisp/gnus-gravatar.el
-
-(autoload 'gnus-treat-from-gravatar "nognus/lisp/gnus-gravatar" "\
-Display gravatar in the From header.
-If gravatar is already displayed, remove it.
-
-\(fn &optional FORCE)" t nil)
-
-(autoload 'gnus-treat-mail-gravatar "nognus/lisp/gnus-gravatar" "\
-Display gravatars in the Cc and To headers.
-If gravatars are already displayed, remove them.
-
-\(fn &optional FORCE)" t nil)
-
-;;;***
-
-;;;### (autoloads (gnus-fetch-group-other-frame gnus-fetch-group)
-;;;;;;  "nognus/lisp/gnus-group" "nognus/lisp/gnus-group.el" (20731
-;;;;;;  65174 108494 908000))
-;;; Generated autoloads from nognus/lisp/gnus-group.el
-
-(autoload 'gnus-fetch-group "nognus/lisp/gnus-group" "\
-Start Gnus if necessary and enter GROUP.
-If ARTICLES, display those articles.
-Returns whether the fetching was successful or not.
-
-\(fn GROUP &optional ARTICLES)" t nil)
-
-(autoload 'gnus-fetch-group-other-frame "nognus/lisp/gnus-group" "\
-Pop up a frame and enter GROUP.
-
-\(fn GROUP)" t nil)
-
-;;;***
-
-;;;### (autoloads (gnus-html-prefetch-images gnus-article-html) "nognus/lisp/gnus-html"
-;;;;;;  "nognus/lisp/gnus-html.el" (20731 65174 108494 908000))
-;;; Generated autoloads from nognus/lisp/gnus-html.el
-
-(autoload 'gnus-article-html "nognus/lisp/gnus-html" "\
-
-
-\(fn &optional HANDLE)" nil nil)
-
-(autoload 'gnus-html-prefetch-images "nognus/lisp/gnus-html" "\
-
-
-\(fn SUMMARY)" nil nil)
-
-;;;***
-
-;;;### (autoloads (gnus-batch-score) "nognus/lisp/gnus-kill" "nognus/lisp/gnus-kill.el"
-;;;;;;  (20731 65174 108494 908000))
-;;; Generated autoloads from nognus/lisp/gnus-kill.el
-
-(defalias 'gnus-batch-kill 'gnus-batch-score)
-
-(autoload 'gnus-batch-score "nognus/lisp/gnus-kill" "\
-Run batched scoring.
-Usage: emacs -batch -l ~/.emacs -l gnus -f gnus-batch-score
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (gnus-mailing-list-mode gnus-mailing-list-insinuate
-;;;;;;  turn-on-gnus-mailing-list-mode) "nognus/lisp/gnus-ml" "nognus/lisp/gnus-ml.el"
-;;;;;;  (20731 65174 108494 908000))
-;;; Generated autoloads from nognus/lisp/gnus-ml.el
-
-(autoload 'turn-on-gnus-mailing-list-mode "nognus/lisp/gnus-ml" "\
-
-
-\(fn)" nil nil)
-
-(autoload 'gnus-mailing-list-insinuate "nognus/lisp/gnus-ml" "\
-Setup group parameters from List-Post header.
-If FORCE is non-nil, replace the old ones.
-
-\(fn &optional FORCE)" t nil)
-
-(autoload 'gnus-mailing-list-mode "nognus/lisp/gnus-ml" "\
-Minor mode for providing mailing-list commands.
-
-\\{gnus-mailing-list-mode-map}
-
-\(fn &optional ARG)" t nil)
-
-;;;***
-
-;;;### (autoloads (gnus-group-split-fancy gnus-group-split gnus-group-split-update
-;;;;;;  gnus-group-split-setup) "nognus/lisp/gnus-mlspl" "nognus/lisp/gnus-mlspl.el"
-;;;;;;  (20731 65174 108494 908000))
-;;; Generated autoloads from nognus/lisp/gnus-mlspl.el
-
-(autoload 'gnus-group-split-setup "nognus/lisp/gnus-mlspl" "\
-Set up the split for `nnmail-split-fancy'.
-Sets things up so that nnmail-split-fancy is used for mail
-splitting, and defines the variable nnmail-split-fancy according with
-group parameters.
-
-If AUTO-UPDATE is non-nil (prefix argument accepted, if called
-interactively), it makes sure nnmail-split-fancy is re-computed before
-getting new mail, by adding `gnus-group-split-update' to
-`nnmail-pre-get-new-mail-hook'.
-
-A non-nil CATCH-ALL replaces the current value of
-`gnus-group-split-default-catch-all-group'.  This variable is only used
-by gnus-group-split-update, and only when its CATCH-ALL argument is
-nil.  This argument may contain any fancy split, that will be added as
-the last split in a `|' split produced by `gnus-group-split-fancy',
-unless overridden by any group marked as a catch-all group.  Typical
-uses are as simple as the name of a default mail group, but more
-elaborate fancy splits may also be useful to split mail that doesn't
-match any of the group-specified splitting rules.  See
-`gnus-group-split-fancy' for details.
-
-\(fn &optional AUTO-UPDATE CATCH-ALL)" t nil)
-
-(autoload 'gnus-group-split-update "nognus/lisp/gnus-mlspl" "\
-Computes nnmail-split-fancy from group params and CATCH-ALL.
-It does this by calling by calling (gnus-group-split-fancy nil
-nil CATCH-ALL).
-
-If CATCH-ALL is nil, `gnus-group-split-default-catch-all-group' is used
-instead.  This variable is set by `gnus-group-split-setup'.
-
-\(fn &optional CATCH-ALL)" t nil)
-
-(autoload 'gnus-group-split "nognus/lisp/gnus-mlspl" "\
-Use information from group parameters in order to split mail.
-See `gnus-group-split-fancy' for more information.
-
-`gnus-group-split' is a valid value for `nnmail-split-methods'.
-
-\(fn)" nil nil)
-
-(autoload 'gnus-group-split-fancy "nognus/lisp/gnus-mlspl" "\
-Uses information from group parameters in order to split mail.
-It can be embedded into `nnmail-split-fancy' lists with the SPLIT
-
-\(: gnus-group-split-fancy GROUPS NO-CROSSPOST CATCH-ALL)
-
-GROUPS may be a regular expression or a list of group names, that will
-be used to select candidate groups.  If it is omitted or nil, all
-existing groups are considered.
-
-if NO-CROSSPOST is omitted or nil, a & split will be returned,
-otherwise, a | split, that does not allow crossposting, will be
-returned.
-
-For each selected group, a SPLIT is composed like this: if SPLIT-SPEC
-is specified, this split is returned as-is (unless it is nil: in this
-case, the group is ignored).  Otherwise, if TO-ADDRESS, TO-LIST and/or
-EXTRA-ALIASES are specified, a regexp that matches any of them is
-constructed (extra-aliases may be a list).  Additionally, if
-SPLIT-REGEXP is specified, the regexp will be extended so that it
-matches this regexp too, and if SPLIT-EXCLUDE is specified, RESTRICT
-clauses will be generated.
-
-If CATCH-ALL is nil, no catch-all handling is performed, regardless of
-catch-all marks in group parameters.  Otherwise, if there is no
-selected group whose SPLIT-REGEXP matches the empty string, nor is
-there a selected group whose SPLIT-SPEC is 'catch-all, this fancy
-split (say, a group name) will be appended to the returned SPLIT list,
-as the last element of a '| SPLIT.
-
-For example, given the following group parameters:
-
-nnml:mail.bar:
-\((to-address . \"bar@femail.com\")
- (split-regexp . \".*@femail\\\\.com\"))
-nnml:mail.foo:
-\((to-list . \"foo@nowhere.gov\")
- (extra-aliases \"foo@localhost\" \"foo-redist@home\")
- (split-exclude \"bugs-foo\" \"rambling-foo\")
- (admin-address . \"foo-request@nowhere.gov\"))
-nnml:mail.others:
-\((split-spec . catch-all))
-
-Calling (gnus-group-split-fancy nil nil \"mail.others\") returns:
-
-\(| (& (any \"\\\\(bar@femail\\\\.com\\\\|.*@femail\\\\.com\\\\)\"
-	   \"mail.bar\")
-      (any \"\\\\(foo@nowhere\\\\.gov\\\\|foo@localhost\\\\|foo-redist@home\\\\)\"
-	   - \"bugs-foo\" - \"rambling-foo\" \"mail.foo\"))
-   \"mail.others\")
-
-\(fn &optional GROUPS NO-CROSSPOST CATCH-ALL)" nil nil)
-
-;;;***
-
-;;;### (autoloads (gnus-button-reply gnus-button-mailto gnus-msg-mail)
-;;;;;;  "nognus/lisp/gnus-msg" "nognus/lisp/gnus-msg.el" (20731 65174
-;;;;;;  108494 908000))
-;;; Generated autoloads from nognus/lisp/gnus-msg.el
-
-(autoload 'gnus-msg-mail "nognus/lisp/gnus-msg" "\
-Start editing a mail message to be sent.
-Like `message-mail', but with Gnus paraphernalia, particularly the
-Gcc: header for archiving purposes.
-If Gnus isn't running, a plain `message-mail' setup is used
-instead.
-
-\(fn &optional TO SUBJECT OTHER-HEADERS CONTINUE SWITCH-ACTION YANK-ACTION SEND-ACTIONS RETURN-ACTION)" t nil)
-
-(autoload 'gnus-button-mailto "nognus/lisp/gnus-msg" "\
-Mail to ADDRESS.
-
-\(fn ADDRESS)" nil nil)
-
-(autoload 'gnus-button-reply "nognus/lisp/gnus-msg" "\
-Like `message-reply'.
-
-\(fn &optional TO-ADDRESS WIDE)" t nil)
-
-(define-mail-user-agent 'gnus-user-agent 'gnus-msg-mail 'message-send-and-exit 'message-kill-buffer 'message-send-hook)
-
-;;;***
-
-;;;### (autoloads (gnus-notifications) "nognus/lisp/gnus-notifications"
-;;;;;;  "nognus/lisp/gnus-notifications.el" (20731 65174 108494 908000))
-;;; Generated autoloads from nognus/lisp/gnus-notifications.el
-
-(autoload 'gnus-notifications "nognus/lisp/gnus-notifications" "\
-Send a notification on new message.
-This check for new messages that are in group with a level lower
-or equal to `gnus-notifications-minimum-level' and send a
-notification using `notifications-notify' for it.
-
-This is typically a function to add in
-`gnus-after-getting-new-news-hook'
-
-\(fn)" nil nil)
-
-;;;***
-
-;;;### (autoloads (gnus-treat-newsgroups-picon gnus-treat-mail-picon
-;;;;;;  gnus-treat-from-picon) "nognus/lisp/gnus-picon" "nognus/lisp/gnus-picon.el"
-;;;;;;  (20731 65174 108494 908000))
-;;; Generated autoloads from nognus/lisp/gnus-picon.el
-
-(autoload 'gnus-treat-from-picon "nognus/lisp/gnus-picon" "\
-Display picons in the From header.
-If picons are already displayed, remove them.
-
-\(fn)" t nil)
-
-(autoload 'gnus-treat-mail-picon "nognus/lisp/gnus-picon" "\
-Display picons in the Cc and To headers.
-If picons are already displayed, remove them.
-
-\(fn)" t nil)
-
-(autoload 'gnus-treat-newsgroups-picon "nognus/lisp/gnus-picon" "\
-Display picons in the Newsgroups and Followup-To headers.
-If picons are already displayed, remove them.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (gnus-add-to-sorted-list gnus-sorted-nunion gnus-sorted-union
-;;;;;;  gnus-sorted-nintersection gnus-sorted-range-intersection
-;;;;;;  gnus-sorted-intersection gnus-intersection gnus-sorted-complement
-;;;;;;  gnus-sorted-ndifference gnus-sorted-difference) "nognus/lisp/gnus-range"
-;;;;;;  "nognus/lisp/gnus-range.el" (20731 65174 108494 908000))
-;;; Generated autoloads from nognus/lisp/gnus-range.el
-
-(autoload 'gnus-sorted-difference "nognus/lisp/gnus-range" "\
-Return a list of elements of LIST1 that do not appear in LIST2.
-Both lists have to be sorted over <.
-The tail of LIST1 is not copied.
-
-\(fn LIST1 LIST2)" nil nil)
-
-(autoload 'gnus-sorted-ndifference "nognus/lisp/gnus-range" "\
-Return a list of elements of LIST1 that do not appear in LIST2.
-Both lists have to be sorted over <.
-LIST1 is modified.
-
-\(fn LIST1 LIST2)" nil nil)
-
-(autoload 'gnus-sorted-complement "nognus/lisp/gnus-range" "\
-Return a list of elements that are in LIST1 or LIST2 but not both.
-Both lists have to be sorted over <.
-
-\(fn LIST1 LIST2)" nil nil)
-
-(autoload 'gnus-intersection "nognus/lisp/gnus-range" "\
-
-
-\(fn LIST1 LIST2)" nil nil)
-
-(autoload 'gnus-sorted-intersection "nognus/lisp/gnus-range" "\
-Return intersection of LIST1 and LIST2.
-LIST1 and LIST2 have to be sorted over <.
-
-\(fn LIST1 LIST2)" nil nil)
-
-(autoload 'gnus-sorted-range-intersection "nognus/lisp/gnus-range" "\
-Return intersection of RANGE1 and RANGE2.
-RANGE1 and RANGE2 have to be sorted over <.
-
-\(fn RANGE1 RANGE2)" nil nil)
-
-(defalias 'gnus-set-sorted-intersection 'gnus-sorted-nintersection)
-
-(autoload 'gnus-sorted-nintersection "nognus/lisp/gnus-range" "\
-Return intersection of LIST1 and LIST2 by modifying cdr pointers of LIST1.
-LIST1 and LIST2 have to be sorted over <.
-
-\(fn LIST1 LIST2)" nil nil)
-
-(autoload 'gnus-sorted-union "nognus/lisp/gnus-range" "\
-Return union of LIST1 and LIST2.
-LIST1 and LIST2 have to be sorted over <.
-
-\(fn LIST1 LIST2)" nil nil)
-
-(autoload 'gnus-sorted-nunion "nognus/lisp/gnus-range" "\
-Return union of LIST1 and LIST2 by modifying cdr pointers of LIST1.
-LIST1 and LIST2 have to be sorted over <.
-
-\(fn LIST1 LIST2)" nil nil)
-
-(autoload 'gnus-add-to-sorted-list "nognus/lisp/gnus-range" "\
-Add NUM into sorted LIST by side effect.
-
-\(fn LIST NUM)" nil nil)
-
-;;;***
-
-;;;### (autoloads (gnus-registry-install-hooks gnus-registry-initialize)
-;;;;;;  "nognus/lisp/gnus-registry" "nognus/lisp/gnus-registry.el"
-;;;;;;  (20731 65174 108494 908000))
-;;; Generated autoloads from nognus/lisp/gnus-registry.el
-
-(autoload 'gnus-registry-initialize "nognus/lisp/gnus-registry" "\
-Initialize the Gnus registry.
-
-\(fn)" t nil)
-
-(autoload 'gnus-registry-install-hooks "nognus/lisp/gnus-registry" "\
-Install the registry hooks.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (gnus-sieve-article-add-rule gnus-sieve-generate
-;;;;;;  gnus-sieve-update) "nognus/lisp/gnus-sieve" "nognus/lisp/gnus-sieve.el"
-;;;;;;  (20731 65174 108494 908000))
-;;; Generated autoloads from nognus/lisp/gnus-sieve.el
-
-(autoload 'gnus-sieve-update "nognus/lisp/gnus-sieve" "\
-Update the Sieve script in gnus-sieve-file, by replacing the region
-between gnus-sieve-region-start and gnus-sieve-region-end with
-\(gnus-sieve-script gnus-sieve-select-method gnus-sieve-crosspost), then
-execute gnus-sieve-update-shell-command.
-See the documentation for these variables and functions for details.
-
-\(fn)" t nil)
-
-(autoload 'gnus-sieve-generate "nognus/lisp/gnus-sieve" "\
-Generate the Sieve script in gnus-sieve-file, by replacing the region
-between gnus-sieve-region-start and gnus-sieve-region-end with
-\(gnus-sieve-script gnus-sieve-select-method gnus-sieve-crosspost).
-See the documentation for these variables and functions for details.
-
-\(fn)" t nil)
-
-(autoload 'gnus-sieve-article-add-rule "nognus/lisp/gnus-sieve" "\
-
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (gnus-update-format) "nognus/lisp/gnus-spec" "nognus/lisp/gnus-spec.el"
-;;;;;;  (20731 65174 112495 166000))
-;;; Generated autoloads from nognus/lisp/gnus-spec.el
-
-(autoload 'gnus-update-format "nognus/lisp/gnus-spec" "\
-Update the format specification near point.
-
-\(fn VAR)" t nil)
-
-;;;***
-
-;;;### (autoloads (gnus-declare-backend) "nognus/lisp/gnus-start"
-;;;;;;  "nognus/lisp/gnus-start.el" (20731 65174 112495 166000))
-;;; Generated autoloads from nognus/lisp/gnus-start.el
-
-(autoload 'gnus-declare-backend "nognus/lisp/gnus-start" "\
-Declare back end NAME with ABILITIES as a Gnus back end.
-
-\(fn NAME &rest ABILITIES)" nil nil)
-
-;;;***
-
-;;;### (autoloads (gnus-summary-bookmark-jump) "nognus/lisp/gnus-sum"
-;;;;;;  "nognus/lisp/gnus-sum.el" (20731 65174 112495 166000))
-;;; Generated autoloads from nognus/lisp/gnus-sum.el
-
-(autoload 'gnus-summary-bookmark-jump "nognus/lisp/gnus-sum" "\
-Handler function for record returned by `gnus-summary-bookmark-make-record'.
-BOOKMARK is a bookmark name or a bookmark record.
-
-\(fn BOOKMARK)" nil nil)
-
-;;;***
-
-;;;### (autoloads (gnus-sync-install-hooks gnus-sync-initialize)
-;;;;;;  "nognus/lisp/gnus-sync" "nognus/lisp/gnus-sync.el" (20731
-;;;;;;  65174 112495 166000))
-;;; Generated autoloads from nognus/lisp/gnus-sync.el
-
-(autoload 'gnus-sync-initialize "nognus/lisp/gnus-sync" "\
-Initialize the Gnus sync facility.
-
-\(fn)" t nil)
-
-(autoload 'gnus-sync-install-hooks "nognus/lisp/gnus-sync" "\
-Install the sync hooks.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (gnus-add-configuration) "nognus/lisp/gnus-win"
-;;;;;;  "nognus/lisp/gnus-win.el" (20731 65174 116495 424000))
-;;; Generated autoloads from nognus/lisp/gnus-win.el
-
-(autoload 'gnus-add-configuration "nognus/lisp/gnus-win" "\
-Add the window configuration CONF to `gnus-buffer-configuration'.
-
-\(fn CONF)" nil nil)
-
-;;;***
-
 ;;;### (autoloads (google-contacts) "google-contacts/google-contacts"
-;;;;;;  "google-contacts/google-contacts.el" (20723 11673 496488
-;;;;;;  976000))
+;;;;;;  "google-contacts/google-contacts.el" (20878 23134 349671
+;;;;;;  301000))
 ;;; Generated autoloads from google-contacts/google-contacts.el
 
 (autoload 'google-contacts "google-contacts/google-contacts" "\
@@ -4943,7 +6326,7 @@ Add the window configuration CONF to `gnus-buffer-configuration'.
 
 ;;;### (autoloads (google-oauth-auth-and-store google-oauth-auth)
 ;;;;;;  "google-contacts/google-oauth" "google-contacts/google-oauth.el"
-;;;;;;  (20723 11673 496488 976000))
+;;;;;;  (20878 23134 349671 301000))
 ;;; Generated autoloads from google-contacts/google-oauth.el
 
 (autoload 'google-oauth-auth "google-contacts/google-oauth" "\
@@ -4958,149 +6341,8 @@ Request access to a Google resource and store it using `auth-source'.
 
 ;;;***
 
-;;;### (autoloads (gravatar-retrieve-synchronously gravatar-retrieve)
-;;;;;;  "nognus/lisp/gravatar" "nognus/lisp/gravatar.el" (20731 65174
-;;;;;;  116495 424000))
-;;; Generated autoloads from nognus/lisp/gravatar.el
-
-(autoload 'gravatar-retrieve "nognus/lisp/gravatar" "\
-Retrieve MAIL-ADDRESS gravatar and call CB on retrieval.
-You can provide a list of argument to pass to CB in CBARGS.
-
-\(fn MAIL-ADDRESS CB &optional CBARGS)" nil nil)
-
-(autoload 'gravatar-retrieve-synchronously "nognus/lisp/gravatar" "\
-Retrieve MAIL-ADDRESS gravatar and returns it.
-
-\(fn MAIL-ADDRESS)" nil nil)
-
-;;;***
-
-;;;### (autoloads (grails-mode) "groovy-mode/grails-mode" "groovy-mode/grails-mode.el"
-;;;;;;  (20723 11679 288021 0))
-;;; Generated autoloads from groovy-mode/grails-mode.el
-
-(autoload 'grails-mode "groovy-mode/grails-mode" "\
-Grails Minor Mode.
-     With no argument, this command toggles the mode.
-     Non-null prefix argument turns on the mode.
-     Null prefix argument turns off the mode.
-
-     When Grails mode is enabled, several keys are enabled that
-     will allow navigation around a typical grails project.
-
-\(fn &optional ARG)" t nil)
-
-;;;***
-
-;;;### (autoloads (groovy-electric-mode) "groovy-mode/groovy-electric"
-;;;;;;  "groovy-mode/groovy-electric.el" (20723 11679 288021 0))
-;;; Generated autoloads from groovy-mode/groovy-electric.el
-
-(autoload 'groovy-electric-mode "groovy-mode/groovy-electric" "\
-Toggle Groovy Electric minor mode.
-With no argument, this command toggles the mode.  Non-null prefix
-argument turns on the mode.  Null prefix argument turns off the
-mode.
-
-When Groovy Electric mode is enabled, simple, double and back
-quotes as well as braces are paired auto-magically. Expansion
-does not occur inside comments and strings. Note that you must
-have Font Lock enabled. ${ } is expanded when in a GString
-
-\(fn &optional ARG)" t nil)
-
-;;;***
-
-;;;### (autoloads (groovy-mode groovy-mode-hook) "groovy-mode/groovy-mode"
-;;;;;;  "groovy-mode/groovy-mode.el" (20723 11679 288021 0))
-;;; Generated autoloads from groovy-mode/groovy-mode.el
-
-(add-to-list 'auto-mode-alist '("\\.groovy$" . groovy-mode))
-
-(defvar groovy-mode-hook nil "\
-*Hook called by `groovy-mode'.")
-
-(custom-autoload 'groovy-mode-hook "groovy-mode/groovy-mode" t)
-
-(autoload 'groovy-mode "groovy-mode/groovy-mode" "\
-Major mode for editing Groovy code.
-
-The hook `c-mode-common-hook' is run with no args at mode
-initialization, then `groovy-mode-hook'.
-
-Key bindings:
-\\{groovy-mode-map}
-
-\(fn)" t nil)
-
-(add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
-
-;;;***
-
-;;;### (autoloads (run-groovy inferior-groovy-mode inf-groovy-keys)
-;;;;;;  "groovy-mode/inf-groovy" "groovy-mode/inf-groovy.el" (20723
-;;;;;;  11679 288021 0))
-;;; Generated autoloads from groovy-mode/inf-groovy.el
-
-(autoload 'inf-groovy-keys "groovy-mode/inf-groovy" "\
-Set local key defs for inf-groovy in groovy-mode
-
-\(fn)" nil nil)
-
-(autoload 'inferior-groovy-mode "groovy-mode/inf-groovy" "\
-Major mode for interacting with an inferior groovy (groovysh) process.
-
-The following commands are available:
-\\{inferior-groovy-mode-map}
-
-A groovy process can be fired up with M-x run-groovy.
-
-Customisation: Entry to this mode runs the hooks on comint-mode-hook and
-inferior-groovy-mode-hook (in that order).
-
-You can send text to the inferior groovy process from other buffers containing
-Groovy source.
-    switch-to-groovy switches the current buffer to the groovy process buffer.
-    groovy-send-definition sends the current definition to the groovy process.
-    groovy-send-region sends the current region to the groovy process.
-
-    groovy-send-definition-and-go, groovy-send-region-and-go,
-        switch to the groovy process buffer after sending their text.
-For information on running multiple processes in multiple buffers, see
-documentation for variable groovy-buffer.
-
-Commands:
-Return after the end of the process' output sends the text from the
-    end of process to point.
-Return before the end of the process' output copies the sexp ending at point
-    to the end of the process' output, and sends it.
-Delete converts tabs to spaces as it moves back.
-Tab indents for groovy; with argument, shifts rest
-    of expression rigidly with the current line.
-C-M-q does Tab on each line starting within following expression.
-Paragraphs are separated only by blank lines.  # start comments.
-If you accidentally suspend your process, use \\[comint-continue-subjob]
-to continue it.
-
-\(fn)" t nil)
-
-(autoload 'run-groovy "groovy-mode/inf-groovy" "\
-Run an inferior Groovy process, input and output via buffer *groovy*.
-If there is a process already running in `*groovy*', switch to that buffer.
-With argument, allows you to edit the command line (default is value
-of `groovy-program-name').  Runs the hooks `inferior-groovy-mode-hook'
-\(after the `comint-mode-hook' is run).
-\(Type \\[describe-mode] in the process buffer for a list of commands.)
-
-\(fn CMD)" t nil)
-
-(eval-after-load 'groovy-mode (add-hook 'groovy-mode-hook 'inf-groovy-keys))
-
-;;;***
-
 ;;;### (autoloads (haml-mode) "haml-mode/haml-mode" "haml-mode/haml-mode.el"
-;;;;;;  (20723 11760 824193 2000))
+;;;;;;  (20878 23136 401752 236000))
 ;;; Generated autoloads from haml-mode/haml-mode.el
 
 (autoload 'haml-mode "haml-mode/haml-mode" "\
@@ -5114,53 +6356,8 @@ Major mode for editing Haml files.
 
 ;;;***
 
-;;;### (autoloads (mail-check-payment mail-add-payment-async mail-add-payment
-;;;;;;  hashcash-verify-payment hashcash-insert-payment-async hashcash-insert-payment)
-;;;;;;  "nognus/lisp/hashcash" "nognus/lisp/hashcash.el" (20731 65174
-;;;;;;  116495 424000))
-;;; Generated autoloads from nognus/lisp/hashcash.el
-
-(autoload 'hashcash-insert-payment "nognus/lisp/hashcash" "\
-Insert X-Payment and X-Hashcash headers with a payment for ARG
-
-\(fn ARG)" t nil)
-
-(autoload 'hashcash-insert-payment-async "nognus/lisp/hashcash" "\
-Insert X-Payment and X-Hashcash headers with a payment for ARG
-Only start calculation.  Results are inserted when ready.
-
-\(fn ARG)" t nil)
-
-(autoload 'hashcash-verify-payment "nognus/lisp/hashcash" "\
-Verify a hashcash payment
-
-\(fn TOKEN &optional RESOURCE AMOUNT)" nil nil)
-
-(autoload 'mail-add-payment "nognus/lisp/hashcash" "\
-Add X-Payment: and X-Hashcash: headers with a hashcash payment
-for each recipient address.  Prefix arg sets default payment temporarily.
-Set ASYNC to t to start asynchronous calculation.  (See
-`mail-add-payment-async').
-
-\(fn &optional ARG ASYNC)" t nil)
-
-(autoload 'mail-add-payment-async "nognus/lisp/hashcash" "\
-Add X-Payment: and X-Hashcash: headers with a hashcash payment
-for each recipient address.  Prefix arg sets default payment temporarily.
-Calculation is asynchronous.
-
-\(fn &optional ARG)" t nil)
-
-(autoload 'mail-check-payment "nognus/lisp/hashcash" "\
-Look for a valid X-Payment: or X-Hashcash: header.
-Prefix arg sets default accept amount temporarily.
-
-\(fn &optional ARG)" t nil)
-
-;;;***
-
 ;;;### (autoloads (ghc-core-mode ghc-core-create-core) "haskell-mode/ghc-core"
-;;;;;;  "haskell-mode/ghc-core.el" (20723 11690 185197 249000))
+;;;;;;  "haskell-mode/ghc-core.el" (20878 23136 77739 456000))
 ;;; Generated autoloads from haskell-mode/ghc-core.el
 
 (autoload 'ghc-core-create-core "haskell-mode/ghc-core" "\
@@ -5203,7 +6400,7 @@ Major mode for Haskell FFI files.
 ;;;***
 
 ;;;### (autoloads (haskell-cabal-get-dir haskell-cabal-mode) "haskell-mode/haskell-cabal"
-;;;;;;  "haskell-mode/haskell-cabal.el" (20723 11690 185197 249000))
+;;;;;;  "haskell-mode/haskell-cabal.el" (20878 23136 77739 456000))
 ;;; Generated autoloads from haskell-mode/haskell-cabal.el
 
 (add-to-list 'auto-mode-alist '("\\.cabal\\'" . haskell-cabal-mode))
@@ -5222,7 +6419,7 @@ Get the Cabal dir for a new project. Various ways of figuring this out,
 ;;;***
 
 ;;;### (autoloads (haskell-decl-scan-mode) "haskell-mode/haskell-decl-scan"
-;;;;;;  "haskell-mode/haskell-decl-scan.el" (20723 11690 185197 249000))
+;;;;;;  "haskell-mode/haskell-decl-scan.el" (20878 23136 77739 456000))
 ;;; Generated autoloads from haskell-mode/haskell-decl-scan.el
 
 (autoload 'haskell-decl-scan-mode "haskell-mode/haskell-decl-scan" "\
@@ -5272,7 +6469,7 @@ Invokes `haskell-decl-scan-mode-hook'.
 ;;;***
 
 ;;;### (autoloads (haskell-doc-show-type haskell-doc-mode) "haskell-mode/haskell-doc"
-;;;;;;  "haskell-mode/haskell-doc.el" (20723 11690 185197 249000))
+;;;;;;  "haskell-mode/haskell-doc.el" (20878 23136 81739 614000))
 ;;; Generated autoloads from haskell-mode/haskell-doc.el
 
 (autoload 'haskell-doc-mode "haskell-mode/haskell-doc" "\
@@ -5295,7 +6492,7 @@ current buffer.
 ;;;***
 
 ;;;### (autoloads (haskell-indent-mode) "haskell-mode/haskell-indent"
-;;;;;;  "haskell-mode/haskell-indent.el" (20723 11690 185197 249000))
+;;;;;;  "haskell-mode/haskell-indent.el" (20878 23136 81739 614000))
 ;;; Generated autoloads from haskell-mode/haskell-indent.el
 
 (autoload 'haskell-indent-mode "haskell-mode/haskell-indent" "\
@@ -5327,8 +6524,8 @@ Invokes `haskell-indent-hook' if not nil.
 ;;;***
 
 ;;;### (autoloads (haskell-indentation-mode) "haskell-mode/haskell-indentation"
-;;;;;;  "haskell-mode/haskell-indentation.el" (20723 11690 189197
-;;;;;;  419000))
+;;;;;;  "haskell-mode/haskell-indentation.el" (20878 23136 81739
+;;;;;;  614000))
 ;;; Generated autoloads from haskell-mode/haskell-indentation.el
 
 (autoload 'haskell-indentation-mode "haskell-mode/haskell-indentation" "\
@@ -5343,8 +6540,8 @@ autofill-mode.
 
 ;;;### (autoloads (haskell-interactive-mode-echo haskell-interactive-switch
 ;;;;;;  haskell-interactive-bring haskell-interactive-mode) "haskell-mode/haskell-interactive-mode"
-;;;;;;  "haskell-mode/haskell-interactive-mode.el" (20723 11690 189197
-;;;;;;  419000))
+;;;;;;  "haskell-mode/haskell-interactive-mode.el" (20878 23136 81739
+;;;;;;  614000))
 ;;; Generated autoloads from haskell-mode/haskell-interactive-mode.el
 
 (autoload 'haskell-interactive-mode "haskell-mode/haskell-interactive-mode" "\
@@ -5374,7 +6571,7 @@ Echo a read only piece of text before the prompt.
 
 ;;;### (autoloads (haskell-hayoo haskell-hoogle literate-haskell-mode
 ;;;;;;  haskell-mode) "haskell-mode/haskell-mode" "haskell-mode/haskell-mode.el"
-;;;;;;  (20723 11690 189197 419000))
+;;;;;;  (20878 23136 81739 614000))
 ;;; Generated autoloads from haskell-mode/haskell-mode.el
 
 (when load-file-name (add-to-list 'load-path (file-name-directory load-file-name)))
@@ -5479,9 +6676,10 @@ Return to the non-import point we were at before going to the module list.
 ;;;***
 
 ;;;### (autoloads (haskell-process haskell-process-start haskell-process-cabal
-;;;;;;  haskell-process-cabal-build haskell-process-reload-file haskell-process-load-file
-;;;;;;  haskell-process-generate-tags) "haskell-mode/haskell-process"
-;;;;;;  "haskell-mode/haskell-process.el" (20723 11690 189197 419000))
+;;;;;;  haskell-process-cabal-build haskell-process-load-or-reload
+;;;;;;  haskell-process-reload-file haskell-process-load-file haskell-process-generate-tags)
+;;;;;;  "haskell-mode/haskell-process" "haskell-mode/haskell-process.el"
+;;;;;;  (20878 23136 81739 614000))
 ;;; Generated autoloads from haskell-mode/haskell-process.el
 
 (autoload 'haskell-process-generate-tags "haskell-mode/haskell-process" "\
@@ -5495,9 +6693,14 @@ Load the current buffer file.
 \(fn)" t nil)
 
 (autoload 'haskell-process-reload-file "haskell-mode/haskell-process" "\
-Load the current buffer file.
+Re-load the current buffer file.
 
 \(fn)" t nil)
+
+(autoload 'haskell-process-load-or-reload "haskell-mode/haskell-process" "\
+Load or reload. Universal argument toggles which.
+
+\(fn &optional TOGGLE)" t nil)
 
 (autoload 'haskell-process-cabal-build "haskell-mode/haskell-process" "\
 Build the Cabal project.
@@ -5522,7 +6725,7 @@ Get the current process from the current session.
 ;;;***
 
 ;;;### (autoloads (haskell-session-process haskell-session) "haskell-mode/haskell-session"
-;;;;;;  "haskell-mode/haskell-session.el" (20723 11690 189197 419000))
+;;;;;;  "haskell-mode/haskell-session.el" (20878 23136 81739 614000))
 ;;; Generated autoloads from haskell-mode/haskell-session.el
 
 (autoload 'haskell-session "haskell-mode/haskell-session" "\
@@ -5599,7 +6802,7 @@ Is x string a prefix of y string?
 ;;;;;;  inferior-haskell-info inferior-haskell-kind inferior-haskell-type
 ;;;;;;  inferior-haskell-send-decl inferior-haskell-load-and-run
 ;;;;;;  inferior-haskell-load-file switch-to-haskell) "haskell-mode/inf-haskell"
-;;;;;;  "haskell-mode/inf-haskell.el" (20723 11690 189197 419000))
+;;;;;;  "haskell-mode/inf-haskell.el" (20878 23136 81739 614000))
 ;;; Generated autoloads from haskell-mode/inf-haskell.el
 
 (defalias 'run-haskell 'switch-to-haskell)
@@ -5681,8 +6884,9 @@ we load it.
 ;;;;;;  helm-previous-source helm-end-of-buffer helm-beginning-of-buffer
 ;;;;;;  helm-next-page helm-previous-page helm-next-line helm-previous-line
 ;;;;;;  helm-select-action helm-force-update helm-toggle-suspend-update
-;;;;;;  helm-other-buffer helm-resume helm-open-last-log helm-define-multi-key)
-;;;;;;  "helm/helm" "helm/helm.el" (20723 11939 283745 895000))
+;;;;;;  helm-other-buffer helm-resume-previous-session-after-quit
+;;;;;;  helm-resume helm-open-last-log helm-define-multi-key) "helm/helm"
+;;;;;;  "helm/helm.el" (20878 23136 313748 765000))
 ;;; Generated autoloads from helm/helm.el
 
 (autoload 'helm-define-multi-key "helm/helm" "\
@@ -5716,6 +6920,12 @@ If `helm-last-log-file' is nil, switch to `helm-debug-buffer' .
 Resurrect previously invoked `helm'.
 Called with a prefix arg, allow choosing among all existing
 helm buffers.  i.e choose among various helm sessions.
+Called from lisp, you can specify a buffer-name as a string with ARG.
+
+\(fn ARG)" t nil)
+
+(autoload 'helm-resume-previous-session-after-quit "helm/helm" "\
+Resume previous helm session within running helm.
 
 \(fn ARG)" t nil)
 
@@ -5941,38 +7151,78 @@ Move previous helm visible mark.
 \(fn)" t nil)
 
 (autoload 'helm-yank-selection "helm/helm" "\
-Set minibuffer contents to current selection.
+Set minibuffer contents to current display selection.
+With a prefix arg set to real value of current selection.
 
-\(fn)" t nil)
+\(fn ARG)" t nil)
 
 (autoload 'helm-kill-selection-and-quit "helm/helm" "\
 Store current selection to kill ring.
-You can paste it by typing \\[yank].
+With a prefix arg set to real value of current selection.
 
-\(fn)" t nil)
+\(fn ARG)" t nil)
 
 (autoload 'helm-follow-mode "helm/helm" "\
 Execute persistent action everytime the cursor is moved when enabled.
+The mode is enabled for the current source only, you will have to turn it
+on again when you go to next source if you want it there also.
+This mode can be enabled or disabled interactively at anytime during
+helm session or enabled specifically by source by adding the `follow'
+attribute to this source.
+Even when the attribute `follow' exists in source, it is still possible
+to disable/enable this mode interactively.
+Note that when you disable it interactively and `follow' attribute exists,
+`helm-follow-mode' will be disabled on next helm session even if `follow'
+attribute is specified in source. To avoid this set your `follow' attribute
+in source in `helm-before-initialize-hook'.
+
+e.g:
+
+\(add-hook 'helm-before-initialize-hook
+          #'(lambda () (helm-attrset 'follow 1 helm-source-buffers-list)))
+
+This will enable `helm-follow-mode' automatically in `helm-source-buffers-list'.
 
 \(fn &optional ARG)" t nil)
 
 ;;;***
 
-;;;### (autoloads (helm-c-reset-adaptative-history) "helm/helm-adaptative"
-;;;;;;  "helm/helm-adaptative.el" (20723 11939 275745 556000))
+;;;### (autoloads (helm-reset-adaptative-history) "helm/helm-adaptative"
+;;;;;;  "helm/helm-adaptative.el" (20878 23136 261746 714000))
 ;;; Generated autoloads from helm/helm-adaptative.el
 
-(autoload 'helm-c-reset-adaptative-history "helm/helm-adaptative" "\
-Delete all `helm-c-adaptive-history' and his file.
-Useful when you have a old or corrupted `helm-c-adaptive-history-file'.
+(autoload 'helm-reset-adaptative-history "helm/helm-adaptative" "\
+Delete all `helm-adaptive-history' and his file.
+Useful when you have a old or corrupted `helm-adaptive-history-file'.
 
 \(fn)" t nil)
 
 ;;;***
 
-;;;### (autoloads (helm-apt) "helm/helm-apt" "helm/helm-apt.el" (20723
-;;;;;;  11939 275745 556000))
+;;;### (autoloads (helm-apt helm-apt-show-all helm-apt-show-only-deinstalled
+;;;;;;  helm-apt-show-only-not-installed helm-apt-show-only-installed)
+;;;;;;  "helm/helm-apt" "helm/helm-apt.el" (20878 23136 261746 714000))
 ;;; Generated autoloads from helm/helm-apt.el
+
+(autoload 'helm-apt-show-only-installed "helm/helm-apt" "\
+
+
+\(fn)" t nil)
+
+(autoload 'helm-apt-show-only-not-installed "helm/helm-apt" "\
+
+
+\(fn)" t nil)
+
+(autoload 'helm-apt-show-only-deinstalled "helm/helm-apt" "\
+
+
+\(fn)" t nil)
+
+(autoload 'helm-apt-show-all "helm/helm-apt" "\
+
+
+\(fn)" t nil)
 
 (autoload 'helm-apt "helm/helm-apt" "\
 Preconfigured `helm' : frontend of APT package manager.
@@ -5983,7 +7233,7 @@ With a prefix arg reload cache.
 ;;;***
 
 ;;;### (autoloads (helm-bbdb) "helm/helm-bbdb" "helm/helm-bbdb.el"
-;;;;;;  (20723 11939 275745 556000))
+;;;;;;  (20878 23136 265746 871000))
 ;;; Generated autoloads from helm/helm-bbdb.el
 
 (autoload 'helm-bbdb "helm/helm-bbdb" "\
@@ -5997,11 +7247,11 @@ http://bbdb.sourceforge.net/
 
 ;;;***
 
-;;;### (autoloads (helm-bookmark-ext helm-c-bmkext-run-edit) "helm/helm-bmkext"
-;;;;;;  "helm/helm-bmkext.el" (20723 11939 275745 556000))
+;;;### (autoloads (helm-bookmark-ext helm-bmkext-run-edit) "helm/helm-bmkext"
+;;;;;;  "helm/helm-bmkext.el" (20878 23136 265746 871000))
 ;;; Generated autoloads from helm/helm-bmkext.el
 
-(autoload 'helm-c-bmkext-run-edit "helm/helm-bmkext" "\
+(autoload 'helm-bmkext-run-edit "helm/helm-bmkext" "\
 Run `bmkext-edit-bookmark' from keyboard.
 
 \(fn)" t nil)
@@ -6010,23 +7260,29 @@ Run `bmkext-edit-bookmark' from keyboard.
 Preconfigured `helm' for bookmark-extensions sources.
 Needs bookmark-ext.el:
 <http://mercurial.intuxication.org/hg/emacs-bookmark-extension>.
-Contain also `helm-c-source-google-suggest'.
+Contain also `helm-source-google-suggest'.
 
 \(fn)" t nil)
 
 ;;;***
 
-;;;### (autoloads (helm-c-pp-bookmarks helm-bookmarks helm-c-bookmark-run-delete
-;;;;;;  helm-c-bookmark-run-jump-other-window) "helm/helm-bookmark"
-;;;;;;  "helm/helm-bookmark.el" (20723 11939 275745 556000))
+;;;### (autoloads (helm-pp-bookmarks helm-bookmarks helm-bookmark-run-delete
+;;;;;;  helm-bookmark-run-jump-other-window helm-bookmark-toggle-filename)
+;;;;;;  "helm/helm-bookmark" "helm/helm-bookmark.el" (20878 23136
+;;;;;;  265746 871000))
 ;;; Generated autoloads from helm/helm-bookmark.el
 
-(autoload 'helm-c-bookmark-run-jump-other-window "helm/helm-bookmark" "\
+(autoload 'helm-bookmark-toggle-filename "helm/helm-bookmark" "\
+Toggle bookmark location visibility.
+
+\(fn)" t nil)
+
+(autoload 'helm-bookmark-run-jump-other-window "helm/helm-bookmark" "\
 Jump to bookmark from keyboard.
 
 \(fn)" t nil)
 
-(autoload 'helm-c-bookmark-run-delete "helm/helm-bookmark" "\
+(autoload 'helm-bookmark-run-delete "helm/helm-bookmark" "\
 Delete bookmark from keyboard.
 
 \(fn)" t nil)
@@ -6036,7 +7292,7 @@ Preconfigured `helm' for bookmarks.
 
 \(fn)" t nil)
 
-(autoload 'helm-c-pp-bookmarks "helm/helm-bookmark" "\
+(autoload 'helm-pp-bookmarks "helm/helm-bookmark" "\
 Preconfigured `helm' for bookmarks (pretty-printed).
 
 \(fn)" t nil)
@@ -6049,8 +7305,8 @@ Preconfigured `helm' for bookmarks (pretty-printed).
 ;;;;;;  helm-buffer-run-query-replace-regexp helm-buffer-run-zgrep
 ;;;;;;  helm-buffer-run-grep helm-buffer-run-kill-buffers helm-buffer-save-persistent
 ;;;;;;  helm-buffer-revert-persistent helm-buffer-diff-persistent)
-;;;;;;  "helm/helm-buffers" "helm/helm-buffers.el" (20723 11939 275745
-;;;;;;  556000))
+;;;;;;  "helm/helm-buffers" "helm/helm-buffers.el" (20878 23136 265746
+;;;;;;  871000))
 ;;; Generated autoloads from helm/helm-buffers.el
 
 (autoload 'helm-buffer-diff-persistent "helm/helm-buffers" "\
@@ -6069,47 +7325,47 @@ Save buffer without quitting helm.
 \(fn)" t nil)
 
 (autoload 'helm-buffer-run-kill-buffers "helm/helm-buffers" "\
-Run kill buffer action from `helm-c-source-buffers-list'.
+Run kill buffer action from `helm-source-buffers-list'.
 
 \(fn)" t nil)
 
 (autoload 'helm-buffer-run-grep "helm/helm-buffers" "\
-Run Grep action from `helm-c-source-buffers-list'.
+Run Grep action from `helm-source-buffers-list'.
 
 \(fn)" t nil)
 
 (autoload 'helm-buffer-run-zgrep "helm/helm-buffers" "\
-Run Grep action from `helm-c-source-buffers-list'.
+Run Grep action from `helm-source-buffers-list'.
 
 \(fn)" t nil)
 
 (autoload 'helm-buffer-run-query-replace-regexp "helm/helm-buffers" "\
-Run Query replace regexp action from `helm-c-source-buffers-list'.
+Run Query replace regexp action from `helm-source-buffers-list'.
 
 \(fn)" t nil)
 
 (autoload 'helm-buffer-run-query-replace "helm/helm-buffers" "\
-Run Query replace action from `helm-c-source-buffers-list'.
+Run Query replace action from `helm-source-buffers-list'.
 
 \(fn)" t nil)
 
 (autoload 'helm-buffer-switch-other-window "helm/helm-buffers" "\
-Run switch to other window action from `helm-c-source-buffers-list'.
+Run switch to other window action from `helm-source-buffers-list'.
 
 \(fn)" t nil)
 
 (autoload 'helm-buffer-switch-other-frame "helm/helm-buffers" "\
-Run switch to other frame action from `helm-c-source-buffers-list'.
+Run switch to other frame action from `helm-source-buffers-list'.
 
 \(fn)" t nil)
 
 (autoload 'helm-buffer-switch-to-elscreen "helm/helm-buffers" "\
-Run switch to elscreen  action from `helm-c-source-buffers-list'.
+Run switch to elscreen  action from `helm-source-buffers-list'.
 
 \(fn)" t nil)
 
 (autoload 'helm-buffer-run-ediff "helm/helm-buffers" "\
-Run ediff action from `helm-c-source-buffers-list'.
+Run ediff action from `helm-source-buffers-list'.
 
 \(fn)" t nil)
 
@@ -6127,7 +7383,7 @@ It is an enhanced version of `helm-for-buffers'.
 ;;;***
 
 ;;;### (autoloads (helm-simple-call-tree) "helm/helm-call-tree" "helm/helm-call-tree.el"
-;;;;;;  (20723 11939 275745 556000))
+;;;;;;  (20878 23136 265746 871000))
 ;;; Generated autoloads from helm/helm-call-tree.el
 
 (autoload 'helm-simple-call-tree "helm/helm-call-tree" "\
@@ -6141,7 +7397,7 @@ http://www.emacswiki.org/cgi-bin/wiki/download/simple-call-tree.el
 ;;;***
 
 ;;;### (autoloads (helm-colors) "helm/helm-color" "helm/helm-color.el"
-;;;;;;  (20723 11939 275745 556000))
+;;;;;;  (20878 23136 265746 871000))
 ;;; Generated autoloads from helm/helm-color.el
 
 (autoload 'helm-colors "helm/helm-color" "\
@@ -6152,7 +7408,7 @@ Preconfigured `helm' for color.
 ;;;***
 
 ;;;### (autoloads (helm-M-x) "helm/helm-command" "helm/helm-command.el"
-;;;;;;  (20723 11939 275745 556000))
+;;;;;;  (20878 23136 265746 871000))
 ;;; Generated autoloads from helm/helm-command.el
 
 (autoload 'helm-M-x "helm/helm-command" "\
@@ -6164,7 +7420,7 @@ It is `helm' replacement of regular `M-x' `execute-extended-command'.
 ;;;***
 
 ;;;### (autoloads (helm-configuration) "helm/helm-config" "helm/helm-config.el"
-;;;;;;  (20723 11939 279745 725000))
+;;;;;;  (20878 23136 265746 871000))
 ;;; Generated autoloads from helm/helm-config.el
 
 (autoload 'helm-configuration "helm/helm-config" "\
@@ -6175,10 +7431,10 @@ Customize `helm'.
 ;;;***
 
 ;;;### (autoloads (helm-complex-command-history helm-timers helm-manage-advice
-;;;;;;  helm-c-apropos helm-lisp-completion-or-file-name-at-point
-;;;;;;  helm-lisp-indent helm-c-complete-file-name-at-point helm-lisp-completion-at-point)
-;;;;;;  "helm/helm-elisp" "helm/helm-elisp.el" (20723 11939 279745
-;;;;;;  725000))
+;;;;;;  helm-apropos helm-lisp-completion-or-file-name-at-point helm-lisp-indent
+;;;;;;  helm-complete-file-name-at-point helm-lisp-completion-at-point)
+;;;;;;  "helm/helm-elisp" "helm/helm-elisp.el" (20878 23136 265746
+;;;;;;  871000))
 ;;; Generated autoloads from helm/helm-elisp.el
 
 (autoload 'helm-lisp-completion-at-point "helm/helm-elisp" "\
@@ -6186,7 +7442,7 @@ Helm lisp symbol completion at point.
 
 \(fn)" t nil)
 
-(autoload 'helm-c-complete-file-name-at-point "helm/helm-elisp" "\
+(autoload 'helm-complete-file-name-at-point "helm/helm-elisp" "\
 Complete file name at point.
 
 \(fn &optional FORCE)" t nil)
@@ -6202,7 +7458,7 @@ Filename completion happen if string start after or between a double quote.
 
 \(fn)" t nil)
 
-(autoload 'helm-c-apropos "helm/helm-elisp" "\
+(autoload 'helm-apropos "helm/helm-elisp" "\
 Preconfigured helm to describe commands, functions, variables and faces.
 
 \(fn)" t nil)
@@ -6225,7 +7481,7 @@ Preconfigured `helm' for timers.
 ;;;***
 
 ;;;### (autoloads (helm-elscreen) "helm/helm-elscreen" "helm/helm-elscreen.el"
-;;;;;;  (20723 11939 279745 725000))
+;;;;;;  (20878 23136 265746 871000))
 ;;; Generated autoloads from helm/helm-elscreen.el
 
 (autoload 'helm-elscreen "helm/helm-elscreen" "\
@@ -6236,7 +7492,7 @@ Preconfigured helm to list elscreen.
 ;;;***
 
 ;;;### (autoloads (helm-emms) "helm/helm-emms" "helm/helm-emms.el"
-;;;;;;  (20723 11939 279745 725000))
+;;;;;;  (20878 23136 265746 871000))
 ;;; Generated autoloads from helm/helm-emms.el
 
 (autoload 'helm-emms "helm/helm-emms" "\
@@ -6247,7 +7503,7 @@ Preconfigured `helm' for emms sources.
 ;;;***
 
 ;;;### (autoloads (helm-eshell-history helm-esh-pcomplete) "helm/helm-eshell"
-;;;;;;  "helm/helm-eshell.el" (20723 11939 279745 725000))
+;;;;;;  "helm/helm-eshell.el" (20878 23136 265746 871000))
 ;;; Generated autoloads from helm/helm-eshell.el
 
 (autoload 'helm-esh-pcomplete "helm/helm-eshell" "\
@@ -6264,46 +7520,45 @@ Preconfigured helm for eshell history.
 
 ;;;### (autoloads (helm-calcul-expression helm-eval-expression-with-eldoc
 ;;;;;;  helm-eval-expression) "helm/helm-eval" "helm/helm-eval.el"
-;;;;;;  (20723 11939 279745 725000))
+;;;;;;  (20878 23136 265746 871000))
 ;;; Generated autoloads from helm/helm-eval.el
 
 (autoload 'helm-eval-expression "helm/helm-eval" "\
-Preconfigured helm for `helm-c-source-evaluation-result'.
+Preconfigured helm for `helm-source-evaluation-result'.
 
 \(fn ARG)" t nil)
 
 (autoload 'helm-eval-expression-with-eldoc "helm/helm-eval" "\
-Preconfigured helm for `helm-c-source-evaluation-result' with `eldoc' support.
+Preconfigured helm for `helm-source-evaluation-result' with `eldoc' support.
 
 \(fn)" t nil)
 
 (autoload 'helm-calcul-expression "helm/helm-eval" "\
-Preconfigured helm for `helm-c-source-calculation-result'.
+Preconfigured helm for `helm-source-calculation-result'.
 
 \(fn)" t nil)
 
 ;;;***
 
-;;;### (autoloads (helm-c-run-external-command) "helm/helm-external"
-;;;;;;  "helm/helm-external.el" (20723 11939 279745 725000))
+;;;### (autoloads (helm-run-external-command) "helm/helm-external"
+;;;;;;  "helm/helm-external.el" (20878 23136 265746 871000))
 ;;; Generated autoloads from helm/helm-external.el
 
-(autoload 'helm-c-run-external-command "helm/helm-external" "\
+(autoload 'helm-run-external-command "helm/helm-external" "\
 Preconfigured `helm' to run External PROGRAM asyncronously from Emacs.
 If program is already running exit with error.
 You can set your own list of commands with
-`helm-c-external-commands-list'.
+`helm-external-commands-list'.
 
 \(fn PROGRAM)" t nil)
 
 ;;;***
 
-;;;### (autoloads (helm-recentf helm-for-files helm-dired-hardlink-file
-;;;;;;  helm-dired-symlink-file helm-dired-copy-file helm-dired-rename-file
-;;;;;;  helm-insert-file helm-write-file helm-find-files helm-find
-;;;;;;  helm-dired-mode helm-ff-rotate-right-persistent helm-ff-rotate-left-persistent
-;;;;;;  helm-ff-run-kill-buffer-persistent helm-ff-persistent-delete
-;;;;;;  helm-ff-properties-persistent helm-find-files-down-one-level
+;;;### (autoloads (helm-recentf helm-for-files helm-find-files helm-find
+;;;;;;  helm-ff-run-find-sh-command helm-ff-run-browse-project helm-browse-project
+;;;;;;  helm-ff-file-name-history helm-ff-rotate-right-persistent
+;;;;;;  helm-ff-rotate-left-persistent helm-ff-run-kill-buffer-persistent
+;;;;;;  helm-ff-persistent-delete helm-ff-properties-persistent helm-find-files-down-one-level
 ;;;;;;  helm-ff-run-toggle-basename helm-ff-run-print-file helm-ff-run-etags
 ;;;;;;  helm-ff-run-gnus-attach-files helm-ff-run-find-file-as-root
 ;;;;;;  helm-ff-run-locate helm-ff-run-open-file-with-default-tool
@@ -6315,8 +7570,8 @@ You can set your own list of commands with
 ;;;;;;  helm-ff-run-load-file helm-ff-run-byte-compile-file helm-ff-run-rename-file
 ;;;;;;  helm-ff-run-copy-file helm-ff-run-zgrep helm-ff-run-pdfgrep
 ;;;;;;  helm-ff-run-grep helm-ff-run-switch-to-history helm-ff-run-toggle-auto-update)
-;;;;;;  "helm/helm-files" "helm/helm-files.el" (20723 11939 279745
-;;;;;;  725000))
+;;;;;;  "helm/helm-files" "helm/helm-files.el" (20878 23136 265746
+;;;;;;  871000))
 ;;; Generated autoloads from helm/helm-files.el
 
 (autoload 'helm-ff-run-toggle-auto-update "helm/helm-files" "\
@@ -6325,107 +7580,107 @@ You can set your own list of commands with
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-switch-to-history "helm/helm-files" "\
-Run Switch to history action from `helm-c-source-find-files'.
+Run Switch to history action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-grep "helm/helm-files" "\
-Run Grep action from `helm-c-source-find-files'.
+Run Grep action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-pdfgrep "helm/helm-files" "\
-Run Pdfgrep action from `helm-c-source-find-files'.
+Run Pdfgrep action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-zgrep "helm/helm-files" "\
-Run Grep action from `helm-c-source-find-files'.
+Run Grep action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-copy-file "helm/helm-files" "\
-Run Copy file action from `helm-c-source-find-files'.
+Run Copy file action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-rename-file "helm/helm-files" "\
-Run Rename file action from `helm-c-source-find-files'.
+Run Rename file action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-byte-compile-file "helm/helm-files" "\
-Run Byte compile file action from `helm-c-source-find-files'.
+Run Byte compile file action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-load-file "helm/helm-files" "\
-Run Load file action from `helm-c-source-find-files'.
+Run Load file action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-eshell-command-on-file "helm/helm-files" "\
-Run eshell command on file action from `helm-c-source-find-files'.
+Run eshell command on file action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-ediff-file "helm/helm-files" "\
-Run Ediff file action from `helm-c-source-find-files'.
+Run Ediff file action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-ediff-merge-file "helm/helm-files" "\
-Run Ediff merge file action from `helm-c-source-find-files'.
+Run Ediff merge file action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-symlink-file "helm/helm-files" "\
-Run Symlink file action from `helm-c-source-find-files'.
+Run Symlink file action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-hardlink-file "helm/helm-files" "\
-Run Hardlink file action from `helm-c-source-find-files'.
+Run Hardlink file action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-delete-file "helm/helm-files" "\
-Run Delete file action from `helm-c-source-find-files'.
+Run Delete file action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-complete-fn-at-point "helm/helm-files" "\
-Run complete file name action from `helm-c-source-find-files'.
+Run complete file name action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-switch-to-eshell "helm/helm-files" "\
-Run switch to eshell action from `helm-c-source-find-files'.
+Run switch to eshell action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-switch-other-window "helm/helm-files" "\
-Run switch to other window action from `helm-c-source-find-files'.
+Run switch to other window action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-switch-other-frame "helm/helm-files" "\
-Run switch to other frame action from `helm-c-source-find-files'.
+Run switch to other frame action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-open-file-externally "helm/helm-files" "\
-Run open file externally command action from `helm-c-source-find-files'.
+Run open file externally command action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-open-file-with-default-tool "helm/helm-files" "\
-Run open file externally command action from `helm-c-source-find-files'.
+Run open file externally command action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-locate "helm/helm-files" "\
-Run locate action from `helm-c-source-find-files'.
+Run locate action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
@@ -6435,17 +7690,17 @@ Run locate action from `helm-c-source-find-files'.
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-gnus-attach-files "helm/helm-files" "\
-Run gnus attach files command action from `helm-c-source-find-files'.
+Run gnus attach files command action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-etags "helm/helm-files" "\
-Run Etags command action from `helm-c-source-find-files'.
+Run Etags command action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
 (autoload 'helm-ff-run-print-file "helm/helm-files" "\
-Run Print file action from `helm-c-source-find-files'.
+Run Print file action from `helm-source-find-files'.
 
 \(fn)" t nil)
 
@@ -6485,21 +7740,32 @@ Rotate image right without quitting helm.
 
 \(fn)" t nil)
 
-(defvar helm-dired-mode nil "\
-Non-nil if Helm-Dired mode is enabled.
-See the command `helm-dired-mode' for a description of this minor mode.
-Setting this variable directly does not take effect;
-either customize it (see the info node `Easy Customization')
-or call the function `helm-dired-mode'.")
+(autoload 'helm-ff-file-name-history "helm/helm-files" "\
+Switch to `file-name-history' without quitting `helm-find-files'.
 
-(custom-autoload 'helm-dired-mode "helm/helm-files" nil)
+\(fn)" t nil)
 
-(autoload 'helm-dired-mode "helm/helm-files" "\
-Enable helm completion in Dired functions.
-Bindings affected are C, R, S, H.
-This is deprecated for Emacs24+ users, use `helm-mode' instead.
+(autoload 'helm-browse-project "helm/helm-files" "\
+Browse files and see status of project with its vcs.
+Only hg and git are supported for now.
+Fall back to `helm-find-files' if directory is not under
+control of one of those vcs.
+Need dependencies:
+<https://github.com/emacs-helm/helm-ls-git.git>
+and
+<https://github.com/emacs-helm/helm-mercurial-queue/blob/master/helm-ls-hg.el>.
 
-\(fn &optional ARG)" t nil)
+\(fn)" t nil)
+
+(autoload 'helm-ff-run-browse-project "helm/helm-files" "\
+
+
+\(fn)" t nil)
+
+(autoload 'helm-ff-run-find-sh-command "helm/helm-files" "\
+Run find shell command action with key from `helm-find-files'.
+
+\(fn)" t nil)
 
 (autoload 'helm-find "helm/helm-files" "\
 Preconfigured `helm' for the find shell command.
@@ -6513,36 +7779,6 @@ Don't call it from programs, use `helm-find-files-1' instead.
 This is the starting point for nearly all actions you can do on files.
 
 \(fn ARG)" t nil)
-
-(autoload 'helm-write-file "helm/helm-files" "\
-Preconfigured `helm' providing completion for `write-file'.
-
-\(fn)" t nil)
-
-(autoload 'helm-insert-file "helm/helm-files" "\
-Preconfigured `helm' providing completion for `insert-file'.
-
-\(fn)" t nil)
-
-(autoload 'helm-dired-rename-file "helm/helm-files" "\
-Preconfigured `helm' to rename files from dired.
-
-\(fn)" t nil)
-
-(autoload 'helm-dired-copy-file "helm/helm-files" "\
-Preconfigured `helm' to copy files from dired.
-
-\(fn)" t nil)
-
-(autoload 'helm-dired-symlink-file "helm/helm-files" "\
-Preconfigured `helm' to symlink files from dired.
-
-\(fn)" t nil)
-
-(autoload 'helm-dired-hardlink-file "helm/helm-files" "\
-Preconfigured `helm' to hardlink files from dired.
-
-\(fn)" t nil)
 
 (autoload 'helm-for-files "helm/helm-files" "\
 Preconfigured `helm' for opening files.
@@ -6558,7 +7794,7 @@ Preconfigured `helm' for `recentf'.
 ;;;***
 
 ;;;### (autoloads (helm-firefox-bookmarks) "helm/helm-firefox" "helm/helm-firefox.el"
-;;;;;;  (20723 11939 279745 725000))
+;;;;;;  (20878 23136 265746 871000))
 ;;; Generated autoloads from helm/helm-firefox.el
 
 (autoload 'helm-firefox-bookmarks "helm/helm-firefox" "\
@@ -6579,7 +7815,7 @@ After closing firefox, you will be able to browse you bookmarks.
 ;;;***
 
 ;;;### (autoloads (helm-ucs helm-select-xfont) "helm/helm-font" "helm/helm-font.el"
-;;;;;;  (20723 11939 279745 725000))
+;;;;;;  (20878 23136 265746 871000))
 ;;; Generated autoloads from helm/helm-font.el
 
 (autoload 'helm-select-xfont "helm/helm-font" "\
@@ -6595,7 +7831,7 @@ Preconfigured helm for `ucs-names' math symbols.
 ;;;***
 
 ;;;### (autoloads (helm-gentoo) "helm/helm-gentoo" "helm/helm-gentoo.el"
-;;;;;;  (20723 11939 279745 725000))
+;;;;;;  (20878 23136 265746 871000))
 ;;; Generated autoloads from helm/helm-gentoo.el
 
 (autoload 'helm-gentoo "helm/helm-gentoo" "\
@@ -6608,39 +7844,44 @@ Preconfigured `helm' for gentoo linux.
 ;;;### (autoloads (helm-do-pdfgrep helm-do-zgrep helm-do-grep helm-grep-mode-jump-other-window
 ;;;;;;  helm-grep-mode-jump-other-window-backward helm-grep-mode-jump-other-window-forward
 ;;;;;;  helm-grep-mode-jump helm-grep-mode-quit helm-gm-precedent-file
-;;;;;;  helm-gm-next-file helm-grep-mode helm-c-grep-run-save-buffer
-;;;;;;  helm-c-grep-run-other-window-action helm-c-grep-run-default-action
-;;;;;;  helm-c-grep-run-persistent-action helm-c-goto-next-file helm-c-goto-precedent-file)
-;;;;;;  "helm/helm-grep" "helm/helm-grep.el" (20723 11939 279745
-;;;;;;  725000))
+;;;;;;  helm-gm-next-file helm-grep-mode helm-grep-run-save-buffer
+;;;;;;  helm-grep-run-other-frame-action helm-grep-run-other-window-action
+;;;;;;  helm-grep-run-default-action helm-grep-run-persistent-action
+;;;;;;  helm-goto-next-file helm-goto-precedent-file) "helm/helm-grep"
+;;;;;;  "helm/helm-grep.el" (20878 23136 265746 871000))
 ;;; Generated autoloads from helm/helm-grep.el
 
-(autoload 'helm-c-goto-precedent-file "helm/helm-grep" "\
+(autoload 'helm-goto-precedent-file "helm/helm-grep" "\
 Go to precedent file in helm grep/etags buffers.
 
 \(fn)" t nil)
 
-(autoload 'helm-c-goto-next-file "helm/helm-grep" "\
+(autoload 'helm-goto-next-file "helm/helm-grep" "\
 Go to precedent file in helm grep/etags buffers.
 
 \(fn)" t nil)
 
-(autoload 'helm-c-grep-run-persistent-action "helm/helm-grep" "\
+(autoload 'helm-grep-run-persistent-action "helm/helm-grep" "\
 Run grep persistent action from `helm-do-grep-1'.
 
 \(fn)" t nil)
 
-(autoload 'helm-c-grep-run-default-action "helm/helm-grep" "\
+(autoload 'helm-grep-run-default-action "helm/helm-grep" "\
 Run grep default action from `helm-do-grep-1'.
 
 \(fn)" t nil)
 
-(autoload 'helm-c-grep-run-other-window-action "helm/helm-grep" "\
+(autoload 'helm-grep-run-other-window-action "helm/helm-grep" "\
 Run grep goto other window action from `helm-do-grep-1'.
 
 \(fn)" t nil)
 
-(autoload 'helm-c-grep-run-save-buffer "helm/helm-grep" "\
+(autoload 'helm-grep-run-other-frame-action "helm/helm-grep" "\
+Run grep goto other frame action from `helm-do-grep-1'.
+
+\(fn)" t nil)
+
+(autoload 'helm-grep-run-save-buffer "helm/helm-grep" "\
 Run grep save results action from `helm-do-grep-1'.
 
 \(fn)" t nil)
@@ -6714,12 +7955,12 @@ Preconfigured helm for pdfgrep.
 
 ;;;***
 
-;;;### (autoloads (helm-describe-helm-attribute helm-moccur-help
-;;;;;;  helm-buffers-ido-virtual-help helm-esh-help helm-c-bookmark-help
-;;;;;;  helm-c-ucs-help helm-etags-help helm-pdfgrep-help helm-grep-help
-;;;;;;  helm-generic-file-help helm-read-file-name-help helm-ff-help
-;;;;;;  helm-c-buffer-help helm-help) "helm/helm-help" "helm/helm-help.el"
-;;;;;;  (20723 11939 279745 725000))
+;;;### (autoloads (helm-describe-helm-attribute helm-apt-help helm-top-help
+;;;;;;  helm-moccur-help helm-buffers-ido-virtual-help helm-esh-help
+;;;;;;  helm-bookmark-help helm-ucs-help helm-etags-help helm-pdfgrep-help
+;;;;;;  helm-grep-help helm-generic-file-help helm-read-file-name-help
+;;;;;;  helm-ff-help helm-buffer-help helm-help) "helm/helm-help"
+;;;;;;  "helm/helm-help.el" (20878 23136 265746 871000))
 ;;; Generated autoloads from helm/helm-help.el
 
 (defvar helm-mode-line-string "\\<helm-map>\\[helm-help]:Help \\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "\
@@ -6734,7 +7975,7 @@ Help of `helm'.
 
 \(fn)" t nil)
 
-(autoload 'helm-c-buffer-help "helm/helm-help" "\
+(autoload 'helm-buffer-help "helm/helm-help" "\
 Help command for helm buffers.
 
 \(fn)" t nil)
@@ -6769,12 +8010,12 @@ The help function for etags.
 
 \(fn)" t nil)
 
-(autoload 'helm-c-ucs-help "helm/helm-help" "\
+(autoload 'helm-ucs-help "helm/helm-help" "\
 Help command for `helm-ucs'.
 
 \(fn)" t nil)
 
-(autoload 'helm-c-bookmark-help "helm/helm-help" "\
+(autoload 'helm-bookmark-help "helm/helm-help" "\
 Help command for bookmarks.
 
 \(fn)" t nil)
@@ -6794,39 +8035,53 @@ Help command for ido virtual buffers.
 
 \(fn)" t nil)
 
-(defvar helm-buffer-mode-line-string '("Buffer(s)" "\\<helm-c-buffer-map>\\[helm-c-buffer-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "String displayed in mode-line in `helm-c-source-buffers-list'"))
+(autoload 'helm-top-help "helm/helm-help" "\
 
-(defvar helm-buffers-ido-virtual-mode-line-string '("Killed Buffer(s)" "\\<helm-buffers-ido-virtual-map>\\[helm-buffers-ido-virtual-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "String displayed in mode-line in `helm-c-source-buffers-list'"))
+
+\(fn)" t nil)
+
+(autoload 'helm-apt-help "helm/helm-help" "\
+
+
+\(fn)" t nil)
+
+(defvar helm-buffer-mode-line-string '("Buffer(s)" "\\<helm-buffer-map>\\[helm-buffer-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "String displayed in mode-line in `helm-source-buffers-list'"))
+
+(defvar helm-buffers-ido-virtual-mode-line-string '("Killed Buffer(s)" "\\<helm-buffers-ido-virtual-map>\\[helm-buffers-ido-virtual-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "String displayed in mode-line in `helm-source-buffers-list'"))
 
 (defvar helm-ff-mode-line-string "\\<helm-find-files-map>\\[helm-ff-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "\
-String displayed in mode-line in `helm-c-source-find-files'")
+String displayed in mode-line in `helm-source-find-files'")
 
-(defvar helm-read-file-name-mode-line-string "\\<helm-c-read-file-map>\\[helm-read-file-name-help]:Help \\[helm-cr-empty-string]:Empty \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "\
-String displayed in mode-line in `helm-c-source-find-files'")
+(defvar helm-read-file-name-mode-line-string "\\<helm-read-file-map>\\[helm-read-file-name-help]:Help \\[helm-cr-empty-string]:Empty \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "\
+String displayed in mode-line in `helm-source-find-files'.")
 
-(defvar helm-generic-file-mode-line-string "\\<helm-generic-files-map>\\[helm-generic-file-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "\
+(defvar helm-generic-file-mode-line-string "\\<helm-generic-files-map>\\[helm-generic-file-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct \\[helm-toggle-suspend-update]:Tog.suspend" "\
 String displayed in mode-line in Locate.")
 
-(defvar helm-grep-mode-line-string "\\<helm-c-grep-map>\\[helm-grep-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "\
+(defvar helm-grep-mode-line-string "\\<helm-grep-map>\\[helm-grep-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct \\[helm-toggle-suspend-update]:Tog.suspend" "\
 String displayed in mode-line in `helm-do-grep'.")
 
-(defvar helm-pdfgrep-mode-line-string "\\<helm-c-pdfgrep-map>\\[helm-pdfgrep-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "\
+(defvar helm-pdfgrep-mode-line-string "\\<helm-pdfgrep-map>\\[helm-pdfgrep-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct \\[helm-toggle-suspend-update]:Tog.suspend" "\
 String displayed in mode-line in `helm-do-pdfgrep'.")
 
-(defvar helm-etags-mode-line-string "\\<helm-c-etags-map>\\[helm-etags-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "\
-String displayed in mode-line in `helm-c-etags-select'.")
+(defvar helm-etags-mode-line-string "\\<helm-etags-map>\\[helm-etags-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "\
+String displayed in mode-line in `helm-etags-select'.")
 
-(defvar helm-c-ucs-mode-line-string "\\<helm-c-ucs-map>\\[helm-c-ucs-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "\
+(defvar helm-ucs-mode-line-string "\\<helm-ucs-map>\\[helm-ucs-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "\
 String displayed in mode-line in `helm-ucs'.")
 
-(defvar helm-bookmark-mode-line-string '("Bookmark(s)" "\\<helm-c-bookmark-map>\\[helm-c-bookmark-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct") "\
-String displayed in mode-line in `helm-c-source-buffers-list'")
+(defvar helm-bookmark-mode-line-string '("Bookmark(s)" "\\<helm-bookmark-map>\\[helm-bookmark-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct") "\
+String displayed in mode-line in `helm-source-buffers-list'")
 
-(defvar helm-occur-mode-line "\\<helm-map>\\[helm-help]:Help \\<helm-occur-map>\\[helm-occur-run-query-replace-regexp]:Query replace regexp \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct")
+(defvar helm-occur-mode-line "\\<helm-map>\\[helm-help]:Help \\<helm-occur-map>\\[helm-occur-run-query-replace-regexp]:Query replace regexp \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct \\[helm-toggle-suspend-update]:Tog.suspend")
 
-(defvar helm-moccur-mode-line "\\<helm-c-moccur-map>\\[helm-moccur-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct")
+(defvar helm-moccur-mode-line "\\<helm-moccur-map>\\[helm-moccur-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct \\[helm-toggle-suspend-update]:Tog.suspend")
 
 (defvar helm-comp-read-mode-line "\\<helm-comp-read-map>\\[helm-cr-empty-string]:Empty \\<helm-map>\\[helm-help]:Help \\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct")
+
+(defvar helm-top-mode-line "\\<helm-top-map>\\[helm-top-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct \\[helm-toggle-suspend-update]:Tog.suspend")
+
+(defvar helm-apt-mode-line "\\<helm-apt-map>\\[helm-apt-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct \\[helm-toggle-suspend-update]:Tog.suspend")
 
 (autoload 'helm-describe-helm-attribute "helm/helm-help" "\
 Display the full documentation of HELM-ATTRIBUTE.
@@ -6837,7 +8092,7 @@ HELM-ATTRIBUTE should be a symbol.
 ;;;***
 
 ;;;### (autoloads (helm-imenu) "helm/helm-imenu" "helm/helm-imenu.el"
-;;;;;;  (20723 11939 279745 725000))
+;;;;;;  (20878 23136 265746 871000))
 ;;; Generated autoloads from helm/helm-imenu.el
 
 (autoload 'helm-imenu "helm/helm-imenu" "\
@@ -6848,7 +8103,7 @@ Preconfigured `helm' for `imenu'.
 ;;;***
 
 ;;;### (autoloads (helm-info-at-point) "helm/helm-info" "helm/helm-info.el"
-;;;;;;  (20723 11939 279745 725000))
+;;;;;;  (20878 23136 269747 29000))
 ;;; Generated autoloads from helm/helm-info.el
 
 (autoload 'helm-info-at-point "helm/helm-info" "\
@@ -6860,13 +8115,13 @@ With a prefix-arg insert symbol at point.
 ;;;***
 
 ;;;### (autoloads (helm-locate) "helm/helm-locate" "helm/helm-locate.el"
-;;;;;;  (20723 11939 279745 725000))
+;;;;;;  (20878 23136 269747 29000))
 ;;; Generated autoloads from helm/helm-locate.el
 
 (autoload 'helm-locate "helm/helm-locate" "\
 Preconfigured `helm' for Locate.
 Note: you can add locate options after entering pattern.
-See 'man locate' for valid options.
+See 'man locate' for valid options and also `helm-locate-command'.
 
 You can specify a local database with prefix argument ARG.
 With two prefix arg, refresh the current local db or create it
@@ -6884,7 +8139,7 @@ Where db_path is a filename matched by
 ;;;***
 
 ;;;### (autoloads (helm-man-woman) "helm/helm-man" "helm/helm-man.el"
-;;;;;;  (20723 11939 279745 725000))
+;;;;;;  (20878 23136 269747 29000))
 ;;; Generated autoloads from helm/helm-man.el
 
 (autoload 'helm-man-woman "helm/helm-man" "\
@@ -6896,7 +8151,7 @@ With a prefix arg reinitialize the cache.
 ;;;***
 
 ;;;### (autoloads (helm-match-plugin-mode) "helm/helm-match-plugin"
-;;;;;;  "helm/helm-match-plugin.el" (20723 11939 279745 725000))
+;;;;;;  "helm/helm-match-plugin.el" (20878 23136 269747 29000))
 ;;; Generated autoloads from helm/helm-match-plugin.el
 
 (defvar helm-match-plugin-mode nil "\
@@ -6917,9 +8172,9 @@ See `helm-mp-matching-method' for the behavior of each method.
 ;;;***
 
 ;;;### (autoloads (helm-minibuffer-history helm-mini helm-stumpwm-commands
-;;;;;;  helm-ratpoison-commands helm-eev-anchors helm-c-insert-latex-math
-;;;;;;  helm-world-time) "helm/helm-misc" "helm/helm-misc.el" (20723
-;;;;;;  11939 283745 895000))
+;;;;;;  helm-ratpoison-commands helm-eev-anchors helm-insert-latex-math
+;;;;;;  helm-world-time) "helm/helm-misc" "helm/helm-misc.el" (20878
+;;;;;;  23136 269747 29000))
 ;;; Generated autoloads from helm/helm-misc.el
 
 (autoload 'helm-world-time "helm/helm-misc" "\
@@ -6927,7 +8182,7 @@ Preconfigured `helm' to show world time.
 
 \(fn)" t nil)
 
-(autoload 'helm-c-insert-latex-math "helm/helm-misc" "\
+(autoload 'helm-insert-latex-math "helm/helm-misc" "\
 Preconfigured helm for latex math symbols completion.
 
 \(fn)" t nil)
@@ -6960,8 +8215,8 @@ Preconfigured `helm' for `minibuffer-history'.
 ;;;***
 
 ;;;### (autoloads (helm-mode helm-comp-read helm-cr-empty-string)
-;;;;;;  "helm/helm-mode" "helm/helm-mode.el" (20723 11939 283745
-;;;;;;  895000))
+;;;;;;  "helm/helm-mode" "helm/helm-mode.el" (20878 23136 269747
+;;;;;;  29000))
 ;;; Generated autoloads from helm/helm-mode.el
 
 (autoload 'helm-cr-empty-string "helm/helm-mode" "\
@@ -7074,14 +8329,14 @@ e.g `ffap-alternate-file' and maybe others
 You can add such functions to `helm-completing-read-handlers-alist'
 with a nil value.
 
-Note: This mode will work only partially on Emacs23.
+Note: This mode is incompatible with Emacs23.
 
 \(fn &optional ARG)" t nil)
 
 ;;;***
 
 ;;;### (autoloads (helm-yahoo-suggest helm-google-suggest helm-surfraw)
-;;;;;;  "helm/helm-net" "helm/helm-net.el" (20723 11939 283745 895000))
+;;;;;;  "helm/helm-net" "helm/helm-net.el" (20878 23136 269747 29000))
 ;;; Generated autoloads from helm/helm-net.el
 
 (autoload 'helm-surfraw "helm/helm-net" "\
@@ -7102,7 +8357,7 @@ Preconfigured `helm' for Yahoo searching with Yahoo suggest.
 ;;;***
 
 ;;;### (autoloads (helm-org-headlines helm-org-keywords) "helm/helm-org"
-;;;;;;  "helm/helm-org.el" (20723 11939 283745 895000))
+;;;;;;  "helm/helm-org.el" (20878 23136 269747 29000))
 ;;; Generated autoloads from helm/helm-org.el
 
 (autoload 'helm-org-keywords "helm/helm-org" "\
@@ -7117,9 +8372,10 @@ Preconfigured helm to show org headlines.
 
 ;;;***
 
-;;;### (autoloads (helm-browse-code helm-multi-occur helm-occur helm-regexp)
-;;;;;;  "helm/helm-regexp" "helm/helm-regexp.el" (20723 11939 283745
-;;;;;;  895000))
+;;;### (autoloads (helm-browse-code helm-multi-occur-from-isearch
+;;;;;;  helm-multi-occur helm-occur-from-isearch helm-occur helm-regexp)
+;;;;;;  "helm/helm-regexp" "helm/helm-regexp.el" (20878 23136 269747
+;;;;;;  29000))
 ;;; Generated autoloads from helm/helm-regexp.el
 
 (autoload 'helm-regexp "helm/helm-regexp" "\
@@ -7133,16 +8389,31 @@ Preconfigured helm for Occur.
 
 \(fn)" t nil)
 
+(autoload 'helm-occur-from-isearch "helm/helm-regexp" "\
+Invoke `helm-occur' from isearch.
+
+\(fn)" t nil)
+
 (autoload 'helm-multi-occur "helm/helm-regexp" "\
 Preconfigured helm for multi occur.
 
   BUFFERS is a list of buffers to search through.
-With a prefix arg, force searching in current buffer
-even if `helm-moccur-always-search-in-current' is nil.
+With a prefix arg, reverse the behavior of
+`helm-moccur-always-search-in-current'.
 The prefix arg can be set before calling `helm-multi-occur'
 or during the buffer selection.
 
 \(fn BUFFERS)" t nil)
+
+(autoload 'helm-multi-occur-from-isearch "helm/helm-regexp" "\
+Invoke `helm-multi-occur' from isearch.
+
+With a prefix arg, reverse the behavior of
+`helm-moccur-always-search-in-current'.
+The prefix arg can be set before calling
+`helm-multi-occur-from-isearch' or during the buffer selection.
+
+\(fn &optional ARG)" t nil)
 
 (autoload 'helm-browse-code "helm/helm-regexp" "\
 Preconfigured helm to browse code.
@@ -7153,21 +8424,21 @@ Preconfigured helm to browse code.
 
 ;;;### (autoloads (helm-show-kill-ring helm-register helm-all-mark-rings
 ;;;;;;  helm-global-mark-ring helm-mark-ring) "helm/helm-ring" "helm/helm-ring.el"
-;;;;;;  (20723 11939 283745 895000))
+;;;;;;  (20878 23136 269747 29000))
 ;;; Generated autoloads from helm/helm-ring.el
 
 (autoload 'helm-mark-ring "helm/helm-ring" "\
-Preconfigured `helm' for `helm-c-source-mark-ring'.
+Preconfigured `helm' for `helm-source-mark-ring'.
 
 \(fn)" t nil)
 
 (autoload 'helm-global-mark-ring "helm/helm-ring" "\
-Preconfigured `helm' for `helm-c-source-global-mark-ring'.
+Preconfigured `helm' for `helm-source-global-mark-ring'.
 
 \(fn)" t nil)
 
 (autoload 'helm-all-mark-rings "helm/helm-ring" "\
-Preconfigured `helm' for `helm-c-source-global-mark-ring' and `helm-c-source-mark-ring'.
+Preconfigured `helm' for `helm-source-global-mark-ring' and `helm-source-mark-ring'.
 
 \(fn)" t nil)
 
@@ -7187,7 +8458,7 @@ First call open the kill-ring browser, next calls move to next line.
 ;;;***
 
 ;;;### (autoloads (helm-semantic-or-imenu helm-semantic) "helm/helm-semantic"
-;;;;;;  "helm/helm-semantic.el" (20723 11939 283745 895000))
+;;;;;;  "helm/helm-semantic.el" (20878 23136 269747 29000))
 ;;; Generated autoloads from helm/helm-semantic.el
 
 (autoload 'helm-semantic "helm/helm-semantic" "\
@@ -7206,9 +8477,31 @@ Fill in the symbol at point by default.
 
 ;;;***
 
-;;;### (autoloads (helm-xrandr-set helm-list-emacs-process helm-top)
-;;;;;;  "helm/helm-sys" "helm/helm-sys.el" (20723 11939 283745 895000))
+;;;### (autoloads (helm-xrandr-set helm-list-emacs-process helm-top
+;;;;;;  helm-top-run-sort-by-user helm-top-run-sort-by-mem helm-top-run-sort-by-cpu
+;;;;;;  helm-top-run-sort-by-com) "helm/helm-sys" "helm/helm-sys.el"
+;;;;;;  (20878 23136 269747 29000))
 ;;; Generated autoloads from helm/helm-sys.el
+
+(autoload 'helm-top-run-sort-by-com "helm/helm-sys" "\
+
+
+\(fn)" t nil)
+
+(autoload 'helm-top-run-sort-by-cpu "helm/helm-sys" "\
+
+
+\(fn)" t nil)
+
+(autoload 'helm-top-run-sort-by-mem "helm/helm-sys" "\
+
+
+\(fn)" t nil)
+
+(autoload 'helm-top-run-sort-by-user "helm/helm-sys" "\
+
+
+\(fn)" t nil)
 
 (autoload 'helm-top "helm/helm-sys" "\
 Preconfigured `helm' for top command.
@@ -7227,11 +8520,11 @@ Preconfigured `helm' for emacs process.
 
 ;;;***
 
-;;;### (autoloads (helm-c-etags-select) "helm/helm-tags" "helm/helm-tags.el"
-;;;;;;  (20723 11939 283745 895000))
+;;;### (autoloads (helm-etags-select) "helm/helm-tags" "helm/helm-tags.el"
+;;;;;;  (20878 23136 269747 29000))
 ;;; Generated autoloads from helm/helm-tags.el
 
-(autoload 'helm-c-etags-select "helm/helm-tags" "\
+(autoload 'helm-etags-select "helm/helm-tags" "\
 Preconfigured helm for etags.
 Called with one prefix arg use symbol at point as initial input.
 Called with two prefix arg reinitialize cache.
@@ -7243,8 +8536,8 @@ If tag file have been modified reinitialize cache.
 
 ;;;### (autoloads (helm-yank-text-at-point helm-w32-shell-execute-open-file
 ;;;;;;  helm-quit-and-find-file helm-display-all-sources helm-show-all-in-this-source-only)
-;;;;;;  "helm/helm-utils" "helm/helm-utils.el" (20723 11939 283745
-;;;;;;  895000))
+;;;;;;  "helm/helm-utils" "helm/helm-utils.el" (20878 23136 269747
+;;;;;;  29000))
 ;;; Generated autoloads from helm/helm-utils.el
 
 (autoload 'helm-show-all-in-this-source-only "helm/helm-utils" "\
@@ -7281,7 +8574,7 @@ the entire symbol.
 ;;;***
 
 ;;;### (autoloads (helm-w3m-bookmarks) "helm/helm-w3m" "helm/helm-w3m.el"
-;;;;;;  (20723 11939 283745 895000))
+;;;;;;  (20878 23136 269747 29000))
 ;;; Generated autoloads from helm/helm-w3m.el
 
 (autoload 'helm-w3m-bookmarks "helm/helm-w3m" "\
@@ -7298,7 +8591,7 @@ http://emacs-w3m.namazu.org/
 
 ;;;### (autoloads (helm-yaoddmuse-emacswiki-post-library helm-yaoddmuse-emacswiki-edit-or-view
 ;;;;;;  helm-yaoddmuse-cache-pages) "helm/helm-yaoddmuse" "helm/helm-yaoddmuse.el"
-;;;;;;  (20723 11939 283745 895000))
+;;;;;;  (20878 23136 269747 29000))
 ;;; Generated autoloads from helm/helm-yaoddmuse.el
 
 (autoload 'helm-yaoddmuse-cache-pages "helm/helm-yaoddmuse" "\
@@ -7328,8 +8621,8 @@ http://www.emacswiki.org/emacs/download/yaoddmuse.el
 ;;;***
 
 ;;;### (autoloads (highlight-parentheses-mode) "highlight-parentheses/highlight-parentheses"
-;;;;;;  "highlight-parentheses/highlight-parentheses.el" (20723 11676
-;;;;;;  908633 802000))
+;;;;;;  "highlight-parentheses/highlight-parentheses.el" (20878 29189
+;;;;;;  150852 753000))
 ;;; Generated autoloads from highlight-parentheses/highlight-parentheses.el
 
 (autoload 'highlight-parentheses-mode "highlight-parentheses/highlight-parentheses" "\
@@ -7340,7 +8633,7 @@ Minor mode to highlight the surrounding parentheses.
 ;;;***
 
 ;;;### (autoloads (global-hl-sexp-mode hl-sexp-mode) "hl-sexp/hl-sexp"
-;;;;;;  "hl-sexp/hl-sexp.el" (20723 11677 12638 219000))
+;;;;;;  "hl-sexp/hl-sexp.el" (20878 29189 366860 140000))
 ;;; Generated autoloads from hl-sexp/hl-sexp.el
 
 (autoload 'hl-sexp-mode "hl-sexp/hl-sexp" "\
@@ -7371,17 +8664,6 @@ Hl-Sexp mode is enabled in all buffers where
 See `hl-sexp-mode' for more information on Hl-Sexp mode.
 
 \(fn &optional ARG)" t nil)
-
-;;;***
-
-;;;### (autoloads (html2text) "nognus/lisp/html2text" "nognus/lisp/html2text.el"
-;;;;;;  (20731 65174 116495 424000))
-;;; Generated autoloads from nognus/lisp/html2text.el
-
-(autoload 'html2text "nognus/lisp/html2text" "\
-Convert HTML to plain text in the current buffer.
-
-\(fn)" t nil)
 
 ;;;***
 
@@ -7486,69 +8768,8 @@ https://github.com/DarwinAwardWinner/ido-ubiquitous/issues")
 
 ;;;***
 
-;;;### (autoloads (run-ruby inf-ruby inf-ruby-setup-keybindings)
-;;;;;;  "inf-ruby/inf-ruby" "inf-ruby/inf-ruby.el" (20731 64655 535943
-;;;;;;  783000))
-;;; Generated autoloads from inf-ruby/inf-ruby.el
-
-(autoload 'inf-ruby-setup-keybindings "inf-ruby/inf-ruby" "\
-Set local key defs to invoke inf-ruby from ruby-mode.
-
-\(fn)" nil nil)
-
-(autoload 'inf-ruby "inf-ruby/inf-ruby" "\
-Run an inferior Ruby process in a buffer.
-With prefix argument, prompts for which Ruby implementation
-\(from the list `inf-ruby-implementations') to use. Runs the
-hooks `inf-ruby-mode-hook' (after the `comint-mode-hook' is
-run).
-
-\(fn &optional IMPL)" t nil)
-
-(autoload 'run-ruby "inf-ruby/inf-ruby" "\
-Run an inferior Ruby process, input and output via buffer *ruby*.
-If there is a process already running in `*ruby*', switch to that buffer.
-With argument, allows you to edit the command line (default is value
-of `ruby-program-name').  Runs the hooks `inferior-ruby-mode-hook'
-\(after the `comint-mode-hook' is run).
-\(Type \\[describe-mode] in the process buffer for a list of commands.)
-
-\(fn &optional COMMAND NAME)" t nil)
-
-(eval-after-load 'ruby-mode '(inf-ruby-setup-keybindings))
-
-;;;***
-
-;;;### (autoloads (js3-mode) "js3-mode/js3" "js3-mode/js3.el" (20731
-;;;;;;  64693 489581 910000))
-;;; Generated autoloads from js3-mode/js3.el
- (add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
-
-(autoload 'js3-mode "js3-mode/js3" "\
-Major mode for editing JavaScript code.
-
-\\{js3-mode-map}
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (js3-mode) "js3-mode/js3-mode" "js3-mode/js3-mode.el"
-;;;;;;  (20731 64693 489581 910000))
-;;; Generated autoloads from js3-mode/js3-mode.el
- (add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
-
-(autoload 'js3-mode "js3-mode/js3-mode" "\
-Major mode for editing JavaScript code.
-
-\\{js3-mode-map}
-
-\(fn)" t nil)
-
-;;;***
-
 ;;;### (autoloads (lua-mode) "lua-mode/lua-mode" "lua-mode/lua-mode.el"
-;;;;;;  (20731 64694 741637 568000))
+;;;;;;  (20878 23143 530033 392000))
 ;;; Generated autoloads from lua-mode/lua-mode.el
 
 (autoload 'lua-mode "lua-mode/lua-mode" "\
@@ -7562,8 +8783,8 @@ Major mode for editing Lua code.
 
 ;;;***
 
-;;;### (autoloads (magit-status) "magit/magit" "magit/magit.el" (20731
-;;;;;;  64699 349843 293000))
+;;;### (autoloads (magit-status) "magit/magit" "magit/magit.el" (20878
+;;;;;;  29188 226821 153000))
 ;;; Generated autoloads from magit/magit.el
 
 (autoload 'magit-status "magit/magit" "\
@@ -7581,7 +8802,7 @@ when asking for user input.
 ;;;***
 
 ;;;### (autoloads (magit-blame-mode) "magit/magit-blame" "magit/magit-blame.el"
-;;;;;;  (20731 64699 349843 293000))
+;;;;;;  (20878 29188 222821 16000))
 ;;; Generated autoloads from magit/magit-blame.el
 
 (autoload 'magit-blame-mode "magit/magit-blame" "\
@@ -7592,7 +8813,7 @@ Display blame information inline.
 ;;;***
 
 ;;;### (autoloads (turn-on-magit-stgit magit-stgit-mode) "magit/magit-stgit"
-;;;;;;  "magit/magit-stgit.el" (20731 64699 349843 293000))
+;;;;;;  "magit/magit-stgit.el" (20878 29188 222821 16000))
 ;;; Generated autoloads from magit/magit-stgit.el
 
 (autoload 'magit-stgit-mode "magit/magit-stgit" "\
@@ -7608,7 +8829,7 @@ Unconditionally turn on `magit-stgit-mode'.
 ;;;***
 
 ;;;### (autoloads (turn-on-magit-svn magit-svn-mode) "magit/magit-svn"
-;;;;;;  "magit/magit-svn.el" (20731 64699 349843 293000))
+;;;;;;  "magit/magit-svn.el" (20878 29188 222821 16000))
 ;;; Generated autoloads from magit/magit-svn.el
 
 (autoload 'magit-svn-mode "magit/magit-svn" "\
@@ -7624,7 +8845,7 @@ Unconditionally turn on `magit-svn-mode'.
 ;;;***
 
 ;;;### (autoloads (turn-on-magit-topgit magit-topgit-mode) "magit/magit-topgit"
-;;;;;;  "magit/magit-topgit.el" (20731 64699 349843 293000))
+;;;;;;  "magit/magit-topgit.el" (20878 29188 222821 16000))
 ;;; Generated autoloads from magit/magit-topgit.el
 
 (autoload 'magit-topgit-mode "magit/magit-topgit" "\
@@ -7640,8 +8861,8 @@ Unconditionally turn on `magit-topgit-mode'.
 ;;;***
 
 ;;;### (autoloads (global-magit-wip-save-mode magit-wip-save-mode
-;;;;;;  magit-wip-mode) "magit/magit-wip" "magit/magit-wip.el" (20731
-;;;;;;  64699 349843 293000))
+;;;;;;  magit-wip-mode) "magit/magit-wip" "magit/magit-wip.el" (20878
+;;;;;;  29188 222821 16000))
 ;;; Generated autoloads from magit/magit-wip.el
 
 (defvar magit-wip-mode nil "\
@@ -7661,9 +8882,9 @@ In Magit log buffers; give wip refs a special appearance.
 (autoload 'magit-wip-save-mode "magit/magit-wip" "\
 Magit support for committing to a work-in-progress ref.
 
-When this minor mode is turned on and a file is saved inside a writable
-git repository then it is also committed to a special work-in-progress
-ref.
+When this minor mode is turned on and a file is saved inside a
+writable git repository then it is also committed to a special
+work-in-progress ref.
 
 \(fn &optional ARG)" t nil)
 
@@ -7690,8 +8911,8 @@ See `magit-wip-save-mode' for more information on Magit-Wip-Save mode.
 
 ;;;***
 
-;;;### (autoloads (markdown-mode) "markdown-mode/markdown-mode" "markdown-mode/markdown-mode.el"
-;;;;;;  (20731 64698 489804 798000))
+;;;### (autoloads (gfm-mode markdown-mode) "markdown-mode/markdown-mode"
+;;;;;;  "markdown-mode/markdown-mode.el" (20878 23145 54093 507000))
 ;;; Generated autoloads from markdown-mode/markdown-mode.el
 
 (autoload 'markdown-mode "markdown-mode/markdown-mode" "\
@@ -7699,11 +8920,16 @@ Major mode for editing Markdown files.
 
 \(fn)" t nil)
 
+(autoload 'gfm-mode "markdown-mode/markdown-mode" "\
+Major mode for editing GitHub Flavored Markdown files.
+
+\(fn)" t nil)
+
 ;;;***
 
 ;;;### (autoloads (mc/edit-beginnings-of-lines mc/edit-ends-of-lines
 ;;;;;;  mc/edit-lines) "multiple-cursors/mc-edit-lines" "multiple-cursors/mc-edit-lines.el"
-;;;;;;  (20731 64699 457848 129000))
+;;;;;;  (20878 23143 578035 285000))
 ;;; Generated autoloads from multiple-cursors/mc-edit-lines.el
 
 (autoload 'mc/edit-lines "multiple-cursors/mc-edit-lines" "\
@@ -7725,7 +8951,7 @@ Add one cursor to the beginning of each line in the active region.
 
 ;;;***
 
-;;;### (autoloads (mc/mark-sgml-tag-pair mc/mark-all-symbols-like-this-in-defun
+;;;### (autoloads (mc/mark-sgml-tag-pair mc/add-cursor-on-click mc/mark-all-symbols-like-this-in-defun
 ;;;;;;  mc/mark-all-words-like-this-in-defun mc/mark-all-like-this-in-defun
 ;;;;;;  mc/mark-all-like-this-dwim mc/mark-more-like-this-extended
 ;;;;;;  mc/mark-all-in-region mc/mark-all-symbols-like-this mc/mark-all-words-like-this
@@ -7734,7 +8960,7 @@ Add one cursor to the beginning of each line in the active region.
 ;;;;;;  mc/mark-previous-word-like-this mc/mark-previous-like-this
 ;;;;;;  mc/mark-next-symbol-like-this mc/mark-next-word-like-this
 ;;;;;;  mc/mark-next-like-this) "multiple-cursors/mc-mark-more" "multiple-cursors/mc-mark-more.el"
-;;;;;;  (20731 64699 457848 129000))
+;;;;;;  (20878 23143 578035 285000))
 ;;; Generated autoloads from multiple-cursors/mc-mark-more.el
 
 (autoload 'mc/mark-next-like-this "multiple-cursors/mc-mark-more" "\
@@ -7852,349 +9078,15 @@ Mark all symbols like this in defun.
 
 \(fn)" t nil)
 
+(autoload 'mc/add-cursor-on-click "multiple-cursors/mc-mark-more" "\
+Add a cursor where you click.
+
+\(fn EVENT)" t nil)
+
 (autoload 'mc/mark-sgml-tag-pair "multiple-cursors/mc-mark-more" "\
 Mark the tag we're in and its pair for renaming.
 
 \(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (message-unbold-region message-bold-region message-news-other-frame
-;;;;;;  message-news-other-window message-mail-other-frame message-mail-other-window
-;;;;;;  message-bounce message-resend message-insinuate-rmail message-forward-rmail-make-body
-;;;;;;  message-forward-make-body message-forward message-recover
-;;;;;;  message-supersede message-cancel-news message-followup message-wide-reply
-;;;;;;  message-reply message-news message-mail message-mode) "nognus/lisp/message"
-;;;;;;  "nognus/lisp/message.el" (20731 65174 116495 424000))
-;;; Generated autoloads from nognus/lisp/message.el
-
-(define-mail-user-agent 'message-user-agent 'message-mail 'message-send-and-exit 'message-kill-buffer 'message-send-hook)
-
-(autoload 'message-mode "nognus/lisp/message" "\
-Major mode for editing mail and news to be sent.
-Like Text Mode but with these additional commands:\\<message-mode-map>
-C-c C-s  `message-send' (send the message)  C-c C-c  `message-send-and-exit'
-C-c C-d  Postpone sending the message       C-c C-k  Kill the message
-C-c C-f  move to a header field (and create it if there isn't):
-	 C-c C-f C-t  move to To	C-c C-f C-s  move to Subject
-	 C-c C-f C-c  move to Cc	C-c C-f C-b  move to Bcc
-	 C-c C-f C-w  move to Fcc	C-c C-f C-r  move to Reply-To
-	 C-c C-f C-u  move to Summary	C-c C-f C-n  move to Newsgroups
-	 C-c C-f C-k  move to Keywords	C-c C-f C-d  move to Distribution
-	 C-c C-f C-o  move to From (\"Originator\")
-	 C-c C-f C-f  move to Followup-To
-	 C-c C-f C-m  move to Mail-Followup-To
-	 C-c C-f C-e  move to Expires
-	 C-c C-f C-i  cycle through Importance values
-	 C-c C-f s    change subject and append \"(was: <Old Subject>)\"
-	 C-c C-f x    crossposting with FollowUp-To header and note in body
-	 C-c C-f t    replace To: header with contents of Cc: or Bcc:
-	 C-c C-f a    Insert X-No-Archive: header and a note in the body
-C-c C-t  `message-insert-to' (add a To header to a news followup)
-C-c C-l  `message-to-list-only' (removes all but list address in to/cc)
-C-c C-n  `message-insert-newsgroups' (add a Newsgroup header to a news reply)
-C-c C-b  `message-goto-body' (move to beginning of message text).
-C-c C-i  `message-goto-signature' (move to the beginning of the signature).
-C-c C-w  `message-insert-signature' (insert `message-signature-file' file).
-C-c C-y  `message-yank-original' (insert current message, if any).
-C-c C-q  `message-fill-yanked-message' (fill what was yanked).
-C-c C-e  `message-elide-region' (elide the text between point and mark).
-C-c C-v  `message-delete-not-region' (remove the text outside the region).
-C-c C-z  `message-kill-to-signature' (kill the text up to the signature).
-C-c C-r  `message-caesar-buffer-body' (rot13 the message body).
-C-c C-a  `mml-attach-file' (attach a file as MIME).
-C-c C-u  `message-insert-or-toggle-importance'  (insert or cycle importance).
-C-c M-n  `message-insert-disposition-notification-to'  (request receipt).
-C-c M-m  `message-mark-inserted-region' (mark region with enclosing tags).
-C-c M-f  `message-mark-insert-file' (insert file marked with enclosing tags).
-M-RET    `message-newline-and-reformat' (break the line and reformat).
-
-\(fn)" t nil)
-
-(autoload 'message-mail "nognus/lisp/message" "\
-Start editing a mail message to be sent.
-OTHER-HEADERS is an alist of header/value pairs.  CONTINUE says whether
-to continue editing a message already being composed.  SWITCH-FUNCTION
-is a function used to switch to and display the mail buffer.
-
-\(fn &optional TO SUBJECT OTHER-HEADERS CONTINUE SWITCH-FUNCTION YANK-ACTION SEND-ACTIONS RETURN-ACTION &rest IGNORED)" t nil)
-
-(autoload 'message-news "nognus/lisp/message" "\
-Start editing a news article to be sent.
-
-\(fn &optional NEWSGROUPS SUBJECT)" t nil)
-
-(autoload 'message-reply "nognus/lisp/message" "\
-Start editing a reply to the article in the current buffer.
-
-\(fn &optional TO-ADDRESS WIDE SWITCH-FUNCTION)" t nil)
-
-(autoload 'message-wide-reply "nognus/lisp/message" "\
-Make a \"wide\" reply to the message in the current buffer.
-
-\(fn &optional TO-ADDRESS)" t nil)
-
-(autoload 'message-followup "nognus/lisp/message" "\
-Follow up to the message in the current buffer.
-If TO-NEWSGROUPS, use that as the new Newsgroups line.
-
-\(fn &optional TO-NEWSGROUPS)" t nil)
-
-(autoload 'message-cancel-news "nognus/lisp/message" "\
-Cancel an article you posted.
-If ARG, allow editing of the cancellation message.
-
-\(fn &optional ARG)" t nil)
-
-(autoload 'message-supersede "nognus/lisp/message" "\
-Start composing a message to supersede the current message.
-This is done simply by taking the old article and adding a Supersedes
-header line with the old Message-ID.
-
-\(fn)" t nil)
-
-(autoload 'message-recover "nognus/lisp/message" "\
-Reread contents of current buffer from its last auto-save file.
-
-\(fn)" t nil)
-
-(autoload 'message-forward "nognus/lisp/message" "\
-Forward the current message via mail.
-Optional NEWS will use news to forward instead of mail.
-Optional DIGEST will use digest to forward.
-
-\(fn &optional NEWS DIGEST)" t nil)
-
-(autoload 'message-forward-make-body "nognus/lisp/message" "\
-
-
-\(fn FORWARD-BUFFER &optional DIGEST)" nil nil)
-
-(autoload 'message-forward-rmail-make-body "nognus/lisp/message" "\
-
-
-\(fn FORWARD-BUFFER)" nil nil)
-
-(autoload 'message-insinuate-rmail "nognus/lisp/message" "\
-Let RMAIL use message to forward.
-
-\(fn)" t nil)
-
-(autoload 'message-resend "nognus/lisp/message" "\
-Resend the current article to ADDRESS.
-
-\(fn ADDRESS)" t nil)
-
-(autoload 'message-bounce "nognus/lisp/message" "\
-Re-mail the current message.
-This only makes sense if the current message is a bounce message that
-contains some mail you have written which has been bounced back to
-you.
-
-\(fn)" t nil)
-
-(autoload 'message-mail-other-window "nognus/lisp/message" "\
-Like `message-mail' command, but display mail buffer in another window.
-
-\(fn &optional TO SUBJECT)" t nil)
-
-(autoload 'message-mail-other-frame "nognus/lisp/message" "\
-Like `message-mail' command, but display mail buffer in another frame.
-
-\(fn &optional TO SUBJECT)" t nil)
-
-(autoload 'message-news-other-window "nognus/lisp/message" "\
-Start editing a news article to be sent.
-
-\(fn &optional NEWSGROUPS SUBJECT)" t nil)
-
-(autoload 'message-news-other-frame "nognus/lisp/message" "\
-Start editing a news article to be sent.
-
-\(fn &optional NEWSGROUPS SUBJECT)" t nil)
-
-(autoload 'message-bold-region "nognus/lisp/message" "\
-Bold all nonblank characters in the region.
-Works by overstriking characters.
-Called from program, takes two arguments START and END
-which specify the range to operate on.
-
-\(fn START END)" t nil)
-
-(autoload 'message-unbold-region "nognus/lisp/message" "\
-Remove all boldness (overstruck characters) in the region.
-Called from program, takes two arguments START and END
-which specify the range to operate on.
-
-\(fn START END)" t nil)
-
-;;;***
-
-;;;### (autoloads (mm-default-file-encoding) "nognus/lisp/mm-encode"
-;;;;;;  "nognus/lisp/mm-encode.el" (20731 65174 120495 682000))
-;;; Generated autoloads from nognus/lisp/mm-encode.el
-
-(autoload 'mm-default-file-encoding "nognus/lisp/mm-encode" "\
-Return a default encoding for FILE.
-
-\(fn FILE)" nil nil)
-
-;;;***
-
-;;;### (autoloads (mm-inline-external-body mm-extern-cache-contents)
-;;;;;;  "nognus/lisp/mm-extern" "nognus/lisp/mm-extern.el" (20731
-;;;;;;  65174 120495 682000))
-;;; Generated autoloads from nognus/lisp/mm-extern.el
-
-(autoload 'mm-extern-cache-contents "nognus/lisp/mm-extern" "\
-Put the external-body part of HANDLE into its cache.
-
-\(fn HANDLE)" nil nil)
-
-(autoload 'mm-inline-external-body "nognus/lisp/mm-extern" "\
-Show the external-body part of HANDLE.
-This function replaces the buffer of HANDLE with a buffer contains
-the entire message.
-If NO-DISPLAY is nil, display it. Otherwise, do nothing after replacing.
-
-\(fn HANDLE &optional NO-DISPLAY)" nil nil)
-
-;;;***
-
-;;;### (autoloads (mm-inline-partial) "nognus/lisp/mm-partial" "nognus/lisp/mm-partial.el"
-;;;;;;  (20731 65174 120495 682000))
-;;; Generated autoloads from nognus/lisp/mm-partial.el
-
-(autoload 'mm-inline-partial "nognus/lisp/mm-partial" "\
-Show the partial part of HANDLE.
-This function replaces the buffer of HANDLE with a buffer contains
-the entire message.
-If NO-DISPLAY is nil, display it. Otherwise, do nothing after replacing.
-
-\(fn HANDLE &optional NO-DISPLAY)" nil nil)
-
-;;;***
-
-;;;### (autoloads (mm-url-insert-file-contents-external mm-url-insert-file-contents)
-;;;;;;  "nognus/lisp/mm-url" "nognus/lisp/mm-url.el" (20731 65174
-;;;;;;  120495 682000))
-;;; Generated autoloads from nognus/lisp/mm-url.el
-
-(autoload 'mm-url-insert-file-contents "nognus/lisp/mm-url" "\
-Insert file contents of URL.
-If `mm-url-use-external' is non-nil, use `mm-url-program'.
-
-\(fn URL)" nil nil)
-
-(autoload 'mm-url-insert-file-contents-external "nognus/lisp/mm-url" "\
-Insert file contents of URL using `mm-url-program'.
-
-\(fn URL)" nil nil)
-
-;;;***
-
-;;;### (autoloads (mm-uu-dissect-text-parts mm-uu-dissect) "nognus/lisp/mm-uu"
-;;;;;;  "nognus/lisp/mm-uu.el" (20731 65174 120495 682000))
-;;; Generated autoloads from nognus/lisp/mm-uu.el
-
-(autoload 'mm-uu-dissect "nognus/lisp/mm-uu" "\
-Dissect the current buffer and return a list of uu handles.
-The optional NOHEADER means there's no header in the buffer.
-MIME-TYPE specifies a MIME type and parameters, which defaults to the
-value of `mm-uu-text-plain-type'.
-
-\(fn &optional NOHEADER MIME-TYPE)" nil nil)
-
-(autoload 'mm-uu-dissect-text-parts "nognus/lisp/mm-uu" "\
-Dissect text parts and put uu handles into HANDLE.
-Assume text has been decoded if DECODED is non-nil.
-
-\(fn HANDLE &optional DECODED)" nil nil)
-
-;;;***
-
-;;;### (autoloads (mml-attach-file mml-to-mime) "nognus/lisp/mml"
-;;;;;;  "nognus/lisp/mml.el" (20731 65174 120495 682000))
-;;; Generated autoloads from nognus/lisp/mml.el
-
-(autoload 'mml-to-mime "nognus/lisp/mml" "\
-Translate the current buffer from MML to MIME.
-
-\(fn)" nil nil)
-
-(autoload 'mml-attach-file "nognus/lisp/mml" "\
-Attach a file to the outgoing MIME message.
-The file is not inserted or encoded until you send the message with
-`\\[message-send-and-exit]' or `\\[message-send]' in Message mode,
-or `\\[mail-send-and-exit]' or `\\[mail-send]' in Mail mode.
-
-FILE is the name of the file to attach.  TYPE is its
-content-type, a string of the form \"type/subtype\".  DESCRIPTION
-is a one-line description of the attachment.  The DISPOSITION
-specifies how the attachment is intended to be displayed.  It can
-be either \"inline\" (displayed automatically within the message
-body) or \"attachment\" (separate from the body).
-
-\(fn FILE &optional TYPE DESCRIPTION DISPOSITION)" t nil)
-
-;;;***
-
-;;;### (autoloads (mml1991-sign mml1991-encrypt) "nognus/lisp/mml1991"
-;;;;;;  "nognus/lisp/mml1991.el" (20731 65174 120495 682000))
-;;; Generated autoloads from nognus/lisp/mml1991.el
-
-(autoload 'mml1991-encrypt "nognus/lisp/mml1991" "\
-
-
-\(fn CONT &optional SIGN)" nil nil)
-
-(autoload 'mml1991-sign "nognus/lisp/mml1991" "\
-
-
-\(fn CONT)" nil nil)
-
-;;;***
-
-;;;### (autoloads (mml2015-self-encrypt mml2015-sign mml2015-encrypt
-;;;;;;  mml2015-verify-test mml2015-verify mml2015-decrypt-test mml2015-decrypt)
-;;;;;;  "nognus/lisp/mml2015" "nognus/lisp/mml2015.el" (20731 65174
-;;;;;;  120495 682000))
-;;; Generated autoloads from nognus/lisp/mml2015.el
-
-(autoload 'mml2015-decrypt "nognus/lisp/mml2015" "\
-
-
-\(fn HANDLE CTL)" nil nil)
-
-(autoload 'mml2015-decrypt-test "nognus/lisp/mml2015" "\
-
-
-\(fn HANDLE CTL)" nil nil)
-
-(autoload 'mml2015-verify "nognus/lisp/mml2015" "\
-
-
-\(fn HANDLE CTL)" nil nil)
-
-(autoload 'mml2015-verify-test "nognus/lisp/mml2015" "\
-
-
-\(fn HANDLE CTL)" nil nil)
-
-(autoload 'mml2015-encrypt "nognus/lisp/mml2015" "\
-
-
-\(fn CONT &optional SIGN)" nil nil)
-
-(autoload 'mml2015-sign "nognus/lisp/mml2015" "\
-
-
-\(fn CONT)" nil nil)
-
-(autoload 'mml2015-self-encrypt "nognus/lisp/mml2015" "\
-
-
-\(fn)" nil nil)
 
 ;;;***
 
@@ -8207,7 +9099,7 @@ body) or \"attachment\" (separate from the body).
 ;;;;;;  mode-compile-ignore-makerule-regexp mode-compile-prefered-default-makerule
 ;;;;;;  mode-compile-make-options mode-compile-ignore-makefile-backups
 ;;;;;;  mode-compile-make-program) "mode-compile/mode-compile" "mode-compile/mode-compile.el"
-;;;;;;  (20731 64698 377799 784000))
+;;;;;;  (20878 29216 491787 958000))
 ;;; Generated autoloads from mode-compile/mode-compile.el
 
 (defvar mode-compile-make-program "make" "\
@@ -8457,72 +9349,10 @@ Bound on \\[mode-compile-kill].
 
 ;;;***
 
-;;;### (autoloads (netrc-credentials) "nognus/lisp/netrc" "nognus/lisp/netrc.el"
-;;;;;;  (20731 65174 120495 682000))
-;;; Generated autoloads from nognus/lisp/netrc.el
-
-(autoload 'netrc-credentials "nognus/lisp/netrc" "\
-Return a user name/password pair.
-Port specifications will be prioritized in the order they are
-listed in the PORTS list.
-
-\(fn MACHINE &rest PORTS)" nil nil)
-
-;;;***
-
-;;;### (autoloads (nndiary-generate-nov-databases) "nognus/lisp/nndiary"
-;;;;;;  "nognus/lisp/nndiary.el" (20731 65174 120495 682000))
-;;; Generated autoloads from nognus/lisp/nndiary.el
-
-(autoload 'nndiary-generate-nov-databases "nognus/lisp/nndiary" "\
-Generate NOV databases in all nndiary directories.
-
-\(fn &optional SERVER)" t nil)
-
-;;;***
-
-;;;### (autoloads (nndoc-add-type) "nognus/lisp/nndoc" "nognus/lisp/nndoc.el"
-;;;;;;  (20731 65174 120495 682000))
-;;; Generated autoloads from nognus/lisp/nndoc.el
-
-(autoload 'nndoc-add-type "nognus/lisp/nndoc" "\
-Add document DEFINITION to the list of nndoc document definitions.
-If POSITION is nil or `last', the definition will be added
-as the last checked definition, if t or `first', add as the
-first definition, and if any other symbol, add after that
-symbol in the alist.
-
-\(fn DEFINITION &optional POSITION)" nil nil)
-
-;;;***
-
-;;;### (autoloads (nnfolder-generate-active-file) "nognus/lisp/nnfolder"
-;;;;;;  "nognus/lisp/nnfolder.el" (20731 65174 120495 682000))
-;;; Generated autoloads from nognus/lisp/nnfolder.el
-
-(autoload 'nnfolder-generate-active-file "nognus/lisp/nnfolder" "\
-Look for mbox folders in the nnfolder directory and make them into groups.
-This command does not work if you use short group names.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (nnml-generate-nov-databases) "nognus/lisp/nnml"
-;;;;;;  "nognus/lisp/nnml.el" (20731 65174 124495 940000))
-;;; Generated autoloads from nognus/lisp/nnml.el
-
-(autoload 'nnml-generate-nov-databases "nognus/lisp/nnml" "\
-Generate NOV databases in all nnml directories.
-
-\(fn &optional SERVER)" t nil)
-
-;;;***
-
 ;;;### (autoloads (nxhtml-byte-recompile-file nxhtml-byte-compile-file
 ;;;;;;  nxhtml-get-missing-files nxhtml-update-existing-files nxhtml-setup-download-all
 ;;;;;;  nxhtml-setup-auto-download nxhtml-setup-install) "nxhtml/nxhtml-web-vcs"
-;;;;;;  "nxhtml/nxhtml-web-vcs.el" (20723 12416 253747 941000))
+;;;;;;  "nxhtml/nxhtml-web-vcs.el" (20878 29495 569354 347000))
 ;;; Generated autoloads from nxhtml/nxhtml-web-vcs.el
 
 (autoload 'nxhtml-setup-install "nxhtml/nxhtml-web-vcs" "\
@@ -8639,7 +9469,7 @@ Loading is done if recompiled and LOAD is t.
 
 ;;;### (autoloads (nxhtmlmaint-byte-uncompile-all nxhtmlmaint-byte-recompile
 ;;;;;;  nxhtmlmaint-start-byte-compilation) "nxhtml/nxhtmlmaint"
-;;;;;;  "nxhtml/nxhtmlmaint.el" (20723 12416 281748 948000))
+;;;;;;  "nxhtml/nxhtmlmaint.el" (20878 29495 597355 309000))
 ;;; Generated autoloads from nxhtml/nxhtmlmaint.el
 
 (autoload 'nxhtmlmaint-start-byte-compilation "nxhtml/nxhtmlmaint" "\
@@ -8678,8 +9508,8 @@ See `nxhtmlmaint-start-byte-compilation' for byte compiling.
 ;;;### (autoloads (web-vcs-investigate-elisp-file web-vcs-url-copy-file
 ;;;;;;  web-vcs-url-retrieve-synch web-vcs-byte-compile-file web-vcs-message-with-face
 ;;;;;;  web-vcs-get-files-from-root web-vcs-log-edit web-vcs-default-download-directory)
-;;;;;;  "nxhtml/web-vcs" "nxhtml/web-vcs.el" (20723 12416 337750
-;;;;;;  965000))
+;;;;;;  "nxhtml/web-vcs" "nxhtml/web-vcs.el" (20878 29495 657357
+;;;;;;  370000))
 ;;; Generated autoloads from nxhtml/web-vcs.el
 
 (autoload 'web-vcs-default-download-directory "nxhtml/web-vcs" "\
@@ -8778,9 +9608,213 @@ TOKENS can be obtained with `oauth2-auth'.
 
 ;;;***
 
+;;;### (autoloads (org-caldav-sync) "org-caldav/org-caldav" "org-caldav/org-caldav.el"
+;;;;;;  (20878 19176 691465 72000))
+;;; Generated autoloads from org-caldav/org-caldav.el
+
+(autoload 'org-caldav-sync "org-caldav/org-caldav" "\
+Sync Org with calendar.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (org-export-html5presentationize-generate-css org-export-as-html5presentation
+;;;;;;  org-export-region-as-html5presentation org-replace-region-by-html5presentation
+;;;;;;  org-export-as-html5presentation-to-buffer org-export-as-html5presentation-batch
+;;;;;;  org-export-as-html5presentation-and-open) "org-html5presentation/org-html5presentation"
+;;;;;;  "org-html5presentation/org-html5presentation.el" (20878 29216
+;;;;;;  927802 875000))
+;;; Generated autoloads from org-html5presentation/org-html5presentation.el
+
+(put 'org-export-html5presentation-style-include-default 'safe-local-variable 'booleanp)
+
+(put 'org-export-html5presentation-style 'safe-local-variable 'stringp)
+
+(put 'org-export-html5presentation-style-extra 'safe-local-variable 'stringp)
+
+(autoload 'org-export-as-html5presentation-and-open "org-html5presentation/org-html5presentation" "\
+Export the outline as HTML and immediately open it with a browser.
+If there is an active region, export only the region.
+The prefix ARG specifies how many levels of the outline should become
+headlines.  The default is 3.  Lower levels will become bulleted lists.
+
+\(fn ARG)" t nil)
+
+(autoload 'org-export-as-html5presentation-batch "org-html5presentation/org-html5presentation" "\
+Call the function `org-export-as-html5presentation'.
+This function can be used in batch processing as:
+emacs   --batch
+        --load=$HOME/lib/emacs/org.el
+        --eval \"(setq org-export-headline-levels 2)\"
+	--visit=MyFile --funcall org-export-as-html5presentation-batch
+
+\(fn)" nil nil)
+
+(autoload 'org-export-as-html5presentation-to-buffer "org-html5presentation/org-html5presentation" "\
+Call `org-export-as-html5presentation` with output to a temporary buffer.
+No file is created.  The prefix ARG is passed through to `org-export-as-html5presentation'.
+
+\(fn ARG)" t nil)
+
+(autoload 'org-replace-region-by-html5presentation "org-html5presentation/org-html5presentation" "\
+Assume the current region has org-mode syntax, and convert it to HTML.
+This can be used in any buffer.  For example, you could write an
+itemized list in org-mode syntax in an HTML buffer and then use this
+command to convert it.
+
+\(fn BEG END)" t nil)
+
+(autoload 'org-export-region-as-html5presentation "org-html5presentation/org-html5presentation" "\
+Convert region from BEG to END in org-mode buffer to HTML.
+If prefix arg BODY-ONLY is set, omit file header, footer, and table of
+contents, and only produce the region of converted text, useful for
+cut-and-paste operations.
+If BUFFER is a buffer or a string, use/create that buffer as a target
+of the converted HTML.  If BUFFER is the symbol `string', return the
+produced HTML as a string and leave not buffer behind.  For example,
+a Lisp program could call this function in the following way:
+
+  (setq html (org-export-region-as-html5presentation beg end t 'string))
+
+When called interactively, the output buffer is selected, and shown
+in a window.  A non-interactive call will only return the buffer.
+
+\(fn BEG END &optional ORG-HTML5PRESENTATION-BODY-ONLY BUFFER)" t nil)
+
+(autoload 'org-export-as-html5presentation "org-html5presentation/org-html5presentation" "\
+Export the outline as a pretty HTML file.
+If there is an active region, export only the region.  The prefix
+ARG specifies how many levels of the outline should become
+headlines.  The default is 3.  Lower levels will become bulleted
+lists.  HIDDEN is obsolete and does nothing.
+EXT-PLIST is a property list with external parameters overriding
+org-mode's default settings, but still inferior to file-local
+settings.  When TO-BUFFER is non-nil, create a buffer with that
+name and export to that buffer.  If TO-BUFFER is the symbol
+`string', don't leave any buffer behind but just return the
+resulting HTML as a string.  When BODY-ONLY is set, don't produce
+the file header and footer, simply return the content of
+<body>...</body>, without even the body tags themselves.  When
+PUB-DIR is set, use this as the publishing directory.
+
+\(fn ARG &optional HIDDEN EXT-PLIST TO-BUFFER ORG-HTML5PRESENTATION-BODY-ONLY PUB-DIR)" t nil)
+
+(autoload 'org-export-html5presentationize-generate-css "org-html5presentation/org-html5presentation" "\
+Create the CSS for all font definitions in the current Emacs session.
+Use this to create face definitions in your CSS style file that can then
+be used by code snippets transformed by htmlize.
+This command just produces a buffer that contains class definitions for all
+faces used in the current Emacs session.  You can copy and paste the ones you
+need into your CSS file.
+
+If you then set `org-export-html5presentationize-output-type' to `css', calls to
+the function `org-export-html5presentationize-region-for-paste' will produce code
+that uses these same face definitions.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (org-export-impress-jsize-generate-css org-export-as-impress-js
+;;;;;;  org-export-region-as-impress-js org-replace-region-by-html
+;;;;;;  org-export-as-impress-js-to-buffer org-export-as-impress-js-batch
+;;;;;;  org-export-as-impress-js-and-open) "org-impress-js/org-impress-js"
+;;;;;;  "org-impress-js/org-impress-js.el" (20878 19177 627505 515000))
+;;; Generated autoloads from org-impress-js/org-impress-js.el
+
+(put 'org-export-impress-js-style-include-default 'safe-local-variable 'booleanp)
+
+(put 'org-export-impress-js-style 'safe-local-variable 'stringp)
+
+(put 'org-export-impress-js-style-extra 'safe-local-variable 'stringp)
+
+(autoload 'org-export-as-impress-js-and-open "org-impress-js/org-impress-js" "\
+Export the outline as HTML and immediately open it with a browser.
+If there is an active region, export only the region.
+The prefix ARG specifies how many levels of the outline should become
+headlines.  The default is 3.  Lower levels will become bulleted lists.
+
+\(fn ARG)" t nil)
+
+(autoload 'org-export-as-impress-js-batch "org-impress-js/org-impress-js" "\
+Call the function `org-export-as-impress-js'.
+This function can be used in batch processing as:
+emacs   --batch
+        --load=$HOME/lib/emacs/org.el
+        --eval \"(setq org-export-headline-levels 2)\"
+        --visit=MyFile --funcall org-export-as-impress-js-batch
+
+\(fn)" nil nil)
+
+(autoload 'org-export-as-impress-js-to-buffer "org-impress-js/org-impress-js" "\
+Call `org-export-as-impress-js` with output to a temporary buffer.
+No file is created.  The prefix ARG is passed through to `org-export-as-impress-js'.
+
+\(fn ARG)" t nil)
+
+(autoload 'org-replace-region-by-html "org-impress-js/org-impress-js" "\
+Assume the current region has org-mode syntax, and convert it to HTML.
+This can be used in any buffer.  For example, you could write an
+itemized list in org-mode syntax in an HTML buffer and then use this
+command to convert it.
+
+\(fn BEG END)" t nil)
+
+(autoload 'org-export-region-as-impress-js "org-impress-js/org-impress-js" "\
+Convert region from BEG to END in org-mode buffer to HTML.
+If prefix arg BODY-ONLY is set, omit file header, footer, and table of
+contents, and only produce the region of converted text, useful for
+cut-and-paste operations.
+If BUFFER is a buffer or a string, use/create that buffer as a target
+of the converted HTML.  If BUFFER is the symbol `string', return the
+produced HTML as a string and leave not buffer behind.  For example,
+a Lisp program could call this function in the following way:
+
+  (setq html (org-export-region-as-impress-js beg end t 'string))
+
+When called interactively, the output buffer is selected, and shown
+in a window.  A non-interactive call will only return the buffer.
+
+\(fn BEG END &optional BODY-ONLY BUFFER)" t nil)
+
+(autoload 'org-export-as-impress-js "org-impress-js/org-impress-js" "\
+Export the outline as a pretty HTML file.
+If there is an active region, export only the region.  The prefix
+ARG specifies how many levels of the outline should become
+headlines.  The default is 3.  Lower levels will become bulleted
+lists.  HIDDEN is obsolete and does nothing.
+EXT-PLIST is a property list with external parameters overriding
+org-mode's default settings, but still inferior to file-local
+settings.  When TO-BUFFER is non-nil, create a buffer with that
+name and export to that buffer.  If TO-BUFFER is the symbol
+`string', don't leave any buffer behind but just return the
+resulting HTML as a string.  When BODY-ONLY is set, don't produce
+the file header and footer, simply return the content of
+<body>...</body>, without even the body tags themselves.  When
+PUB-DIR is set, use this as the publishing directory.
+
+\(fn ARG &optional HIDDEN EXT-PLIST TO-BUFFER BODY-ONLY PUB-DIR)" t nil)
+
+(autoload 'org-export-impress-jsize-generate-css "org-impress-js/org-impress-js" "\
+Create the CSS for all font definitions in the current Emacs session.
+Use this to create face definitions in your CSS style file that can then
+be used by code snippets transformed by htmlize.
+This command just produces a buffer that contains class definitions for all
+faces used in the current Emacs session.  You can copy and paste the ones you
+need into your CSS file.
+
+If you then set `org-export-impress-jsize-output-type' to `css', calls to
+the function `org-export-impress-jsize-region-for-paste' will produce code
+that uses these same face definitions.
+
+\(fn)" t nil)
+
+;;;***
+
 ;;;### (autoloads (htmlize-many-files-dired htmlize-many-files htmlize-file
 ;;;;;;  htmlize-region htmlize-buffer) "org-mode/contrib/lisp/htmlize"
-;;;;;;  "org-mode/contrib/lisp/htmlize.el" (20732 3412 41692 883000))
+;;;;;;  "org-mode/contrib/lisp/htmlize.el" (20878 23160 286694 411000))
 ;;; Generated autoloads from org-mode/contrib/lisp/htmlize.el
 
 (autoload 'htmlize-buffer "org-mode/contrib/lisp/htmlize" "\
@@ -8846,20 +9880,20 @@ HTMLize dired-marked files.
 ;;;***
 
 ;;;### (autoloads (org-bullets-mode) "org-mode/contrib/lisp/org-bullets"
-;;;;;;  "org-mode/contrib/lisp/org-bullets.el" (20732 3412 41692
-;;;;;;  883000))
+;;;;;;  "org-mode/contrib/lisp/org-bullets.el" (20878 23160 290694
+;;;;;;  569000))
 ;;; Generated autoloads from org-mode/contrib/lisp/org-bullets.el
 
 (autoload 'org-bullets-mode "org-mode/contrib/lisp/org-bullets" "\
-UTF8 Bullets for org-mode
+UTF-8 bullets for `org-mode'.
 
 \(fn &optional ARG)" t nil)
 
 ;;;***
 
 ;;;### (autoloads (org-contacts) "org-mode/contrib/lisp/org-contacts"
-;;;;;;  "org-mode/contrib/lisp/org-contacts.el" (20732 3412 41692
-;;;;;;  883000))
+;;;;;;  "org-mode/contrib/lisp/org-contacts.el" (20878 23160 290694
+;;;;;;  569000))
 ;;; Generated autoloads from org-mode/contrib/lisp/org-contacts.el
 
 (autoload 'org-contacts "org-mode/contrib/lisp/org-contacts" "\
@@ -8869,847 +9903,10 @@ Create agenda view for contacts matching NAME.
 
 ;;;***
 
-;;;### (autoloads (org-e-ascii-publish-to-utf8 org-e-ascii-publish-to-latin1
-;;;;;;  org-e-ascii-publish-to-ascii org-e-ascii-export-to-ascii
-;;;;;;  org-e-ascii-export-as-ascii) "org-mode/contrib/lisp/org-e-ascii"
-;;;;;;  "org-mode/contrib/lisp/org-e-ascii.el" (20732 3412 41692
-;;;;;;  883000))
-;;; Generated autoloads from org-mode/contrib/lisp/org-e-ascii.el
-
-(autoload 'org-e-ascii-export-as-ascii "org-mode/contrib/lisp/org-e-ascii" "\
-Export current buffer to a text buffer.
-
-If narrowing is active in the current buffer, only export its
-narrowed part.
-
-If a region is active, export that region.
-
-A non-nil optional argument ASYNC means the process should happen
-asynchronously.  The resulting buffer should be accessible
-through the `org-export-stack' interface.
-
-When optional argument SUBTREEP is non-nil, export the sub-tree
-at point, extracting information from the headline properties
-first.
-
-When optional argument VISIBLE-ONLY is non-nil, don't export
-contents of hidden elements.
-
-When optional argument BODY-ONLY is non-nil, strip title, table
-of contents and footnote definitions from output.
-
-EXT-PLIST, when provided, is a property list with external
-parameters overriding Org default settings, but still inferior to
-file-local settings.
-
-Export is done in a buffer named \"*Org E-ASCII Export*\", which
-will be displayed when `org-export-show-temporary-export-buffer'
-is non-nil.
-
-\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)" t nil)
-
-(autoload 'org-e-ascii-export-to-ascii "org-mode/contrib/lisp/org-e-ascii" "\
-Export current buffer to a text file.
-
-If narrowing is active in the current buffer, only export its
-narrowed part.
-
-If a region is active, export that region.
-
-A non-nil optional argument ASYNC means the process should happen
-asynchronously.  The resulting file should be accessible through
-the `org-export-stack' interface.
-
-When optional argument SUBTREEP is non-nil, export the sub-tree
-at point, extracting information from the headline properties
-first.
-
-When optional argument VISIBLE-ONLY is non-nil, don't export
-contents of hidden elements.
-
-When optional argument BODY-ONLY is non-nil, strip title, table
-of contents and footnote definitions from output.
-
-EXT-PLIST, when provided, is a property list with external
-parameters overriding Org default settings, but still inferior to
-file-local settings.
-
-Return output file's name.
-
-\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)" t nil)
-
-(autoload 'org-e-ascii-publish-to-ascii "org-mode/contrib/lisp/org-e-ascii" "\
-Publish an Org file to ASCII.
-
-FILENAME is the filename of the Org file to be published.  PLIST
-is the property list for the given project.  PUB-DIR is the
-publishing directory.
-
-Return output file name.
-
-\(fn PLIST FILENAME PUB-DIR)" nil nil)
-
-(autoload 'org-e-ascii-publish-to-latin1 "org-mode/contrib/lisp/org-e-ascii" "\
-Publish an Org file to Latin-1.
-
-FILENAME is the filename of the Org file to be published.  PLIST
-is the property list for the given project.  PUB-DIR is the
-publishing directory.
-
-Return output file name.
-
-\(fn PLIST FILENAME PUB-DIR)" nil nil)
-
-(autoload 'org-e-ascii-publish-to-utf8 "org-mode/contrib/lisp/org-e-ascii" "\
-Publish an org file to UTF-8.
-
-FILENAME is the filename of the Org file to be published.  PLIST
-is the property list for the given project.  PUB-DIR is the
-publishing directory.
-
-Return output file name.
-
-\(fn PLIST FILENAME PUB-DIR)" nil nil)
-
-;;;***
-
-;;;### (autoloads (org-e-beamer-publish-to-pdf org-e-beamer-publish-to-latex
-;;;;;;  org-e-beamer-insert-options-template org-e-beamer-select-environment
-;;;;;;  org-e-beamer-export-to-pdf org-e-beamer-export-to-latex org-e-beamer-export-as-latex
-;;;;;;  org-e-beamer-mode) "org-mode/contrib/lisp/org-e-beamer" "org-mode/contrib/lisp/org-e-beamer.el"
-;;;;;;  (20732 3412 41692 883000))
-;;; Generated autoloads from org-mode/contrib/lisp/org-e-beamer.el
-
-(autoload 'org-e-beamer-mode "org-mode/contrib/lisp/org-e-beamer" "\
-Support for editing Beamer oriented Org mode files.
-
-\(fn &optional ARG)" t nil)
-
-(autoload 'org-e-beamer-export-as-latex "org-mode/contrib/lisp/org-e-beamer" "\
-Export current buffer as a Beamer buffer.
-
-If narrowing is active in the current buffer, only export its
-narrowed part.
-
-If a region is active, export that region.
-
-A non-nil optional argument ASYNC means the process should happen
-asynchronously.  The resulting buffer should be accessible
-through the `org-export-stack' interface.
-
-When optional argument SUBTREEP is non-nil, export the sub-tree
-at point, extracting information from the headline properties
-first.
-
-When optional argument VISIBLE-ONLY is non-nil, don't export
-contents of hidden elements.
-
-When optional argument BODY-ONLY is non-nil, only write code
-between \"\\begin{document}\" and \"\\end{document}\".
-
-EXT-PLIST, when provided, is a property list with external
-parameters overriding Org default settings, but still inferior to
-file-local settings.
-
-Export is done in a buffer named \"*Org E-BEAMER Export*\", which
-will be displayed when `org-export-show-temporary-export-buffer'
-is non-nil.
-
-\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)" t nil)
-
-(autoload 'org-e-beamer-export-to-latex "org-mode/contrib/lisp/org-e-beamer" "\
-Export current buffer as a Beamer presentation (tex).
-
-If narrowing is active in the current buffer, only export its
-narrowed part.
-
-If a region is active, export that region.
-
-A non-nil optional argument ASYNC means the process should happen
-asynchronously.  The resulting file should be accessible through
-the `org-export-stack' interface.
-
-When optional argument SUBTREEP is non-nil, export the sub-tree
-at point, extracting information from the headline properties
-first.
-
-When optional argument VISIBLE-ONLY is non-nil, don't export
-contents of hidden elements.
-
-When optional argument BODY-ONLY is non-nil, only write code
-between \"\\begin{document}\" and \"\\end{document}\".
-
-EXT-PLIST, when provided, is a property list with external
-parameters overriding Org default settings, but still inferior to
-file-local settings.
-
-Return output file's name.
-
-\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)" t nil)
-
-(autoload 'org-e-beamer-export-to-pdf "org-mode/contrib/lisp/org-e-beamer" "\
-Export current buffer as a Beamer presentation (PDF).
-
-If narrowing is active in the current buffer, only export its
-narrowed part.
-
-If a region is active, export that region.
-
-A non-nil optional argument ASYNC means the process should happen
-asynchronously.  The resulting file should be accessible through
-the `org-export-stack' interface.
-
-When optional argument SUBTREEP is non-nil, export the sub-tree
-at point, extracting information from the headline properties
-first.
-
-When optional argument VISIBLE-ONLY is non-nil, don't export
-contents of hidden elements.
-
-When optional argument BODY-ONLY is non-nil, only write code
-between \"\\begin{document}\" and \"\\end{document}\".
-
-EXT-PLIST, when provided, is a property list with external
-parameters overriding Org default settings, but still inferior to
-file-local settings.
-
-Return PDF file's name.
-
-\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)" t nil)
-
-(autoload 'org-e-beamer-select-environment "org-mode/contrib/lisp/org-e-beamer" "\
-Select the environment to be used by beamer for this entry.
-While this uses (for convenience) a tag selection interface, the
-result of this command will be that the BEAMER_env *property* of
-the entry is set.
-
-In addition to this, the command will also set a tag as a visual
-aid, but the tag does not have any semantic meaning.
-
-\(fn)" t nil)
-
-(autoload 'org-e-beamer-insert-options-template "org-mode/contrib/lisp/org-e-beamer" "\
-Insert a settings template, to make sure users do this right.
-
-\(fn &optional KIND)" t nil)
-
-(autoload 'org-e-beamer-publish-to-latex "org-mode/contrib/lisp/org-e-beamer" "\
-Publish an Org file to a Beamer presentation (LaTeX).
-
-FILENAME is the filename of the Org file to be published.  PLIST
-is the property list for the given project.  PUB-DIR is the
-publishing directory.
-
-Return output file name.
-
-\(fn PLIST FILENAME PUB-DIR)" nil nil)
-
-(autoload 'org-e-beamer-publish-to-pdf "org-mode/contrib/lisp/org-e-beamer" "\
-Publish an Org file to a Beamer presentation (PDF, via LaTeX).
-
-FILENAME is the filename of the Org file to be published.  PLIST
-is the property list for the given project.  PUB-DIR is the
-publishing directory.
-
-Return output file name.
-
-\(fn PLIST FILENAME PUB-DIR)" nil nil)
-
-;;;***
-
-;;;### (autoloads (org-e-html-publish-to-html org-e-html-export-to-html
-;;;;;;  org-e-html-export-as-html org-export-e-htmlize-generate-css)
-;;;;;;  "org-mode/contrib/lisp/org-e-html" "org-mode/contrib/lisp/org-e-html.el"
-;;;;;;  (20732 3412 41692 883000))
-;;; Generated autoloads from org-mode/contrib/lisp/org-e-html.el
-
-(put 'org-e-html-style-include-default 'safe-local-variable 'booleanp)
-
-(put 'org-e-html-style 'safe-local-variable 'stringp)
-
-(put 'org-e-html-style-extra 'safe-local-variable 'stringp)
-
-(autoload 'org-export-e-htmlize-generate-css "org-mode/contrib/lisp/org-e-html" "\
-Create the CSS for all font definitions in the current Emacs session.
-Use this to create face definitions in your CSS style file that can then
-be used by code snippets transformed by htmlize.
-This command just produces a buffer that contains class definitions for all
-faces used in the current Emacs session.  You can copy and paste the ones you
-need into your CSS file.
-
-If you then set `org-export-e-htmlize-output-type' to `css', calls to
-the function `org-export-e-htmlize-region-for-paste' will produce code
-that uses these same face definitions.
-
-\(fn)" t nil)
-
-(autoload 'org-e-html-export-as-html "org-mode/contrib/lisp/org-e-html" "\
-Export current buffer to an HTML buffer.
-
-If narrowing is active in the current buffer, only export its
-narrowed part.
-
-If a region is active, export that region.
-
-A non-nil optional argument ASYNC means the process should happen
-asynchronously.  The resulting buffer should be accessible
-through the `org-export-stack' interface.
-
-When optional argument SUBTREEP is non-nil, export the sub-tree
-at point, extracting information from the headline properties
-first.
-
-When optional argument VISIBLE-ONLY is non-nil, don't export
-contents of hidden elements.
-
-When optional argument BODY-ONLY is non-nil, only write code
-between \"<body>\" and \"</body>\" tags.
-
-EXT-PLIST, when provided, is a property list with external
-parameters overriding Org default settings, but still inferior to
-file-local settings.
-
-Export is done in a buffer named \"*Org E-HTML Export*\", which
-will be displayed when `org-export-show-temporary-export-buffer'
-is non-nil.
-
-\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)" t nil)
-
-(autoload 'org-e-html-export-to-html "org-mode/contrib/lisp/org-e-html" "\
-Export current buffer to a HTML file.
-
-If narrowing is active in the current buffer, only export its
-narrowed part.
-
-If a region is active, export that region.
-
-A non-nil optional argument ASYNC means the process should happen
-asynchronously.  The resulting file should be accessible through
-the `org-export-stack' interface.
-
-When optional argument SUBTREEP is non-nil, export the sub-tree
-at point, extracting information from the headline properties
-first.
-
-When optional argument VISIBLE-ONLY is non-nil, don't export
-contents of hidden elements.
-
-When optional argument BODY-ONLY is non-nil, only write code
-between \"<body>\" and \"</body>\" tags.
-
-EXT-PLIST, when provided, is a property list with external
-parameters overriding Org default settings, but still inferior to
-file-local settings.
-
-Return output file's name.
-
-\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)" t nil)
-
-(autoload 'org-e-html-publish-to-html "org-mode/contrib/lisp/org-e-html" "\
-Publish an org file to HTML.
-
-FILENAME is the filename of the Org file to be published.  PLIST
-is the property list for the given project.  PUB-DIR is the
-publishing directory.
-
-Return output file name.
-
-\(fn PLIST FILENAME PUB-DIR)" nil nil)
-
-;;;***
-
-;;;### (autoloads (org-e-icalendar-combine-agenda-files org-e-icalendar-export-agenda-files
-;;;;;;  org-e-icalendar-export-to-ics) "org-mode/contrib/lisp/org-e-icalendar"
-;;;;;;  "org-mode/contrib/lisp/org-e-icalendar.el" (20732 3412 41692
-;;;;;;  883000))
-;;; Generated autoloads from org-mode/contrib/lisp/org-e-icalendar.el
-
-(autoload 'org-e-icalendar-export-to-ics "org-mode/contrib/lisp/org-e-icalendar" "\
-Export current buffer to an iCalendar file.
-
-If narrowing is active in the current buffer, only export its
-narrowed part.
-
-If a region is active, export that region.
-
-A non-nil optional argument ASYNC means the process should happen
-asynchronously.  The resulting file should be accessible through
-the `org-export-stack' interface.
-
-When optional argument SUBTREEP is non-nil, export the sub-tree
-at point, extracting information from the headline properties
-first.
-
-When optional argument VISIBLE-ONLY is non-nil, don't export
-contents of hidden elements.
-
-When optional argument BODY-ONLY is non-nil, only write code
-between \"BEGIN:VCALENDAR\" and \"END:VCALENDAR\".
-
-Return ICS file name.
-
-\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY)" t nil)
-
-(autoload 'org-e-icalendar-export-agenda-files "org-mode/contrib/lisp/org-e-icalendar" "\
-Export all agenda files to iCalendar files.
-When optional argument ASYNC is non-nil, export happens in an
-external process.
-
-\(fn &optional ASYNC)" t nil)
-
-(autoload 'org-e-icalendar-combine-agenda-files "org-mode/contrib/lisp/org-e-icalendar" "\
-Combine all agenda files into a single iCalendar file.
-
-A non-nil optional argument ASYNC means the process should happen
-asynchronously.  The resulting file should be accessible through
-the `org-export-stack' interface.
-
-The file is stored under the name chosen in
-`org-e-icalendar-combined-agenda-file'.
-
-\(fn &optional ASYNC)" t nil)
-
-;;;***
-
-;;;### (autoloads (org-e-latex-publish-to-pdf org-e-latex-publish-to-latex
-;;;;;;  org-e-latex-export-to-pdf org-e-latex-export-to-latex org-e-latex-export-as-latex)
-;;;;;;  "org-mode/contrib/lisp/org-e-latex" "org-mode/contrib/lisp/org-e-latex.el"
-;;;;;;  (20732 3412 45692 916000))
-;;; Generated autoloads from org-mode/contrib/lisp/org-e-latex.el
-
-(autoload 'org-e-latex-export-as-latex "org-mode/contrib/lisp/org-e-latex" "\
-Export current buffer as a LaTeX buffer.
-
-If narrowing is active in the current buffer, only export its
-narrowed part.
-
-If a region is active, export that region.
-
-A non-nil optional argument ASYNC means the process should happen
-asynchronously.  The resulting buffer should be accessible
-through the `org-export-stack' interface.
-
-When optional argument SUBTREEP is non-nil, export the sub-tree
-at point, extracting information from the headline properties
-first.
-
-When optional argument VISIBLE-ONLY is non-nil, don't export
-contents of hidden elements.
-
-When optional argument BODY-ONLY is non-nil, only write code
-between \"\\begin{document}\" and \"\\end{document}\".
-
-EXT-PLIST, when provided, is a property list with external
-parameters overriding Org default settings, but still inferior to
-file-local settings.
-
-Export is done in a buffer named \"*Org E-LATEX Export*\", which
-will be displayed when `org-export-show-temporary-export-buffer'
-is non-nil.
-
-\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)" t nil)
-
-(autoload 'org-e-latex-export-to-latex "org-mode/contrib/lisp/org-e-latex" "\
-Export current buffer to a LaTeX file.
-
-If narrowing is active in the current buffer, only export its
-narrowed part.
-
-If a region is active, export that region.
-
-A non-nil optional argument ASYNC means the process should happen
-asynchronously.  The resulting file should be accessible through
-the `org-export-stack' interface.
-
-When optional argument SUBTREEP is non-nil, export the sub-tree
-at point, extracting information from the headline properties
-first.
-
-When optional argument VISIBLE-ONLY is non-nil, don't export
-contents of hidden elements.
-
-When optional argument BODY-ONLY is non-nil, only write code
-between \"\\begin{document}\" and \"\\end{document}\".
-
-EXT-PLIST, when provided, is a property list with external
-parameters overriding Org default settings, but still inferior to
-file-local settings.
-
-Return output file's name.
-
-\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)" t nil)
-
-(autoload 'org-e-latex-export-to-pdf "org-mode/contrib/lisp/org-e-latex" "\
-Export current buffer to LaTeX then process through to PDF.
-
-If narrowing is active in the current buffer, only export its
-narrowed part.
-
-If a region is active, export that region.
-
-A non-nil optional argument ASYNC means the process should happen
-asynchronously.  The resulting file should be accessible through
-the `org-export-stack' interface.
-
-When optional argument SUBTREEP is non-nil, export the sub-tree
-at point, extracting information from the headline properties
-first.
-
-When optional argument VISIBLE-ONLY is non-nil, don't export
-contents of hidden elements.
-
-When optional argument BODY-ONLY is non-nil, only write code
-between \"\\begin{document}\" and \"\\end{document}\".
-
-EXT-PLIST, when provided, is a property list with external
-parameters overriding Org default settings, but still inferior to
-file-local settings.
-
-Return PDF file's name.
-
-\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)" t nil)
-
-(autoload 'org-e-latex-publish-to-latex "org-mode/contrib/lisp/org-e-latex" "\
-Publish an Org file to LaTeX.
-
-FILENAME is the filename of the Org file to be published.  PLIST
-is the property list for the given project.  PUB-DIR is the
-publishing directory.
-
-Return output file name.
-
-\(fn PLIST FILENAME PUB-DIR)" nil nil)
-
-(autoload 'org-e-latex-publish-to-pdf "org-mode/contrib/lisp/org-e-latex" "\
-Publish an Org file to PDF (via LaTeX).
-
-FILENAME is the filename of the Org file to be published.  PLIST
-is the property list for the given project.  PUB-DIR is the
-publishing directory.
-
-Return output file name.
-
-\(fn PLIST FILENAME PUB-DIR)" nil nil)
-
-;;;***
-
-;;;### (autoloads (org-e-odt-convert org-e-odt-export-to-odt org-e-odt-export-as-odf-and-open
-;;;;;;  org-e-odt-export-as-odf) "org-mode/contrib/lisp/org-e-odt"
-;;;;;;  "org-mode/contrib/lisp/org-e-odt.el" (20732 3412 45692 916000))
-;;; Generated autoloads from org-mode/contrib/lisp/org-e-odt.el
-
-(put 'org-e-odt-preferred-output-format 'safe-local-variable 'stringp)
-
-(autoload 'org-e-odt-export-as-odf "org-mode/contrib/lisp/org-e-odt" "\
-Export LATEX-FRAG as OpenDocument formula file ODF-FILE.
-Use `org-create-math-formula' to convert LATEX-FRAG first to
-MathML.  When invoked as an interactive command, use
-`org-latex-regexps' to infer LATEX-FRAG from currently active
-region.  If no LaTeX fragments are found, prompt for it.  Push
-MathML source to kill ring, if `org-export-copy-to-kill-ring' is
-non-nil.
-
-\(fn LATEX-FRAG &optional ODF-FILE)" t nil)
-
-(autoload 'org-e-odt-export-as-odf-and-open "org-mode/contrib/lisp/org-e-odt" "\
-Export LaTeX fragment as OpenDocument formula and immediately open it.
-Use `org-e-odt-export-as-odf' to read LaTeX fragment and OpenDocument
-formula file.
-
-\(fn)" t nil)
-
-(autoload 'org-e-odt-export-to-odt "org-mode/contrib/lisp/org-e-odt" "\
-Export current buffer to a ODT file.
-
-If narrowing is active in the current buffer, only export its
-narrowed part.
-
-If a region is active, export that region.
-
-A non-nil optional argument ASYNC means the process should happen
-asynchronously.  The resulting file should be accessible through
-the `org-export-stack' interface.
-
-When optional argument SUBTREEP is non-nil, export the sub-tree
-at point, extracting information from the headline properties
-first.
-
-When optional argument VISIBLE-ONLY is non-nil, don't export
-contents of hidden elements.
-
-EXT-PLIST, when provided, is a property list with external
-parameters overriding Org default settings, but still inferior to
-file-local settings.
-
-Return output file's name.
-
-\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY EXT-PLIST)" t nil)
-
-(autoload 'org-e-odt-convert "org-mode/contrib/lisp/org-e-odt" "\
-Convert IN-FILE to format OUT-FMT using a command line converter.
-IN-FILE is the file to be converted.  If unspecified, it defaults
-to variable `buffer-file-name'.  OUT-FMT is the desired output
-format.  Use `org-e-odt-convert-process' as the converter.
-If PREFIX-ARG is non-nil then the newly converted file is opened
-using `org-open-file'.
-
-\(fn &optional IN-FILE OUT-FMT PREFIX-ARG)" t nil)
-
-;;;***
-
-;;;### (autoloads (org-e-publish-current-project org-e-publish-current-file
-;;;;;;  org-e-publish-all org-e-publish) "org-mode/contrib/lisp/org-e-publish"
-;;;;;;  "org-mode/contrib/lisp/org-e-publish.el" (20732 3412 45692
-;;;;;;  916000))
-;;; Generated autoloads from org-mode/contrib/lisp/org-e-publish.el
-
-(defalias 'org-e-publish-project 'org-e-publish)
-
-(autoload 'org-e-publish "org-mode/contrib/lisp/org-e-publish" "\
-Publish PROJECT.
-
-PROJECT is either a project name, as a string, or a project
-alist (see `org-e-publish-project-alist' variable).
-
-When optional argument FORCE is non-nil, force publishing all
-files in PROJECT.  With a non-nil optional argument ASYNC,
-publishing will be done asynchronously, in another process.
-
-\(fn PROJECT &optional FORCE ASYNC)" t nil)
-
-(autoload 'org-e-publish-all "org-mode/contrib/lisp/org-e-publish" "\
-Publish all projects.
-With prefix argument FORCE, remove all files in the timestamp
-directory and force publishing all projects.  With a non-nil
-optional argument ASYNC, publishing will be done asynchronously,
-in another process.
-
-\(fn &optional FORCE ASYNC)" t nil)
-
-(autoload 'org-e-publish-current-file "org-mode/contrib/lisp/org-e-publish" "\
-Publish the current file.
-With prefix argument FORCE, force publish the file.  When
-optional argument ASYNC is non-nil, publishing will be done
-asynchronously, in another process.
-
-\(fn &optional FORCE ASYNC)" t nil)
-
-(autoload 'org-e-publish-current-project "org-mode/contrib/lisp/org-e-publish" "\
-Publish the project associated with the current file.
-With a prefix argument, force publishing of all files in
-the project.
-
-\(fn &optional FORCE ASYNC)" t nil)
-
-;;;***
-
-;;;### (autoloads (org-export-dispatch) "org-mode/contrib/lisp/org-export"
-;;;;;;  "org-mode/contrib/lisp/org-export.el" (20732 3412 49692 948000))
-;;; Generated autoloads from org-mode/contrib/lisp/org-export.el
-
-(autoload 'org-export-dispatch "org-mode/contrib/lisp/org-export" "\
-Export dispatcher for Org mode.
-
-It provides an access to common export related tasks in a buffer.
-Its interface comes in two flavours: standard and expert.  While
-both share the same set of bindings, only the former displays the
-valid keys associations.  Set `org-export-dispatch-use-expert-ui'
-to switch to one or the other.
-
-When called with C-u prefix ARG, repeat the last export action,
-with the same set of options used back then, on the current
-buffer.
-
-When called with a double universal argument, display the
-asynchronous export stack directly.
-
-\(fn &optional ARG)" t nil)
-
-;;;***
-
-;;;### (autoloads (org-export-generic org-set-generic-type) "org-mode/contrib/lisp/org-export-generic"
-;;;;;;  "org-mode/contrib/lisp/org-export-generic.el" (20732 3412
-;;;;;;  45692 916000))
-;;; Generated autoloads from org-mode/contrib/lisp/org-export-generic.el
-
-(autoload 'org-set-generic-type "org-mode/contrib/lisp/org-export-generic" "\
-Adds a TYPE and DEFINITION to the existing list of defined generic
-export definitions.
-
-\(fn TYPE DEFINITION)" nil nil)
-
-(autoload 'org-export-generic "org-mode/contrib/lisp/org-export-generic" "\
-Export the outline as generic output.
-If there is an active region, export only the region.
-The prefix ARG specifies how many levels of the outline should become
-underlined headlines.  The default is 3.
-
-\(fn ARG)" t nil)
-
-;;;***
-
-;;;### (autoloads (org-koma-letter-export-to-pdf org-koma-letter-export-to-latex
-;;;;;;  org-koma-letter-export-as-latex) "org-mode/contrib/lisp/org-koma-letter"
-;;;;;;  "org-mode/contrib/lisp/org-koma-letter.el" (20732 3412 49692
-;;;;;;  948000))
-;;; Generated autoloads from org-mode/contrib/lisp/org-koma-letter.el
-
-(autoload 'org-koma-letter-export-as-latex "org-mode/contrib/lisp/org-koma-letter" "\
-Export current buffer as a KOMA Scrlttr2 letter.
-
-If narrowing is active in the current buffer, only export its
-narrowed part.
-
-If a region is active, export that region.
-
-A non-nil optional argument ASYNC means the process should happen
-asynchronously.  The resulting buffer should be accessible
-through the `org-export-stack' interface.
-
-When optional argument SUBTREEP is non-nil, export the sub-tree
-at point, extracting information from the headline properties
-first.
-
-When optional argument VISIBLE-ONLY is non-nil, don't export
-contents of hidden elements.
-
-When optional argument BODY-ONLY is non-nil, only write code
-between \"\\begin{letter}\" and \"\\end{letter}\".
-
-EXT-PLIST, when provided, is a property list with external
-parameters overriding Org default settings, but still inferior to
-file-local settings.
-
-Export is done in a buffer named \"*Org KOMA-LETTER Export*\".  It
-will be displayed if `org-export-show-temporary-export-buffer' is
-non-nil.
-
-\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)" t nil)
-
-(autoload 'org-koma-letter-export-to-latex "org-mode/contrib/lisp/org-koma-letter" "\
-Export current buffer as a KOMA Scrlttr2 letter (tex).
-
-If narrowing is active in the current buffer, only export its
-narrowed part.
-
-If a region is active, export that region.
-
-A non-nil optional argument ASYNC means the process should happen
-asynchronously.  The resulting file should be accessible through
-the `org-export-stack' interface.
-
-When optional argument SUBTREEP is non-nil, export the sub-tree
-at point, extracting information from the headline properties
-first.
-
-When optional argument VISIBLE-ONLY is non-nil, don't export
-contents of hidden elements.
-
-When optional argument BODY-ONLY is non-nil, only write code
-between \"\\begin{letter}\" and \"\\end{letter}\".
-
-EXT-PLIST, when provided, is a property list with external
-parameters overriding Org default settings, but still inferior to
-file-local settings.
-
-When optional argument PUB-DIR is set, use it as the publishing
-directory.
-
-Return output file's name.
-
-\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)" t nil)
-
-(autoload 'org-koma-letter-export-to-pdf "org-mode/contrib/lisp/org-koma-letter" "\
-Export current buffer as a KOMA Scrlttr2 letter (pdf).
-
-If narrowing is active in the current buffer, only export its
-narrowed part.
-
-If a region is active, export that region.
-
-A non-nil optional argument ASYNC means the process should happen
-asynchronously.  The resulting file should be accessible through
-the `org-export-stack' interface.
-
-When optional argument SUBTREEP is non-nil, export the sub-tree
-at point, extracting information from the headline properties
-first.
-
-When optional argument VISIBLE-ONLY is non-nil, don't export
-contents of hidden elements.
-
-When optional argument BODY-ONLY is non-nil, only write code
-between \"\\begin{letter}\" and \"\\end{letter}\".
-
-EXT-PLIST, when provided, is a property list with external
-parameters overriding Org default settings, but still inferior to
-file-local settings.
-
-Return PDF file's name.
-
-\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)" t nil)
-
-;;;***
-
-;;;### (autoloads (org-md-export-to-markdown org-md-export-as-markdown)
-;;;;;;  "org-mode/contrib/lisp/org-md" "org-mode/contrib/lisp/org-md.el"
-;;;;;;  (20732 3412 49692 948000))
-;;; Generated autoloads from org-mode/contrib/lisp/org-md.el
-
-(autoload 'org-md-export-as-markdown "org-mode/contrib/lisp/org-md" "\
-Export current buffer to a text buffer.
-
-If narrowing is active in the current buffer, only export its
-narrowed part.
-
-If a region is active, export that region.
-
-A non-nil optional argument ASYNC means the process should happen
-asynchronously.  The resulting buffer should be accessible
-through the `org-export-stack' interface.
-
-When optional argument SUBTREEP is non-nil, export the sub-tree
-at point, extracting information from the headline properties
-first.
-
-When optional argument VISIBLE-ONLY is non-nil, don't export
-contents of hidden elements.
-
-Export is done in a buffer named \"*Org MD Export*\", which will
-be displayed when `org-export-show-temporary-export-buffer' is
-non-nil.
-
-\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY)" t nil)
-
-(autoload 'org-md-export-to-markdown "org-mode/contrib/lisp/org-md" "\
-Export current buffer to a Markdown file.
-
-If narrowing is active in the current buffer, only export its
-narrowed part.
-
-If a region is active, export that region.
-
-A non-nil optional argument ASYNC means the process should happen
-asynchronously.  The resulting file should be accessible through
-the `org-export-stack' interface.
-
-When optional argument SUBTREEP is non-nil, export the sub-tree
-at point, extracting information from the headline properties
-first.
-
-When optional argument VISIBLE-ONLY is non-nil, don't export
-contents of hidden elements.
-
-Return output file's name.
-
-\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY)" t nil)
-
-;;;***
-
 ;;;### (autoloads (org-registry-update org-registry-insinuate org-registry-initialize
 ;;;;;;  org-registry-visit org-registry-show) "org-mode/contrib/lisp/org-registry"
-;;;;;;  "org-mode/contrib/lisp/org-registry.el" (20732 3412 49692
-;;;;;;  948000))
+;;;;;;  "org-mode/contrib/lisp/org-registry.el" (20878 23160 294694
+;;;;;;  727000))
 ;;; Generated autoloads from org-mode/contrib/lisp/org-registry.el
 
 (autoload 'org-registry-show "org-mode/contrib/lisp/org-registry" "\
@@ -9747,7 +9944,7 @@ Update the registry for the current Org file.
 ;;;***
 
 ;;;### (autoloads (org-toc-show) "org-mode/contrib/lisp/org-toc"
-;;;;;;  "org-mode/contrib/lisp/org-toc.el" (20732 3412 49692 948000))
+;;;;;;  "org-mode/contrib/lisp/org-toc.el" (20878 23160 294694 727000))
 ;;; Generated autoloads from org-mode/contrib/lisp/org-toc.el
 
 (autoload 'org-toc-show "org-mode/contrib/lisp/org-toc" "\
@@ -9759,7 +9956,7 @@ Show the table of contents of the current Org-mode buffer.
 
 ;;;### (autoloads (org-track-compile-org org-track-fetch-package)
 ;;;;;;  "org-mode/contrib/lisp/org-track" "org-mode/contrib/lisp/org-track.el"
-;;;;;;  (20732 3412 49692 948000))
+;;;;;;  (20878 23160 294694 727000))
 ;;; Generated autoloads from org-mode/contrib/lisp/org-track.el
 
 (autoload 'org-track-fetch-package "org-mode/contrib/lisp/org-track" "\
@@ -9780,30 +9977,298 @@ DIRECTORY is where the directory org-mode/ lives (i.e. the
 
 ;;;***
 
-;;;### (autoloads (org2rem-combine-agenda-files org2rem-all-agenda-files
-;;;;;;  org2rem-this-file) "org-mode/contrib/lisp/org2rem" "org-mode/contrib/lisp/org2rem.el"
-;;;;;;  (20732 3412 49692 948000))
-;;; Generated autoloads from org-mode/contrib/lisp/org2rem.el
+;;;### (autoloads (org-freemind-export-to-freemind) "org-mode/contrib/lisp/ox-freemind"
+;;;;;;  "org-mode/contrib/lisp/ox-freemind.el" (20878 23160 298694
+;;;;;;  885000))
+;;; Generated autoloads from org-mode/contrib/lisp/ox-freemind.el
 
-(autoload 'org2rem-this-file "org-mode/contrib/lisp/org2rem" "\
-Export current file as an Remind file.
-The Remind file will be located in the same directory as the Org-mode
-file, but with extension `.rem'.
+(autoload 'org-freemind-export-to-freemind "org-mode/contrib/lisp/ox-freemind" "\
+Export current buffer to a Freemind Mindmap file.
 
-\(fn)" t nil)
+If narrowing is active in the current buffer, only export its
+narrowed part.
 
-(autoload 'org2rem-all-agenda-files "org-mode/contrib/lisp/org2rem" "\
-Export all files in `org-agenda-files' to Remind .rem files.
-Each Remind file will be located in the same directory as the Org-mode
-file, but with extension `.rem'.
+If a region is active, export that region.
 
-\(fn)" t nil)
+A non-nil optional argument ASYNC means the process should happen
+asynchronously.  The resulting file should be accessible through
+the `org-export-stack' interface.
 
-(autoload 'org2rem-combine-agenda-files "org-mode/contrib/lisp/org2rem" "\
-Export all files in `org-agenda-files' to a single combined Remind file.
-The file is stored under the name `org-combined-agenda-remind-file'.
+When optional argument SUBTREEP is non-nil, export the sub-tree
+at point, extracting information from the headline properties
+first.
 
-\(fn)" t nil)
+When optional argument VISIBLE-ONLY is non-nil, don't export
+contents of hidden elements.
+
+When optional argument BODY-ONLY is non-nil, only write code
+between \"<body>\" and \"</body>\" tags.
+
+EXT-PLIST, when provided, is a property list with external
+parameters overriding Org default settings, but still inferior to
+file-local settings.
+
+Return output file's name.
+
+\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)" t nil)
+
+;;;***
+
+;;;### (autoloads (org-koma-letter-export-to-pdf org-koma-letter-export-to-latex
+;;;;;;  org-koma-letter-export-as-latex) "org-mode/contrib/lisp/ox-koma-letter"
+;;;;;;  "org-mode/contrib/lisp/ox-koma-letter.el" (20878 23160 298694
+;;;;;;  885000))
+;;; Generated autoloads from org-mode/contrib/lisp/ox-koma-letter.el
+
+(autoload 'org-koma-letter-export-as-latex "org-mode/contrib/lisp/ox-koma-letter" "\
+Export current buffer as a KOMA Scrlttr2 letter.
+
+If narrowing is active in the current buffer, only export its
+narrowed part.
+
+If a region is active, export that region.
+
+A non-nil optional argument ASYNC means the process should happen
+asynchronously.  The resulting buffer should be accessible
+through the `org-export-stack' interface.
+
+When optional argument SUBTREEP is non-nil, export the sub-tree
+at point, extracting information from the headline properties
+first.
+
+When optional argument VISIBLE-ONLY is non-nil, don't export
+contents of hidden elements.
+
+When optional argument BODY-ONLY is non-nil, only write code
+between \"\\begin{letter}\" and \"\\end{letter}\".
+
+EXT-PLIST, when provided, is a property list with external
+parameters overriding Org default settings, but still inferior to
+file-local settings.
+
+Export is done in a buffer named \"*Org KOMA-LETTER Export*\".  It
+will be displayed if `org-export-show-temporary-export-buffer' is
+non-nil.
+
+\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)" t nil)
+
+(autoload 'org-koma-letter-export-to-latex "org-mode/contrib/lisp/ox-koma-letter" "\
+Export current buffer as a KOMA Scrlttr2 letter (tex).
+
+If narrowing is active in the current buffer, only export its
+narrowed part.
+
+If a region is active, export that region.
+
+A non-nil optional argument ASYNC means the process should happen
+asynchronously.  The resulting file should be accessible through
+the `org-export-stack' interface.
+
+When optional argument SUBTREEP is non-nil, export the sub-tree
+at point, extracting information from the headline properties
+first.
+
+When optional argument VISIBLE-ONLY is non-nil, don't export
+contents of hidden elements.
+
+When optional argument BODY-ONLY is non-nil, only write code
+between \"\\begin{letter}\" and \"\\end{letter}\".
+
+EXT-PLIST, when provided, is a property list with external
+parameters overriding Org default settings, but still inferior to
+file-local settings.
+
+When optional argument PUB-DIR is set, use it as the publishing
+directory.
+
+Return output file's name.
+
+\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)" t nil)
+
+(autoload 'org-koma-letter-export-to-pdf "org-mode/contrib/lisp/ox-koma-letter" "\
+Export current buffer as a KOMA Scrlttr2 letter (pdf).
+
+If narrowing is active in the current buffer, only export its
+narrowed part.
+
+If a region is active, export that region.
+
+A non-nil optional argument ASYNC means the process should happen
+asynchronously.  The resulting file should be accessible through
+the `org-export-stack' interface.
+
+When optional argument SUBTREEP is non-nil, export the sub-tree
+at point, extracting information from the headline properties
+first.
+
+When optional argument VISIBLE-ONLY is non-nil, don't export
+contents of hidden elements.
+
+When optional argument BODY-ONLY is non-nil, only write code
+between \"\\begin{letter}\" and \"\\end{letter}\".
+
+EXT-PLIST, when provided, is a property list with external
+parameters overriding Org default settings, but still inferior to
+file-local settings.
+
+Return PDF file's name.
+
+\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)" t nil)
+
+;;;***
+
+;;;### (autoloads (org-rss-publish-to-rss org-rss-export-to-rss org-rss-export-as-rss)
+;;;;;;  "org-mode/contrib/lisp/ox-rss" "org-mode/contrib/lisp/ox-rss.el"
+;;;;;;  (20878 23160 298694 885000))
+;;; Generated autoloads from org-mode/contrib/lisp/ox-rss.el
+
+(autoload 'org-rss-export-as-rss "org-mode/contrib/lisp/ox-rss" "\
+Export current buffer to a RSS buffer.
+
+If narrowing is active in the current buffer, only export its
+narrowed part.
+
+If a region is active, export that region.
+
+A non-nil optional argument ASYNC means the process should happen
+asynchronously.  The resulting buffer should be accessible
+through the `org-export-stack' interface.
+
+When optional argument SUBTREEP is non-nil, export the sub-tree
+at point, extracting information from the headline properties
+first.
+
+When optional argument VISIBLE-ONLY is non-nil, don't export
+contents of hidden elements.
+
+Export is done in a buffer named \"*Org RSS Export*\", which will
+be displayed when `org-export-show-temporary-export-buffer' is
+non-nil.
+
+\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY)" t nil)
+
+(autoload 'org-rss-export-to-rss "org-mode/contrib/lisp/ox-rss" "\
+Export current buffer to a RSS file.
+
+If narrowing is active in the current buffer, only export its
+narrowed part.
+
+If a region is active, export that region.
+
+A non-nil optional argument ASYNC means the process should happen
+asynchronously.  The resulting file should be accessible through
+the `org-export-stack' interface.
+
+When optional argument SUBTREEP is non-nil, export the sub-tree
+at point, extracting information from the headline properties
+first.
+
+When optional argument VISIBLE-ONLY is non-nil, don't export
+contents of hidden elements.
+
+Return output file's name.
+
+\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY)" t nil)
+
+(autoload 'org-rss-publish-to-rss "org-mode/contrib/lisp/ox-rss" "\
+Publish an org file to RSS.
+
+FILENAME is the filename of the Org file to be published.  PLIST
+is the property list for the given project.  PUB-DIR is the
+publishing directory.
+
+Return output file name.
+
+\(fn PLIST FILENAME PUB-DIR)" nil nil)
+
+;;;***
+
+;;;### (autoloads (org-taskjuggler-export-process-and-open org-taskjuggler-export-and-process
+;;;;;;  org-taskjuggler-export) "org-mode/contrib/lisp/ox-taskjuggler"
+;;;;;;  "org-mode/contrib/lisp/ox-taskjuggler.el" (20878 23160 298694
+;;;;;;  885000))
+;;; Generated autoloads from org-mode/contrib/lisp/ox-taskjuggler.el
+
+(autoload 'org-taskjuggler-export "org-mode/contrib/lisp/ox-taskjuggler" "\
+Export current buffer to a TaskJuggler file.
+
+The exporter looks for a tree with tag that matches
+`org-taskjuggler-project-tag' and takes this as the tasks for
+this project.  The first node of this tree defines the project
+properties such as project name and project period.
+
+If there is a tree with tag that matches
+`org-taskjuggler-resource-tag' this tree is taken as resources
+for the project.  If no resources are specified, a default
+resource is created and allocated to the project.
+
+Also the TaskJuggler project will be created with default reports
+as defined in `org-taskjuggler-default-reports'.
+
+If narrowing is active in the current buffer, only export its
+narrowed part.
+
+If a region is active, export that region.
+
+A non-nil optional argument ASYNC means the process should happen
+asynchronously.  The resulting file should be accessible through
+the `org-export-stack' interface.
+
+When optional argument SUBTREEP is non-nil, export the sub-tree
+at point, extracting information from the headline properties
+first.
+
+When optional argument VISIBLE-ONLY is non-nil, don't export
+contents of hidden elements.
+
+Return output file's name.
+
+\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY)" t nil)
+
+(autoload 'org-taskjuggler-export-and-process "org-mode/contrib/lisp/ox-taskjuggler" "\
+Export current buffer to a TaskJuggler file and process it.
+
+The exporter looks for a tree with tag that matches
+`org-taskjuggler-project-tag' and takes this as the tasks for
+this project.  The first node of this tree defines the project
+properties such as project name and project period.
+
+If there is a tree with tag that matches
+`org-taskjuggler-resource-tag' this tree is taken as resources
+for the project.  If no resources are specified, a default
+resource is created and allocated to the project.
+
+Also the TaskJuggler project will be created with default reports
+as defined in `org-taskjuggler-default-reports'.
+
+If narrowing is active in the current buffer, only export its
+narrowed part.
+
+If a region is active, export that region.
+
+When optional argument SUBTREEP is non-nil, export the sub-tree
+at point, extracting information from the headline properties
+first.
+
+When optional argument VISIBLE-ONLY is non-nil, don't export
+contents of hidden elements.
+
+Return a list of reports.
+
+\(fn &optional SUBTREEP VISIBLE-ONLY)" t nil)
+
+(autoload 'org-taskjuggler-export-process-and-open "org-mode/contrib/lisp/ox-taskjuggler" "\
+Export current buffer to a TaskJuggler file, process and open it.
+
+Export and process the file using
+`org-taskjuggler-export-and-process' and open the generated
+reports with a browser.
+
+If you are targeting TaskJuggler 2.4 (see
+`org-taskjuggler-target-version') the processing and display of
+the reports is done using the TaskJuggler GUI.
+
+\(fn &optional SUBTREEP VISIBLE-ONLY)" t nil)
 
 ;;;***
 
@@ -9812,14 +10277,24 @@ The file is stored under the name `org-combined-agenda-remind-file'.
 ;;;;;;  org-open-at-point-global org-insert-link-global org-store-link
 ;;;;;;  org-run-like-in-org-mode turn-on-orgstruct++ turn-on-orgstruct
 ;;;;;;  orgstruct-mode org-global-cycle org-cycle org-mode org-clock-persistence-insinuate
-;;;;;;  turn-on-orgtbl org-version org-babel-do-load-languages) "org-mode/lisp/org"
-;;;;;;  "org-mode/lisp/org.el" (20732 3412 85693 243000))
+;;;;;;  turn-on-orgtbl org-version org-babel-load-file org-babel-do-load-languages)
+;;;;;;  "org-mode/lisp/org" "org-mode/lisp/org.el" (20878 23160 342696
+;;;;;;  621000))
 ;;; Generated autoloads from org-mode/lisp/org.el
 
 (autoload 'org-babel-do-load-languages "org-mode/lisp/org" "\
 Load the languages defined in `org-babel-load-languages'.
 
 \(fn SYM VALUE)" nil nil)
+
+(autoload 'org-babel-load-file "org-mode/lisp/org" "\
+Load Emacs Lisp source code blocks in the Org-mode FILE.
+This function exports the source code using `org-babel-tangle'
+and then loads the resulting file using `load-file'.  With prefix
+arg (noninteractively: 2nd arg) COMPILE the tangled Emacs Lisp
+file to byte-code before it is loaded.
+
+\(fn FILE &optional COMPILE)" t nil)
 
 (autoload 'org-version "org-mode/lisp/org" "\
 Show the org-mode version in the echo area.
@@ -9916,6 +10391,7 @@ With \\[universal-argument] prefix arg, switch to startup visibility.
 With a numeric prefix, show all headlines up to that level.
 
 \(fn &optional ARG)" t nil)
+(put 'orgstruct-heading-prefix-regexp 'safe-local-variable 'stringp)
 
 (autoload 'orgstruct-mode "org-mode/lisp/org" "\
 Toggle the minor mode `orgstruct-mode'.
@@ -9923,22 +10399,6 @@ This mode is for using Org-mode structure commands in other
 modes.  The following keys behave as if Org-mode were active, if
 the cursor is on a headline, or on a plain list item (both as
 defined by Org-mode).
-
-M-up        Move entry/item up
-M-down	    Move entry/item down
-M-left	    Promote
-M-right	    Demote
-M-S-up	    Move entry/item up
-M-S-down    Move entry/item down
-M-S-left    Promote subtree
-M-S-right   Demote subtree
-M-q	    Fill paragraph and items like in Org-mode
-C-c ^	    Sort entries
-C-c -	    Cycle list bullet
-TAB         Cycle item visibility
-M-RET       Insert new heading/item
-S-M-RET     Insert new TODO heading / Checkbox item
-C-c C-c     Set tags / toggle checkbox
 
 \(fn &optional ARG)" t nil)
 
@@ -9971,6 +10431,9 @@ For file links, arg negates `org-context-in-file-links'.
 
 A double prefix arg force skipping storing functions that are not
 part of Org's core.
+
+A triple prefix arg force storing a link for each line in the
+active region.
 
 \(fn ARG)" t nil)
 
@@ -10042,7 +10505,7 @@ Call the customize function with org as argument.
 ;;;;;;  org-search-view org-agenda-list org-batch-store-agenda-views
 ;;;;;;  org-store-agenda-views org-batch-agenda-csv org-batch-agenda
 ;;;;;;  org-agenda org-toggle-sticky-agenda) "org-mode/lisp/org-agenda"
-;;;;;;  "org-mode/lisp/org-agenda.el" (20732 3412 69693 112000))
+;;;;;;  "org-mode/lisp/org-agenda.el" (20878 23160 318695 674000))
 ;;; Generated autoloads from org-mode/lisp/org-agenda.el
 
 (autoload 'org-toggle-sticky-agenda "org-mode/lisp/org-agenda" "\
@@ -10135,7 +10598,7 @@ agenda-day   The day in the agenda where this is listed
 \(fn CMD-KEY &rest PARAMETERS)" nil t)
 
 (autoload 'org-store-agenda-views "org-mode/lisp/org-agenda" "\
-
+Store agenda views.
 
 \(fn &rest PARAMETERS)" t nil)
 
@@ -10156,7 +10619,10 @@ the number of days.  SPAN defaults to `org-agenda-span'.
 START-DAY defaults to TODAY, or to the most recent match for the weekday
 given in `org-agenda-start-on-weekday'.
 
-\(fn &optional ARG START-DAY SPAN)" t nil)
+When WITH-HOUR is non-nil, only include scheduled and deadline
+items if they have an hour specification like [h]h:mm.
+
+\(fn &optional ARG START-DAY SPAN WITH-HOUR)" t nil)
 
 (autoload 'org-search-view "org-mode/lisp/org-agenda" "\
 Show all entries that contain a phrase or words or regular expressions.
@@ -10244,8 +10710,8 @@ all files listed in `org-agenda-files' will be checked automatically:
 
    &%%(org-diary)
 
-If you don't give any arguments (as in the example above), the default
-arguments (:deadline :scheduled :timestamp :sexp) are used.
+If you don't give any arguments (as in the example above), the default value
+of `org-agenda-entry-types' is used: (:deadline :scheduled :timestamp :sexp).
 So the example above may also be written as
 
    &%%(org-diary :deadline :timestamp :sexp :scheduled)
@@ -10287,46 +10753,25 @@ will only add headlines containing IMPORTANT or headlines
 belonging to the \"Work\" category.
 
 ARGS are symbols indicating what kind of entries to consider.
-By default `org-agenda-to-appt' will use :deadline, :scheduled
+By default `org-agenda-to-appt' will use :deadline*, :scheduled*
+\(i.e., deadlines and scheduled items with a hh:mm specification)
 and :timestamp entries.  See the docstring of `org-diary' for
 details and examples.
 
-If an entry as a APPT_WARNTIME property, its value will be used
+If an entry has a APPT_WARNTIME property, its value will be used
 to override `appt-message-warning-time'.
 
 \(fn &optional REFRESH FILTER &rest ARGS)" t nil)
 
 ;;;***
 
-;;;### (autoloads (org-beamer-mode org-beamer-sectioning) "org-mode/lisp/org-beamer"
-;;;;;;  "org-mode/lisp/org-beamer.el" (20732 3412 69693 112000))
-;;; Generated autoloads from org-mode/lisp/org-beamer.el
-
-(autoload 'org-beamer-sectioning "org-mode/lisp/org-beamer" "\
-Return the sectioning entry for the current headline.
-LEVEL is the reduced level of the headline.
-TEXT is the text of the headline, everything except the leading stars.
-The return value is a cons cell.  The car is the headline text, usually
-just TEXT, but possibly modified if options have been extracted from the
-text.  The cdr is the sectioning entry, similar to what is given
-in org-export-latex-classes.
-
-\(fn LEVEL TEXT)" nil nil)
-
-(autoload 'org-beamer-mode "org-mode/lisp/org-beamer" "\
-Special support for editing Org-mode files made to export to beamer.
-
-\(fn &optional ARG)" t nil)
-
-;;;***
-
 ;;;### (autoloads (org-capture-import-remember-templates org-capture
 ;;;;;;  org-capture-string) "org-mode/lisp/org-capture" "org-mode/lisp/org-capture.el"
-;;;;;;  (20732 3412 69693 112000))
+;;;;;;  (20878 23160 318695 674000))
 ;;; Generated autoloads from org-mode/lisp/org-capture.el
 
 (autoload 'org-capture-string "org-mode/lisp/org-capture" "\
-
+Capture STRING with the template selected by KEYS.
 
 \(fn STRING &optional KEYS)" t nil)
 
@@ -10358,7 +10803,7 @@ of the day at point (if any) or the current HH:MM time.
 \(fn &optional GOTO KEYS)" t nil)
 
 (autoload 'org-capture-import-remember-templates "org-mode/lisp/org-capture" "\
-Set org-capture-templates to be similar to `org-remember-templates'.
+Set `org-capture-templates' to be similar to `org-remember-templates'.
 
 \(fn)" t nil)
 
@@ -10366,7 +10811,7 @@ Set org-capture-templates to be similar to `org-remember-templates'.
 
 ;;;### (autoloads (org-agenda-columns org-insert-columns-dblock org-dblock-write:columnview
 ;;;;;;  org-columns) "org-mode/lisp/org-colview" "org-mode/lisp/org-colview.el"
-;;;;;;  (20732 3412 69693 112000))
+;;;;;;  (20878 23160 318695 674000))
 ;;; Generated autoloads from org-mode/lisp/org-colview.el
 
 (autoload 'org-columns "org-mode/lisp/org-colview" "\
@@ -10410,7 +10855,7 @@ Turn on or update column view in the agenda.
 ;;;***
 
 ;;;### (autoloads (org-check-version) "org-mode/lisp/org-compat"
-;;;;;;  "org-mode/lisp/org-compat.el" (20732 3412 69693 112000))
+;;;;;;  "org-mode/lisp/org-compat.el" (20878 23160 318695 674000))
 ;;; Generated autoloads from org-mode/lisp/org-compat.el
 
 (autoload 'org-check-version "org-mode/lisp/org-compat" "\
@@ -10421,7 +10866,7 @@ Try very hard to provide sensible version strings.
 ;;;***
 
 ;;;### (autoloads (org-load-noerror-mustsuffix) "org-mode/lisp/org-macs"
-;;;;;;  "org-mode/lisp/org-macs.el" (20732 3412 77693 178000))
+;;;;;;  "org-mode/lisp/org-macs.el" (20878 23160 326695 989000))
 ;;; Generated autoloads from org-mode/lisp/org-macs.el
 
 (autoload 'org-load-noerror-mustsuffix "org-mode/lisp/org-macs" "\
@@ -10432,7 +10877,7 @@ Load FILE with optional arguments NOERROR and MUSTSUFFIX.  Drop the MUSTSUFFIX a
 ;;;***
 
 ;;;### (autoloads (org-git-version org-release) "org-mode/lisp/org-version"
-;;;;;;  "org-mode/lisp/org-version.el" (20732 4521 924154 537000))
+;;;;;;  "org-mode/lisp/org-version.el" (20878 29235 556440 283000))
 ;;; Generated autoloads from org-mode/lisp/org-version.el
 
 (autoload 'org-release "org-mode/lisp/org-version" "\
@@ -10517,158 +10962,9 @@ The list is displayed in a buffer named `*Packages*'.
 
 ;;;***
 
-;;;### (autoloads (parse-time-string) "nognus/lisp/parse-time" "nognus/lisp/parse-time.el"
-;;;;;;  (20731 65174 124495 940000))
-;;; Generated autoloads from nognus/lisp/parse-time.el
-(put 'parse-time-rules 'risky-local-variable t)
-
-(autoload 'parse-time-string "nognus/lisp/parse-time" "\
-Parse the time-string STRING into (SEC MIN HOUR DAY MON YEAR DOW DST TZ).
-The values are identical to those of `decode-time', but any values that are
-unknown are returned as nil.
-
-\(fn STRING)" nil nil)
-
-;;;***
-
-;;;### (autoloads (password-in-cache-p password-cache-expiry password-cache)
-;;;;;;  "nognus/lisp/password-cache" "nognus/lisp/password-cache.el"
-;;;;;;  (20731 65174 124495 940000))
-;;; Generated autoloads from nognus/lisp/password-cache.el
-
-(defvar password-cache t "\
-Whether to cache passwords.")
-
-(custom-autoload 'password-cache "nognus/lisp/password-cache" t)
-
-(defvar password-cache-expiry 16 "\
-How many seconds passwords are cached, or nil to disable expiring.
-Whether passwords are cached at all is controlled by `password-cache'.")
-
-(custom-autoload 'password-cache-expiry "nognus/lisp/password-cache" t)
-
-(autoload 'password-in-cache-p "nognus/lisp/password-cache" "\
-Check if KEY is in the cache.
-
-\(fn KEY)" nil nil)
-
-;;;***
-
-;;;### (autoloads (plstore-mode plstore-open) "nognus/lisp/plstore"
-;;;;;;  "nognus/lisp/plstore.el" (20731 65174 124495 940000))
-;;; Generated autoloads from nognus/lisp/plstore.el
-
-(autoload 'plstore-open "nognus/lisp/plstore" "\
-Create a plstore instance associated with FILE.
-
-\(fn FILE)" nil nil)
-
-(autoload 'plstore-mode "nognus/lisp/plstore" "\
-Major mode for editing PLSTORE files.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (pop3-movemail) "nognus/lisp/pop3" "nognus/lisp/pop3.el"
-;;;;;;  (20731 65174 124495 940000))
-;;; Generated autoloads from nognus/lisp/pop3.el
-
-(autoload 'pop3-movemail "nognus/lisp/pop3" "\
-Transfer contents of a maildrop to the specified FILE.
-Use streaming commands.
-
-\(fn FILE)" nil nil)
-
-;;;***
-
-;;;### (autoloads (open-protocol-stream) "nognus/lisp/proto-stream"
-;;;;;;  "nognus/lisp/proto-stream.el" (20731 65174 124495 940000))
-;;; Generated autoloads from nognus/lisp/proto-stream.el
-
-(autoload 'open-protocol-stream "nognus/lisp/proto-stream" "\
-Open a network stream to HOST, possibly with encryption.
-Normally, return a network process object; with a non-nil
-:return-list parameter, return a list instead (see below).
-
-The first four parameters, NAME, BUFFER, HOST, and SERVICE, have
-the same meanings as in `open-network-stream'.  The remaining
-PARAMETERS should be a sequence of keywords and values:
-
-:type specifies the connection type, one of the following:
-  nil or `network'
-             -- Begin with an ordinary network connection, and if
-                the parameters :success and :capability-command
-                are also supplied, try to upgrade to an encrypted
-                connection via STARTTLS.  Even if that
-                fails (e.g. if HOST does not support TLS), retain
-                an unencrypted connection.
-  `plain'    -- An ordinary, unencrypted network connection.
-  `starttls' -- Begin with an ordinary connection, and try
-                upgrading via STARTTLS.  If that fails for any
-                reason, drop the connection; in that case the
-                returned object is a killed process.
-  `tls'      -- A TLS connection.
-  `ssl'      -- Equivalent to `tls'.
-  `shell'    -- A shell connection.
-
-:return-list specifies this function's return value.
-  If omitted or nil, return a process object.  A non-nil means to
-  return (PROC . PROPS), where PROC is a process object and PROPS
-  is a plist of connection properties, with these keywords:
-   :greeting -- the greeting returned by HOST (a string), or nil.
-   :capabilities -- a string representing HOST's capabilities,
-                    or nil if none could be found.
-   :type -- the resulting connection type; `plain' (unencrypted)
-            or `tls' (TLS-encrypted).
-
-:end-of-command specifies a regexp matching the end of a command.
-  If non-nil, it defaults to \"\\n\".
-
-:end-of-capability specifies a regexp matching the end of the
-  response to the command specified for :capability-command.
-  It defaults to the regexp specified for :end-of-command.
-
-:success specifies a regexp matching a message indicating a
-  successful STARTTLS negotiation.  For instance, the default
-  should be \"^3\" for an NNTP connection.
-
-:capability-command specifies a command used to query the HOST
-  for its capabilities.  For instance, for IMAP this should be
-  \"1 CAPABILITY\\r\\n\".
-
-:starttls-function specifies a function for handling STARTTLS.
-  This function should take one parameter, the response to the
-  capability command, and should return the command to switch on
-  STARTTLS if the server supports STARTTLS, and nil otherwise.
-
-\(fn NAME BUFFER HOST SERVICE &rest PARAMETERS)" nil nil)
-
-;;;***
-
-;;;### (autoloads (quoted-printable-decode-region) "nognus/lisp/qp"
-;;;;;;  "nognus/lisp/qp.el" (20731 65174 124495 940000))
-;;; Generated autoloads from nognus/lisp/qp.el
-
-(autoload 'quoted-printable-decode-region "nognus/lisp/qp" "\
-Decode quoted-printable in the region between FROM and TO, per RFC 2045.
-If CODING-SYSTEM is non-nil, decode bytes into characters with that
-coding-system.
-
-Interactively, you can supply the CODING-SYSTEM argument
-with \\[universal-coding-system-argument].
-
-The CODING-SYSTEM argument is a historical hangover and is deprecated.
-QP encodes raw bytes and should be decoded into raw bytes.  Decoding
-them into characters should be done separately.
-
-\(fn FROM TO &optional CODING-SYSTEM)" t nil)
-
-;;;***
-
 ;;;### (autoloads (php-mode php-file-patterns php-mode-to-use) "php-mode-improved/php-mode-improved"
-;;;;;;  "php-mode-improved/php-mode-improved.el" (20732 451 481751
-;;;;;;  774000))
+;;;;;;  "php-mode-improved/php-mode-improved.el" (20878 29217 67807
+;;;;;;  667000))
 ;;; Generated autoloads from php-mode-improved/php-mode-improved.el
 
 (defvar php-mode-to-use (progn (require 'mumamo nil t) (if (fboundp 'nxhtml-mumamo-turn-on) 'nxhtml-mumamo-turn-on (if (fboundp 'html-mumamo-turn-on) 'html-mumamo-turn-on 'php-mode))) "\
@@ -10691,7 +10987,7 @@ Major mode for editing PHP code.
 ;;;***
 
 ;;;### (autoloads (helm-projectile) "projectile/helm-projectile"
-;;;;;;  "projectile/helm-projectile.el" (20732 22038 170805 934000))
+;;;;;;  "projectile/helm-projectile.el" (20878 29190 630903 369000))
 ;;; Generated autoloads from projectile/helm-projectile.el
 
 (autoload 'helm-projectile "projectile/helm-projectile" "\
@@ -10699,10 +10995,12 @@ Use projectile with Helm instead of ido.
 
 \(fn)" t nil)
 
+(eval-after-load 'projectile '(define-key projectile-mode-map (kbd "C-c p h") 'helm-projectile))
+
 ;;;***
 
 ;;;### (autoloads (projectile-global-mode projectile-mode) "projectile/projectile"
-;;;;;;  "projectile/projectile.el" (20732 22038 170805 934000))
+;;;;;;  "projectile/projectile.el" (20878 29190 630903 369000))
 ;;; Generated autoloads from projectile/projectile.el
 
 (autoload 'projectile-mode "projectile/projectile" "\
@@ -10736,7 +11034,7 @@ See `projectile-mode' for more information on Projectile mode.
 ;;;***
 
 ;;;### (autoloads (puppet-mode) "puppet-mode/puppet-mode" "puppet-mode/puppet-mode.el"
-;;;;;;  (20732 451 841770 548000))
+;;;;;;  (20878 29217 243813 681000))
 ;;; Generated autoloads from puppet-mode/puppet-mode.el
 
 (autoload 'puppet-mode "puppet-mode/puppet-mode" "\
@@ -10750,7 +11048,7 @@ The variable puppet-indent-level controls the amount of indentation.
 ;;;***
 
 ;;;### (autoloads (python-mode run-python) "python/python" "python/python.el"
-;;;;;;  (20732 434 648879 564000))
+;;;;;;  (20878 23147 74173 190000))
 ;;; Generated autoloads from python/python.el
 
 (add-to-list 'auto-mode-alist (cons (purecopy "\\.py\\'") 'python-mode))
@@ -10785,20 +11083,8 @@ if that value is non-nil.
 
 ;;;***
 
-;;;### (autoloads (rainbow-mode) "rainbow-mode/rainbow-mode" "rainbow-mode/rainbow-mode.el"
-;;;;;;  (20731 64665 320356 823000))
-;;; Generated autoloads from rainbow-mode/rainbow-mode.el
-
-(autoload 'rainbow-mode "rainbow-mode/rainbow-mode" "\
-Colorize strings that represent colors.
-This will fontify with colors the string like \"#aabbcc\" or \"blue\".
-
-\(fn &optional ARG)" t nil)
-
-;;;***
-
 ;;;### (autoloads (rebase-mode) "magit/rebase-mode" "magit/rebase-mode.el"
-;;;;;;  (20731 64699 349843 293000))
+;;;;;;  (20878 29188 226821 153000))
 ;;; Generated autoloads from magit/rebase-mode.el
 
 (autoload 'rebase-mode "magit/rebase-mode" "\
@@ -10830,8 +11116,33 @@ an exceedingly quick way of adding multiple cursors to multiple lines.
 
 ;;;***
 
+;;;### (autoloads (rainbow-mode) "rainbow-mode/rainbow-mode" "rainbow-mode/rainbow-mode.el"
+;;;;;;  (20878 24387 345946 98000))
+;;; Generated autoloads from rainbow-mode/rainbow-mode.el
+
+(autoload 'rainbow-mode "rainbow-mode/rainbow-mode" "\
+Colorize strings that represent colors.
+This will fontify with colors the string like \"#aabbcc\" or \"blue\".
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads (rhtml-mode) "rhtml-mode/rhtml-mode" "rhtml-mode/rhtml-mode.el"
+;;;;;;  (20878 29191 14916 502000))
+;;; Generated autoloads from rhtml-mode/rhtml-mode.el
+
+(autoload 'rhtml-mode "rhtml-mode/rhtml-mode" "\
+Embedded Ruby Mode (RHTML)
+
+\(fn)" t nil)
+
+(add-to-list 'auto-mode-alist '("\\.html\\.erb$" . rhtml-mode))
+
+;;;***
+
 ;;;### (autoloads (global-rinari-mode rinari-minor-mode rinari-launch)
-;;;;;;  "rinari/rinari" "rinari/rinari.el" (20732 839 525458 940000))
+;;;;;;  "rinari/rinari" "rinari/rinari.el" (20878 29190 602902 411000))
 ;;; Generated autoloads from rinari/rinari.el
 
 (autoload 'rinari-launch "rinari/rinari" "\
@@ -10945,10 +11256,10 @@ find the current method which defaults to `which-function'.
 ;;;### (autoloads (ruby-compilation-this-test ruby-compilation-cap
 ;;;;;;  pcomplete/cap ruby-compilation-rake pcomplete/rake ruby-compilation-this-buffer
 ;;;;;;  ruby-compilation-run) "rinari/util/ruby-compilation" "rinari/util/ruby-compilation.el"
-;;;;;;  (20732 839 529458 847000))
+;;;;;;  (20878 29190 618902 959000))
 ;;; Generated autoloads from rinari/util/ruby-compilation.el
 
-(eval-after-load 'ruby-mode '(progn (define-key ruby-mode-map (kbd "C-x t") 'ruby-compilation-this-buffer) (define-key ruby-mode-map (kbd "C-x C-t") 'ruby-compilation-this-test)))
+(eval-after-load 'ruby-mode '(progn (define-key ruby-mode-map (kbd "C-x t") 'ruby-compilation-this-buffer) (define-key ruby-mode-map (kbd "C-x T") 'ruby-compilation-this-test)))
 
 (autoload 'ruby-compilation-run "rinari/util/ruby-compilation" "\
 Run CMD using `ruby-compilation-executable' in a ruby compilation buffer.
@@ -10999,12 +11310,12 @@ Run the test at point through Ruby compilation.
 ;;;***
 
 ;;;### (autoloads (rspec-buffer-is-spec-p rspec-verifiable-mode rspec-mode)
-;;;;;;  "rspec-mode/rspec-mode" "rspec-mode/rspec-mode.el" (20732
-;;;;;;  435 612929 212000))
+;;;;;;  "rspec-mode/rspec-mode" "rspec-mode/rspec-mode.el" (20878
+;;;;;;  29190 146886 816000))
 ;;; Generated autoloads from rspec-mode/rspec-mode.el
 
 (autoload 'rspec-mode "rspec-mode/rspec-mode" "\
-Minor mode for rSpec files
+Minor mode for RSpec files
 
 \(fn &optional ARG)" t nil)
 
@@ -11024,41 +11335,58 @@ Returns true if the current buffer is a spec
 
 ;;;***
 
-;;;### (autoloads (ruby-compilation-this-buffer ruby-compilation-cap
-;;;;;;  ruby-compilation-rake ruby-compilation-run pcomplete/cap
-;;;;;;  pcomplete/rake) "ruby-compilation/ruby-compilation" "ruby-compilation/ruby-compilation.el"
-;;;;;;  (20731 64668 804505 483000))
+;;;### (autoloads (ruby-compilation-this-test ruby-compilation-cap
+;;;;;;  pcomplete/cap ruby-compilation-rake pcomplete/rake ruby-compilation-this-buffer
+;;;;;;  ruby-compilation-run) "ruby-compilation/ruby-compilation"
+;;;;;;  "ruby-compilation/ruby-compilation.el" (20878 29387 17628
+;;;;;;  985000))
 ;;; Generated autoloads from ruby-compilation/ruby-compilation.el
 
-(autoload 'pcomplete/rake "ruby-compilation/ruby-compilation" "\
-
-
-\(fn)" nil nil)
-
-(autoload 'pcomplete/cap "ruby-compilation/ruby-compilation" "\
-
-
-\(fn)" nil nil)
+(eval-after-load 'ruby-mode '(progn (define-key ruby-mode-map (kbd "C-x t") 'ruby-compilation-this-buffer) (define-key ruby-mode-map (kbd "C-x T") 'ruby-compilation-this-test)))
 
 (autoload 'ruby-compilation-run "ruby-compilation/ruby-compilation" "\
-Run a ruby process dumping output to a ruby compilation
-buffer. If supplied, `name' will be used in place of the script
-name to construct the name of the compilation buffer.
+Run CMD using `ruby-compilation-executable' in a ruby compilation buffer.
+Argument RUBY-OPTIONS can be used to specify additional
+command line args for ruby.  If supplied, NAME will be used in
+place of the script name to construct the name of the compilation
+buffer.
 
 \(fn CMD &optional RUBY-OPTIONS NAME)" t nil)
 
+(autoload 'ruby-compilation-this-buffer "ruby-compilation/ruby-compilation" "\
+Run the current buffer through Ruby compilation.
+
+\(fn)" t nil)
+
+(autoload 'pcomplete/rake "ruby-compilation/ruby-compilation" "\
+Start pcompletion using the list of available rake tasks.
+
+\(fn)" nil nil)
+
 (autoload 'ruby-compilation-rake "ruby-compilation/ruby-compilation" "\
 Run a rake process dumping output to a ruby compilation buffer.
+If EDIT is t, prompt the user to edit the command line.  If TASK
+is not supplied, the user will be prompted.  ENV-VARS is an
+optional list of (name . value) pairs which will be passed to rake.
 
 \(fn &optional EDIT TASK ENV-VARS)" t nil)
+
+(autoload 'pcomplete/cap "ruby-compilation/ruby-compilation" "\
+Start pcompletion using the list of available capistrano tasks.
+
+\(fn)" nil nil)
 
 (autoload 'ruby-compilation-cap "ruby-compilation/ruby-compilation" "\
 Run a capistrano process dumping output to a ruby compilation buffer.
+If EDIT is t, prompt the user to edit the command line.  If TASK
+is not supplied, the user will be prompted.  ENV-VARS is an
+optional list of (name . value) pairs which will be passed to
+capistrano.
 
 \(fn &optional EDIT TASK ENV-VARS)" t nil)
 
-(autoload 'ruby-compilation-this-buffer "ruby-compilation/ruby-compilation" "\
-Run the current buffer through Ruby compilation.
+(autoload 'ruby-compilation-this-test "ruby-compilation/ruby-compilation" "\
+Run the test at point through Ruby compilation.
 
 \(fn)" t nil)
 
@@ -11132,7 +11460,7 @@ Major mode for editing Sass files.
 ;;;***
 
 ;;;### (autoloads (scala-mode) "scala-mode/scala-mode" "scala-mode/scala-mode.el"
-;;;;;;  (20723 11671 796416 815000))
+;;;;;;  (20878 25864 112209 164000))
 ;;; Generated autoloads from scala-mode/scala-mode.el
 
 (autoload 'scala-mode "scala-mode/scala-mode" "\
@@ -11147,7 +11475,7 @@ When started, run `scala-mode-hook'.
 ;;;### (autoloads (scala-quit-interpreter scala-load-file scala-eval-buffer
 ;;;;;;  scala-eval-definition scala-eval-region scala-switch-to-interpreter
 ;;;;;;  scala-run-scala scala-interpreter-running-p-1) "scala-mode/scala-mode-inf"
-;;;;;;  "scala-mode/scala-mode-inf.el" (20723 11671 800416 985000))
+;;;;;;  "scala-mode/scala-mode-inf.el" (20878 25864 116209 312000))
 ;;; Generated autoloads from scala-mode/scala-mode-inf.el
 
 (autoload 'scala-interpreter-running-p-1 "scala-mode/scala-mode-inf" "\
@@ -11210,356 +11538,24 @@ Quit Scala interpreter.
 
 ;;;***
 
-;;;### (autoloads (gnus-score-mode) "nognus/lisp/score-mode" "nognus/lisp/score-mode.el"
-;;;;;;  (20731 65174 128496 198000))
-;;; Generated autoloads from nognus/lisp/score-mode.el
+;;;### (autoloads nil "slime-clj/slime-clj" "slime-clj/slime-clj.el"
+;;;;;;  (20878 20556 790256 864000))
+;;; Generated autoloads from slime-clj/slime-clj.el
 
-(autoload 'gnus-score-mode "nognus/lisp/score-mode" "\
-Mode for editing Gnus score files.
-This mode is an extended emacs-lisp mode.
-
-\\{gnus-score-mode-map}
-
-\(fn)" t nil)
+(add-hook 'slime-load-hook (lambda nil (require 'slime-clj) (slime-clj-init)))
 
 ;;;***
 
-;;;### (autoloads (sha1) "nognus/lisp/sha1" "nognus/lisp/sha1.el"
-;;;;;;  (20731 65174 128496 198000))
-;;; Generated autoloads from nognus/lisp/sha1.el
+;;;### (autoloads (slime-repl-init) "slime-repl/slime-repl" "slime-repl/slime-repl.el"
+;;;;;;  (20878 20565 954640 793000))
+;;; Generated autoloads from slime-repl/slime-repl.el
 
-(autoload 'sha1 "nognus/lisp/sha1" "\
-Return the SHA1 (Secure Hash Algorithm) of an object.
-OBJECT is either a string or a buffer.
-Optional arguments BEG and END denote buffer positions for computing the
-hash of a portion of OBJECT.
-If BINARY is non-nil, return a string in binary form.
+(autoload 'slime-repl-init "slime-repl/slime-repl" "\
 
-\(fn OBJECT &optional BEG END BINARY)" nil nil)
 
-;;;***
-
-;;;### (autoloads (shr-insert-document) "nognus/lisp/shr" "nognus/lisp/shr.el"
-;;;;;;  (20731 65174 128496 198000))
-;;; Generated autoloads from nognus/lisp/shr.el
+\(fn)" nil nil)
 
-(autoload 'shr-insert-document "nognus/lisp/shr" "\
-Render the parsed document DOM into the current buffer.
-DOM should be a parse tree as generated by
-`libxml-parse-html-region' or similar.
-
-\(fn DOM)" nil nil)
-
-;;;***
-
-;;;### (autoloads (sieve-upload-and-kill sieve-upload-and-bury sieve-upload
-;;;;;;  sieve-manage) "nognus/lisp/sieve" "nognus/lisp/sieve.el"
-;;;;;;  (20731 65174 128496 198000))
-;;; Generated autoloads from nognus/lisp/sieve.el
-
-(autoload 'sieve-manage "nognus/lisp/sieve" "\
-
-
-\(fn SERVER &optional PORT)" t nil)
-
-(autoload 'sieve-upload "nognus/lisp/sieve" "\
-
-
-\(fn &optional NAME)" t nil)
-
-(autoload 'sieve-upload-and-bury "nognus/lisp/sieve" "\
-
-
-\(fn &optional NAME)" t nil)
-
-(autoload 'sieve-upload-and-kill "nognus/lisp/sieve" "\
-
-
-\(fn &optional NAME)" t nil)
-
-;;;***
-
-;;;### (autoloads (sieve-mode) "nognus/lisp/sieve-mode" "nognus/lisp/sieve-mode.el"
-;;;;;;  (20731 65174 128496 198000))
-;;; Generated autoloads from nognus/lisp/sieve-mode.el
-
-(autoload 'sieve-mode "nognus/lisp/sieve-mode" "\
-Major mode for editing Sieve code.
-This is much like C mode except for the syntax of comments.  Its keymap
-inherits from C mode's and it has the same variables for customizing
-indentation.  It has its own abbrev table and its own syntax table.
-
-Turning on Sieve mode runs `sieve-mode-hook'.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (smiley-buffer smiley-region) "nognus/lisp/smiley"
-;;;;;;  "nognus/lisp/smiley.el" (20731 65174 128496 198000))
-;;; Generated autoloads from nognus/lisp/smiley.el
-
-(autoload 'smiley-region "nognus/lisp/smiley" "\
-Replace in the region `smiley-regexp-alist' matches with corresponding images.
-A list of images is returned.
-
-\(fn START END)" t nil)
-
-(autoload 'smiley-buffer "nognus/lisp/smiley" "\
-Run `smiley-region' at the BUFFER, specified in the argument or
-interactively.  If there's no argument, do it at the current buffer.
-
-\(fn &optional BUFFER)" t nil)
-
-;;;***
-
-;;;### (autoloads (spam-initialize) "nognus/lisp/spam" "nognus/lisp/spam.el"
-;;;;;;  (20731 65174 128496 198000))
-;;; Generated autoloads from nognus/lisp/spam.el
-
-(autoload 'spam-initialize "nognus/lisp/spam" "\
-Install the spam.el hooks and do other initialization.
-When SYMBOLS is given, set those variables to t.  This is so you
-can call `spam-initialize' before you set spam-use-* variables on
-explicitly, and matters only if you need the extra headers
-installed through `spam-necessary-extra-headers'.
-
-\(fn &rest SYMBOLS)" t nil)
-
-;;;***
-
-;;;### (autoloads (spam-report-deagentize spam-report-agentize spam-report-url-to-file
-;;;;;;  spam-report-url-ping-mm-url spam-report-process-queue) "nognus/lisp/spam-report"
-;;;;;;  "nognus/lisp/spam-report.el" (20731 65174 128496 198000))
-;;; Generated autoloads from nognus/lisp/spam-report.el
-
-(autoload 'spam-report-process-queue "nognus/lisp/spam-report" "\
-Report all queued requests from `spam-report-requests-file'.
-
-If FILE is given, use it instead of `spam-report-requests-file'.
-If KEEP is t, leave old requests in the file.  If KEEP is the
-symbol `ask', query before flushing the queue file.
-
-\(fn &optional FILE KEEP)" t nil)
-
-(autoload 'spam-report-url-ping-mm-url "nognus/lisp/spam-report" "\
-Ping a host through HTTP, addressing a specific GET resource. Use
-the external program specified in `mm-url-program' to connect to
-server.
-
-\(fn HOST REPORT)" nil nil)
-
-(autoload 'spam-report-url-to-file "nognus/lisp/spam-report" "\
-Collect spam report requests in `spam-report-requests-file'.
-Customize `spam-report-url-ping-function' to use this function.
-
-\(fn HOST REPORT)" nil nil)
-
-(autoload 'spam-report-agentize "nognus/lisp/spam-report" "\
-Add spam-report support to the Agent.
-Spam reports will be queued with \\[spam-report-url-to-file] when
-the Agent is unplugged, and will be submitted in a batch when the
-Agent is plugged.
-
-\(fn)" t nil)
-
-(autoload 'spam-report-deagentize "nognus/lisp/spam-report" "\
-Remove spam-report support from the Agent.
-Spam reports will be queued with the method used when
-\\[spam-report-agentize] was run.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (starttls-open-stream) "nognus/lisp/starttls" "nognus/lisp/starttls.el"
-;;;;;;  (20731 65174 128496 198000))
-;;; Generated autoloads from nognus/lisp/starttls.el
-
-(autoload 'starttls-open-stream "nognus/lisp/starttls" "\
-Open a TLS connection for a port to a host.
-Returns a subprocess object to represent the connection.
-Input and output work as for subprocesses; `delete-process' closes it.
-Args are NAME BUFFER HOST PORT.
-NAME is name for process.  It is modified if necessary to make it unique.
-BUFFER is the buffer (or `buffer-name') to associate with the process.
- Process output goes at end of that buffer, unless you specify
- an output stream or filter function to handle the output.
- BUFFER may be also nil, meaning that this process is not associated
- with any buffer
-Third arg is name of the host to connect to, or its IP address.
-Fourth arg PORT is an integer specifying a port to connect to.
-If `starttls-use-gnutls' is nil, this may also be a service name, but
-GnuTLS requires a port number.
-
-\(fn NAME BUFFER HOST PORT)" nil nil)
-
-;;;***
-
-;;;### (autoloads (format-seconds safe-date-to-time time-to-days
-;;;;;;  time-to-day-in-year date-leap-year-p days-between date-to-day
-;;;;;;  time-add time-subtract time-since days-to-time time-less-p
-;;;;;;  seconds-to-time date-to-time) "nognus/lisp/time-date" "nognus/lisp/time-date.el"
-;;;;;;  (20731 65174 128496 198000))
-;;; Generated autoloads from nognus/lisp/time-date.el
-
-(autoload 'date-to-time "nognus/lisp/time-date" "\
-Parse a string DATE that represents a date-time and return a time value.
-If DATE lacks timezone information, GMT is assumed.
-
-\(fn DATE)" nil nil)
-(if (or (featurep 'emacs)
-       (and (fboundp 'float-time)
-            (subrp (symbol-function 'float-time))))
-   (defalias 'time-to-seconds 'float-time)
- (autoload 'time-to-seconds "time-date"))
-
-(autoload 'seconds-to-time "nognus/lisp/time-date" "\
-Convert SECONDS (a floating point number) to a time value.
-
-\(fn SECONDS)" nil nil)
-
-(autoload 'time-less-p "nognus/lisp/time-date" "\
-Return non-nil if time value T1 is earlier than time value T2.
-
-\(fn T1 T2)" nil nil)
-
-(autoload 'days-to-time "nognus/lisp/time-date" "\
-Convert DAYS into a time value.
-
-\(fn DAYS)" nil nil)
-
-(autoload 'time-since "nognus/lisp/time-date" "\
-Return the time elapsed since TIME.
-TIME should be either a time value or a date-time string.
-
-\(fn TIME)" nil nil)
-
-(defalias 'subtract-time 'time-subtract)
-
-(autoload 'time-subtract "nognus/lisp/time-date" "\
-Subtract two time values, T1 minus T2.
-Return the difference in the format of a time value.
-
-\(fn T1 T2)" nil nil)
-
-(autoload 'time-add "nognus/lisp/time-date" "\
-Add two time values T1 and T2.  One should represent a time difference.
-
-\(fn T1 T2)" nil nil)
-
-(autoload 'date-to-day "nognus/lisp/time-date" "\
-Return the number of days between year 1 and DATE.
-DATE should be a date-time string.
-
-\(fn DATE)" nil nil)
-
-(autoload 'days-between "nognus/lisp/time-date" "\
-Return the number of days between DATE1 and DATE2.
-DATE1 and DATE2 should be date-time strings.
-
-\(fn DATE1 DATE2)" nil nil)
-
-(autoload 'date-leap-year-p "nognus/lisp/time-date" "\
-Return t if YEAR is a leap year.
-
-\(fn YEAR)" nil nil)
-
-(autoload 'time-to-day-in-year "nognus/lisp/time-date" "\
-Return the day number within the year corresponding to TIME.
-
-\(fn TIME)" nil nil)
-
-(autoload 'time-to-days "nognus/lisp/time-date" "\
-The number of days between the Gregorian date 0001-12-31bce and TIME.
-TIME should be a time value.
-The Gregorian date Sunday, December 31, 1bce is imaginary.
-
-\(fn TIME)" nil nil)
-
-(autoload 'safe-date-to-time "nognus/lisp/time-date" "\
-Parse a string DATE that represents a date-time and return a time value.
-If DATE is malformed, return a time value of zeros.
-
-\(fn DATE)" nil nil)
-
-(autoload 'format-seconds "nognus/lisp/time-date" "\
-Use format control STRING to format the number SECONDS.
-The valid format specifiers are:
-%y is the number of (365-day) years.
-%d is the number of days.
-%h is the number of hours.
-%m is the number of minutes.
-%s is the number of seconds.
-%z is a non-printing control flag (see below).
-%% is a literal \"%\".
-
-Upper-case specifiers are followed by the unit-name (e.g. \"years\").
-Lower-case specifiers return only the unit.
-
-\"%\" may be followed by a number specifying a width, with an
-optional leading \".\" for zero-padding.  For example, \"%.3Y\" will
-return something of the form \"001 year\".
-
-The \"%z\" specifier does not print anything.  When it is used, specifiers
-must be given in order of decreasing size.  To the left of \"%z\", nothing
-is output until the first non-zero unit is encountered.
-
-This function does not work for SECONDS greater than `most-positive-fixnum'.
-
-\(fn STRING SECONDS)" nil nil)
-
-;;;***
-
-;;;### (autoloads (utf7-encode) "nognus/lisp/utf7" "nognus/lisp/utf7.el"
-;;;;;;  (20731 65174 128496 198000))
-;;; Generated autoloads from nognus/lisp/utf7.el
-
-(autoload 'utf7-encode "nognus/lisp/utf7" "\
-Encode UTF-7 STRING.  Use IMAP modification if FOR-IMAP is non-nil.
-
-\(fn STRING &optional FOR-IMAP)" nil nil)
-
-;;;***
-
-;;;### (autoloads (uudecode-decode-region uudecode-decode-region-internal
-;;;;;;  uudecode-decode-region-external) "nognus/lisp/uudecode" "nognus/lisp/uudecode.el"
-;;;;;;  (20731 65174 128496 198000))
-;;; Generated autoloads from nognus/lisp/uudecode.el
-
-(autoload 'uudecode-decode-region-external "nognus/lisp/uudecode" "\
-Uudecode region between START and END using external program.
-If FILE-NAME is non-nil, save the result to FILE-NAME.  The program
-used is specified by `uudecode-decoder-program'.
-
-\(fn START END &optional FILE-NAME)" t nil)
-
-(autoload 'uudecode-decode-region-internal "nognus/lisp/uudecode" "\
-Uudecode region between START and END without using an external program.
-If FILE-NAME is non-nil, save the result to FILE-NAME.
-
-\(fn START END &optional FILE-NAME)" t nil)
-
-(autoload 'uudecode-decode-region "nognus/lisp/uudecode" "\
-Uudecode region between START and END.
-If FILE-NAME is non-nil, save the result to FILE-NAME.
-
-\(fn START END &optional FILE-NAME)" nil nil)
-
-;;;***
-
-;;;### (autoloads (scala-mode) "scala-mode2/scala-mode2" "scala-mode2/scala-mode2.el"
-;;;;;;  (20786 37135 37026 367000))
-;;; Generated autoloads from scala-mode2/scala-mode2.el
-
-(autoload 'scala-mode "scala-mode2/scala-mode2" "\
-Major mode for editing scala code.
-
-When started, runs `scala-mode-hook'.
-
-\\{scala-mode-map}
-
-\(fn)" t nil)
+(add-hook 'slime-load-hook 'slime-repl-init)
 
 ;;;***
 
@@ -11645,6 +11641,20 @@ For example, the function `case' has an indent property
 
 ;;;***
 
+;;;### (autoloads (sml/setup) "smart-mode-line/smart-mode-line" "smart-mode-line/smart-mode-line.el"
+;;;;;;  (20878 20571 282864 7000))
+;;; Generated autoloads from smart-mode-line/smart-mode-line.el
+
+(autoload 'sml/setup "smart-mode-line/smart-mode-line" "\
+Setup the mode-line, or revert it.
+
+If argument is a non-positive integer, revert any changes made.
+Otherwise, setup the mode-line.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
 ;;;### (autoloads (smex-initialize smex) "smex/smex" "smex/smex.el"
 ;;;;;;  (20732 440 545183 806000))
 ;;; Generated autoloads from smex/smex.el
@@ -11708,36 +11718,6 @@ See `undo-tree-mode' for more information on Undo-Tree mode.
 
 ;;;***
 
-;;;### (autoloads (wgrep-ack-setup wgrep-ack-and-a-half-setup) "wgrep-ack/wgrep-ack"
-;;;;;;  "wgrep-ack/wgrep-ack.el" (20786 40033 446622 84000))
-;;; Generated autoloads from wgrep-ack/wgrep-ack.el
-
-(autoload 'wgrep-ack-and-a-half-setup "wgrep-ack/wgrep-ack" "\
-
-
-\(fn)" nil nil)
-
-(autoload 'wgrep-ack-setup "wgrep-ack/wgrep-ack" "\
-
-
-\(fn)" nil nil)
-(add-hook 'ack-and-a-half-mode-hook 'wgrep-ack-and-a-half-setup)
-(add-hook 'ack-mode-hook 'wgrep-ack-setup)
-
-;;;***
-
-;;;### (autoloads (wgrep-helm-setup) "wgrep-helm/wgrep-helm" "wgrep-helm/wgrep-helm.el"
-;;;;;;  (20786 40038 234798 232000))
-;;; Generated autoloads from wgrep-helm/wgrep-helm.el
-
-(autoload 'wgrep-helm-setup "wgrep-helm/wgrep-helm" "\
-
-
-\(fn)" nil nil)
-(add-hook 'helm-grep-mode-hook 'wgrep-helm-setup)
-
-;;;***
-
 ;;;### (autoloads (wrap-region-global-mode turn-off-wrap-region-mode
 ;;;;;;  turn-on-wrap-region-mode wrap-region-mode) "wrap-region/wrap-region"
 ;;;;;;  "wrap-region/wrap-region.el" (20731 64687 633322 919000))
@@ -11781,22 +11761,6 @@ See `wrap-region-mode' for more information on Wrap-Region mode.
 
 ;;;***
 
-;;;### (autoloads (yenc-extract-filename yenc-decode-region) "nognus/lisp/yenc"
-;;;;;;  "nognus/lisp/yenc.el" (20731 65174 128496 198000))
-;;; Generated autoloads from nognus/lisp/yenc.el
-
-(autoload 'yenc-decode-region "nognus/lisp/yenc" "\
-Yenc decode region between START and END using an internal decoder.
-
-\(fn START END)" t nil)
-
-(autoload 'yenc-extract-filename "nognus/lisp/yenc" "\
-Extract file name from an yenc header.
-
-\(fn)" nil nil)
-
-;;;***
-
 ;;;### (autoloads (yaml-mode yaml) "yaml-mode/yaml-mode" "yaml-mode/yaml-mode.el"
 ;;;;;;  (20732 442 653292 919000))
 ;;; Generated autoloads from yaml-mode/yaml-mode.el
@@ -11814,72 +11778,257 @@ Simple mode to edit YAML.
 
 ;;;***
 
-;;;### (autoloads (yas/global-mode yas/minor-mode) "yasnippet-update/yasnippet"
-;;;;;;  "yasnippet-update/yasnippet.el" (20732 463 350373 416000))
-;;; Generated autoloads from yasnippet-update/yasnippet.el
+;;;### (autoloads (yas-global-mode yas-minor-mode) "yasnippet/yasnippet"
+;;;;;;  "yasnippet/yasnippet.el" (20874 51907 690746 541000))
+;;; Generated autoloads from yasnippet/yasnippet.el
 
-(autoload 'yas/minor-mode "yasnippet-update/yasnippet" "\
+(autoload 'yas-minor-mode "yasnippet/yasnippet" "\
 Toggle YASnippet mode.
 
-When YASnippet mode is enabled, the `yas/trigger-key' key expands
-snippets of code depending on the mode.
+When YASnippet mode is enabled, `yas-expand', normally bound to
+the TAB key, expands snippets of code depending on the major
+mode.
 
 With no argument, this command toggles the mode.
 positive prefix argument turns on the mode.
 Negative prefix argument turns off the mode.
 
-You can customize the key through `yas/trigger-key'.
-
 Key bindings:
-\\{yas/minor-mode-map}
+\\{yas-minor-mode-map}
 
 \(fn &optional ARG)" t nil)
 
-(defvar yas/global-mode nil "\
-Non-nil if Yas/Global mode is enabled.
-See the command `yas/global-mode' for a description of this minor mode.
+(defvar yas-global-mode nil "\
+Non-nil if Yas-Global mode is enabled.
+See the command `yas-global-mode' for a description of this minor mode.
 Setting this variable directly does not take effect;
 either customize it (see the info node `Easy Customization')
-or call the function `yas/global-mode'.")
+or call the function `yas-global-mode'.")
 
-(custom-autoload 'yas/global-mode "yasnippet-update/yasnippet" nil)
+(custom-autoload 'yas-global-mode "yasnippet/yasnippet" nil)
 
-(autoload 'yas/global-mode "yasnippet-update/yasnippet" "\
-Toggle Yas/Minor mode in all buffers.
-With prefix ARG, enable Yas/Global mode if ARG is positive;
+(autoload 'yas-global-mode "yasnippet/yasnippet" "\
+Toggle Yas minor mode in all buffers.
+With prefix ARG, enable Yas-Global mode if ARG is positive;
 otherwise, disable it.  If called from Lisp, enable the mode if
 ARG is omitted or nil.
 
-Yas/Minor mode is enabled in all buffers where
-`yas/minor-mode-on' would do it.
-See `yas/minor-mode' for more information on Yas/Minor mode.
+Yas minor mode is enabled in all buffers where
+`yas-minor-mode-on' would do it.
+See `yas-minor-mode' for more information on Yas minor mode.
 
 \(fn &optional ARG)" t nil)
 
 ;;;***
 
-;;;### (autoloads nil nil ("ack-and-a-half/ack-and-a-half-autoloads.el"
-;;;;;;  "ack-and-a-half/ack-and-a-half-pkg.el" "anything/90anything-complete.el"
+;;;### (autoloads nil nil ("ac-R/ac-R.el" "ac-dabbrev/ac-dabbrev.el"
+;;;;;;  "ac-python/ac-python.el" "anything/90anything-complete.el"
 ;;;;;;  "anything/contrib/anything-grep.el" "anything/contrib/anything-ipa.el"
 ;;;;;;  "anything/contrib/anything-menu.el" "anything/contrib/anything-migemo.el"
 ;;;;;;  "anything/contrib/anything-multi-sources.el" "anything/contrib/anything-startup.el"
 ;;;;;;  "anything/extensions/anything-complete.el" "anything/extensions/anything-gtags.el"
 ;;;;;;  "anything/extensions/anything-obsolete.el" "anything/extensions/anything-show-completion.el"
+;;;;;;  "auto-complete-chunk/auto-complete-chunk.el" "auto-complete-chunk/test-auto-complete-chunk.el"
+;;;;;;  "auto-complete-clang/auto-complete-clang.el" "auto-complete-css/auto-complete-css.el"
+;;;;;;  "auto-complete-emacs-lisp/auto-complete-emacs-lisp.el" "auto-complete-etags/auto-complete-etags.el"
+;;;;;;  "auto-complete-extension/auto-complete-extension.el" "auto-complete-latex/auto-complete-latex.el"
+;;;;;;  "auto-complete-rst/auto-complete-rst.el" "auto-complete-ruby/auto-complete-ruby.el"
+;;;;;;  "auto-complete-yasnippet/auto-complete-yasnippet.el" "auto-complete/auto-complete-config.el"
+;;;;;;  "auto-complete/auto-complete-pkg.el" "auto-pair-plus/auto-pair+.el"
+;;;;;;  "autopair/autopair-tests.el" "camelcase-mode/camelCase-mode.el"
+;;;;;;  "cedet/cedet-build.el" "cedet/cedet-devel-load.el" "cedet/cedet-ediff.el"
+;;;;;;  "cedet/cedet-emacs-merge.el" "cedet/cedet-remove-builtin.el"
+;;;;;;  "cedet/cedet-update-changelog.el" "cedet/cedet-update-version.el"
+;;;;;;  "color-theme/color-theme-autoloads.el" "css-mode/css-mode-autoloads.el"
+;;;;;;  "css-mode/css-mode-pkg.el" "ctable/ctable.el" "ctable/test-ctable.el"
+;;;;;;  "ctags-update/ctags-update-autoloads.el" "ctags-update/ctags-update-pkg.el"
+;;;;;;  "dash/dash.el" "deferred/concurrent-sample.el" "deferred/concurrent.el"
+;;;;;;  "deferred/deferred-samples.el" "deferred/deferred.el" "deferred/test-concurrent.el"
+;;;;;;  "deferred/test-deferred.el" "dired-details/dired-details.el"
+;;;;;;  "ein/lisp/debug-ein.el" "ein/lisp/ein-ac.el" "ein/lisp/ein-cell.el"
+;;;;;;  "ein/lisp/ein-completer.el" "ein/lisp/ein-core.el" "ein/lisp/ein-events.el"
+;;;;;;  "ein/lisp/ein-kernelinfo.el" "ein/lisp/ein-kill-ring.el"
+;;;;;;  "ein/lisp/ein-loaddefs.el" "ein/lisp/ein-log.el" "ein/lisp/ein-multilang-fontify.el"
+;;;;;;  "ein/lisp/ein-mumamo.el" "ein/lisp/ein-node.el" "ein/lisp/ein-notification.el"
+;;;;;;  "ein/lisp/ein-output-area.el" "ein/lisp/ein-pager.el" "ein/lisp/ein-pkg.el"
+;;;;;;  "ein/lisp/ein-python.el" "ein/lisp/ein-pytools.el" "ein/lisp/ein-query.el"
+;;;;;;  "ein/lisp/ein-scratchsheet.el" "ein/lisp/ein-smartrep.el"
+;;;;;;  "ein/lisp/ein-subpackages.el" "ein/lisp/ein-utils.el" "ein/lisp/ein-websocket.el"
+;;;;;;  "ein/lisp/ein-worksheet.el" "ein/lisp/ein.el" "ein/lisp/zeroein.el"
+;;;;;;  "el-get/el-get-autoloads.el" "el-get/el-get-build.el" "el-get/el-get-byte-compile.el"
+;;;;;;  "el-get/el-get-core.el" "el-get/el-get-custom.el" "el-get/el-get-dependencies.el"
+;;;;;;  "el-get/el-get-install.el" "el-get/el-get-methods.el" "el-get/el-get-notify.el"
+;;;;;;  "el-get/el-get-recipes.el" "el-get/el-get-status.el" "epc/epc.el"
+;;;;;;  "epc/epcs.el" "epc/test-epc.el" "ess/lisp/ess-arc-d.el" "ess/lisp/ess-bugs-d.el"
+;;;;;;  "ess/lisp/ess-bugs-l.el" "ess/lisp/ess-comp.el" "ess/lisp/ess-compat.el"
+;;;;;;  "ess/lisp/ess-custom.el" "ess/lisp/ess-dde.el" "ess/lisp/ess-debug.el"
+;;;;;;  "ess/lisp/ess-developer.el" "ess/lisp/ess-eldoc.el" "ess/lisp/ess-font-lock.el"
+;;;;;;  "ess/lisp/ess-help.el" "ess/lisp/ess-inf.el" "ess/lisp/ess-install.el"
+;;;;;;  "ess/lisp/ess-jags-d.el" "ess/lisp/ess-lsp-l.el" "ess/lisp/ess-menu.el"
+;;;;;;  "ess/lisp/ess-mode.el" "ess/lisp/ess-mouse.el" "ess/lisp/ess-noweb-font-lock-mode.el"
+;;;;;;  "ess/lisp/ess-noweb-mode.el" "ess/lisp/ess-noweb.el" "ess/lisp/ess-omg-d.el"
+;;;;;;  "ess/lisp/ess-omg-l.el" "ess/lisp/ess-r-a.el" "ess/lisp/ess-r-args.el"
+;;;;;;  "ess/lisp/ess-r-d.el" "ess/lisp/ess-r-gui.el" "ess/lisp/ess-rdired.el"
+;;;;;;  "ess/lisp/ess-roxy.el" "ess/lisp/ess-rutils.el" "ess/lisp/ess-s-l.el"
+;;;;;;  "ess/lisp/ess-s3-d.el" "ess/lisp/ess-s4-d.el" "ess/lisp/ess-sas-a.el"
+;;;;;;  "ess/lisp/ess-sas-d.el" "ess/lisp/ess-sas-l.el" "ess/lisp/ess-send.el"
+;;;;;;  "ess/lisp/ess-send2.el" "ess/lisp/ess-site.el" "ess/lisp/ess-sp3-d.el"
+;;;;;;  "ess/lisp/ess-sp4-d.el" "ess/lisp/ess-sp5-d.el" "ess/lisp/ess-sp6-d.el"
+;;;;;;  "ess/lisp/ess-sp6w-d.el" "ess/lisp/ess-sta-d.el" "ess/lisp/ess-sta-l.el"
+;;;;;;  "ess/lisp/ess-stan-d.el" "ess/lisp/ess-swv.el" "ess/lisp/ess-toolbar.el"
+;;;;;;  "ess/lisp/ess-tracebug.el" "ess/lisp/ess-trns.el" "ess/lisp/ess-utils.el"
+;;;;;;  "ess/lisp/ess-vst-d.el" "ess/lisp/ess-xls-d.el" "ess/lisp/ess.el"
+;;;;;;  "ess/lisp/essd-els.el" "ess/lisp/make-regexp.el" "ess/lisp/msdos.el"
 ;;;;;;  "expand-region/cc-mode-expansions.el" "expand-region/clojure-mode-expansions.el"
 ;;;;;;  "expand-region/cperl-mode-expansions.el" "expand-region/css-mode-expansions.el"
-;;;;;;  "expand-region/erlang-mode-expansions.el" "expand-region/expand-region-core.el"
-;;;;;;  "expand-region/expand-region-pkg.el" "expand-region/feature-mode-expansions.el"
-;;;;;;  "expand-region/html-mode-expansions.el" "expand-region/js-mode-expansions.el"
-;;;;;;  "expand-region/js2-mode-expansions.el" "expand-region/jsp-expansions.el"
-;;;;;;  "expand-region/latex-mode-expansions.el" "expand-region/nxml-mode-expansions.el"
-;;;;;;  "expand-region/octave-expansions.el" "expand-region/org-mode-expansions.el"
-;;;;;;  "expand-region/python-el-expansions.el" "expand-region/python-el-fgallina-expansions.el"
-;;;;;;  "expand-region/python-mode-expansions.el" "expand-region/ruby-mode-expansions.el"
+;;;;;;  "expand-region/er-basic-expansions.el" "expand-region/erlang-mode-expansions.el"
+;;;;;;  "expand-region/expand-region-core.el" "expand-region/expand-region-pkg.el"
+;;;;;;  "expand-region/feature-mode-expansions.el" "expand-region/html-mode-expansions.el"
+;;;;;;  "expand-region/js-mode-expansions.el" "expand-region/js2-mode-expansions.el"
+;;;;;;  "expand-region/jsp-expansions.el" "expand-region/latex-mode-expansions.el"
+;;;;;;  "expand-region/nxml-mode-expansions.el" "expand-region/octave-expansions.el"
+;;;;;;  "expand-region/org-mode-expansions.el" "expand-region/python-el-expansions.el"
+;;;;;;  "expand-region/python-el-fgallina-expansions.el" "expand-region/python-mode-expansions.el"
+;;;;;;  "expand-region/ruby-mode-expansions.el" "expand-region/sml-mode-expansions.el"
 ;;;;;;  "expand-region/text-mode-expansions.el" "expand-region/web-mode-expansions.el"
-;;;;;;  "smart-forward/smart-forward-autoloads.el" "smart-forward/smart-forward-pkg.el"
-;;;;;;  "smart-forward/smart-forward.el" "wgrep-ack/wgrep-ack-autoloads.el"
-;;;;;;  "wgrep-ack/wgrep-ack-pkg.el" "wgrep-helm/wgrep-helm-autoloads.el"
-;;;;;;  "wgrep-helm/wgrep-helm-pkg.el") (20787 29000 408670 67000))
+;;;;;;  "filladapt/filladapt.el" "flymake-easy/flymake-easy.el" "flymake-point/flymake-point.el"
+;;;;;;  "fringe-helper/fringe-helper.el" "fuzzy/fuzzy.el" "git-emacs/git--test.el"
+;;;;;;  "git-emacs/git-emacs-autoloads.el" "git-emacs/git-emacs.el"
+;;;;;;  "git-emacs/git-global-keys.el" "git-emacs/git-log.el" "git-emacs/git-modeline.el"
+;;;;;;  "git-emacs/git-status.el" "git-gutter-fringe/git-gutter-fringe.el"
+;;;;;;  "git-gutter/test-git-gutter.el" "gnus/lisp/compface.el" "gnus/lisp/dgnushack.el"
+;;;;;;  "gnus/lisp/dns.el" "gnus/lisp/format-spec.el" "gnus/lisp/gnus-async.el"
+;;;;;;  "gnus/lisp/gnus-bcklg.el" "gnus/lisp/gnus-cite.el" "gnus/lisp/gnus-compat.el"
+;;;;;;  "gnus/lisp/gnus-cus.el" "gnus/lisp/gnus-demon.el" "gnus/lisp/gnus-dup.el"
+;;;;;;  "gnus/lisp/gnus-eform.el" "gnus/lisp/gnus-ems.el" "gnus/lisp/gnus-int.el"
+;;;;;;  "gnus/lisp/gnus-load.el" "gnus/lisp/gnus-logic.el" "gnus/lisp/gnus-mh.el"
+;;;;;;  "gnus/lisp/gnus-salt.el" "gnus/lisp/gnus-score.el" "gnus/lisp/gnus-setup.el"
+;;;;;;  "gnus/lisp/gnus-srvr.el" "gnus/lisp/gnus-topic.el" "gnus/lisp/gnus-undo.el"
+;;;;;;  "gnus/lisp/gnus-util.el" "gnus/lisp/gnus-uu.el" "gnus/lisp/gnus-vm.el"
+;;;;;;  "gnus/lisp/gnus-xmas.el" "gnus/lisp/gssapi.el" "gnus/lisp/hex-util.el"
+;;;;;;  "gnus/lisp/hmac-def.el" "gnus/lisp/hmac-md5.el" "gnus/lisp/ietf-drums.el"
+;;;;;;  "gnus/lisp/legacy-gnus-agent.el" "gnus/lisp/lpath.el" "gnus/lisp/mail-parse.el"
+;;;;;;  "gnus/lisp/mail-prsvr.el" "gnus/lisp/mail-source.el" "gnus/lisp/mailcap.el"
+;;;;;;  "gnus/lisp/md4.el" "gnus/lisp/messagexmas.el" "gnus/lisp/messcompat.el"
+;;;;;;  "gnus/lisp/mm-archive.el" "gnus/lisp/mm-bodies.el" "gnus/lisp/mm-decode.el"
+;;;;;;  "gnus/lisp/mm-util.el" "gnus/lisp/mm-view.el" "gnus/lisp/mml-sec.el"
+;;;;;;  "gnus/lisp/mml-smime.el" "gnus/lisp/nnagent.el" "gnus/lisp/nnbabyl.el"
+;;;;;;  "gnus/lisp/nndir.el" "gnus/lisp/nndraft.el" "gnus/lisp/nneething.el"
+;;;;;;  "gnus/lisp/nngateway.el" "gnus/lisp/nnheader.el" "gnus/lisp/nnheaderxm.el"
+;;;;;;  "gnus/lisp/nnimap.el" "gnus/lisp/nnir.el" "gnus/lisp/nnmail.el"
+;;;;;;  "gnus/lisp/nnmaildir.el" "gnus/lisp/nnmairix.el" "gnus/lisp/nnmbox.el"
+;;;;;;  "gnus/lisp/nnmh.el" "gnus/lisp/nnnil.el" "gnus/lisp/nnoo.el"
+;;;;;;  "gnus/lisp/nnregistry.el" "gnus/lisp/nnrss.el" "gnus/lisp/nnspool.el"
+;;;;;;  "gnus/lisp/nntp.el" "gnus/lisp/nnvirtual.el" "gnus/lisp/nnweb.el"
+;;;;;;  "gnus/lisp/ntlm.el" "gnus/lisp/registry.el" "gnus/lisp/rfc1843.el"
+;;;;;;  "gnus/lisp/rfc2045.el" "gnus/lisp/rfc2047.el" "gnus/lisp/rfc2104.el"
+;;;;;;  "gnus/lisp/rfc2231.el" "gnus/lisp/rtree.el" "gnus/lisp/sasl-cram.el"
+;;;;;;  "gnus/lisp/sasl-digest.el" "gnus/lisp/sasl-ntlm.el" "gnus/lisp/sasl.el"
+;;;;;;  "gnus/lisp/shr-color.el" "gnus/lisp/sieve-manage.el" "gnus/lisp/smime-ldap.el"
+;;;;;;  "gnus/lisp/smime.el" "gnus/lisp/spam-stat.el" "gnus/lisp/spam-wash.el"
+;;;;;;  "gnus/lisp/tls.el" "google-contacts/google-contacts-gnus.el"
+;;;;;;  "google-contacts/google-contacts-message.el" "haskell-mode/haskell-checkers.el"
+;;;;;;  "haskell-mode/haskell-font-lock.el" "haskell-mode/haskell-ghci.el"
+;;;;;;  "haskell-mode/haskell-hugs.el" "haskell-mode/haskell-package.el"
+;;;;;;  "haskell-mode/haskell-simple-indent.el" "haskell-mode/haskell-site-file.el"
+;;;;;;  "helm/helm-aliases.el" "helm/helm-pkg.el" "helm/helm-plugin.el"
+;;;;;;  "ido-ubiquitous/ido-ubiquitous-autoloads.el" "ido-ubiquitous/ido-ubiquitous-pkg.el"
+;;;;;;  "jedi/test-jedi.el" "jedi/tryout-jedi.el" "json-mode/json-mode-autoloads.el"
+;;;;;;  "json-mode/json-mode-pkg.el" "json/json.el" "lintnode/flymake-jslint.el"
+;;;;;;  "magit/50magit.el" "magit/magit-bisect.el" "magit/magit-key-mode.el"
+;;;;;;  "magit/magit-pkg.el" "monokai-theme/monokai-theme-autoloads.el"
+;;;;;;  "monokai-theme/monokai-theme-pkg.el" "multi-web-mode/mweb-example-config.el"
+;;;;;;  "multiple-cursors/mc-cycle-cursors.el" "multiple-cursors/multiple-cursors-core.el"
+;;;;;;  "multiple-cursors/multiple-cursors-pkg.el" "multiple-cursors/multiple-cursors.el"
+;;;;;;  "nxhtml/autostart.el" "nxhtml/autostart22.el" "nxhtml/nxhtml-base.el"
+;;;;;;  "nxhtml/nxhtml-loaddefs.el" "nxhtml/web-autoload.el" "oauth2/oauth2-autoloads.el"
+;;;;;;  "oauth2/oauth2-pkg.el" "org-caldav/org-caldav-testsuite.el"
+;;;;;;  "org-mode/contrib/lisp/ob-eukleides.el" "org-mode/contrib/lisp/ob-fomus.el"
+;;;;;;  "org-mode/contrib/lisp/ob-julia.el" "org-mode/contrib/lisp/ob-mathomatic.el"
+;;;;;;  "org-mode/contrib/lisp/ob-oz.el" "org-mode/contrib/lisp/ob-tcl.el"
+;;;;;;  "org-mode/contrib/lisp/org-annotate-file.el" "org-mode/contrib/lisp/org-bibtex-extras.el"
+;;;;;;  "org-mode/contrib/lisp/org-bookmark.el" "org-mode/contrib/lisp/org-checklist.el"
+;;;;;;  "org-mode/contrib/lisp/org-choose.el" "org-mode/contrib/lisp/org-collector.el"
+;;;;;;  "org-mode/contrib/lisp/org-colview-xemacs.el" "org-mode/contrib/lisp/org-contribdir.el"
+;;;;;;  "org-mode/contrib/lisp/org-depend.el" "org-mode/contrib/lisp/org-drill.el"
+;;;;;;  "org-mode/contrib/lisp/org-elisp-symbol.el" "org-mode/contrib/lisp/org-eval-light.el"
+;;;;;;  "org-mode/contrib/lisp/org-eval.el" "org-mode/contrib/lisp/org-expiry.el"
+;;;;;;  "org-mode/contrib/lisp/org-favtable.el" "org-mode/contrib/lisp/org-git-link.el"
+;;;;;;  "org-mode/contrib/lisp/org-interactive-query.el" "org-mode/contrib/lisp/org-invoice.el"
+;;;;;;  "org-mode/contrib/lisp/org-jira.el" "org-mode/contrib/lisp/org-learn.el"
+;;;;;;  "org-mode/contrib/lisp/org-mac-iCal.el" "org-mode/contrib/lisp/org-mac-link-grabber.el"
+;;;;;;  "org-mode/contrib/lisp/org-mac-message.el" "org-mode/contrib/lisp/org-mairix.el"
+;;;;;;  "org-mode/contrib/lisp/org-man.el" "org-mode/contrib/lisp/org-mew.el"
+;;;;;;  "org-mode/contrib/lisp/org-mime.el" "org-mode/contrib/lisp/org-mtags.el"
+;;;;;;  "org-mode/contrib/lisp/org-notify.el" "org-mode/contrib/lisp/org-notmuch.el"
+;;;;;;  "org-mode/contrib/lisp/org-panel.el" "org-mode/contrib/lisp/org-screen.el"
+;;;;;;  "org-mode/contrib/lisp/org-secretary.el" "org-mode/contrib/lisp/org-static-mathjax.el"
+;;;;;;  "org-mode/contrib/lisp/org-sudoku.el" "org-mode/contrib/lisp/org-velocity.el"
+;;;;;;  "org-mode/contrib/lisp/org-vm.el" "org-mode/contrib/lisp/org-wikinodes.el"
+;;;;;;  "org-mode/contrib/lisp/org-wl.el" "org-mode/contrib/lisp/orgtbl-sqlinsert.el"
+;;;;;;  "org-mode/contrib/lisp/ox-confluence.el" "org-mode/contrib/lisp/ox-deck.el"
+;;;;;;  "org-mode/contrib/lisp/ox-groff.el" "org-mode/contrib/lisp/ox-s5.el"
+;;;;;;  "org-mode/lisp/ob-C.el" "org-mode/lisp/ob-R.el" "org-mode/lisp/ob-asymptote.el"
+;;;;;;  "org-mode/lisp/ob-awk.el" "org-mode/lisp/ob-calc.el" "org-mode/lisp/ob-clojure.el"
+;;;;;;  "org-mode/lisp/ob-comint.el" "org-mode/lisp/ob-core.el" "org-mode/lisp/ob-css.el"
+;;;;;;  "org-mode/lisp/ob-ditaa.el" "org-mode/lisp/ob-dot.el" "org-mode/lisp/ob-emacs-lisp.el"
+;;;;;;  "org-mode/lisp/ob-eval.el" "org-mode/lisp/ob-exp.el" "org-mode/lisp/ob-fortran.el"
+;;;;;;  "org-mode/lisp/ob-gnuplot.el" "org-mode/lisp/ob-haskell.el"
+;;;;;;  "org-mode/lisp/ob-io.el" "org-mode/lisp/ob-java.el" "org-mode/lisp/ob-js.el"
+;;;;;;  "org-mode/lisp/ob-keys.el" "org-mode/lisp/ob-latex.el" "org-mode/lisp/ob-ledger.el"
+;;;;;;  "org-mode/lisp/ob-lilypond.el" "org-mode/lisp/ob-lisp.el"
+;;;;;;  "org-mode/lisp/ob-lob.el" "org-mode/lisp/ob-makefile.el"
+;;;;;;  "org-mode/lisp/ob-matlab.el" "org-mode/lisp/ob-maxima.el"
+;;;;;;  "org-mode/lisp/ob-mscgen.el" "org-mode/lisp/ob-ocaml.el"
+;;;;;;  "org-mode/lisp/ob-octave.el" "org-mode/lisp/ob-org.el" "org-mode/lisp/ob-perl.el"
+;;;;;;  "org-mode/lisp/ob-picolisp.el" "org-mode/lisp/ob-plantuml.el"
+;;;;;;  "org-mode/lisp/ob-python.el" "org-mode/lisp/ob-ref.el" "org-mode/lisp/ob-ruby.el"
+;;;;;;  "org-mode/lisp/ob-sass.el" "org-mode/lisp/ob-scala.el" "org-mode/lisp/ob-scheme.el"
+;;;;;;  "org-mode/lisp/ob-screen.el" "org-mode/lisp/ob-sh.el" "org-mode/lisp/ob-shen.el"
+;;;;;;  "org-mode/lisp/ob-sql.el" "org-mode/lisp/ob-sqlite.el" "org-mode/lisp/ob-table.el"
+;;;;;;  "org-mode/lisp/ob-tangle.el" "org-mode/lisp/ob.el" "org-mode/lisp/org-archive.el"
+;;;;;;  "org-mode/lisp/org-attach.el" "org-mode/lisp/org-bbdb.el"
+;;;;;;  "org-mode/lisp/org-bibtex.el" "org-mode/lisp/org-clock.el"
+;;;;;;  "org-mode/lisp/org-crypt.el" "org-mode/lisp/org-ctags.el"
+;;;;;;  "org-mode/lisp/org-datetree.el" "org-mode/lisp/org-docview.el"
+;;;;;;  "org-mode/lisp/org-element.el" "org-mode/lisp/org-entities.el"
+;;;;;;  "org-mode/lisp/org-eshell.el" "org-mode/lisp/org-faces.el"
+;;;;;;  "org-mode/lisp/org-feed.el" "org-mode/lisp/org-footnote.el"
+;;;;;;  "org-mode/lisp/org-gnus.el" "org-mode/lisp/org-habit.el"
+;;;;;;  "org-mode/lisp/org-id.el" "org-mode/lisp/org-indent.el" "org-mode/lisp/org-info.el"
+;;;;;;  "org-mode/lisp/org-inlinetask.el" "org-mode/lisp/org-install.el"
+;;;;;;  "org-mode/lisp/org-irc.el" "org-mode/lisp/org-list.el" "org-mode/lisp/org-loaddefs.el"
+;;;;;;  "org-mode/lisp/org-macro.el" "org-mode/lisp/org-mhe.el" "org-mode/lisp/org-mobile.el"
+;;;;;;  "org-mode/lisp/org-mouse.el" "org-mode/lisp/org-pcomplete.el"
+;;;;;;  "org-mode/lisp/org-plot.el" "org-mode/lisp/org-protocol.el"
+;;;;;;  "org-mode/lisp/org-rmail.el" "org-mode/lisp/org-src.el" "org-mode/lisp/org-table.el"
+;;;;;;  "org-mode/lisp/org-timer.el" "org-mode/lisp/org-w3m.el" "org-mode/lisp/ox-ascii.el"
+;;;;;;  "org-mode/lisp/ox-beamer.el" "org-mode/lisp/ox-html.el" "org-mode/lisp/ox-icalendar.el"
+;;;;;;  "org-mode/lisp/ox-latex.el" "org-mode/lisp/ox-man.el" "org-mode/lisp/ox-md.el"
+;;;;;;  "org-mode/lisp/ox-odt.el" "org-mode/lisp/ox-org.el" "org-mode/lisp/ox-publish.el"
+;;;;;;  "org-mode/lisp/ox-texinfo.el" "org-mode/lisp/ox.el" "org-s5/org-export-as-s5.el"
+;;;;;;  "org-sync/omd.el" "org-sync/os-bb.el" "org-sync/os-github.el"
+;;;;;;  "org-sync/os-rmine.el" "org-sync/os-rtm.el" "org-sync/os.el"
+;;;;;;  "popup/popup.el" "powerline/powerline.el" "profile-dotemacs/profile-dotemacs.el"
+;;;;;;  "rainbow-mode/rainbow-mode-autoloads.el" "rainbow-mode/rainbow-mode-pkg.el"
+;;;;;;  "request/request-deferred.el" "request/request.el" "rhtml-mode/rhtml-erb.el"
+;;;;;;  "rhtml-mode/rhtml-fonts.el" "rhtml-mode/rhtml-navigation.el"
+;;;;;;  "rhtml-mode/rhtml-ruby-hook.el" "rhtml-mode/rhtml-sgml-hacks.el"
+;;;;;;  "rinari/util/jump/findr.el" "rinari/util/ruby-compilation-rspec.el"
+;;;;;;  "rspec-mode/rspec-mode-expectations.el" "ruby-compilation/ruby-compilation-autoloads.el"
+;;;;;;  "ruby-compilation/ruby-compilation-pkg.el" "scala-mode/scala-mode-auto.el"
+;;;;;;  "scala-mode/scala-mode-constants.el" "scala-mode/scala-mode-feature-electric.el"
+;;;;;;  "scala-mode/scala-mode-feature-speedbar.el" "scala-mode/scala-mode-feature-tags.el"
+;;;;;;  "scala-mode/scala-mode-feature.el" "scala-mode/scala-mode-fontlock.el"
+;;;;;;  "scala-mode/scala-mode-indent.el" "scala-mode/scala-mode-lib.el"
+;;;;;;  "scala-mode/scala-mode-navigation.el" "scala-mode/scala-mode-ui.el"
+;;;;;;  "scala-mode/scala-mode-variables.el" "slime-clj/slime-clj-autoloads.el"
+;;;;;;  "slime-clj/slime-clj-pkg.el" "slime-repl/slime-repl-autoloads.el"
+;;;;;;  "slime-repl/slime-repl-pkg.el" "smart-forward/smart-forward-autoloads.el"
+;;;;;;  "smart-forward/smart-forward-pkg.el" "smart-forward/smart-forward.el"
+;;;;;;  "smart-mode-line/smart-mode-line-autoloads.el" "smart-mode-line/smart-mode-line-pkg.el"
+;;;;;;  "tern/emacs/tern.el" "yasnippet/yasnippet-debug.el" "yasnippet/yasnippet-tests.el")
+;;;;;;  (20878 29512 369389 224000))
 
 ;;;***
 
