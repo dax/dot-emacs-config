@@ -1320,7 +1320,7 @@ i.e anything-match-plugin.
 ;;;***
 
 ;;;### (autoloads (ctags-update-minor-mode ctags-update) "ctags-update/ctags-update"
-;;;;;;  "ctags-update/ctags-update.el" (20875 41137 144518 389000))
+;;;;;;  "ctags-update/ctags-update.el" (20878 37154 199982 339000))
 ;;; Generated autoloads from ctags-update/ctags-update.el
 
 (autoload 'ctags-update "ctags-update/ctags-update" "\
@@ -1445,6 +1445,36 @@ Key to use after an initial expand/contract to undo.")
 List of modes which derive from `text-mode' for which text mode expansions are not appropriate.")
 
 (custom-autoload 'expand-region-exclude-text-mode-expansions "expand-region/expand-region-custom" t)
+
+;;;***
+
+;;;### (autoloads (find-file-in-project) "find-file-in-project/find-file-in-project"
+;;;;;;  "find-file-in-project/find-file-in-project.el" (20878 33017
+;;;;;;  896660 607000))
+;;; Generated autoloads from find-file-in-project/find-file-in-project.el
+
+(autoload 'find-file-in-project "find-file-in-project/find-file-in-project" "\
+Prompt with a completing list of all files in the project to find one.
+
+The project's scope is defined as the first directory containing
+an `.emacs-project' file.  You can override this by locally
+setting the variable `ffip-project-root'.
+
+\(fn)" t nil)
+
+(defalias 'ffip 'find-file-in-project)
+
+(put 'ffip-patterns 'safe-local-variable 'listp)
+
+(put 'ffip-find-options 'safe-local-variable 'stringp)
+
+(put 'ffip-project-file 'safe-local-variable 'stringp)
+
+(put 'ffip-project-root 'safe-local-variable 'stringp)
+
+(put 'ffip-project-root-function 'safe-local-variable 'functionp)
+
+(put 'ffip-limit 'safe-local-variable 'integerp)
 
 ;;;***
 
@@ -3597,6 +3627,22 @@ of `ruby-program-name').  Runs the hooks `inferior-ruby-mode-hook'
 (eval-after-load 'ruby-mode '(inf-ruby-setup-keybindings))
 
 (eval-after-load 'enh-ruby-mode '(inf-enh-ruby-setup-keybindings))
+
+;;;***
+
+;;;### (autoloads (pluralize-string singularize-string) "inflections/inflections"
+;;;;;;  "inflections/inflections.el" (20878 34087 294092 752000))
+;;; Generated autoloads from inflections/inflections.el
+
+(autoload 'singularize-string "inflections/inflections" "\
+
+
+\(fn STR)" nil nil)
+
+(autoload 'pluralize-string "inflections/inflections" "\
+
+
+\(fn STR)" nil nil)
 
 ;;;***
 
@@ -8667,107 +8713,6 @@ See `hl-sexp-mode' for more information on Hl-Sexp mode.
 
 ;;;***
 
-;;;### (autoloads (ido-ubiquitous-function-compatibility-exceptions
-;;;;;;  ido-ubiquitous-command-compatibility-exceptions ido-ubiquitous-function-exceptions
-;;;;;;  ido-ubiquitous-command-exceptions ido-ubiquitous-mode ido-ubiquitous)
-;;;;;;  "ido-ubiquitous/ido-ubiquitous" "ido-ubiquitous/ido-ubiquitous.el"
-;;;;;;  (20723 11643 675222 856000))
-;;; Generated autoloads from ido-ubiquitous/ido-ubiquitous.el
-
-(let ((loads (get 'ido-ubiquitous 'custom-loads))) (if (member '"ido-ubiquitous/ido-ubiquitous" loads) nil (put 'ido-ubiquitous 'custom-loads (cons '"ido-ubiquitous/ido-ubiquitous" loads))))
-
-(defvar ido-ubiquitous-mode nil "\
-Non-nil if Ido-Ubiquitous mode is enabled.
-See the command `ido-ubiquitous-mode' for a description of this minor mode.
-Setting this variable directly does not take effect;
-either customize it (see the info node `Easy Customization')
-or call the function `ido-ubiquitous-mode'.")
-
-(custom-autoload 'ido-ubiquitous-mode "ido-ubiquitous/ido-ubiquitous" nil)
-
-(autoload 'ido-ubiquitous-mode "ido-ubiquitous/ido-ubiquitous" "\
-Use `ido-completing-read' instead of `completing-read' almost everywhere.
-
-  This mode has no effect unles `ido-mode' is also enabled.
-
-  If this mode causes problems for a function, you can force the
-  function to use the original completing read by using the macro
-  `ido-ubiquitous-disable-in'. For example, if a
-  function `foo' cannot work with ido-style completion, evaluate
-  the following (for example by putting it in your .emacs file):
-
-    (ido-ubiquitous-disable-in foo)
-
-\(fn &optional ARG)" t nil)
-
-(define-obsolete-variable-alias 'ido-ubiquitous 'ido-ubiquitous-mode "0.8")
-
-(define-obsolete-function-alias 'ido-ubiquitous 'ido-ubiquitous-mode "0.8")
-
-(defvar ido-ubiquitous-command-exceptions 'nil "\
-List of commands that should not be affected by `ido-ubiquitous'.
-
-Even when `ido-ubiquitous' mode is enabled, these commands will
-continue to use `completing-read' instead of
-`ido-completing-read'.
-
-Only *interactive* commands should go here. To disable
-ido-ubiquitous in non-interactive functions, customize
-`ido-ubiquitous-function-exceptions'.
-
-Note: this feature depends on the variable `this-command' being
-properly set to the name of the currently executing command.
-Depending on how the command is onvoked, this may or may not
-happen, so this feature may simply not work in some cases.")
-
-(custom-autoload 'ido-ubiquitous-command-exceptions "ido-ubiquitous/ido-ubiquitous" t)
-
-(define-obsolete-variable-alias 'ido-ubiquitous-exceptions 'ido-ubiquitous-command-exceptions "0.4")
-
-(defvar ido-ubiquitous-function-exceptions '(grep-read-files) "\
-List of functions in which to disable ido-ubiquitous.
-
-If you need to add a function to this list, please also file a
-bug report at
-https://github.com/DarwinAwardWinner/ido-ubiquitous/issues
-
-Note that certain functions, such as `read-file-name', must
-always have ido-ubiquitous disabled, and cannot be added
-here. (They are effectively a permanent part of this list
-already.)")
-
-(custom-autoload 'ido-ubiquitous-function-exceptions "ido-ubiquitous/ido-ubiquitous" nil)
-
-(defvar ido-ubiquitous-command-compatibility-exceptions 'nil "\
-List of commands in which to disable compatibility.
-
-See `ido-ubiquitous-enable-compatibility' for a description of
-the compatibility behavior. If this behavior causes a command to
-break, add that command to this list to disable compatibility
-mode for just that command.
-
-Only *interactive* commands should go here. To disable
-compatibility mode in non-interactive functions, customize
-`ido-ubiquitous-function-compatibility-exceptions'.")
-
-(custom-autoload 'ido-ubiquitous-command-compatibility-exceptions "ido-ubiquitous/ido-ubiquitous" t)
-
-(defvar ido-ubiquitous-function-compatibility-exceptions 'nil "\
-List of functions in which to disable ido-ubiquitous compatibility mode.
-
-See `ido-ubiquitous-enable-compatibility' for a description of
-the compatibility behavior. If this behavior causes a function to
-break, add that function to this list to disable compatibility
-mode for just that command.
-
-If you need to add a function to this list, please also file a
-bug report at
-https://github.com/DarwinAwardWinner/ido-ubiquitous/issues")
-
-(custom-autoload 'ido-ubiquitous-function-compatibility-exceptions "ido-ubiquitous/ido-ubiquitous" nil)
-
-;;;***
-
 ;;;### (autoloads (lua-mode) "lua-mode/lua-mode" "lua-mode/lua-mode.el"
 ;;;;;;  (20878 23143 530033 392000))
 ;;; Generated autoloads from lua-mode/lua-mode.el
@@ -11931,45 +11876,47 @@ See `yas-minor-mode' for more information on Yas minor mode.
 ;;;;;;  "haskell-mode/haskell-font-lock.el" "haskell-mode/haskell-ghci.el"
 ;;;;;;  "haskell-mode/haskell-hugs.el" "haskell-mode/haskell-package.el"
 ;;;;;;  "haskell-mode/haskell-simple-indent.el" "haskell-mode/haskell-site-file.el"
-;;;;;;  "helm/helm-aliases.el" "helm/helm-pkg.el" "helm/helm-plugin.el"
-;;;;;;  "ido-ubiquitous/ido-ubiquitous-autoloads.el" "ido-ubiquitous/ido-ubiquitous-pkg.el"
-;;;;;;  "jedi/test-jedi.el" "jedi/tryout-jedi.el" "json-mode/json-mode-autoloads.el"
-;;;;;;  "json-mode/json-mode-pkg.el" "json/json.el" "lintnode/flymake-jslint.el"
-;;;;;;  "magit/50magit.el" "magit/magit-bisect.el" "magit/magit-key-mode.el"
-;;;;;;  "magit/magit-pkg.el" "monokai-theme/monokai-theme-autoloads.el"
-;;;;;;  "monokai-theme/monokai-theme-pkg.el" "multi-web-mode/mweb-example-config.el"
-;;;;;;  "multiple-cursors/mc-cycle-cursors.el" "multiple-cursors/multiple-cursors-core.el"
-;;;;;;  "multiple-cursors/multiple-cursors-pkg.el" "multiple-cursors/multiple-cursors.el"
-;;;;;;  "nxhtml/autostart.el" "nxhtml/autostart22.el" "nxhtml/nxhtml-base.el"
-;;;;;;  "nxhtml/nxhtml-loaddefs.el" "nxhtml/web-autoload.el" "oauth2/oauth2-autoloads.el"
-;;;;;;  "oauth2/oauth2-pkg.el" "org-caldav/org-caldav-testsuite.el"
-;;;;;;  "org-mode/contrib/lisp/ob-eukleides.el" "org-mode/contrib/lisp/ob-fomus.el"
-;;;;;;  "org-mode/contrib/lisp/ob-julia.el" "org-mode/contrib/lisp/ob-mathomatic.el"
-;;;;;;  "org-mode/contrib/lisp/ob-oz.el" "org-mode/contrib/lisp/ob-tcl.el"
-;;;;;;  "org-mode/contrib/lisp/org-annotate-file.el" "org-mode/contrib/lisp/org-bibtex-extras.el"
-;;;;;;  "org-mode/contrib/lisp/org-bookmark.el" "org-mode/contrib/lisp/org-checklist.el"
-;;;;;;  "org-mode/contrib/lisp/org-choose.el" "org-mode/contrib/lisp/org-collector.el"
-;;;;;;  "org-mode/contrib/lisp/org-colview-xemacs.el" "org-mode/contrib/lisp/org-contribdir.el"
-;;;;;;  "org-mode/contrib/lisp/org-depend.el" "org-mode/contrib/lisp/org-drill.el"
-;;;;;;  "org-mode/contrib/lisp/org-elisp-symbol.el" "org-mode/contrib/lisp/org-eval-light.el"
-;;;;;;  "org-mode/contrib/lisp/org-eval.el" "org-mode/contrib/lisp/org-expiry.el"
-;;;;;;  "org-mode/contrib/lisp/org-favtable.el" "org-mode/contrib/lisp/org-git-link.el"
-;;;;;;  "org-mode/contrib/lisp/org-interactive-query.el" "org-mode/contrib/lisp/org-invoice.el"
-;;;;;;  "org-mode/contrib/lisp/org-jira.el" "org-mode/contrib/lisp/org-learn.el"
-;;;;;;  "org-mode/contrib/lisp/org-mac-iCal.el" "org-mode/contrib/lisp/org-mac-link-grabber.el"
-;;;;;;  "org-mode/contrib/lisp/org-mac-message.el" "org-mode/contrib/lisp/org-mairix.el"
-;;;;;;  "org-mode/contrib/lisp/org-man.el" "org-mode/contrib/lisp/org-mew.el"
-;;;;;;  "org-mode/contrib/lisp/org-mime.el" "org-mode/contrib/lisp/org-mtags.el"
-;;;;;;  "org-mode/contrib/lisp/org-notify.el" "org-mode/contrib/lisp/org-notmuch.el"
-;;;;;;  "org-mode/contrib/lisp/org-panel.el" "org-mode/contrib/lisp/org-screen.el"
-;;;;;;  "org-mode/contrib/lisp/org-secretary.el" "org-mode/contrib/lisp/org-static-mathjax.el"
-;;;;;;  "org-mode/contrib/lisp/org-sudoku.el" "org-mode/contrib/lisp/org-velocity.el"
-;;;;;;  "org-mode/contrib/lisp/org-vm.el" "org-mode/contrib/lisp/org-wikinodes.el"
-;;;;;;  "org-mode/contrib/lisp/org-wl.el" "org-mode/contrib/lisp/orgtbl-sqlinsert.el"
-;;;;;;  "org-mode/contrib/lisp/ox-confluence.el" "org-mode/contrib/lisp/ox-deck.el"
-;;;;;;  "org-mode/contrib/lisp/ox-groff.el" "org-mode/contrib/lisp/ox-s5.el"
-;;;;;;  "org-mode/lisp/ob-C.el" "org-mode/lisp/ob-R.el" "org-mode/lisp/ob-asymptote.el"
-;;;;;;  "org-mode/lisp/ob-awk.el" "org-mode/lisp/ob-calc.el" "org-mode/lisp/ob-clojure.el"
+;;;;;;  "helm-rails/helm-rails-loaddefs.el" "helm-rails/helm-rails-pkg.el"
+;;;;;;  "helm-rails/helm-rails.el" "helm/helm-aliases.el" "helm/helm-pkg.el"
+;;;;;;  "helm/helm-plugin.el" "inflections/inflections-autoloads.el"
+;;;;;;  "inflections/inflections-pkg.el" "jedi/test-jedi.el" "jedi/tryout-jedi.el"
+;;;;;;  "json-mode/json-mode-autoloads.el" "json-mode/json-mode-pkg.el"
+;;;;;;  "json/json.el" "lintnode/flymake-jslint.el" "magit/50magit.el"
+;;;;;;  "magit/magit-bisect.el" "magit/magit-key-mode.el" "magit/magit-pkg.el"
+;;;;;;  "monokai-theme/monokai-theme-autoloads.el" "monokai-theme/monokai-theme-pkg.el"
+;;;;;;  "multi-web-mode/mweb-example-config.el" "multiple-cursors/mc-cycle-cursors.el"
+;;;;;;  "multiple-cursors/multiple-cursors-core.el" "multiple-cursors/multiple-cursors-pkg.el"
+;;;;;;  "multiple-cursors/multiple-cursors.el" "nxhtml/autostart.el"
+;;;;;;  "nxhtml/autostart22.el" "nxhtml/nxhtml-base.el" "nxhtml/nxhtml-loaddefs.el"
+;;;;;;  "nxhtml/web-autoload.el" "oauth2/oauth2-autoloads.el" "oauth2/oauth2-pkg.el"
+;;;;;;  "org-caldav/org-caldav-testsuite.el" "org-mode/contrib/lisp/ob-eukleides.el"
+;;;;;;  "org-mode/contrib/lisp/ob-fomus.el" "org-mode/contrib/lisp/ob-julia.el"
+;;;;;;  "org-mode/contrib/lisp/ob-mathomatic.el" "org-mode/contrib/lisp/ob-oz.el"
+;;;;;;  "org-mode/contrib/lisp/ob-tcl.el" "org-mode/contrib/lisp/org-annotate-file.el"
+;;;;;;  "org-mode/contrib/lisp/org-bibtex-extras.el" "org-mode/contrib/lisp/org-bookmark.el"
+;;;;;;  "org-mode/contrib/lisp/org-checklist.el" "org-mode/contrib/lisp/org-choose.el"
+;;;;;;  "org-mode/contrib/lisp/org-collector.el" "org-mode/contrib/lisp/org-colview-xemacs.el"
+;;;;;;  "org-mode/contrib/lisp/org-contribdir.el" "org-mode/contrib/lisp/org-depend.el"
+;;;;;;  "org-mode/contrib/lisp/org-drill.el" "org-mode/contrib/lisp/org-elisp-symbol.el"
+;;;;;;  "org-mode/contrib/lisp/org-eval-light.el" "org-mode/contrib/lisp/org-eval.el"
+;;;;;;  "org-mode/contrib/lisp/org-expiry.el" "org-mode/contrib/lisp/org-favtable.el"
+;;;;;;  "org-mode/contrib/lisp/org-git-link.el" "org-mode/contrib/lisp/org-interactive-query.el"
+;;;;;;  "org-mode/contrib/lisp/org-invoice.el" "org-mode/contrib/lisp/org-jira.el"
+;;;;;;  "org-mode/contrib/lisp/org-learn.el" "org-mode/contrib/lisp/org-mac-iCal.el"
+;;;;;;  "org-mode/contrib/lisp/org-mac-link-grabber.el" "org-mode/contrib/lisp/org-mac-message.el"
+;;;;;;  "org-mode/contrib/lisp/org-mairix.el" "org-mode/contrib/lisp/org-man.el"
+;;;;;;  "org-mode/contrib/lisp/org-mew.el" "org-mode/contrib/lisp/org-mime.el"
+;;;;;;  "org-mode/contrib/lisp/org-mtags.el" "org-mode/contrib/lisp/org-notify.el"
+;;;;;;  "org-mode/contrib/lisp/org-notmuch.el" "org-mode/contrib/lisp/org-panel.el"
+;;;;;;  "org-mode/contrib/lisp/org-screen.el" "org-mode/contrib/lisp/org-secretary.el"
+;;;;;;  "org-mode/contrib/lisp/org-static-mathjax.el" "org-mode/contrib/lisp/org-sudoku.el"
+;;;;;;  "org-mode/contrib/lisp/org-velocity.el" "org-mode/contrib/lisp/org-vm.el"
+;;;;;;  "org-mode/contrib/lisp/org-wikinodes.el" "org-mode/contrib/lisp/org-wl.el"
+;;;;;;  "org-mode/contrib/lisp/orgtbl-sqlinsert.el" "org-mode/contrib/lisp/ox-confluence.el"
+;;;;;;  "org-mode/contrib/lisp/ox-deck.el" "org-mode/contrib/lisp/ox-groff.el"
+;;;;;;  "org-mode/contrib/lisp/ox-s5.el" "org-mode/lisp/ob-C.el"
+;;;;;;  "org-mode/lisp/ob-R.el" "org-mode/lisp/ob-asymptote.el" "org-mode/lisp/ob-awk.el"
+;;;;;;  "org-mode/lisp/ob-calc.el" "org-mode/lisp/ob-clojure.el"
 ;;;;;;  "org-mode/lisp/ob-comint.el" "org-mode/lisp/ob-core.el" "org-mode/lisp/ob-css.el"
 ;;;;;;  "org-mode/lisp/ob-ditaa.el" "org-mode/lisp/ob-dot.el" "org-mode/lisp/ob-emacs-lisp.el"
 ;;;;;;  "org-mode/lisp/ob-eval.el" "org-mode/lisp/ob-exp.el" "org-mode/lisp/ob-fortran.el"
@@ -12028,7 +11975,7 @@ See `yas-minor-mode' for more information on Yas minor mode.
 ;;;;;;  "smart-forward/smart-forward-pkg.el" "smart-forward/smart-forward.el"
 ;;;;;;  "smart-mode-line/smart-mode-line-autoloads.el" "smart-mode-line/smart-mode-line-pkg.el"
 ;;;;;;  "tern/emacs/tern.el" "yasnippet/yasnippet-debug.el" "yasnippet/yasnippet-tests.el")
-;;;;;;  (20878 29512 369389 224000))
+;;;;;;  (20878 37616 848863 849000))
 
 ;;;***
 

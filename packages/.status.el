@@ -119,7 +119,8 @@
  (ctable status "installed" recipe
          (:name ctable :description "Table Component for elisp" :type github :pkgname "kiwanami/emacs-ctable"))
  (ctags-update status "installed" recipe
-               (:name ctags-update :auto-generated t :type elpa :description "auto update TAGS in parent directory using exuberant-ctags -*- coding:utf-8 -*-"))
+               (:name ctags-update :auto-generated t :type elpa :description "auto update TAGS in parent directory using exuberant-ctags -*- coding:utf-8 -*-" :repo
+                      ("marmalade" . "http://marmalade-repo.org/packages/")))
  (dash status "installed" recipe
        (:name dash :description "A modern list api for Emacs. No 'cl required." :type github :pkgname "magnars/dash.el"))
  (deferred status "installed" recipe
@@ -205,16 +206,20 @@
  (helm status "installed" recipe
        (:name helm :description "Emacs incremental and narrowing framework" :type github :pkgname "emacs-helm/helm" :features helm-config))
  (helm-ag status "removed" recipe nil)
+ (helm-rails status "installed" recipe
+             (:name helm-rails :description "Helm extension for Rails projects" :type github :pkgname "asok/helm-rails" :depends
+                    (helm magit inflections)
+                    :features helm-rails-loaddefs))
  (highlight-parentheses status "installed" recipe
                         (:name highlight-parentheses :description "Highlight the matching parentheses surrounding point." :type http :url "http://nschum.de/src/emacs/highlight-parentheses/highlight-parentheses.el" :features highlight-parentheses))
  (hl-sexp status "installed" recipe
           (:name hl-sexp :description "Highlight the current sexp" :type http :url "http://edward.oconnor.cx/elisp/hl-sexp.el" :features hl-sexp))
- (ido-ubiquitous status "installed" recipe
-                 (:name ido-ubiquitous :description "Use ido (nearly) everywhere" :type elpa))
  (ido-yes-or-no status "removed" recipe nil)
  (idomenu status "removed" recipe nil)
  (inf-ruby status "installed" recipe
            (:name inf-ruby :description "Inferior Ruby Mode - ruby process in a buffer." :type github :pkgname "danielsz/inf-ruby"))
+ (inflections status "installed" recipe
+              (:name inflections :description "Convert english words between singular and plural" :type elpa))
  (jedi status "installed" recipe
        (:name jedi :description "An awesome Python auto-completion for Emacs" :type github :pkgname "tkf/emacs-jedi" :build
               (("make" "requirements"))

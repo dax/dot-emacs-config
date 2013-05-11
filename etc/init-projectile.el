@@ -8,6 +8,7 @@
 ;; projectile-kill-buffers (C-c p k)
 ;; projectile-dired (C-c p d)
 
+(setq projectile-enable-caching t)
 (setq projectile-cache-file (concat tmp-dir "projectile.cache"))
 
 (projectile-global-mode)

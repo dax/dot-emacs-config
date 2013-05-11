@@ -92,7 +92,7 @@
 
 (require 'init-look)
 (require 'init-keys)
-(require 'init-ido)
+;;(require 'init-ido)
 (require 'init-whitespace-mode)
 (require 'myutils)
 (require 'init-sieve)
